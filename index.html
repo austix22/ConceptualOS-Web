@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceptual OS Launcher</title>
+    <meta name="description" content="Conceptual OS es un frontend diseñado para organizar juegos nativos y de emuladores en dispositivos Android. Navegación nativa con controles, logros RetroAchievements, COS HUB overlay y scrapeo de recursos.">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Conceptual OS Launcher">
+    <meta property="og:description" content="Conceptual OS es un frontend diseñado para organizar juegos nativos y de emuladores en dispositivos Android. Navegación nativa con controles, logros RetroAchievements, COS HUB overlay y scrapeo de recursos.">
+    <meta property="og:image" content="app_icon.png">
+    <meta property="og:url" content="https://github.com/austix22/ConceptualOS">
+
+    <link rel="icon" type="image/png" href="app_icon.png">
+
+    <!-- Fonts: Plus Jakarta Sans & Outfit (Professional & Clean Typography) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Floating Buttons & Icons Background (Bare ABXY & PlayStation Symbols) -->
+    <div id="floatingIconsBg" class="floating-icons-container"></div>
+
+    <!-- Ambient Moon Dust Glows -->
+    <div class="glow-bg glow-top-left"></div>
+    <div class="glow-bg glow-bottom-right"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <!-- Clean Unencapsulated Brand Logo -->
+            <a href="#" class="brand-logo">
+                <img src="app_icon.png" alt="Conceptual OS Launcher Logo" class="brand-app-icon">
+                <div class="brand-text">
+                    <span class="brand-title brand-title-white">COS LAUNCHER</span>
+                </div>
+            </a>
+
+            <!-- Nav Links Capsule Pill Container -->
+            <nav class="nav-links nav-capsule">
+                <a href="#features" class="nav-item-pill" data-i18n="nav_features">Funciones</a>
+                <a href="#neural-overlay" class="nav-item-pill" data-i18n="nav_cos_hub">COS HUB</a>
+                <a href="#achievements" class="nav-item-pill" data-i18n="nav_achievements">Logros</a>
+                <a href="#download" class="nav-item-pill" data-i18n="nav_download">Descargas</a>
+                <a href="#kofi" class="nav-item-pill" data-i18n="nav_kofi">Ko-fi</a>
+                <a href="#about" class="nav-item-pill" data-i18n="nav_about">Acerca de</a>
+                <a href="https://github.com/austix22/ConceptualOS" target="_blank" class="nav-item-pill nav-github-link" data-i18n="nav_github">GitHub</a>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="badge-pill lang-toggle-pill" id="langToggleBtn" role="button" tabindex="0" title="Cambiar idioma / Change language">
+                    <i class="fa-solid fa-globe"></i>
+                    <span class="badge-text" id="langText">ES</span>
+                </div>
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir Menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <!-- Badges Row: Version Badge -->
+                <div class="hero-badges-row">
+                    <div class="badge-pill">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text" data-i18n="hero_badge">COS Launcher V1.1.0 PLATINUM</span>
+                    </div>
+                </div>
+
+                <h1 class="hero-title" data-i18n="hero_title">
+                    Launcher para organizar <br>
+                    <span class="gradient-text">tus juegos</span>
+                </h1>
+                <p class="hero-description" data-i18n="hero_desc">
+                    COS Launcher transforma tu dispositivo portátil en una biblioteca de juegos. Navegación nativa con controles, logros RetroAchievements, COS HUB overlay para accesos rápidos durante el juego y sistema de scrapeo de recursos.
+                </p>
+
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-highlights-grid">
+                    <div class="highlight-card glass-card">
+                        <div class="highlight-icon icon-purple"><i class="fa-solid fa-gamepad"></i></div>
+                        <div class="highlight-info">
+                            <span class="highlight-val">100%</span>
+                            <span class="highlight-label" data-i18n="stat_controls_label">Nativo para Controles</span>
+                        </div>
+                    </div>
+
+                    <div class="highlight-card glass-card">
+                        <div class="highlight-icon icon-blue"><i class="fa-solid fa-trophy"></i></div>
+                        <div class="highlight-info">
+                            <span class="highlight-val">Logros</span>
+                            <span class="highlight-label" data-i18n="stat_achievements_label">Sistema de Logros</span>
+                        </div>
+                    </div>
+
+                    <div class="highlight-card glass-card">
+                        <div class="highlight-icon icon-cyan"><i class="fa-solid fa-microchip"></i></div>
+                        <div class="highlight-info">
+                            <span class="highlight-val">COS HUB</span>
+                            <span class="highlight-label" data-i18n="stat_hub_label">Overlay Flotante</span>
+                        </div>
+                    </div>
+
+                    <div class="highlight-card glass-card">
+                        <div class="highlight-icon icon-purple"><i class="fa-solid fa-images"></i></div>
+                        <div class="highlight-info">
+                            <span class="highlight-val">Scrapeo</span>
+                            <span class="highlight-label" data-i18n="stat_scraping_label">Scrapeo de Recursos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="features" class="section features-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title" data-i18n="features_title">Diseñado para Dispositivos Portátiles</h2>
+                <p class="section-description" data-i18n="features_desc">
+                    COS Launcher organiza y potencia tu colección de juegos con scrapeo de recursos, logros y accesos rápidos en pantalla.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-purple">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <h3 data-i18n="f1_title">Navegación Nativa con Controles</h3>
+                    <p data-i18n="f1_desc">Soporte para controles en todo el sistema con navegación fluida y mapeo intuitivo.</p>
+                </div>
+
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-blue">
+                        <i class="fa-solid fa-images"></i>
+                    </div>
+                    <h3 data-i18n="f2_title">Scrapeo y Copias de Seguridad</h3>
+                    <p data-i18n="f2_desc">Descarga automática y manual de recursos, junto con importación y exportación para copias de seguridad.</p>
+                </div>
+
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-cyan">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 data-i18n="f3_title">COS HUB</h3>
+                    <p data-i18n="f3_desc">Superposición flotante en pantalla con accesos rápidos durante la partida.</p>
+                </div>
+
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-purple">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h3 data-i18n="f4_title">Sistema de Logros Integrado</h3>
+                    <p data-i18n="f4_desc">Integración nativa con RetroAchievements para desbloquear logros y realizar seguimiento a tus avances.</p>
+                </div>
+
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-blue">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <h3 data-i18n="f5_title">Seguimiento de Tiempo de Juego</h3>
+                    <p data-i18n="f5_desc">Seguimiento detallado de tiempo jugado.</p>
+                </div>
+
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-cyan">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+                    <h3 data-i18n="f6_title">Reproductor de Música</h3>
+                    <p data-i18n="f6_desc">Reproductor de sonido ambiente integrado para escuchar tu música mientras juegas, con ajuste independiente de sonido.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Dive: COS HUB Overlay -->
+    <section id="neural-overlay" class="section overlay-section">
+        <div class="container overlay-container">
+            <div class="overlay-visual">
+                <div class="cos-overlay-window glass-card">
+                    <!-- Top Overlay Header & Navigation Tabs (7 Tabs) -->
+                    <div class="overlay-top-nav">
+                        <div class="overlay-brand">
+                            <span class="overlay-title-text">COS HUB</span>
+                        </div>
+                        <div class="overlay-tabs-row">
+                            <span class="overlay-icon-btn active" title="Jugando"><i class="fa-solid fa-gamepad"></i></span>
+                            <span class="overlay-icon-btn" title="Logros"><i class="fa-solid fa-trophy"></i></span>
+                            <span class="overlay-icon-btn" title="Herramientas"><i class="fa-solid fa-wrench"></i></span>
+                            <span class="overlay-icon-btn" title="Música"><i class="fa-solid fa-music"></i></span>
+                            <span class="overlay-icon-btn" title="Navegador Web"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <span class="overlay-icon-btn" title="Mando"><i class="fa-solid fa-gamepad"></i></span>
+                            <span class="overlay-icon-btn" title="Rendimiento"><i class="fa-solid fa-gauge-high"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Overlay Active View: Dynamic 7-Tabs Viewport -->
+                    <div class="overlay-viewport-content">
+                        <!-- Tab View 1: Jugando (Centrado verticalmente en media ventana) -->
+                        <div class="overlay-tab-view active centered-tab-view" id="overlayViewPlaying">
+                            <div class="overlay-ambient-glow"></div>
+                            <div class="active-game-info text-center-info">
+                                <span class="game-status-pill"><i class="fa-solid fa-play"></i> JUGANDO A</span>
+                                <h3 class="active-game-title">Aetherium: Zero</h3>
+                            </div>
+                        </div>
+
+                        <!-- Tab View 2: Logros (2 Logros) -->
+                        <div class="overlay-tab-view" id="overlayViewAchievements">
+                            <div class="overlay-ach-header">
+                                <div class="ach-header-game">
+                                    <span class="game-status-pill"><i class="fa-solid fa-trophy"></i> LOGROS EN JUEGO</span>
+                                    <h3 class="active-game-title">Aetherium: Zero</h3>
+                                </div>
+                                <div class="ach-header-progress">
+                                    <div class="ra-progress-track" style="width: 100px;">
+                                        <div class="ra-progress-fill" style="width: 50%;"></div>
+                                    </div>
+                                    <span class="ra-subcapsule-badge">25/50</span>
+                                </div>
+                            </div>
+
+                            <div class="overlay-ach-list">
+                                <div class="overlay-ach-item">
+                                    <div class="ach-item-icon"><i class="fa-solid fa-medal"></i></div>
+                                    <div class="ach-item-info">
+                                        <span class="ach-item-title">Primer Champion</span>
+                                        <span class="ach-item-desc">Gana tu primera batalla</span>
+                                    </div>
+                                    <span class="pts-gold">5 PTS</span>
+                                </div>
+                                <div class="overlay-ach-item">
+                                    <div class="ach-item-icon"><i class="fa-solid fa-bolt"></i></div>
+                                    <div class="ach-item-info">
+                                        <span class="ach-item-title">Velocidad Máxima</span>
+                                        <span class="ach-item-desc">Supera el récord de tiempo</span>
+                                    </div>
+                                    <span class="pts-gold">10 PTS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab View 3: Herramientas de Sistema (4 Opciones: Volumen, Brillo, No Molestar, Notas) -->
+                        <div class="overlay-tab-view" id="overlayViewSystem">
+                            <div class="active-game-info">
+                                <span class="game-status-pill"><i class="fa-solid fa-wrench"></i> HERRAMIENTAS DE SISTEMA</span>
+                                <h3 class="active-game-title">Controles & Atajos Rápidos</h3>
+                            </div>
+
+                            <div class="overlay-tools-grid">
+                                <!-- Option 1: Barra de Volumen -->
+                                <div class="tool-card">
+                                    <div class="tool-label-row">
+                                        <span><i class="fa-solid fa-volume-high"></i> Volumen</span>
+                                        <span class="tool-val-text">75%</span>
+                                    </div>
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar-fill" style="width: 75%;"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Option 2: Barra de Brillo -->
+                                <div class="tool-card">
+                                    <div class="tool-label-row">
+                                        <span><i class="fa-solid fa-sun"></i> Brillo</span>
+                                        <span class="tool-val-text">85%</span>
+                                    </div>
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar-fill" style="width: 85%;"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Option 3: Botón No Molestar -->
+                                <div class="tool-card tool-button active">
+                                    <i class="fa-solid fa-moon"></i>
+                                    <div class="tool-btn-info">
+                                        <span class="tool-btn-title">No Molestar</span>
+                                        <span class="tool-btn-sub">Activado</span>
+                                    </div>
+                                </div>
+
+                                <!-- Option 4: Notas del Juego (Al lado de No Molestar) -->
+                                <div class="tool-card tool-note-card">
+                                    <div class="tool-label-row">
+                                        <span><i class="fa-solid fa-note-sticky"></i> Notas</span>
+                                    </div>
+                                    <div class="tool-note-box">
+                                        <span>Ataque especial fase 2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab View 4: Reproductor de Música -->
+                        <div class="overlay-tab-view" id="overlayViewMusic">
+                            <div class="active-game-info">
+                                <span class="game-status-pill"><i class="fa-solid fa-music"></i> REPRODUCTOR DE MÚSICA</span>
+                                <h3 class="active-game-title">Moon Dust Soundtrack - Track 01</h3>
+                            </div>
+
+                            <div class="overlay-music-box">
+                                <!-- Song Progress & Time Counter -->
+                                <div class="music-time-row">
+                                    <span>01:45</span>
+                                    <div class="progress-bar-container" style="flex: 1;">
+                                        <div class="progress-bar-fill" style="width: 50%;"></div>
+                                    </div>
+                                    <span>03:30</span>
+                                </div>
+
+                                <!-- Media Player Controls -->
+                                <div class="music-controls-row">
+                                    <button class="music-btn"><i class="fa-solid fa-backward-step"></i></button>
+                                    <button class="music-btn play-pause-btn"><i class="fa-solid fa-pause"></i></button>
+                                    <button class="music-btn"><i class="fa-solid fa-forward-step"></i></button>
+                                </div>
+
+                                <!-- Independent Music Volume Bar -->
+                                <div class="music-vol-row">
+                                    <div class="tool-label-row" style="width: 100%;">
+                                        <span><i class="fa-solid fa-sliders"></i> Volumen de Música</span>
+                                        <span class="tool-val-text">60%</span>
+                                    </div>
+                                    <div class="progress-bar-container" style="width: 100%;">
+                                        <div class="progress-bar-fill" style="width: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab View 5: Navegador Web -->
+                        <div class="overlay-tab-view" id="overlayViewBrowser">
+                            <div class="active-game-info">
+                                <span class="game-status-pill"><i class="fa-solid fa-magnifying-glass"></i> NAVEGADOR WEB INTEGRADO</span>
+                                <div class="web-url-bar">
+                                    <i class="fa-solid fa-globe"></i>
+                                    <span>Aetherium: Zero Guía</span>
+                                </div>
+                            </div>
+
+                            <div class="overlay-browser-preview">
+                                <div class="browser-result-card">
+                                    <span class="result-site">Guía de Juego • Wiki Gamer</span>
+                                    <h4>Aetherium: Zero Guía - Estrategia para Vencer Jefes</h4>
+                                    <p>Guía paso a paso para esquivar ataques y derrotar a los jefes de Aetherium: Zero...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab View 6: Gestor de Mando & Batería -->
+                        <div class="overlay-tab-view" id="overlayViewGamepad">
+                            <div class="active-game-info">
+                                <span class="game-status-pill"><i class="fa-solid fa-gamepad"></i> GESTOR DE MANDO</span>
+                                <h3 class="active-game-title">Xbox Wireless Controller</h3>
+                            </div>
+
+                            <div class="overlay-gamepad-box">
+                                <div class="gamepad-status-card">
+                                    <i class="fa-solid fa-gamepad gamepad-hero-icon"></i>
+                                    <div class="gamepad-info">
+                                        <span class="gamepad-name">Mando NATIVO</span>
+                                        <span class="gamepad-battery-text"><i class="fa-solid fa-battery-full green-glow"></i> Batería del Mando: 85% Disponible</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab View 7: Rendimiento & Hardware -->
+                        <div class="overlay-tab-view" id="overlayViewHardware">
+                            <div class="active-game-info">
+                                <span class="game-status-pill"><i class="fa-solid fa-gauge-high"></i> RENDIMIENTO Y HARDWARE</span>
+                                <h3 class="active-game-title">Estado del Sistema</h3>
+                            </div>
+
+                            <div class="overlay-hardware-grid">
+                                <div class="hw-card">
+                                    <span class="hw-label"><i class="fa-solid fa-temperature-half"></i> Temp. Batería</span>
+                                    <span class="hw-val">34°C</span>
+                                </div>
+                                <div class="hw-card">
+                                    <span class="hw-label"><i class="fa-solid fa-microchip"></i> Temp. CPU</span>
+                                    <span class="hw-val">42°C</span>
+                                </div>
+                                <div class="hw-card">
+                                    <span class="hw-label"><i class="fa-solid fa-hard-drive"></i> Almacenamiento</span>
+                                    <span class="hw-val">45 GB de 256 GB</span>
+                                </div>
+                                <div class="hw-card">
+                                    <span class="hw-label"><i class="fa-solid fa-memory"></i> Memoria RAM</span>
+                                    <span class="hw-val">4.5 GB de 12 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overlay-content">
+                <span class="section-subtitle" data-i18n="hub_subtitle">ACCESOS RÁPIDOS EN JUEGO</span>
+                <h2 class="section-title" data-i18n="hub_title">COS HUB Overlay</h2>
+                <p data-i18n="hub_desc">
+                    Mantén el control total de tu dispositivo durante tus partidas. Accede a logros del juego, reproductor de musica, gestor de controles, indicadores de almacenamiento, memoria ram, temperatura de bateria y de cpu, y nombre de procesador, controles de volumen, brillo, modo no moletar, notas rapidas del juego, acceso a capturas de pantalla del dispositivo, y vista web integrada para realizar busquedas rapidas sin interrumpir tu experiencia de juego.
+                </p>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check1">Superposición flotante fluida y transparente.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check2">Accesible desde acceso rápido en pantalla.</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Dive: RetroAchievements Section -->
+    <section id="achievements" class="section achievements-section">
+        <div class="container overlay-container">
+            <div class="overlay-content">
+                <span class="section-subtitle" data-i18n="ach_subtitle">SISTEMA DE LOGROS</span>
+                <h2 class="section-title" data-i18n="ach_title">Integración con RetroAchievements</h2>
+                <p data-i18n="ach_desc">
+                    Desbloquea logros en tiempo real mientras juegas a tus títulos favoritos.
+                    Impulsado por el motor nativo <strong>rcheevos</strong>, Conceptual OS registra tu puntuación global y progreso con RetroAchivements.
+                </p>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="ach_check1">Sincronización de perfil y lista de logros.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="ach_check2">Integración nativa con el motor rcheevos.</span></li>
+                </ul>
+            </div>
+
+            <div class="overlay-visual">
+                <div class="ra-hud-card glass-card">
+                    <!-- Top Main Capsule Header -->
+                    <div class="ra-header-capsule">
+                        <div class="ra-header-top">
+                            <div class="ra-header-left">
+                                <div class="ra-main-icon-wrap" id="achIconWrap">
+                                    <i class="fa-solid fa-gamepad" id="achMainIcon"></i>
+                                </div>
+                                <div class="ra-header-titles">
+                                    <h4 id="achMainTitle">Aetherium: Zero</h4>
+                                    <span id="achMainDesc">Progreso de logros</span>
+                                </div>
+                            </div>
+                            <span class="pts-gold" id="achMainPts"></span>
+                        </div>
+
+                        <!-- Progress Row with Sub-capsule Badge -->
+                        <div class="ra-progress-row">
+                            <div class="ra-progress-track">
+                                <div class="ra-progress-fill" id="achMainProgress" style="width: 50%;"></div>
+                            </div>
+                            <span class="ra-subcapsule-badge" id="achMainCount">25/50</span>
+                        </div>
+                    </div>
+
+                    <!-- Content Grid: 5 Columns x 2 Rows (10 Interactive Achievement Icons) -->
+                    <div class="ra-icons-grid" id="achIconsGrid">
+                        <div class="ra-grid-item" data-title="Primer Champion" data-desc="Gana tu batalla" data-pts="5 PTS" data-icon="fa-trophy">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <div class="ra-grid-item" data-title="Velocidad Máxima" data-desc="Supera el récord" data-pts="10 PTS" data-icon="fa-bolt">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div class="ra-grid-item" data-title="Escudo Inquebrantable" data-desc="Bloquea diez ataques" data-pts="15 PTS" data-icon="fa-shield-halved">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div class="ra-grid-item" data-title="Poder Elemental" data-desc="Domina los elementos" data-pts="20 PTS" data-icon="fa-fire">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <div class="ra-grid-item" data-title="Cazador Supremo" data-desc="Vence al jefe" data-pts="25 PTS" data-icon="fa-skull">
+                            <i class="fa-solid fa-skull"></i>
+                        </div>
+                        <div class="ra-grid-item" data-title="Corona Legendaria" data-desc="Consigue el trono" data-pts="30 PTS" data-icon="fa-crown">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <div class="ra-grid-item" data-title="Gema Oculta" data-desc="Encuentra el secreto" data-pts="10 PTS" data-icon="fa-gem">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <div class="ra-grid-item" data-title="Estratega Maestro" data-desc="Plan perfecto ejecutado" data-pts="25 PTS" data-icon="fa-medal">
+                            <i class="fa-solid fa-medal"></i>
+                        </div>
+                        <div class="ra-grid-item" data-title="Coleccionista Pro" data-desc="Junta todo item" data-pts="50 PTS" data-icon="fa-award">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div class="ra-grid-item" data-title="Perfección Total" data-desc="Nivel cien alcanzado" data-pts="50 PTS" data-icon="fa-star">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="section download-section">
+        <div class="container text-center">
+            <h2 class="section-title" data-i18n="dl_title">Obtén COS Launcher</h2>
+            <p class="section-description" data-i18n="dl_desc">
+                Descarga la última versión del launcher para tu dispositivo portátil o smartphone Android.
+            </p>
+
+            <div class="download-cards-wrapper">
+                <!-- GitHub Card -->
+                <div class="download-card glass-card feature-highlight">
+                    <div class="card-badge-top" data-i18n="dl_apk_badge">APK DIRECTO</div>
+                    <div class="card-icon"><i class="fa-brands fa-android"></i></div>
+                    <h3 data-i18n="dl_apk_title">Descargar APK directo</h3>
+                    <p data-i18n="dl_apk_desc">Obtén el archivo APK listo para instalar en tu dispositivo.</p>
+
+                    <div class="download-action-group">
+                        <a href="https://github.com/austix22/ConceptualOS/releases/latest/download/ConceptualOS.apk" class="btn btn-primary btn-block">
+                            <span data-i18n="dl_apk_btn">Descargar APK directo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Google Play Store Card -->
+                <div class="download-card glass-card">
+                    <div class="card-badge-top store" data-i18n="dl_store_badge">TIENDA OFICIAL</div>
+                    <div class="card-icon"><i class="fa-brands fa-google-play"></i></div>
+                    <h3 data-i18n="dl_store_title">Google Play Store</h3>
+                    <p data-i18n="dl_store_desc">Instalación automática y segura desde la tienda oficial.</p>
+
+                    <div class="download-action-group">
+                        <a href="https://play.google.com/store/apps/details?id=com.austin.conceptualos" target="_blank" class="btn btn-googleplay btn-block">
+                            <span data-i18n="dl_store_btn">Google Play Store</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support / Ko-fi Section -->
+    <section id="kofi" class="section kofi-section">
+        <div class="container text-center">
+            <div class="kofi-box glass-card">
+                <h2 class="section-title" data-i18n="kofi_title">Apoya el proyecto</h2>
+                <p class="section-description" data-i18n="kofi_desc">
+                    Si te gusta Conceptual OS Launcher y deseas apoyar su desarrollo independiente, actualizaciones y nuevas funciones, puedes invitarme un café en Ko-fi.
+                </p>
+
+                <div class="kofi-cta">
+                    <a href="https://ko-fi.com/conceptualos" target="_blank" class="btn btn-kofi btn-lg" aria-label="Apoyar en Ko-fi">
+                        <i class="fa-solid fa-mug-hot"></i> <span data-i18n="kofi_btn">Ko-fi</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dedicated About Section -->
+    <section id="about" class="section about-section">
+        <div class="container text-center">
+            <div class="about-box glass-card">
+                <h2 class="section-title" data-i18n="about_title">Acerca de Conceptual OS</h2>
+                <p class="section-description" data-i18n="about_desc">
+                    Conceptual OS es un frontend diseñado para organizar juegos nativos y de emuladores en dispositivos Android. Nacida para ofrecer una experiencia horizontal rápida y elegante, combina navegación nativa con controles, acceso a atajos mediante COS HUB, integración de logros y scrapeo automático de recursos.
+                </p>
+
+                <div class="about-highlights">
+                    <div class="about-pill"><i class="fa-solid fa-code"></i> <span data-i18n="about_pill1">Desarrollo Independiente</span></div>
+                    <div class="about-pill"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="about_pill2">100% Sin Anuncios</span></div>
+                    <div class="about-pill"><i class="fa-solid fa-gamepad"></i> <span data-i18n="about_pill3">Diseñado para Mandos</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-legal">
+                <p data-i18n="footer_rights">&copy; 2026 Conceptual OS / COS Launcher. Todos los derechos reservados.</p>
+                <p>
+                    <span data-i18n="footer_created">Creado por Austin González</span>
+                    <svg class="inline-flag" width="20" height="14" viewBox="0 0 6 4" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="6" height="4" fill="#002B7F"/>
+                        <rect y="0.667" width="6" height="2.667" fill="#FFFFFF"/>
+                        <rect y="1.333" width="6" height="1.333" fill="#CE1126"/>
+                    </svg>
+                    <span> para la comunidad Gaming.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
