@@ -891,6 +891,7 @@ h1, h2, h3, h4, span, p, a, button {
     overflow: hidden;
     position: relative;
     width: 100%;
+    min-height: 460px;
 }
 
 .overlay-top-nav {
