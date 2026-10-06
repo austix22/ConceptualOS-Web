@@ -927,15 +927,15 @@ h1, h2, h3, h4, span, p, a, button {
     align-items: center;
     gap: 0.25rem;
     background: rgba(3, 4, 8, 0.5);
-    padding: 0.2rem 0.3rem;
+    padding: 0.25rem 0.35rem;
     border-radius: 20px;
     border: 1px solid var(--border-light);
     max-width: 100%;
 }
 
 .overlay-icon-btn {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -945,6 +945,8 @@ h1, h2, h3, h4, span, p, a, button {
     cursor: pointer;
     transition: var(--transition-smooth);
     flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
 }
 
 .overlay-icon-btn.active {
@@ -1544,7 +1546,6 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .ra-grid-item:hover {
-    border-color: var(--moondust-purple);
     color: #FFFFFF;
     background: rgba(206, 181, 255, 0.1);
     transform: translateY(-2px);
