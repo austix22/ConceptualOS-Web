@@ -928,12 +928,7 @@ h1, h2, h3, h4, span, p, a, button {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    background: rgba(3, 4, 8, 0.5);
-    padding: 0.6rem 0.4rem;
-    border-radius: 20px;
-    border: 1px solid var(--border-light);
     max-width: 100%;
-    height: 130px;
 }
 
 .overlay-icon-btn {
