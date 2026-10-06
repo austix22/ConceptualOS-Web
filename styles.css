@@ -190,6 +190,11 @@ h1, h2, h3, h4, span, p, a, button {
     line-height: 1.7;
 }
 
+.overlay-content > p,
+.about-box .section-description {
+    text-align: left;
+}
+
 /* App Icon Image Styling - Crisp HD Display */
 .brand-app-icon {
     width: 38px;
@@ -1330,6 +1335,36 @@ h1, h2, h3, h4, span, p, a, button {
     font-weight: 800;
     color: #FFFFFF;
     line-height: 1.1;
+}
+
+.cos-overlay-window .active-game-title,
+.cos-overlay-window .gamepad-name,
+.cos-overlay-window .browser-result-card h4,
+.cos-overlay-window .ach-item-title {
+    font-family: var(--font-official);
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: #FFFFFF;
+    overflow-wrap: anywhere;
+}
+
+.cos-overlay-window .game-status-pill,
+.cos-overlay-window .ach-item-desc,
+.cos-overlay-window .tool-label-row,
+.cos-overlay-window .tool-btn-title,
+.cos-overlay-window .tool-btn-sub,
+.cos-overlay-window .tool-note-box,
+.cos-overlay-window .music-time-row,
+.cos-overlay-window .web-url-bar,
+.cos-overlay-window .result-site,
+.cos-overlay-window .browser-result-card p,
+.cos-overlay-window .gamepad-battery-text,
+.cos-overlay-window .hw-label,
+.cos-overlay-window .hw-val {
+    font-family: var(--font-official);
+    line-height: 1.35;
+    overflow-wrap: anywhere;
 }
 
 .active-game-subtitle {
