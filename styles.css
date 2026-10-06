@@ -928,7 +928,7 @@ h1, h2, h3, h4, span, p, a, button {
     align-items: center;
     gap: 0.25rem;
     background: rgba(3, 4, 8, 0.5);
-    padding: 0.25rem 0.35rem;
+    padding: 0.35rem 0.4rem;
     border-radius: 20px;
     border: 1px solid var(--border-light);
     max-width: 100%;
@@ -936,7 +936,7 @@ h1, h2, h3, h4, span, p, a, button {
 
 .overlay-icon-btn {
     width: 30px;
-    height: 30px;
+    height: 36px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -947,6 +947,11 @@ h1, h2, h3, h4, span, p, a, button {
     transition: var(--transition-smooth);
     flex-shrink: 0;
     user-select: none;
+}
+
+.overlay-icon-btn .fa-music {
+    font-size: 0.95rem;
+    line-height: 1;
 }
 
 .overlay-icon-btn.active {
