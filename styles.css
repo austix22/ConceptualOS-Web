@@ -1692,6 +1692,15 @@ h1, h2, h3, h4, span, p, a, button {
     margin-bottom: 1.6rem;
 }
 
+.download-card-description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 30ch;
+    min-height: 3em;
+    text-align: center;
+}
+
 .download-action-group {
     width: 100%;
     display: flex;
