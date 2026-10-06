@@ -1656,7 +1656,7 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .download-card {
-    padding: 2.2rem 2rem 1.8rem 2rem;
+    padding: 2.2rem 2rem 2rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -1683,13 +1683,7 @@ h1, h2, h3, h4, span, p, a, button {
 .card-icon {
     font-size: 2.8rem;
     color: var(--moondust-purple);
-    margin-bottom: 0.9rem;
-}
-
-.download-card h3 {
-    font-size: 1.35rem;
-    margin-bottom: 0.4rem;
-    font-weight: 700;
+    margin: 0.6rem 0 1.5rem;
 }
 
 .download-card p {
@@ -1703,6 +1697,11 @@ h1, h2, h3, h4, span, p, a, button {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+    margin-top: auto;
+}
+
+.download-action-group .btn {
+    min-height: 56px;
 }
 
 /* Dedicated About Section Styling */
