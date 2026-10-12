@@ -255,19 +255,27 @@
 
                     <!-- Overlay Active View: Dynamic 7-Tabs Viewport -->
                     <div class="overlay-viewport-content">
-                        <!-- Tab View 1: Jugando (Centrado verticalmente en media ventana) -->
-                        <div class="overlay-tab-view active centered-tab-view" id="overlayViewPlaying">
+                        <!-- Tab View 1: Jugando -->
+                        <div class="overlay-tab-view active" id="overlayViewPlaying">
                             <div class="overlay-ambient-glow"></div>
-                            <div class="active-game-info text-center-info">
+                            <div class="active-game-info">
                                 <span class="game-status-pill"><i class="fa-solid fa-play"></i> JUGANDO A</span>
                                 <h3 class="active-game-title">Aetherium: Zero</h3>
+                            </div>
+                            <div class="active-playing-status-card">
+                                <div class="playing-meta-row">
+                                    <span class="playing-meta-pill"><i class="fa-solid fa-circle-dot green-glow"></i> Sesión activa</span>
+                                    <span class="playing-meta-pill"><i class="fa-solid fa-clock"></i> 2 h 45 min</span>
+                                    <span class="playing-meta-pill"><i class="fa-solid fa-bolt"></i> 60 FPS</span>
+                                </div>
+                                <p class="playing-meta-hint">Accede al menú rápido en cualquier momento durante la partida.</p>
                             </div>
                         </div>
 
                         <!-- Tab View 2: Logros (1 logro) -->
                         <div class="overlay-tab-view" id="overlayViewAchievements">
                             <div class="overlay-ach-header">
-                                <div class="ach-header-game">
+                                <div class="active-game-info">
                                     <span class="game-status-pill"><i class="fa-solid fa-trophy"></i> LOGROS</span>
                                     <h3 class="active-game-title">Aetherium: Zero</h3>
                                 </div>
@@ -294,7 +302,6 @@
                         <div class="overlay-tab-view" id="overlayViewSystem">
                             <div class="active-game-info">
                                 <span class="game-status-pill"><i class="fa-solid fa-wrench"></i> HERRAMIENTAS DE SISTEMA</span>
-                                <h3 class="active-game-title">Controles y accesos rápidos</h3>
                             </div>
 
                             <div class="overlay-tools-grid">
