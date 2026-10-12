@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
             faq_desc: "Todo lo que necesitas saber sobre compatibilidad, instalación y funcionamiento de COS Launcher.",
             faq_q1: "¿Qué dispositivos y versiones son compatibles?",
             faq_a1: "COS Launcher es compatible con Android 9.0 (Pie) en adelante, hasta Android 15. Funciona de forma fluida tanto en consolas portátiles dedicadas (Ayn Odin, Retroid Pocket, Anbernic) como en smartphones y tablets Android.",
-            faq_q2: "¿Cómo funciona la navegación con mandos?",
+            faq_q2: "¿Cómo funciona la navegación con controles?",
             faq_a2: "El soporte es 100% nativo. Conecta tu control por Bluetooth o USB-C y navega por toda la interfaz, biblioteca y herramientas de COS HUB utilizando la cruceta, sticks y botones sin requerir aplicaciones externas de mapeo.",
             faq_q3: "¿La aplicación incluye juegos o emuladores?",
             faq_a3: "No. COS Launcher es un organizador de biblioteca e interfaz visual. Debes tener tus propios emuladores y títulos legalmente adquiridos; la app los organiza, descarga sus carátulas y te da accesos rápidos en partida.",
