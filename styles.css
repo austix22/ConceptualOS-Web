@@ -187,7 +187,7 @@ h1, h2, h3, h4, span, p, a, button {
     font-size: 1.1rem;
     color: var(--text-secondary);
     max-width: 720px;
-    margin: 0 auto 3.8rem auto;
+    margin: 0 auto 2.2rem auto;
     line-height: 1.7;
 }
 
@@ -441,7 +441,7 @@ h1, h2, h3, h4, span, p, a, button {
 
 /* Hero Section - Balanced Top Distance & Pro Spacing */
 .hero-section {
-    padding: 9.5rem 0 5rem 0;
+    padding: 8rem 0 4.5rem 0;
     position: relative;
 }
 
@@ -818,7 +818,7 @@ h1, h2, h3, h4, span, p, a, button {
 
 /* Features Grid & Pro Section Spacing */
 .section {
-    padding: 7.5rem 0;
+    padding: 4.8rem 0;
 }
 
 .features-grid {
@@ -861,21 +861,20 @@ h1, h2, h3, h4, span, p, a, button {
     font-size: 0.95rem;
 }
 
-/* Deep Dive Sections (COS HUB Overlay & RetroAchievements & Ko-fi) - Vertically Centered */
+/* Deep Dive Sections (COS HUB Overlay & RetroAchievements & Ko-fi) */
 .overlay-section,
 .achievements-section,
 .kofi-section {
-    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    scroll-margin-top: 6rem;
+    scroll-margin-top: 5rem;
 }
 
 .overlay-container {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
-    gap: 4rem;
+    gap: 3.5rem;
     align-items: center;
 }
 
@@ -1762,16 +1761,6 @@ h1, h2, h3, h4, span, p, a, button {
     margin-top: 1.5rem;
 }
 
-/* Compatibility & Ecosystem Section */
-.compatibility-section {
-    padding: 7.5rem 0;
-}
-
-/* FAQ Section */
-.faq-section {
-    padding: 7.5rem 0;
-}
-
 .faq-grid {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
@@ -1872,6 +1861,14 @@ h1, h2, h3, h4, span, p, a, button {
 
     .mobile-toggle {
         display: block;
+    }
+
+    .section {
+        padding: 3.5rem 0;
+    }
+
+    .section-description {
+        margin-bottom: 1.8rem;
     }
 
     .features-grid {
