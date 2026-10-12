@@ -102,8 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         es: {
             nav_features: "Funciones",
+            nav_compat: "Compatibilidad",
             nav_cos_hub: "COS HUB",
             nav_achievements: "Logros",
+            nav_faq: "FAQ",
             nav_download: "Descargas",
             nav_kofi: "Ko-fi",
             nav_about: "Acerca de",
@@ -131,6 +133,18 @@ document.addEventListener('DOMContentLoaded', () => {
             f5_desc: "Consulta cuánto tiempo has dedicado a cada juego.",
             f6_title: "Reproductor de Música",
             f6_desc: "Escucha música mientras juegas y ajusta su volumen de forma independiente.",
+            compat_subtitle: "ECOSISTEMA INTEGRADO",
+            compat_title: "Compatibilidad Amplia",
+            compat_desc: "COS Launcher está diseñado para comunicarse con tus emuladores favoritos, mandos físicos y dispositivos Android sin configuraciones complicadas.",
+            compat_c1_title: "Emuladores y Juegos",
+            compat_c1_tag: "Integración fluida",
+            compat_c1_desc: "Lanza tus títulos directamente en los emuladores más populares y juegos nativos de Android.",
+            compat_c2_title: "Mandos y Controles",
+            compat_c2_tag: "Plug & Play",
+            compat_c2_desc: "Navegación nativa sin necesidad de mapeadores externos. Conecta tu control y juega al instante.",
+            compat_c3_title: "Dispositivos y Sistema",
+            compat_c3_tag: "Optimizado",
+            compat_c3_desc: "Adaptado para pantallas táctiles, portátiles dedicadas y smartphones Android.",
             hub_subtitle: "ACCESOS RÁPIDOS DURANTE LA PARTIDA",
             hub_title: "COS HUB Overlay",
             hub_desc: "COS HUB reúne herramientas útiles sin sacarte de la partida. Consulta tus logros, controla el volumen y el brillo, revisa el almacenamiento y el estado del dispositivo, administra tus controles, toma notas y capturas de pantalla, o realiza una búsqueda rápida desde el navegador integrado.",
@@ -141,6 +155,19 @@ document.addEventListener('DOMContentLoaded', () => {
             ach_desc: "Desbloquea logros mientras juegas a tus títulos favoritos y mantén tu progreso sincronizado con RetroAchievements. La integración utiliza el motor <strong>rcheevos</strong>.",
             ach_check1: "Sincronización de perfil y lista de logros.",
             ach_check2: "Integración nativa con el motor rcheevos.",
+            faq_subtitle: "RESOLVEMOS TUS DUDAS",
+            faq_title: "Preguntas Frecuentes",
+            faq_desc: "Todo lo que necesitas saber sobre compatibilidad, instalación y funcionamiento de COS Launcher.",
+            faq_q1: "¿Qué versiones de Android y dispositivos son compatibles?",
+            faq_a1: "COS Launcher es compatible con Android 9.0 (Pie) y versiones posteriores (Android 10, 11, 12, 13, 14 y 15). Está optimizado tanto para smartphones y tablets como para consolas portátiles dedicadas (Ayn Odin, Retroid Pocket, Anbernic, Logitech G Cloud, etc.).",
+            faq_q2: "¿La aplicación incluye juegos o emuladores integrados?",
+            faq_a2: "No. COS Launcher es un organizador de biblioteca e interfaz para tus juegos. Debes instalar tus emuladores preferidos de Google Play o de sus sitios oficiales y contar con tus propios títulos legalmente adquiridos. La aplicación se encarga de reunirlos, descargar sus carátulas y darte acceso rápido en partida con COS HUB.",
+            faq_q3: "¿Cómo funciona la navegación con controles o mandos físicos?",
+            faq_a3: "El soporte para mandos es nativo. Al conectar un control mediante Bluetooth o puerto USB-C, podrás desplazarte por los menús, abrir juegos y navegar por COS HUB utilizando el D-Pad, sticks analógicos y botones frontales sin necesidad de configurar aplicaciones de mapeo de terceros.",
+            faq_q4: "¿Es segura la instalación del archivo APK directo?",
+            faq_a4: "Sí, totalmente. El archivo APK se descarga directamente desde las publicaciones oficiales compiladas de la aplicación. Es una aplicación 100% libre de anuncios y sin software espía ni recopilación invasiva de datos. Si lo prefieres, también dispones de la opción de instalación desde Google Play Store.",
+            faq_q5: "¿Qué es RetroAchievements y cómo se sincronizan los logros?",
+            faq_a5: "RetroAchievements es un servicio comunitario que añade logros a videojuegos clásicos. COS Launcher integra el motor rcheevos para conectarse a tu cuenta, mostrando tu progreso, porcentaje de juego completado y medallas desbloqueadas directamente en la interfaz y en COS HUB.",
             dl_title: "Obtén COS Launcher",
             dl_desc: "Descarga COS Launcher en tu dispositivo portátil o teléfono Android.",
             dl_apk_badge: "APK DIRECTO",
@@ -162,8 +189,10 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         en: {
             nav_features: "Features",
+            nav_compat: "Compatibility",
             nav_cos_hub: "COS HUB",
             nav_achievements: "Achievements",
+            nav_faq: "FAQ",
             nav_download: "Downloads",
             nav_kofi: "Ko-fi",
             nav_about: "About",
@@ -191,6 +220,18 @@ document.addEventListener('DOMContentLoaded', () => {
             f5_desc: "See how much time you have spent playing each game.",
             f6_title: "Music Player",
             f6_desc: "Listen to music while you play and adjust its volume independently.",
+            compat_subtitle: "INTEGRATED ECOSYSTEM",
+            compat_title: "Broad Compatibility",
+            compat_desc: "COS Launcher seamlessly connects with your favorite emulators, physical controllers, and Android handhelds.",
+            compat_c1_title: "Emulators & Games",
+            compat_c1_tag: "Smooth Launch",
+            compat_c1_desc: "Launch your games directly into popular emulators and native Android gaming titles.",
+            compat_c2_title: "Controllers & Gamepads",
+            compat_c2_tag: "Plug & Play",
+            compat_c2_desc: "Native controller navigation with zero setup. Connect via Bluetooth or USB-C and jump straight in.",
+            compat_c3_title: "Devices & Android",
+            compat_c3_tag: "Optimized",
+            compat_c3_desc: "Tuned for touchscreens, dedicated handheld consoles (Ayn Odin, Retroid, Anbernic), and Android phones.",
             hub_subtitle: "QUICK ACCESS WHILE YOU PLAY",
             hub_title: "COS HUB Overlay",
             hub_desc: "COS HUB brings useful tools together without pulling you out of your game. Check achievements, adjust volume and brightness, review storage and device status, manage your controller, take notes and screenshots, or run a quick search in the built-in browser.",
@@ -201,6 +242,19 @@ document.addEventListener('DOMContentLoaded', () => {
             ach_desc: "Unlock achievements as you play your favorite titles and keep your progress in sync with RetroAchievements. The integration is powered by the <strong>rcheevos</strong> engine.",
             ach_check1: "Profile sync and achievement list.",
             ach_check2: "Native integration with the rcheevos engine.",
+            faq_subtitle: "EVERYTHING YOU NEED TO KNOW",
+            faq_title: "Frequently Asked Questions",
+            faq_desc: "Key answers about compatibility, installation, and how COS Launcher works.",
+            faq_q1: "Which Android versions and devices are supported?",
+            faq_a1: "COS Launcher supports Android 9.0 (Pie) and newer (Android 10, 11, 12, 13, 14, and 15). It is optimized for both smartphones/tablets and dedicated Android gaming handhelds (Ayn Odin, Retroid Pocket, Anbernic, Logitech G Cloud, etc.).",
+            faq_q2: "Does the launcher come with games or emulators included?",
+            faq_a2: "No. COS Launcher is a clean frontend and library organizer. You need to install your preferred emulators and own your games. COS Launcher brings them together, scrapes artwork, and gives you quick in-game tools with COS HUB.",
+            faq_q3: "How does physical controller navigation work?",
+            faq_a3: "Controller support is 100% native. When you connect a controller via Bluetooth or USB-C, you can navigate menus, launch games, and control COS HUB using the D-Pad, thumbsticks, and face buttons without any third-party button mappers.",
+            faq_q4: "Is installing via the direct APK file safe?",
+            faq_a4: "Yes, completely safe. The APK is built directly from official releases, is 100% ad-free, and contains zero spyware or trackers. Alternatively, you can install directly from Google Play.",
+            faq_q5: "What is RetroAchievements and how does syncing work?",
+            faq_a5: "RetroAchievements is a community platform providing achievements for retro games. COS Launcher uses the rcheevos engine to link your account, tracking your unlocked badges and completion progress live on screen.",
             dl_title: "Get COS Launcher",
             dl_desc: "Download COS Launcher on your handheld device or Android phone.",
             dl_apk_badge: "DIRECT APK",
@@ -327,6 +381,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     overlayTabViews[index].classList.add('active');
                 }
             });
+        });
+    }
+
+    // 8. FAQ Interactive Accordion Handler
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (faqItems.length > 0) {
+        faqItems.forEach(item => {
+            const btn = item.querySelector('.faq-question');
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(other => {
+                        other.classList.remove('active');
+                        const otherBtn = other.querySelector('.faq-question');
+                        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                    });
+
+                    if (!isActive) {
+                        item.classList.add('active');
+                        btn.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            }
         });
     }
 
