@@ -1038,7 +1038,8 @@ h1, h2, h3, h4, span, p, a, button {
     z-index: 0;
 }
 
-/* Achievement Tab List in Overlay */
+/* Tab Header with Divider Line in Overlay */
+.overlay-tab-header,
 .overlay-ach-header {
     display: flex;
     justify-content: space-between;
