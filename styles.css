@@ -978,7 +978,7 @@ h1, h2, h3, h4, span, p, a, button {
     border-radius: 18px;
     background: rgba(3, 4, 8, 0.75);
     border: 1px solid rgba(211, 211, 255, 0.1);
-    min-height: 330px;
+    min-height: 365px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -993,7 +993,7 @@ h1, h2, h3, h4, span, p, a, button {
     flex-direction: column;
     gap: 1rem;
     width: 100%;
-    min-height: 290px;
+    min-height: 100%;
     flex: 1;
     box-sizing: border-box;
 }
@@ -1016,7 +1016,8 @@ h1, h2, h3, h4, span, p, a, button {
 .centered-tab-view {
     justify-content: center;
     align-items: center;
-    min-height: 270px;
+    width: 100%;
+    flex: 1;
     margin: auto 0;
 }
 
@@ -2035,7 +2036,7 @@ h1, h2, h3, h4, span, p, a, button {
 
     .overlay-viewport-content {
         padding: 1.15rem;
-        min-height: 310px;
+        min-height: 350px;
     }
 }
 
