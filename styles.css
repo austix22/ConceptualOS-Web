@@ -880,34 +880,34 @@ h1, h2, h3, h4, span, p, a, button {
 
 /* System COS HUB Overlay Window Styles */
 .cos-overlay-window {
-    padding: 1.25rem;
+    padding: 1.5rem;
     border-radius: 24px;
     border: 1px solid var(--border-light);
-    background: rgba(16, 18, 28, 0.88);
+    background: rgba(16, 18, 28, 0.92);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
-    overflow: hidden;
     position: relative;
     width: 100%;
-    min-height: 460px;
+    display: flex;
+    flex-direction: column;
 }
 
 .overlay-top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 0.85rem;
-    border-bottom: 1px solid var(--border-light);
-    margin-bottom: 1rem;
-    gap: 0.8rem;
-    flex-wrap: wrap;
+    padding-bottom: 0.95rem;
+    border-bottom: 1px solid rgba(211, 211, 255, 0.1);
+    margin-bottom: 1.25rem;
+    gap: 0.85rem;
 }
 
 .overlay-brand {
     display: flex;
     align-items: center;
     gap: 0.55rem;
+    flex-shrink: 0;
 }
 
 .overlay-app-icon {
@@ -917,7 +917,7 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .overlay-title-text {
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 800;
     color: var(--moondust-purple);
     letter-spacing: 0.5px;
@@ -926,68 +926,73 @@ h1, h2, h3, h4, span, p, a, button {
 .overlay-tabs-row {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.35rem;
+    background: rgba(10, 12, 20, 0.75);
+    padding: 0.3rem 0.45rem;
+    border-radius: 12px;
+    border: 1px solid rgba(211, 211, 255, 0.08);
+    overflow-x: auto;
     max-width: 100%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.overlay-tabs-row::-webkit-scrollbar {
+    display: none;
 }
 
 .overlay-icon-btn {
-    width: 30px;
+    width: 36px;
     height: 36px;
-    border-radius: 10px;
+    min-width: 36px;
+    border-radius: 9px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-secondary);
-    font-size: 0.82rem;
+    font-size: 0.92rem;
     cursor: pointer;
-    transition: var(--transition-smooth);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     flex-shrink: 0;
     user-select: none;
+    background: transparent;
+    border: 1px solid transparent;
 }
 
-.overlay-icon-btn .fa-music {
-    display: inline-block;
-    font-size: 0.95rem;
-    line-height: 1;
-    transform: scaleX(1.2);
+.overlay-icon-btn:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .overlay-icon-btn.active {
     color: #FFFFFF;
     background: linear-gradient(135deg, rgba(128, 168, 255, 0.35), rgba(206, 181, 255, 0.35));
-    border: 1px solid var(--moondust-purple);
-    box-shadow: 0 0 10px rgba(206, 181, 255, 0.35);
+    border-color: var(--moondust-purple);
+    box-shadow: 0 0 12px rgba(206, 181, 255, 0.35);
 }
 
 .overlay-viewport-content {
     position: relative;
-    padding: 1.2rem 1.4rem;
+    padding: 1.4rem;
     border-radius: 18px;
-    background: rgba(3, 4, 8, 0.7);
+    background: rgba(3, 4, 8, 0.75);
     border: 1px solid rgba(211, 211, 255, 0.1);
-    overflow: hidden;
-    height: 235px;
+    min-height: 330px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(206, 181, 255, 0.25) transparent;
 }
 
 .overlay-tab-view {
     display: none;
     flex-direction: column;
-    gap: 1.1rem;
+    gap: 1.15rem;
     width: 100%;
-}
-
-.centered-tab-view {
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-.text-center-info {
-    text-align: center;
-    align-items: center;
 }
 
 .overlay-tab-view.active {
@@ -995,48 +1000,75 @@ h1, h2, h3, h4, span, p, a, button {
     animation: fadeIn 0.3s ease;
 }
 
+.centered-tab-view {
+    justify-content: center;
+    align-items: center;
+    min-height: 270px;
+    margin: auto 0;
+}
+
+.text-center-info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.overlay-ambient-glow {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(128, 168, 255, 0.22) 0%, rgba(206, 181, 255, 0.1) 40%, transparent 70%);
+    filter: blur(24px);
+    pointer-events: none;
+    z-index: 0;
+}
+
 /* Achievement Tab List in Overlay */
 .overlay-ach-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 0.75rem;
+    padding-bottom: 0.85rem;
     border-bottom: 1px solid rgba(211, 211, 255, 0.08);
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .ach-header-game {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 0.35rem;
 }
 
 .ach-header-progress {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.75rem;
 }
 
 .overlay-ach-list {
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
-}
-
-.overlay-ach-item {
-    background: rgba(22, 24, 36, 0.6);
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
-    padding: 0.6rem 0.8rem;
-    display: flex;
-    align-items: center;
     gap: 0.75rem;
 }
 
-/* Tab 3: System Tools Grid (Compact Layout) */
+.overlay-ach-item {
+    background: rgba(22, 24, 36, 0.65);
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+/* Tab 3: System Tools Grid */
 .overlay-tools-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.45rem;
+    gap: 0.85rem;
     width: 100%;
     box-sizing: border-box;
 }
@@ -1044,11 +1076,11 @@ h1, h2, h3, h4, span, p, a, button {
 .tool-card {
     background: rgba(22, 24, 36, 0.65);
     border: 1px solid var(--border-light);
-    border-radius: 10px;
-    padding: 0.4rem 0.55rem;
+    border-radius: 12px;
+    padding: 0.8rem 0.95rem;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.45rem;
     width: 100%;
     min-width: 0;
     box-sizing: border-box;
@@ -1058,7 +1090,7 @@ h1, h2, h3, h4, span, p, a, button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.68rem;
+    font-size: 0.82rem;
     font-weight: 700;
     color: var(--text-secondary);
 }
@@ -1066,23 +1098,24 @@ h1, h2, h3, h4, span, p, a, button {
 .tool-label-row span {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.4rem;
 }
 
 .tool-val-text {
     color: var(--moondust-purple);
+    font-weight: 800;
 }
 
 .tool-button {
     flex-direction: row;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.75rem;
     cursor: pointer;
     transition: var(--transition-smooth);
 }
 
 .tool-button i {
-    font-size: 0.9rem;
+    font-size: 1.15rem;
     color: var(--moondust-cyan);
 }
 
@@ -1098,12 +1131,12 @@ h1, h2, h3, h4, span, p, a, button {
 .tool-btn-info {
     display: flex;
     flex-direction: column;
-    gap: 0.05rem;
+    gap: 0.15rem;
     min-width: 0;
 }
 
 .tool-btn-title {
-    font-size: 0.68rem;
+    font-size: 0.82rem;
     font-weight: 700;
     color: #FFFFFF;
     white-space: nowrap;
@@ -1112,21 +1145,21 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .tool-btn-sub {
-    font-size: 0.58rem;
+    font-size: 0.72rem;
     color: var(--text-secondary);
 }
 
 .tool-note-card {
-    padding: 0.4rem 0.55rem;
-    gap: 0.2rem;
+    padding: 0.8rem 0.95rem;
+    gap: 0.4rem;
 }
 
 .tool-note-box {
-    background: rgba(3, 4, 8, 0.5);
+    background: rgba(3, 4, 8, 0.55);
     border: 1px solid var(--border-light);
-    border-radius: 6px;
-    padding: 0.2rem 0.4rem;
-    font-size: 0.6rem;
+    border-radius: 8px;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.76rem;
     color: var(--text-primary);
     font-style: italic;
     white-space: nowrap;
@@ -1138,18 +1171,18 @@ h1, h2, h3, h4, span, p, a, button {
 .overlay-music-box {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.1rem;
     background: rgba(22, 24, 36, 0.65);
     border: 1px solid var(--border-light);
     border-radius: 14px;
-    padding: 1rem;
+    padding: 1.1rem;
 }
 
 .music-time-row {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-    font-size: 0.72rem;
+    gap: 0.85rem;
+    font-size: 0.78rem;
     color: var(--text-secondary);
     font-weight: 700;
 }
@@ -1158,15 +1191,15 @@ h1, h2, h3, h4, span, p, a, button {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.2rem;
+    gap: 1.25rem;
 }
 
 .music-btn {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-light);
     color: #FFFFFF;
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1182,65 +1215,66 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .play-pause-btn {
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
     background: var(--moondust-purple);
     color: #030408;
-    font-size: 1.1rem;
-    box-shadow: 0 0 12px rgba(206, 181, 255, 0.4);
+    font-size: 1.15rem;
+    box-shadow: 0 0 14px rgba(206, 181, 255, 0.4);
 }
 
 .music-vol-row {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.45rem;
     border-top: 1px solid rgba(211, 211, 255, 0.08);
-    padding-top: 0.6rem;
+    padding-top: 0.75rem;
 }
 
 /* Tab 5: Browser Preview */
 .web-url-bar {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    background: rgba(3, 4, 8, 0.6);
+    gap: 0.6rem;
+    background: rgba(3, 4, 8, 0.65);
     border: 1px solid var(--border-light);
     border-radius: 10px;
-    padding: 0.35rem 0.75rem;
-    font-size: 0.72rem;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
     color: var(--moondust-cyan);
-    margin-top: 0.3rem;
+    margin-top: 0.4rem;
 }
 
 .overlay-browser-preview {
     background: rgba(22, 24, 36, 0.65);
     border: 1px solid var(--border-light);
     border-radius: 14px;
-    padding: 1rem;
+    padding: 1.1rem;
 }
 
 .browser-result-card {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.45rem;
 }
 
 .result-site {
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     color: var(--moondust-purple);
     font-weight: 700;
 }
 
 .browser-result-card h4 {
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     font-weight: 800;
     color: var(--moondust-blue);
+    line-height: 1.3;
 }
 
 .browser-result-card p {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--text-secondary);
-    line-height: 1.35;
+    line-height: 1.45;
 }
 
 /* Tab 6: Gamepad Box */
@@ -1248,20 +1282,20 @@ h1, h2, h3, h4, span, p, a, button {
     background: rgba(22, 24, 36, 0.65);
     border: 1px solid var(--border-light);
     border-radius: 14px;
-    padding: 1.2rem;
+    padding: 1.25rem;
 }
 
 .gamepad-status-card {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.1rem;
 }
 
 .gamepad-hero-icon {
     font-size: 2.2rem;
     color: var(--moondust-purple);
     background: rgba(206, 181, 255, 0.15);
-    padding: 0.8rem;
+    padding: 0.85rem;
     border-radius: 16px;
     border: 1px solid var(--moondust-purple);
 }
@@ -1269,39 +1303,39 @@ h1, h2, h3, h4, span, p, a, button {
 .gamepad-info {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.4rem;
 }
 
 .gamepad-name {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-weight: 800;
     color: #FFFFFF;
 }
 
 .gamepad-battery-text {
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     color: var(--moondust-cyan);
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.45rem;
 }
 
 /* Tab 7: Hardware Metrics Grid */
 .overlay-hardware-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    gap: 0.85rem;
 }
 
 .hw-card {
     background: rgba(22, 24, 36, 0.65);
     border: 1px solid var(--border-light);
     border-radius: 12px;
-    padding: 0.75rem 0.9rem;
+    padding: 0.85rem 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 0.35rem;
 }
 
 .hw-full {
@@ -1309,45 +1343,55 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .hw-label {
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     color: var(--text-secondary);
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.4rem;
 }
 
 .hw-val {
-    font-size: 0.92rem;
+    font-size: 1rem;
     font-weight: 800;
     color: #FFFFFF;
-}
-    z-index: 1;
 }
 
 .game-status-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    font-size: 0.65rem;
+    gap: 0.45rem;
+    font-size: 0.7rem;
     font-weight: 800;
-    color: var(--moondust-purple);
+    color: var(--moondust-cyan);
     letter-spacing: 1px;
+    background: rgba(128, 168, 255, 0.12);
+    border: 1px solid rgba(128, 168, 255, 0.25);
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
 }
 
 .active-game-title {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 800;
     color: #FFFFFF;
-    line-height: 1.1;
+    line-height: 1.2;
 }
 
-.cos-overlay-window .active-game-title,
+.cos-overlay-window .active-game-title {
+    font-family: var(--font-official);
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: #FFFFFF;
+    overflow-wrap: anywhere;
+}
+
 .cos-overlay-window .gamepad-name,
 .cos-overlay-window .browser-result-card h4,
 .cos-overlay-window .ach-item-title {
     font-family: var(--font-official);
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     font-weight: 800;
     line-height: 1.25;
     color: #FFFFFF;
@@ -1874,6 +1918,29 @@ h1, h2, h3, h4, span, p, a, button {
     .features-grid {
         grid-template-columns: 1fr;
     }
+
+    .overlay-top-nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .overlay-brand {
+        justify-content: center;
+    }
+
+    .overlay-tabs-row {
+        justify-content: center;
+    }
+
+    .cos-overlay-window {
+        padding: 1.15rem;
+    }
+
+    .overlay-viewport-content {
+        padding: 1.15rem;
+        min-height: 310px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1896,5 +1963,17 @@ h1, h2, h3, h4, span, p, a, button {
 
     .about-box, .kofi-box, .hud-box {
         padding: 1.8rem 1.2rem;
+    }
+
+    .overlay-tabs-row {
+        justify-content: flex-start;
+    }
+
+    .overlay-tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .overlay-hardware-grid {
+        grid-template-columns: 1fr;
     }
 }
