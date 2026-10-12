@@ -299,45 +299,47 @@
                                 <span class="game-status-pill"><i class="fa-solid fa-wrench"></i> HERRAMIENTAS DE SISTEMA</span>
                             </div>
 
-                            <div class="overlay-tools-grid">
-                                <!-- Option 1: Barra de Volumen -->
-                                <div class="tool-card">
-                                    <div class="tool-label-row">
-                                        <span><i class="fa-solid fa-volume-high"></i> Volumen</span>
-                                        <span class="tool-val-text">75%</span>
+                            <div class="overlay-tools-content-wrap">
+                                <div class="overlay-tools-grid">
+                                    <!-- Option 1: Barra de Volumen -->
+                                    <div class="tool-card">
+                                        <div class="tool-label-row">
+                                            <span><i class="fa-solid fa-volume-high"></i> Volumen</span>
+                                            <span class="tool-val-text">75%</span>
+                                        </div>
+                                        <div class="progress-bar-container">
+                                            <div class="progress-bar-fill" style="width: 75%;"></div>
+                                        </div>
                                     </div>
-                                    <div class="progress-bar-container">
-                                        <div class="progress-bar-fill" style="width: 75%;"></div>
-                                    </div>
-                                </div>
 
-                                <!-- Option 2: Barra de Brillo -->
-                                <div class="tool-card">
-                                    <div class="tool-label-row">
-                                        <span><i class="fa-solid fa-sun"></i> Brillo</span>
-                                        <span class="tool-val-text">85%</span>
+                                    <!-- Option 2: Barra de Brillo -->
+                                    <div class="tool-card">
+                                        <div class="tool-label-row">
+                                            <span><i class="fa-solid fa-sun"></i> Brillo</span>
+                                            <span class="tool-val-text">85%</span>
+                                        </div>
+                                        <div class="progress-bar-container">
+                                            <div class="progress-bar-fill" style="width: 85%;"></div>
+                                        </div>
                                     </div>
-                                    <div class="progress-bar-container">
-                                        <div class="progress-bar-fill" style="width: 85%;"></div>
-                                    </div>
-                                </div>
 
-                                <!-- Option 3: Botón No Molestar -->
-                                <div class="tool-card tool-button active">
-                                    <i class="fa-solid fa-moon"></i>
-                                    <div class="tool-btn-info">
-                                        <span class="tool-btn-title">No molestar</span>
-                                        <span class="tool-btn-sub">Activado</span>
+                                    <!-- Option 3: Botón No Molestar -->
+                                    <div class="tool-card tool-button active">
+                                        <i class="fa-solid fa-moon"></i>
+                                        <div class="tool-btn-info">
+                                            <span class="tool-btn-title">No molestar</span>
+                                            <span class="tool-btn-sub">Activado</span>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <!-- Option 4: Notas del Juego (Al lado de No Molestar) -->
-                                <div class="tool-card tool-note-card">
-                                    <div class="tool-label-row">
-                                        <span><i class="fa-solid fa-note-sticky"></i> Notas</span>
-                                    </div>
-                                    <div class="tool-note-box">
-                                        <span>Ataque especial: fase 2</span>
+                                    <!-- Option 4: Notas del Juego (Al lado de No Molestar) -->
+                                    <div class="tool-card tool-note-card">
+                                        <div class="tool-label-row">
+                                            <span><i class="fa-solid fa-note-sticky"></i> Notas</span>
+                                        </div>
+                                        <div class="tool-note-box">
+                                            <span>Ataque especial: fase 2</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -347,34 +349,36 @@
                         <div class="overlay-tab-view" id="overlayViewMusic">
                             <div class="active-game-info">
                                 <span class="game-status-pill"><i class="fa-solid fa-music"></i> REPRODUCTOR DE MÚSICA</span>
-                                <h3 class="active-game-title">Moon Dust Soundtrack - Track 01</h3>
                             </div>
 
-                            <div class="overlay-music-box">
-                                <!-- Song Progress & Time Counter -->
-                                <div class="music-time-row">
-                                    <span>01:45</span>
-                                    <div class="progress-bar-container" style="flex: 1;">
-                                        <div class="progress-bar-fill" style="width: 50%;"></div>
+                            <div class="overlay-music-content-wrap">
+                                <h3 class="active-game-title">Moon Dust Soundtrack - Track 01</h3>
+                                <div class="overlay-music-box">
+                                    <!-- Song Progress & Time Counter -->
+                                    <div class="music-time-row">
+                                        <span>01:45</span>
+                                        <div class="progress-bar-container" style="flex: 1;">
+                                            <div class="progress-bar-fill" style="width: 50%;"></div>
+                                        </div>
+                                        <span>03:30</span>
                                     </div>
-                                    <span>03:30</span>
-                                </div>
 
-                                <!-- Media Player Controls -->
-                                <div class="music-controls-row">
-                                    <button class="music-btn"><i class="fa-solid fa-backward-step"></i></button>
-                                    <button class="music-btn play-pause-btn"><i class="fa-solid fa-pause"></i></button>
-                                    <button class="music-btn"><i class="fa-solid fa-forward-step"></i></button>
-                                </div>
-
-                                <!-- Independent Music Volume Bar -->
-                                <div class="music-vol-row">
-                                    <div class="tool-label-row" style="width: 100%;">
-                                        <span><i class="fa-solid fa-sliders"></i> Volumen de Música</span>
-                                        <span class="tool-val-text">60%</span>
+                                    <!-- Media Player Controls -->
+                                    <div class="music-controls-row">
+                                        <button class="music-btn"><i class="fa-solid fa-backward-step"></i></button>
+                                        <button class="music-btn play-pause-btn"><i class="fa-solid fa-pause"></i></button>
+                                        <button class="music-btn"><i class="fa-solid fa-forward-step"></i></button>
                                     </div>
-                                    <div class="progress-bar-container" style="width: 100%;">
-                                        <div class="progress-bar-fill" style="width: 60%;"></div>
+
+                                    <!-- Independent Music Volume Bar -->
+                                    <div class="music-vol-row">
+                                        <div class="tool-label-row" style="width: 100%;">
+                                            <span><i class="fa-solid fa-sliders"></i> Volumen de Música</span>
+                                            <span class="tool-val-text">60%</span>
+                                        </div>
+                                        <div class="progress-bar-container" style="width: 100%;">
+                                            <div class="progress-bar-fill" style="width: 60%;"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
