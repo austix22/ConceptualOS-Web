@@ -248,8 +248,8 @@
                             <span class="overlay-icon-btn" title="Herramientas"><i class="fa-solid fa-wrench"></i></span>
                             <span class="overlay-icon-btn" title="Música"><i class="fa-solid fa-music"></i></span>
                             <span class="overlay-icon-btn" title="Navegador Web"><i class="fa-solid fa-magnifying-glass"></i></span>
-                            <span class="overlay-icon-btn" title="Control"><i class="fa-solid fa-gamepad"></i></span>
-                            <span class="overlay-icon-btn" title="Rendimiento"><i class="fa-solid fa-gauge-high"></i></span>
+                            <span class="overlay-icon-btn" title="Controles"><i class="fa-solid fa-gamepad"></i></span>
+                            <span class="overlay-icon-btn" title="Estado del dispositivo"><i class="fa-solid fa-microchip"></i></span>
                         </div>
                     </div>
 
@@ -389,61 +389,68 @@
                         <div class="overlay-tab-view" id="overlayViewBrowser">
                             <div class="active-game-info">
                                 <span class="game-status-pill"><i class="fa-solid fa-magnifying-glass"></i> NAVEGADOR WEB INTEGRADO</span>
+                            </div>
+
+                            <div class="overlay-browser-content-wrap">
                                 <div class="web-url-bar">
                                     <i class="fa-solid fa-globe"></i>
                                     <span>Aetherium: Zero Guía</span>
                                 </div>
-                            </div>
 
-                            <div class="overlay-browser-preview">
-                                <div class="browser-result-card">
-                                    <span class="result-site">Guía de Juego • Wiki Gamer</span>
-                                    <h4>Aetherium: Zero Guía - Estrategia para Vencer Jefes</h4>
-                                    <p>Guía paso a paso para esquivar ataques y derrotar a los jefes de Aetherium: Zero...</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Tab View 6: Gestor de controles y batería -->
-                        <div class="overlay-tab-view" id="overlayViewGamepad">
-                            <div class="active-game-info">
-                                <span class="game-status-pill"><i class="fa-solid fa-gamepad"></i> GESTOR DE CONTROLES</span>
-                                <h3 class="active-game-title">Xbox Wireless Controller</h3>
-                            </div>
-
-                            <div class="overlay-gamepad-box">
-                                <div class="gamepad-status-card">
-                                    <i class="fa-solid fa-gamepad gamepad-hero-icon"></i>
-                                    <div class="gamepad-info">
-                                        <span class="gamepad-name">Control nativo</span>
-                                        <span class="gamepad-battery-text"><i class="fa-solid fa-battery-full green-glow"></i> Batería del control: 85% disponible</span>
+                                <div class="overlay-browser-preview">
+                                    <div class="browser-result-card">
+                                        <span class="result-site">Guía de Juego • Wiki Gamer</span>
+                                        <h4>Aetherium: Zero Guía - Estrategia para Vencer Jefes</h4>
+                                        <p>Guía paso a paso para esquivar ataques y derrotar a los jefes de Aetherium: Zero...</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Tab View 7: Rendimiento & Hardware -->
-                        <div class="overlay-tab-view" id="overlayViewHardware">
+                        <!-- Tab View 6: Controles y batería -->
+                        <div class="overlay-tab-view" id="overlayViewGamepad">
                             <div class="active-game-info">
-                                <span class="game-status-pill"><i class="fa-solid fa-gauge-high"></i> RENDIMIENTO Y HARDWARE</span>
+                                <span class="game-status-pill"><i class="fa-solid fa-gamepad"></i> CONTROLES</span>
                             </div>
 
-                            <div class="overlay-hardware-grid">
-                                <div class="hw-card">
-                                    <span class="hw-label"><i class="fa-solid fa-temperature-half"></i> Temp. Batería</span>
-                                    <span class="hw-val">34°C</span>
+                            <div class="overlay-gamepad-content-wrap">
+                                <h3 class="active-game-title">Xbox Wireless Controller</h3>
+                                <div class="overlay-gamepad-box">
+                                    <div class="gamepad-status-card">
+                                        <i class="fa-solid fa-gamepad gamepad-hero-icon"></i>
+                                        <div class="gamepad-info">
+                                            <span class="gamepad-name">Control nativo</span>
+                                            <span class="gamepad-battery-text"><i class="fa-solid fa-battery-full green-glow"></i> Batería del control: 85% disponible</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="hw-card">
-                                    <span class="hw-label"><i class="fa-solid fa-microchip"></i> Temp. CPU</span>
-                                    <span class="hw-val">42°C</span>
-                                </div>
-                                <div class="hw-card">
-                                    <span class="hw-label"><i class="fa-solid fa-hard-drive"></i> Almacenamiento</span>
-                                    <span class="hw-val">45 GB de 256 GB</span>
-                                </div>
-                                <div class="hw-card">
-                                    <span class="hw-label"><i class="fa-solid fa-memory"></i> Memoria RAM</span>
-                                    <span class="hw-val">4.5 GB de 12 GB</span>
+                            </div>
+                        </div>
+
+                        <!-- Tab View 7: Estado del Dispositivo -->
+                        <div class="overlay-tab-view" id="overlayViewHardware">
+                            <div class="active-game-info">
+                                <span class="game-status-pill"><i class="fa-solid fa-microchip"></i> ESTADO DEL DISPOSITIVO</span>
+                            </div>
+
+                            <div class="overlay-hardware-content-wrap">
+                                <div class="overlay-hardware-grid">
+                                    <div class="hw-card">
+                                        <span class="hw-label"><i class="fa-solid fa-temperature-half"></i> Temp. Batería</span>
+                                        <span class="hw-val">34°C</span>
+                                    </div>
+                                    <div class="hw-card">
+                                        <span class="hw-label"><i class="fa-solid fa-microchip"></i> Temp. CPU</span>
+                                        <span class="hw-val">42°C</span>
+                                    </div>
+                                    <div class="hw-card">
+                                        <span class="hw-label"><i class="fa-solid fa-hard-drive"></i> Almacenamiento</span>
+                                        <span class="hw-val">45 GB de 256 GB</span>
+                                    </div>
+                                    <div class="hw-card">
+                                        <span class="hw-label"><i class="fa-solid fa-memory"></i> Memoria RAM</span>
+                                        <span class="hw-val">4.5 GB de 12 GB</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
