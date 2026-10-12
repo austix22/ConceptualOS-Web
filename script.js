@@ -98,30 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Copy Repository URL Action
-    const copyRepoUrlBtn = document.getElementById('copyRepoUrl');
-    const repoUrl = 'https://github.com/austix22/ConceptualOS';
-
-    if (copyRepoUrlBtn) {
-        copyRepoUrlBtn.addEventListener('click', () => {
-            navigator.clipboard.writeText(repoUrl).then(() => {
-                const originalHtml = copyRepoUrlBtn.innerHTML;
-                copyRepoUrlBtn.innerHTML = '<i class="fa-solid fa-check"></i> ¡Copiado!';
-                copyRepoUrlBtn.style.borderColor = '#CEB5FF';
-                copyRepoUrlBtn.style.color = '#CEB5FF';
-
-                setTimeout(() => {
-                    copyRepoUrlBtn.innerHTML = originalHtml;
-                    copyRepoUrlBtn.style.borderColor = '';
-                    copyRepoUrlBtn.style.color = '';
-                }, 2500);
-            }).catch(err => {
-                console.error('Error al copiar URL:', err);
-            });
-        });
-    }
-
-    // 5. Internationalization (i18n) Engine - ES / EN Language Switcher
+    // 4. Internationalization (i18n) Engine - ES / EN Language Switcher
     const translations = {
         es: {
             nav_features: "Funciones",
@@ -130,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_download: "Descargas",
             nav_kofi: "Ko-fi",
             nav_about: "Acerca de",
-            nav_github: "GitHub",
             hero_badge: "COS Launcher V1.1.0 Platinum",
             hero_title: 'Tus juegos, <br><span class="gradient-text">en un solo lugar</span>',
             hero_desc: "COS Launcher reúne tus juegos de Android y emuladores en una biblioteca organizada. Disfruta de navegación con controles, logros de RetroAchievements y accesos rápidos durante tus partidas con COS HUB.",
@@ -191,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_download: "Downloads",
             nav_kofi: "Ko-fi",
             nav_about: "About",
-            nav_github: "GitHub",
             hero_badge: "COS Launcher V1.1.0 Platinum",
             hero_title: 'Your games, <br><span class="gradient-text">all in one place</span>',
             hero_desc: "COS Launcher brings your Android games and emulators together in one organized library. Enjoy controller-friendly navigation, RetroAchievements, and quick in-game access with COS HUB.",
