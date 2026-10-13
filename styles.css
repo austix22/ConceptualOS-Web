@@ -1683,8 +1683,8 @@ h1, h2, h3, h4, span, p, a, button {
 
 /* Interactive RetroAchievements HUD Card */
 .ra-hud-card {
-    padding: 1.4rem;
-    border-radius: 24px;
+    padding: 1.8rem;
+    border-radius: 26px;
     border: 1px solid var(--border-light);
     background: rgba(16, 18, 28, 0.88);
     backdrop-filter: var(--glass-blur);
@@ -1692,7 +1692,7 @@ h1, h2, h3, h4, span, p, a, button {
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.4rem;
     width: 100%;
 }
 
@@ -1700,10 +1700,10 @@ h1, h2, h3, h4, span, p, a, button {
     background: rgba(22, 24, 36, 0.85);
     border: 1px solid var(--border-light);
     border-radius: 20px;
-    padding: 1.1rem;
+    padding: 1.25rem 1.3rem;
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
+    gap: 1rem;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
@@ -1716,20 +1716,20 @@ h1, h2, h3, h4, span, p, a, button {
 .ra-header-left {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.85rem;
 }
 
 .ra-main-icon-wrap {
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
     background: rgba(206, 181, 255, 0.15);
     border: 1px solid var(--moondust-purple);
     color: var(--moondust-purple);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     box-shadow: 0 0 12px rgba(206, 181, 255, 0.25);
     transition: var(--transition-smooth);
 }
@@ -1741,14 +1741,14 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .ra-header-titles h4 {
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     font-weight: 800;
     color: #FFFFFF;
     line-height: 1.2;
 }
 
 .ra-header-titles span {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     color: var(--text-secondary);
     font-weight: 600;
 }
@@ -1806,19 +1806,19 @@ h1, h2, h3, h4, span, p, a, button {
 .ra-icons-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 0.7rem;
+    gap: 0.85rem;
 }
 
 .ra-grid-item {
     background: rgba(22, 24, 36, 0.6);
     border: 1px solid var(--border-light);
-    border-radius: 14px;
-    height: 52px;
+    border-radius: 16px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     color: var(--text-secondary);
     cursor: pointer;
     transition: var(--transition-smooth);
