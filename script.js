@@ -838,7 +838,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
-    if (lightboxOverlay) lightboxOverlay.addEventListener('click', closeLightbox);
 
     if (lightboxPrevBtn) {
         lightboxPrevBtn.addEventListener('click', (e) => {
@@ -856,9 +855,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', (e) => {
         if (!lightboxModal || !lightboxModal.classList.contains('active')) return;
-        if (e.key === 'Escape') {
-            closeLightbox();
-        } else if (e.key === 'ArrowLeft') {
+        if (e.key === 'ArrowLeft') {
             openLightbox(currentGalleryIdx - 1, true);
         } else if (e.key === 'ArrowRight') {
             openLightbox(currentGalleryIdx + 1, true);
