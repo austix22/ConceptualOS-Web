@@ -2024,31 +2024,37 @@ h1, h2, h3, h4, span, p, a, button {
     min-height: 56px;
 }
 
-.download-footnote {
-    margin-top: 2rem;
-    font-size: 0.86rem;
-    color: var(--text-secondary);
+.download-trust-row {
+    margin-top: 2.2rem;
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 0.9rem;
     flex-wrap: wrap;
 }
 
-.download-footnote i {
-    color: var(--moondust-purple);
-}
-
-.download-footnote a {
-    color: var(--moondust-cyan);
+.download-trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.45rem 1.1rem;
+    background: rgba(22, 24, 36, 0.55);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    font-size: 0.8rem;
     font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    transition: color 0.2s ease;
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
 }
 
-.download-footnote a:hover {
-    color: #FFFFFF;
+.download-trust-item:hover {
+    border-color: rgba(206, 181, 255, 0.3);
+    color: var(--text-primary);
+}
+
+.download-trust-item i {
+    color: var(--moondust-purple);
+    font-size: 0.85rem;
 }
 
 /* Dedicated About Section Styling */
