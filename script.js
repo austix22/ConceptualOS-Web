@@ -296,6 +296,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 element.innerHTML = dictionary[key];
             }
         });
+
+        if (typeof updateDndSubText === 'function') {
+            updateDndSubText();
+        }
+        const sysNoteInput = document.getElementById('sysNoteInput');
+        if (sysNoteInput) {
+            sysNoteInput.placeholder = lang === 'en' ? 'Write a note...' : 'Escribe una nota...';
+        }
     };
 
     const langToggleBtn = document.getElementById('langToggleBtn');
@@ -382,6 +390,208 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+    }
+
+    // 8. Tab 3: Interactive System Tools (Volume, Brightness, Do Not Disturb, Notes)
+    const sysVolSlider = document.getElementById('sysVolSlider');
+    const sysVolFill = document.getElementById('sysVolFill');
+    const sysVolThumb = document.getElementById('sysVolThumb');
+    const sysVolVal = document.getElementById('sysVolVal');
+    const sysVolIcon = document.getElementById('sysVolIcon');
+
+    const updateSysVolume = (val) => {
+        const num = Math.min(100, Math.max(0, parseInt(val, 10) || 0));
+        if (sysVolVal) sysVolVal.textContent = `${num}%`;
+        if (sysVolFill) sysVolFill.style.width = `${num}%`;
+        if (sysVolThumb) sysVolThumb.style.left = `calc(7px + (${num} / 100) * (100% - 14px))`;
+        if (sysVolIcon) {
+            if (num === 0) {
+                sysVolIcon.className = 'fa-solid fa-volume-xmark';
+            } else if (num < 50) {
+                sysVolIcon.className = 'fa-solid fa-volume-low';
+            } else {
+                sysVolIcon.className = 'fa-solid fa-volume-high';
+            }
+        }
+    };
+
+    if (sysVolSlider) {
+        sysVolSlider.addEventListener('input', (e) => updateSysVolume(e.target.value));
+        sysVolSlider.addEventListener('change', (e) => updateSysVolume(e.target.value));
+        updateSysVolume(sysVolSlider.value);
+    }
+
+    const sysBrightSlider = document.getElementById('sysBrightSlider');
+    const sysBrightFill = document.getElementById('sysBrightFill');
+    const sysBrightThumb = document.getElementById('sysBrightThumb');
+    const sysBrightVal = document.getElementById('sysBrightVal');
+
+    const updateSysBright = (val) => {
+        const num = Math.min(100, Math.max(0, parseInt(val, 10) || 0));
+        if (sysBrightVal) sysBrightVal.textContent = `${num}%`;
+        if (sysBrightFill) sysBrightFill.style.width = `${num}%`;
+        if (sysBrightThumb) sysBrightThumb.style.left = `calc(7px + (${num} / 100) * (100% - 14px))`;
+    };
+
+    if (sysBrightSlider) {
+        sysBrightSlider.addEventListener('input', (e) => updateSysBright(e.target.value));
+        sysBrightSlider.addEventListener('change', (e) => updateSysBright(e.target.value));
+        updateSysBright(sysBrightSlider.value);
+    }
+
+    // Do Not Disturb (No molestar) Toggle Button
+    const dndBtn = document.getElementById('dndBtn');
+    const dndSubText = document.getElementById('dndSubText');
+
+    function updateDndSubText() {
+        if (!dndSubText || !dndBtn) return;
+        const isActive = dndBtn.classList.contains('active');
+        if (currentLang === 'en') {
+            dndSubText.textContent = isActive ? 'Enabled' : 'Disabled';
+        } else {
+            dndSubText.textContent = isActive ? 'Activado' : 'Desactivado';
+        }
+    }
+
+    if (dndBtn) {
+        const toggleDnd = () => {
+            dndBtn.classList.toggle('active');
+            updateDndSubText();
+        };
+
+        dndBtn.addEventListener('click', toggleDnd);
+        dndBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleDnd();
+            }
+        });
+    }
+
+    // 9. Tab 4: Interactive Music Player (Soundtrack 01, Audio playback, Seek bar, Volume)
+    const bgMusicAudio = document.getElementById('bgMusicAudio');
+    const musicPlayPauseBtn = document.getElementById('musicPlayPauseBtn');
+    const musicPlayIcon = document.getElementById('musicPlayIcon');
+    const musicSeekSlider = document.getElementById('musicSeekSlider');
+    const musicProgressFill = document.getElementById('musicProgressFill');
+    const musicSeekThumb = document.getElementById('musicSeekThumb');
+    const musicCurrentTime = document.getElementById('musicCurrentTime');
+    const musicTotalTime = document.getElementById('musicTotalTime');
+    const musicVolSlider = document.getElementById('musicVolSlider');
+    const musicVolFill = document.getElementById('musicVolFill');
+    const musicVolThumb = document.getElementById('musicVolThumb');
+    const musicVolVal = document.getElementById('musicVolVal');
+
+    const formatAudioTime = (seconds) => {
+        if (isNaN(seconds) || seconds === Infinity || seconds < 0) return '00:00';
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    };
+
+    let isSeekingMusic = false;
+
+    if (bgMusicAudio) {
+        // Initial audio volume
+        bgMusicAudio.volume = 0.6;
+
+        // Play / Pause Toggle
+        if (musicPlayPauseBtn) {
+            musicPlayPauseBtn.addEventListener('click', () => {
+                if (bgMusicAudio.paused) {
+                    const playPromise = bgMusicAudio.play();
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            if (musicPlayIcon) musicPlayIcon.className = 'fa-solid fa-pause';
+                            musicPlayPauseBtn.classList.add('playing');
+                        }).catch(err => {
+                            console.warn('Audio play prevented:', err);
+                        });
+                    }
+                } else {
+                    bgMusicAudio.pause();
+                    if (musicPlayIcon) musicPlayIcon.className = 'fa-solid fa-play';
+                    musicPlayPauseBtn.classList.remove('playing');
+                }
+            });
+        }
+
+        // Duration update
+        const handleDuration = () => {
+            if (bgMusicAudio.duration && !isNaN(bgMusicAudio.duration) && musicTotalTime) {
+                musicTotalTime.textContent = formatAudioTime(bgMusicAudio.duration);
+            }
+        };
+
+        bgMusicAudio.addEventListener('loadedmetadata', handleDuration);
+        bgMusicAudio.addEventListener('durationchange', handleDuration);
+        bgMusicAudio.addEventListener('canplay', handleDuration);
+
+        // Time update
+        bgMusicAudio.addEventListener('timeupdate', () => {
+            if (!isSeekingMusic && bgMusicAudio.duration) {
+                const current = bgMusicAudio.currentTime;
+                const duration = bgMusicAudio.duration;
+                const percent = (current / duration) * 100;
+
+                if (musicCurrentTime) musicCurrentTime.textContent = formatAudioTime(current);
+                if (musicTotalTime && (musicTotalTime.textContent === '00:00' || musicTotalTime.textContent === '--:--')) {
+                    musicTotalTime.textContent = formatAudioTime(duration);
+                }
+                if (musicProgressFill) musicProgressFill.style.width = `${percent}%`;
+                if (musicSeekSlider) musicSeekSlider.value = percent;
+                if (musicSeekThumb) musicSeekThumb.style.left = `calc(7px + (${percent} / 100) * (100% - 14px))`;
+            }
+        });
+
+        // Song ended handler
+        bgMusicAudio.addEventListener('ended', () => {
+            if (musicPlayIcon) musicPlayIcon.className = 'fa-solid fa-play';
+            if (musicPlayPauseBtn) musicPlayPauseBtn.classList.remove('playing');
+            bgMusicAudio.currentTime = 0;
+            if (musicCurrentTime) musicCurrentTime.textContent = '00:00';
+            if (musicProgressFill) musicProgressFill.style.width = '0%';
+            if (musicSeekSlider) musicSeekSlider.value = 0;
+            if (musicSeekThumb) musicSeekThumb.style.left = `calc(7px + 0 * (100% - 14px))`;
+        });
+
+        // Seek bar interaction
+        if (musicSeekSlider) {
+            musicSeekSlider.addEventListener('input', (e) => {
+                isSeekingMusic = true;
+                const percent = Math.min(100, Math.max(0, parseFloat(e.target.value) || 0));
+                if (musicProgressFill) musicProgressFill.style.width = `${percent}%`;
+                if (musicSeekThumb) musicSeekThumb.style.left = `calc(7px + (${percent} / 100) * (100% - 14px))`;
+                if (bgMusicAudio.duration && musicCurrentTime) {
+                    musicCurrentTime.textContent = formatAudioTime((percent / 100) * bgMusicAudio.duration);
+                }
+            });
+
+            musicSeekSlider.addEventListener('change', (e) => {
+                if (bgMusicAudio.duration) {
+                    const percent = Math.min(100, Math.max(0, parseFloat(e.target.value) || 0));
+                    bgMusicAudio.currentTime = (percent / 100) * bgMusicAudio.duration;
+                }
+                isSeekingMusic = false;
+            });
+        }
+    }
+
+    // Music Volume Slider interaction
+    const updateMusicVol = (val) => {
+        const num = Math.min(100, Math.max(0, parseInt(val, 10) || 0));
+        if (musicVolVal) musicVolVal.textContent = `${num}%`;
+        if (musicVolFill) musicVolFill.style.width = `${num}%`;
+        if (musicVolThumb) musicVolThumb.style.left = `calc(7px + (${num} / 100) * (100% - 14px))`;
+        if (bgMusicAudio) {
+            bgMusicAudio.volume = num / 100;
+        }
+    };
+
+    if (musicVolSlider) {
+        musicVolSlider.addEventListener('input', (e) => updateMusicVol(e.target.value));
+        musicVolSlider.addEventListener('change', (e) => updateMusicVol(e.target.value));
+        updateMusicVol(musicVolSlider.value);
     }
 
 });

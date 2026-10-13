@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=1.2.3">
+    <link rel="stylesheet" href="styles.css?v=1.2.5">
 </head>
 
 <body>
@@ -330,31 +330,46 @@
                                     <!-- Option 1: Barra de Volumen -->
                                     <div class="tool-card">
                                         <div class="tool-label-row">
-                                            <span><i class="fa-solid fa-volume-high"></i> Volumen</span>
-                                            <span class="tool-val-text">75%</span>
+                                            <span><i class="fa-solid fa-volume-high" id="sysVolIcon"></i> Volumen</span>
+                                            <span class="tool-val-text" id="sysVolVal">75%</span>
                                         </div>
-                                        <div class="progress-bar-container">
-                                            <div class="progress-bar-fill" style="width: 75%;"></div>
+                                        <div class="tool-slider-box">
+                                            <input type="range" class="tool-slider-native" id="sysVolSlider" min="0"
+                                                max="100" value="75" aria-label="Volumen">
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar-fill" id="sysVolFill" style="width: 75%;">
+                                                </div>
+                                            </div>
+                                            <div class="tool-slider-thumb" id="sysVolThumb"
+                                                style="left: calc(7px + 0.75 * (100% - 14px));"></div>
                                         </div>
                                     </div>
 
                                     <!-- Option 2: Barra de Brillo -->
                                     <div class="tool-card">
                                         <div class="tool-label-row">
-                                            <span><i class="fa-solid fa-sun"></i> Brillo</span>
-                                            <span class="tool-val-text">85%</span>
+                                            <span><i class="fa-solid fa-sun" id="sysBrightIcon"></i> Brillo</span>
+                                            <span class="tool-val-text" id="sysBrightVal">85%</span>
                                         </div>
-                                        <div class="progress-bar-container">
-                                            <div class="progress-bar-fill" style="width: 85%;"></div>
+                                        <div class="tool-slider-box">
+                                            <input type="range" class="tool-slider-native" id="sysBrightSlider" min="0"
+                                                max="100" value="85" aria-label="Brillo">
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar-fill" id="sysBrightFill" style="width: 85%;">
+                                                </div>
+                                            </div>
+                                            <div class="tool-slider-thumb" id="sysBrightThumb"
+                                                style="left: calc(7px + 0.85 * (100% - 14px));"></div>
                                         </div>
                                     </div>
 
                                     <!-- Option 3: Botón No Molestar -->
-                                    <div class="tool-card tool-button active">
+                                    <div class="tool-card tool-button active" id="dndBtn" role="button" tabindex="0"
+                                        aria-label="Modo no molestar">
                                         <i class="fa-solid fa-moon"></i>
                                         <div class="tool-btn-info">
                                             <span class="tool-btn-title">No molestar</span>
-                                            <span class="tool-btn-sub">Activado</span>
+                                            <span class="tool-btn-sub" id="dndSubText">Activado</span>
                                         </div>
                                     </div>
 
@@ -364,7 +379,9 @@
                                             <span><i class="fa-solid fa-note-sticky"></i> Notas</span>
                                         </div>
                                         <div class="tool-note-box">
-                                            <span>Ataque especial: fase 2</span>
+                                            <input type="text" class="tool-note-input" id="sysNoteInput"
+                                                value="Ataque especial: fase 2" placeholder="Escribe una nota..."
+                                                spellcheck="false" autocomplete="off" aria-label="Notas del juego">
                                         </div>
                                     </div>
                                 </div>
@@ -381,33 +398,54 @@
                             </div>
 
                             <div class="overlay-music-content-wrap">
-                                <h3 class="active-game-title">Moon Dust Soundtrack - Track 01</h3>
+                                <h3 class="active-game-title" id="musicTrackTitle">Soundtrack 01</h3>
                                 <div class="overlay-music-box">
+                                    <!-- Audio element for background soundtrack -->
+                                    <audio id="bgMusicAudio" src="m4a/cos_launcher_background.m4a"
+                                        preload="metadata"></audio>
+
                                     <!-- Song Progress & Time Counter -->
                                     <div class="music-time-row">
-                                        <span>01:45</span>
-                                        <div class="progress-bar-container" style="flex: 1;">
-                                            <div class="progress-bar-fill" style="width: 50%;"></div>
+                                        <span id="musicCurrentTime">00:00</span>
+                                        <div class="tool-slider-box" style="flex: 1;">
+                                            <input type="range" class="tool-slider-native" id="musicSeekSlider" min="0"
+                                                max="100" value="0" step="0.1" aria-label="Progreso de la canción">
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar-fill" id="musicProgressFill"
+                                                    style="width: 0%;"></div>
+                                            </div>
+                                            <div class="tool-slider-thumb" id="musicSeekThumb"
+                                                style="left: calc(7px + 0 * (100% - 14px));"></div>
                                         </div>
-                                        <span>03:30</span>
+                                        <span id="musicTotalTime">00:00</span>
                                     </div>
 
                                     <!-- Media Player Controls -->
                                     <div class="music-controls-row">
-                                        <button class="music-btn"><i class="fa-solid fa-backward-step"></i></button>
-                                        <button class="music-btn play-pause-btn"><i
-                                                class="fa-solid fa-pause"></i></button>
-                                        <button class="music-btn"><i class="fa-solid fa-forward-step"></i></button>
+                                        <button class="music-btn disabled" disabled aria-label="Canción anterior"
+                                            title="No disponible"><i class="fa-solid fa-backward-step"></i></button>
+                                        <button class="music-btn play-pause-btn" id="musicPlayPauseBtn"
+                                            aria-label="Reproducir o pausar"><i class="fa-solid fa-play"
+                                                id="musicPlayIcon"></i></button>
+                                        <button class="music-btn disabled" disabled aria-label="Siguiente canción"
+                                            title="No disponible"><i class="fa-solid fa-forward-step"></i></button>
                                     </div>
 
                                     <!-- Independent Music Volume Bar -->
                                     <div class="music-vol-row">
                                         <div class="tool-label-row" style="width: 100%;">
                                             <span><i class="fa-solid fa-sliders"></i> Volumen de Música</span>
-                                            <span class="tool-val-text">60%</span>
+                                            <span class="tool-val-text" id="musicVolVal">60%</span>
                                         </div>
-                                        <div class="progress-bar-container" style="width: 100%;">
-                                            <div class="progress-bar-fill" style="width: 60%;"></div>
+                                        <div class="tool-slider-box" style="width: 100%;">
+                                            <input type="range" class="tool-slider-native" id="musicVolSlider" min="0"
+                                                max="100" value="60" aria-label="Volumen de Música">
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar-fill" id="musicVolFill" style="width: 60%;">
+                                                </div>
+                                            </div>
+                                            <div class="tool-slider-thumb" id="musicVolThumb"
+                                                style="left: calc(7px + 0.60 * (100% - 14px));"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -453,10 +491,10 @@
                                     <div class="gamepad-status-card">
                                         <i class="fa-solid fa-gamepad gamepad-hero-icon"></i>
                                         <div class="gamepad-info">
-                                            <span class="gamepad-name">Control nativo</span>
+                                            <span class="gamepad-name">Control</span>
                                             <span class="gamepad-battery-text"><i
                                                     class="fa-solid fa-battery-full green-glow"></i> Batería del
-                                                control: 85% disponible</span>
+                                                control: 85%</span>
                                         </div>
                                     </div>
                                 </div>
