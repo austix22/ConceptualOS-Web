@@ -1976,6 +1976,42 @@ h1, h2, h3, h4, span, p, a, button {
     text-align: center;
 }
 
+.download-specs-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin: 0.2rem 0 1.6rem 0;
+    padding: 0.85rem 1rem;
+    background: rgba(3, 4, 8, 0.45);
+    border: 1px solid rgba(211, 211, 255, 0.08);
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.download-spec-item {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    text-align: left;
+    line-height: 1.35;
+}
+
+.download-spec-item i {
+    font-size: 0.88rem;
+    color: var(--moondust-purple);
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.download-spec-item strong {
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
 .download-action-group {
     width: 100%;
     display: flex;
@@ -1986,6 +2022,33 @@ h1, h2, h3, h4, span, p, a, button {
 
 .download-action-group .btn {
     min-height: 56px;
+}
+
+.download-footnote {
+    margin-top: 2rem;
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.download-footnote i {
+    color: var(--moondust-purple);
+}
+
+.download-footnote a {
+    color: var(--moondust-cyan);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+}
+
+.download-footnote a:hover {
+    color: #FFFFFF;
 }
 
 /* Dedicated About Section Styling */
