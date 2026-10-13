@@ -191,8 +191,7 @@ h1, h2, h3, h4, span, p, a, button {
     line-height: 1.7;
 }
 
-.overlay-content > p,
-.about-box .section-description {
+.overlay-content > p {
     text-align: left;
 }
 
