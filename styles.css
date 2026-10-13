@@ -2292,7 +2292,7 @@ h1, h2, h3, h4, span, p, a, button {
     background: var(--bg-card);
     border: 1px solid var(--border-light);
     box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
-    transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+    transition: transform var(--transition-smooth), border-color 0.2s ease, box-shadow 0.2s ease;
     outline: none;
 }
 
@@ -2314,13 +2314,14 @@ h1, h2, h3, h4, span, p, a, button {
     justify-content: center;
     border-bottom: 1px solid var(--border-light);
     border-radius: 21px 21px 0 0;
-    transition: border-color var(--transition-smooth);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .gallery-card:hover .gallery-media-wrap,
 .gallery-card:focus-visible .gallery-media-wrap,
 .gallery-card:active .gallery-media-wrap {
     border-bottom-color: rgba(206, 181, 255, 0.55);
+    box-shadow: 0 1px 10px rgba(128, 168, 255, 0.25);
 }
 
 .gallery-img {
