@@ -489,6 +489,25 @@ h1, h2, h3, h4, span, p, a, button {
     box-shadow: 0 0 14px rgba(206, 181, 255, 0.35);
 }
 
+.kofi-nav-pill {
+    text-decoration: none;
+    background: rgba(255, 94, 91, 0.12);
+    border-color: rgba(255, 94, 91, 0.4);
+    color: #ff7572;
+    transition: var(--transition-smooth);
+    user-select: none;
+    cursor: pointer;
+}
+
+.kofi-nav-pill:hover,
+.kofi-nav-pill:focus {
+    background: linear-gradient(135deg, rgba(255, 94, 91, 0.28), rgba(255, 0, 127, 0.28));
+    border-color: #ff5e5b;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 14px rgba(255, 94, 91, 0.45);
+}
+
 .badge-dot {
     width: 8px;
     height: 8px;
@@ -2266,6 +2285,14 @@ h1, h2, h3, h4, span, p, a, button {
 
     .overlay-hardware-grid {
         grid-template-columns: 1fr;
+    }
+
+    .kofi-nav-pill .badge-text {
+        display: none;
+    }
+
+    .kofi-nav-pill {
+        padding: 0.4rem 0.75rem;
     }
 }
 
