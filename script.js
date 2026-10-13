@@ -194,8 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
             about_pill2: "100 % sin anuncios",
             about_pill3: "Compatible con controles",
             footer_rights: "&copy; 2026 COS Launcher. Todos los derechos reservados.",
-            footer_dev_text: "Desarrollado por",
-            footer_country: "Costa Rica"
+            footer_dev_text: "Desarrollado por"
         },
         en: {
             nav_features: "Features",
@@ -291,8 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
             about_pill2: "100% ad-free",
             about_pill3: "Controller-friendly",
             footer_rights: "&copy; 2026 COS Launcher. All rights reserved.",
-            footer_dev_text: "Developed by",
-            footer_country: "Costa Rica"
+            footer_dev_text: "Developed by"
         }
     };
 

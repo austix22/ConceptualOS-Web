@@ -2112,11 +2112,6 @@ h1, h2, h3, h4, span, p, a, button {
     font-weight: 600;
 }
 
-.footer-sep {
-    color: rgba(255, 255, 255, 0.3);
-    margin: 0 0.25rem;
-}
-
 .inline-flag {
     display: inline-block;
     vertical-align: middle;
@@ -2124,7 +2119,7 @@ h1, h2, h3, h4, span, p, a, button {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.2);
     overflow: hidden;
-    margin: 0 0.15rem;
+    margin-left: 0.25rem;
 }
 
 /* Fluid Auto-Resizing Across All Devices */
