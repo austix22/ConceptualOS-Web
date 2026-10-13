@@ -278,6 +278,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentLang = localStorage.getItem('cos_web_lang') || 'es';
 
+    function updateDndSubText() {
+        const dndBtnEl = document.getElementById('dndBtn');
+        const dndSubTextEl = document.getElementById('dndSubText');
+        if (!dndSubTextEl || !dndBtnEl) return;
+        const isActive = dndBtnEl.classList.contains('active');
+        if (typeof currentLang !== 'undefined' && currentLang === 'en') {
+            dndSubTextEl.textContent = isActive ? 'Enabled' : 'Disabled';
+        } else {
+            dndSubTextEl.textContent = isActive ? 'Activado' : 'Desactivado';
+        }
+    }
+
     const applyLanguage = (lang) => {
         currentLang = lang;
         localStorage.setItem('cos_web_lang', lang);
@@ -297,9 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        if (typeof updateDndSubText === 'function') {
-            updateDndSubText();
-        }
+        updateDndSubText();
         const sysNoteInput = document.getElementById('sysNoteInput');
         if (sysNoteInput) {
             sysNoteInput.placeholder = lang === 'en' ? 'Write a note...' : 'Escribe una nota...';
@@ -392,69 +402,105 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Helper: Universal Slider Controller (Handles Mouse, Touch, Pointer, and Native Range Input)
+    const setupSlider = (sliderBox, nativeInput, onValueChange) => {
+        if (!nativeInput) return;
+
+        const updateValue = (rawVal) => {
+            const num = Math.min(100, Math.max(0, parseFloat(rawVal) || 0));
+            nativeInput.value = num;
+            onValueChange(num);
+        };
+
+        nativeInput.addEventListener('input', (e) => updateValue(e.target.value));
+        nativeInput.addEventListener('change', (e) => updateValue(e.target.value));
+
+        if (sliderBox) {
+            let isDragging = false;
+
+            const updateFromPointer = (e) => {
+                const rect = sliderBox.getBoundingClientRect();
+                if (rect.width <= 0) return;
+                const clientX = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+                const offsetX = Math.max(0, Math.min(rect.width, clientX - rect.left));
+                const percent = Math.round((offsetX / rect.width) * 100);
+                updateValue(percent);
+            };
+
+            sliderBox.addEventListener('pointerdown', (e) => {
+                isDragging = true;
+                try { sliderBox.setPointerCapture(e.pointerId); } catch (_) {}
+                updateFromPointer(e);
+            });
+
+            sliderBox.addEventListener('pointermove', (e) => {
+                if (isDragging) updateFromPointer(e);
+            });
+
+            const stopDragging = (e) => {
+                if (isDragging) {
+                    isDragging = false;
+                    try { sliderBox.releasePointerCapture(e.pointerId); } catch (_) {}
+                }
+            };
+
+            sliderBox.addEventListener('pointerup', stopDragging);
+            sliderBox.addEventListener('pointercancel', stopDragging);
+        }
+
+        // Initialize on setup
+        updateValue(nativeInput.value || 0);
+    };
+
     // 8. Tab 3: Interactive System Tools (Volume, Brightness, Do Not Disturb, Notes)
     const sysVolSlider = document.getElementById('sysVolSlider');
     const sysVolFill = document.getElementById('sysVolFill');
     const sysVolThumb = document.getElementById('sysVolThumb');
     const sysVolVal = document.getElementById('sysVolVal');
     const sysVolIcon = document.getElementById('sysVolIcon');
-
-    const updateSysVolume = (val) => {
-        const num = Math.min(100, Math.max(0, parseInt(val, 10) || 0));
-        if (sysVolVal) sysVolVal.textContent = `${num}%`;
-        if (sysVolFill) sysVolFill.style.width = `${num}%`;
-        if (sysVolThumb) sysVolThumb.style.left = `calc(7px + (${num} / 100) * (100% - 14px))`;
-        if (sysVolIcon) {
-            if (num === 0) {
-                sysVolIcon.className = 'fa-solid fa-volume-xmark';
-            } else if (num < 50) {
-                sysVolIcon.className = 'fa-solid fa-volume-low';
-            } else {
-                sysVolIcon.className = 'fa-solid fa-volume-high';
-            }
-        }
-    };
+    const sysVolBox = sysVolSlider ? sysVolSlider.closest('.tool-slider-box') : null;
 
     if (sysVolSlider) {
-        sysVolSlider.addEventListener('input', (e) => updateSysVolume(e.target.value));
-        sysVolSlider.addEventListener('change', (e) => updateSysVolume(e.target.value));
-        updateSysVolume(sysVolSlider.value);
+        setupSlider(sysVolBox, sysVolSlider, (val) => {
+            const num = Math.round(val);
+            if (sysVolVal) sysVolVal.textContent = `${num}%`;
+            if (sysVolFill) sysVolFill.style.width = `${val}%`;
+            if (sysVolThumb) sysVolThumb.style.left = `calc(7px + (${val} / 100) * (100% - 14px))`;
+            if (sysVolIcon) {
+                if (num === 0) {
+                    sysVolIcon.className = 'fa-solid fa-volume-xmark';
+                } else if (num < 50) {
+                    sysVolIcon.className = 'fa-solid fa-volume-low';
+                } else {
+                    sysVolIcon.className = 'fa-solid fa-volume-high';
+                }
+            }
+        });
     }
 
     const sysBrightSlider = document.getElementById('sysBrightSlider');
     const sysBrightFill = document.getElementById('sysBrightFill');
     const sysBrightThumb = document.getElementById('sysBrightThumb');
     const sysBrightVal = document.getElementById('sysBrightVal');
-
-    const updateSysBright = (val) => {
-        const num = Math.min(100, Math.max(0, parseInt(val, 10) || 0));
-        if (sysBrightVal) sysBrightVal.textContent = `${num}%`;
-        if (sysBrightFill) sysBrightFill.style.width = `${num}%`;
-        if (sysBrightThumb) sysBrightThumb.style.left = `calc(7px + (${num} / 100) * (100% - 14px))`;
-    };
+    const sysBrightBox = sysBrightSlider ? sysBrightSlider.closest('.tool-slider-box') : null;
 
     if (sysBrightSlider) {
-        sysBrightSlider.addEventListener('input', (e) => updateSysBright(e.target.value));
-        sysBrightSlider.addEventListener('change', (e) => updateSysBright(e.target.value));
-        updateSysBright(sysBrightSlider.value);
+        setupSlider(sysBrightBox, sysBrightSlider, (val) => {
+            const num = Math.round(val);
+            if (sysBrightVal) sysBrightVal.textContent = `${num}%`;
+            if (sysBrightFill) sysBrightFill.style.width = `${val}%`;
+            if (sysBrightThumb) sysBrightThumb.style.left = `calc(7px + (${val} / 100) * (100% - 14px))`;
+        });
     }
 
     // Do Not Disturb (No molestar) Toggle Button
     const dndBtn = document.getElementById('dndBtn');
-    const dndSubText = document.getElementById('dndSubText');
-
-    function updateDndSubText() {
-        if (!dndSubText || !dndBtn) return;
-        const isActive = dndBtn.classList.contains('active');
-        if (currentLang === 'en') {
-            dndSubText.textContent = isActive ? 'Enabled' : 'Disabled';
-        } else {
-            dndSubText.textContent = isActive ? 'Activado' : 'Desactivado';
-        }
-    }
-
     if (dndBtn) {
-        const toggleDnd = () => {
+        const toggleDnd = (e) => {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
             dndBtn.classList.toggle('active');
             updateDndSubText();
         };
@@ -463,7 +509,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dndBtn.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                toggleDnd();
+                toggleDnd(e);
             }
         });
     }
@@ -489,15 +535,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
     };
 
-    let isSeekingMusic = false;
-
     if (bgMusicAudio) {
-        // Initial audio volume
         bgMusicAudio.volume = 0.6;
 
-        // Play / Pause Toggle
         if (musicPlayPauseBtn) {
-            musicPlayPauseBtn.addEventListener('click', () => {
+            musicPlayPauseBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
                 if (bgMusicAudio.paused) {
                     const playPromise = bgMusicAudio.play();
                     if (playPromise !== undefined) {
@@ -516,7 +561,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Duration update
         const handleDuration = () => {
             if (bgMusicAudio.duration && !isNaN(bgMusicAudio.duration) && musicTotalTime) {
                 musicTotalTime.textContent = formatAudioTime(bgMusicAudio.duration);
@@ -527,7 +571,8 @@ document.addEventListener('DOMContentLoaded', () => {
         bgMusicAudio.addEventListener('durationchange', handleDuration);
         bgMusicAudio.addEventListener('canplay', handleDuration);
 
-        // Time update
+        let isSeekingMusic = false;
+
         bgMusicAudio.addEventListener('timeupdate', () => {
             if (!isSeekingMusic && bgMusicAudio.duration) {
                 const current = bgMusicAudio.currentTime;
@@ -544,7 +589,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Song ended handler
         bgMusicAudio.addEventListener('ended', () => {
             if (musicPlayIcon) musicPlayIcon.className = 'fa-solid fa-play';
             if (musicPlayPauseBtn) musicPlayPauseBtn.classList.remove('playing');
@@ -555,43 +599,29 @@ document.addEventListener('DOMContentLoaded', () => {
             if (musicSeekThumb) musicSeekThumb.style.left = `calc(7px + 0 * (100% - 14px))`;
         });
 
-        // Seek bar interaction
+        const musicSeekBox = musicSeekSlider ? musicSeekSlider.closest('.tool-slider-box') : null;
         if (musicSeekSlider) {
-            musicSeekSlider.addEventListener('input', (e) => {
-                isSeekingMusic = true;
-                const percent = Math.min(100, Math.max(0, parseFloat(e.target.value) || 0));
+            setupSlider(musicSeekBox, musicSeekSlider, (percent) => {
+                if (bgMusicAudio.duration) {
+                    const target = (percent / 100) * bgMusicAudio.duration;
+                    bgMusicAudio.currentTime = target;
+                    if (musicCurrentTime) musicCurrentTime.textContent = formatAudioTime(target);
+                }
                 if (musicProgressFill) musicProgressFill.style.width = `${percent}%`;
                 if (musicSeekThumb) musicSeekThumb.style.left = `calc(7px + (${percent} / 100) * (100% - 14px))`;
-                if (bgMusicAudio.duration && musicCurrentTime) {
-                    musicCurrentTime.textContent = formatAudioTime((percent / 100) * bgMusicAudio.duration);
-                }
-            });
-
-            musicSeekSlider.addEventListener('change', (e) => {
-                if (bgMusicAudio.duration) {
-                    const percent = Math.min(100, Math.max(0, parseFloat(e.target.value) || 0));
-                    bgMusicAudio.currentTime = (percent / 100) * bgMusicAudio.duration;
-                }
-                isSeekingMusic = false;
             });
         }
-    }
 
-    // Music Volume Slider interaction
-    const updateMusicVol = (val) => {
-        const num = Math.min(100, Math.max(0, parseInt(val, 10) || 0));
-        if (musicVolVal) musicVolVal.textContent = `${num}%`;
-        if (musicVolFill) musicVolFill.style.width = `${num}%`;
-        if (musicVolThumb) musicVolThumb.style.left = `calc(7px + (${num} / 100) * (100% - 14px))`;
-        if (bgMusicAudio) {
-            bgMusicAudio.volume = num / 100;
+        const musicVolBox = musicVolSlider ? musicVolSlider.closest('.tool-slider-box') : null;
+        if (musicVolSlider) {
+            setupSlider(musicVolBox, musicVolSlider, (val) => {
+                const num = Math.round(val);
+                if (musicVolVal) musicVolVal.textContent = `${num}%`;
+                if (musicVolFill) musicVolFill.style.width = `${val}%`;
+                if (musicVolThumb) musicVolThumb.style.left = `calc(7px + (${val} / 100) * (100% - 14px))`;
+                bgMusicAudio.volume = num / 100;
+            });
         }
-    };
-
-    if (musicVolSlider) {
-        musicVolSlider.addEventListener('input', (e) => updateMusicVol(e.target.value));
-        musicVolSlider.addEventListener('change', (e) => updateMusicVol(e.target.value));
-        updateMusicVol(musicVolSlider.value);
     }
 
 });
