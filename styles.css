@@ -2107,22 +2107,14 @@ h1, h2, h3, h4, span, p, a, button {
     margin-top: 0.35rem;
 }
 
-.footer-heart {
-    color: var(--moondust-purple);
-    font-size: 0.82rem;
-    filter: drop-shadow(0 0 6px rgba(206, 181, 255, 0.6));
-    animation: heartPulse 2.4s ease-in-out infinite;
-    display: inline-block;
-}
-
-@keyframes heartPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.22); }
-}
-
 .author-name {
     color: #e2e8f0;
     font-weight: 600;
+}
+
+.footer-sep {
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0 0.25rem;
 }
 
 .inline-flag {
@@ -2132,6 +2124,7 @@ h1, h2, h3, h4, span, p, a, button {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.2);
     overflow: hidden;
+    margin: 0 0.15rem;
 }
 
 /* Fluid Auto-Resizing Across All Devices */
