@@ -2312,8 +2312,15 @@ h1, h2, h3, h4, span, p, a, button {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid rgba(206, 181, 255, 0.32);
+    border-bottom: 1px solid var(--border-light);
     border-radius: 21px 21px 0 0;
+    transition: border-color var(--transition-smooth);
+}
+
+.gallery-card:hover .gallery-media-wrap,
+.gallery-card:focus-visible .gallery-media-wrap,
+.gallery-card:active .gallery-media-wrap {
+    border-bottom-color: rgba(206, 181, 255, 0.55);
 }
 
 .gallery-img {
