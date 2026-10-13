@@ -194,7 +194,9 @@ document.addEventListener('DOMContentLoaded', () => {
             about_pill2: "100 % sin anuncios",
             about_pill3: "Compatible con controles",
             footer_rights: "&copy; 2026 COS Launcher. Todos los derechos reservados.",
-            footer_created: "Creado por Austin González"
+            footer_created_text: "Creado con",
+            footer_by_text: "por",
+            footer_community: "para la comunidad gaming."
         },
         en: {
             nav_features: "Features",
@@ -290,7 +292,9 @@ document.addEventListener('DOMContentLoaded', () => {
             about_pill2: "100% ad-free",
             about_pill3: "Controller-friendly",
             footer_rights: "&copy; 2026 COS Launcher. All rights reserved.",
-            footer_created: "Created by Austin González"
+            footer_created_text: "Created with",
+            footer_by_text: "by",
+            footer_community: "for the gaming community."
         }
     };
 

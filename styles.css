@@ -2098,6 +2098,42 @@ h1, h2, h3, h4, span, p, a, button {
     text-align: center;
 }
 
+.footer-author-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+}
+
+.footer-heart {
+    color: var(--moondust-purple);
+    font-size: 0.82rem;
+    filter: drop-shadow(0 0 6px rgba(206, 181, 255, 0.6));
+    animation: heartPulse 2.4s ease-in-out infinite;
+    display: inline-block;
+}
+
+@keyframes heartPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.22); }
+}
+
+.author-name {
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.inline-flag {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 3px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+
 /* Fluid Auto-Resizing Across All Devices */
 @media (max-width: 1200px) {
     .container {
