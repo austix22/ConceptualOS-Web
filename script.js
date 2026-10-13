@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_compat: "Compatibilidad",
             nav_cos_hub: "COS HUB",
             nav_achievements: "Logros",
+            nav_gallery: "Galería",
             nav_faq: "FAQ",
             nav_download: "Descargas",
             nav_kofi: "Ko-fi",
@@ -159,6 +160,34 @@ document.addEventListener('DOMContentLoaded', () => {
             ach_check2: "Integración nativa con el motor rcheevos.",
             ach_check3: "Seguimiento de porcentaje completado y puntos acumulados.",
             ach_check4: "Consulta tus logros desbloqueados tanto en el menú como en COS HUB.",
+            gallery_subtitle: "INTERFAZ Y CAPTURAS",
+            gallery_title: "COS Launcher <span class=\"gradient-text\">en acción</span>",
+            gallery_desc: "Un recorrido visual por el sistema diseñado para consolas portátiles y dispositivos Android. Fluido, personalizable y 100% pensado para controles.",
+            gallery_zoom_hint: "Ampliar captura",
+            gallery_item1_tag: "01 • INICIO",
+            gallery_item1_title: "Pantalla de Inicio",
+            gallery_item1_desc: "Dashboard principal con juegos recientes, accesos directos, estado del sistema y activación rápida de COS HUB.",
+            gallery_item2_tag: "02 • BIBLIOTECA",
+            gallery_item2_title: "Biblioteca y Carátulas",
+            gallery_item2_desc: "Ficha destacada con tiempo de juego, trofeos obtenidos y carrusel interactivo de títulos con arte descargado.",
+            gallery_item3_tag: "03 • DETALLES",
+            gallery_item3_title: "Ficha y Controles",
+            gallery_item3_desc: "Metadatos detallados (año, jugadores, calificación) y atajos rápidos asignados a los botones de tu mando.",
+            gallery_item4_tag: "04 • LOGROS",
+            gallery_item4_title: "Progreso de Logros",
+            gallery_item4_desc: "Ventana emergente con insignias desbloqueadas, porcentaje de avance y trofeos oficiales de RetroAchievements.",
+            gallery_item5_tag: "05 • FABRICANTES",
+            gallery_item5_title: "Filtro por Fabricante",
+            gallery_item5_desc: "Organización visual por marcas (Android, Nintendo, Sony) con opción de añadir nuevos fabricantes.",
+            gallery_item6_tag: "06 • CONSOLAS",
+            gallery_item6_title: "Navegador de Consolas",
+            gallery_item6_desc: "Selector directo de sistemas (GBA, Wii, NDS, GC, SNES) con especificación de generación y conteo de juegos.",
+            gallery_item7_tag: "07 • RETROACHIEVEMENTS",
+            gallery_item7_title: "Perfil y Mis Logros",
+            gallery_item7_desc: "Panel de sincronización con puntuación global, avatar de usuario y catálogo de títulos con trofeos activos.",
+            gallery_item8_tag: "08 • DESCARGAS",
+            gallery_item8_title: "Centro de Descargas",
+            gallery_item8_desc: "Gestor integrado de emuladores y recursos organizado por plataformas retro y contemporáneas.",
             faq_subtitle: "RESOLVEMOS TUS DUDAS",
             faq_title: "Preguntas Frecuentes",
             faq_desc: "Todo lo que necesitas saber sobre compatibilidad, instalación y funcionamiento de COS Launcher.",
@@ -203,6 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_compat: "Compatibility",
             nav_cos_hub: "COS HUB",
             nav_achievements: "Achievements",
+            nav_gallery: "Gallery",
             nav_faq: "FAQ",
             nav_download: "Downloads",
             nav_kofi: "Ko-fi",
@@ -257,6 +287,34 @@ document.addEventListener('DOMContentLoaded', () => {
             ach_check2: "Native integration with the rcheevos engine.",
             ach_check3: "Track completion percentage and earned points.",
             ach_check4: "Check unlocked achievements both in the launcher and COS HUB.",
+            gallery_subtitle: "INTERFACE & SCREENSHOTS",
+            gallery_title: "COS Launcher <span class=\"gradient-text\">in Action</span>",
+            gallery_desc: "A visual walkthrough of the system built for gaming handhelds and Android devices. Smooth, customizable, and 100% controller-driven.",
+            gallery_zoom_hint: "Expand screenshot",
+            gallery_item1_tag: "01 • HOME",
+            gallery_item1_title: "Home Dashboard",
+            gallery_item1_desc: "Main screen with recent games, quick shortcuts, system status, and instant COS HUB trigger.",
+            gallery_item2_tag: "02 • LIBRARY",
+            gallery_item2_title: "Game Library & Artwork",
+            gallery_item2_desc: "Featured game backdrop with playtime tracking, earned trophies, and smooth game carousel.",
+            gallery_item3_tag: "03 • DETAILS",
+            gallery_item3_title: "Details & Controls",
+            gallery_item3_desc: "Detailed metadata including developer, release year, players, rating, and quick controller shortcuts.",
+            gallery_item4_tag: "04 • ACHIEVEMENTS",
+            gallery_item4_title: "Achievement Progress",
+            gallery_item4_desc: "Pop-up modal displaying unlocked badges, completion progress bar, and RetroAchievements count.",
+            gallery_item5_tag: "05 • MANUFACTURERS",
+            gallery_item5_title: "Manufacturer Filter",
+            gallery_item5_desc: "Browse your library categorized by manufacturers (Android, Nintendo, Sony) with custom additions.",
+            gallery_item6_tag: "06 • CONSOLES",
+            gallery_item6_title: "Console Browser",
+            gallery_item6_desc: "Direct console selector (GBA, Wii, NDS, GC, SNES) with generation details and game count.",
+            gallery_item7_tag: "07 • RETROACHIEVEMENTS",
+            gallery_item7_title: "Profile & Achievements",
+            gallery_item7_desc: "Official RetroAchievements profile hub showing global score, avatar, and tracked game progress.",
+            gallery_item8_tag: "08 • DOWNLOADS",
+            gallery_item8_title: "Download Center",
+            gallery_item8_desc: "Platform and resource manager organized by retro and modern gaming systems.",
             faq_subtitle: "EVERYTHING YOU NEED TO KNOW",
             faq_title: "Frequently Asked Questions",
             faq_desc: "Key answers about compatibility, installation, and how COS Launcher works.",
@@ -299,6 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     let currentLang = localStorage.getItem('cos_web_lang') || 'es';
+    let updateLightboxContent = () => {};
 
     function updateDndSubText() {
         const dndBtnEl = document.getElementById('dndBtn');
@@ -332,6 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         updateDndSubText();
+        updateLightboxContent();
         const sysNoteInput = document.getElementById('sysNoteInput');
         if (sysNoteInput) {
             sysNoteInput.placeholder = lang === 'en' ? 'Write a note...' : 'Escribe una nota...';
@@ -645,5 +705,143 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // 8. Gallery Showcase & Lightbox Handler
+    const galleryCards = document.querySelectorAll('.gallery-card');
+    const lightboxModal = document.getElementById('galleryLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTag = document.getElementById('lightboxTag');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxDesc = document.getElementById('lightboxDesc');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    const lightboxCloseBtn = document.getElementById('lightboxCloseBtn');
+    const lightboxOverlay = document.getElementById('lightboxOverlay');
+    const lightboxPrevBtn = document.getElementById('lightboxPrevBtn');
+    const lightboxNextBtn = document.getElementById('lightboxNextBtn');
+
+    const galleryData = [
+        {
+            src: 'img/sc1.jpg',
+            tagKey: 'gallery_item1_tag',
+            titleKey: 'gallery_item1_title',
+            descKey: 'gallery_item1_desc'
+        },
+        {
+            src: 'img/sc2.jpg',
+            tagKey: 'gallery_item2_tag',
+            titleKey: 'gallery_item2_title',
+            descKey: 'gallery_item2_desc'
+        },
+        {
+            src: 'img/sc3.jpg',
+            tagKey: 'gallery_item3_tag',
+            titleKey: 'gallery_item3_title',
+            descKey: 'gallery_item3_desc'
+        },
+        {
+            src: 'img/sc4.png',
+            tagKey: 'gallery_item4_tag',
+            titleKey: 'gallery_item4_title',
+            descKey: 'gallery_item4_desc'
+        },
+        {
+            src: 'img/sc5.jpg',
+            tagKey: 'gallery_item5_tag',
+            titleKey: 'gallery_item5_title',
+            descKey: 'gallery_item5_desc'
+        },
+        {
+            src: 'img/sc6.jpg',
+            tagKey: 'gallery_item6_tag',
+            titleKey: 'gallery_item6_title',
+            descKey: 'gallery_item6_desc'
+        },
+        {
+            src: 'img/sc7.png',
+            tagKey: 'gallery_item7_tag',
+            titleKey: 'gallery_item7_title',
+            descKey: 'gallery_item7_desc'
+        },
+        {
+            src: 'img/sc8.jpg',
+            tagKey: 'gallery_item8_tag',
+            titleKey: 'gallery_item8_title',
+            descKey: 'gallery_item8_desc'
+        }
+    ];
+
+    let currentGalleryIdx = 0;
+
+    updateLightboxContent = () => {
+        if (!lightboxModal || !lightboxModal.classList.contains('active')) return;
+        const item = galleryData[currentGalleryIdx];
+        if (!item) return;
+
+        const dict = translations[currentLang] || translations.es;
+        lightboxImg.src = item.src;
+        lightboxTag.innerHTML = dict[item.tagKey] || '';
+        lightboxTitle.innerHTML = dict[item.titleKey] || '';
+        lightboxDesc.innerHTML = dict[item.descKey] || '';
+        lightboxCounter.textContent = `${currentGalleryIdx + 1} / ${galleryData.length}`;
+    };
+
+    const openLightbox = (idx) => {
+        currentGalleryIdx = (idx + galleryData.length) % galleryData.length;
+        if (lightboxModal) {
+            lightboxModal.classList.add('active');
+            lightboxModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            updateLightboxContent();
+        }
+    };
+
+    const closeLightbox = () => {
+        if (lightboxModal) {
+            lightboxModal.classList.remove('active');
+            lightboxModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+    };
+
+    if (galleryCards.length > 0) {
+        galleryCards.forEach(card => {
+            const idx = parseInt(card.getAttribute('data-gallery-index'), 10);
+            card.addEventListener('click', () => openLightbox(idx));
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLightbox(idx);
+                }
+            });
+        });
+    }
+
+    if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+    if (lightboxOverlay) lightboxOverlay.addEventListener('click', closeLightbox);
+
+    if (lightboxPrevBtn) {
+        lightboxPrevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openLightbox(currentGalleryIdx - 1);
+        });
+    }
+
+    if (lightboxNextBtn) {
+        lightboxNextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openLightbox(currentGalleryIdx + 1);
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (!lightboxModal || !lightboxModal.classList.contains('active')) return;
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+            openLightbox(currentGalleryIdx - 1);
+        } else if (e.key === 'ArrowRight') {
+            openLightbox(currentGalleryIdx + 1);
+        }
+    });
 
 });
