@@ -2313,6 +2313,14 @@ h1, h2, h3, h4, span, p, a, button {
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid var(--border-light);
+    border-radius: 21px 21px 0 0;
+    transition: border-color var(--transition-smooth);
+}
+
+.gallery-card:hover .gallery-media-wrap,
+.gallery-card:focus-visible .gallery-media-wrap,
+.gallery-card:active .gallery-media-wrap {
+    border-bottom-color: rgba(206, 181, 255, 0.45);
 }
 
 .gallery-img {
@@ -2320,30 +2328,41 @@ h1, h2, h3, h4, span, p, a, button {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 21px 21px 0 0;
     display: block;
+    filter: blur(0px);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+    will-change: transform, filter;
 }
 
 .gallery-card:hover .gallery-img,
-.gallery-card:focus-visible .gallery-img {
-    transform: scale(1.035);
+.gallery-card:focus-visible .gallery-img,
+.gallery-card:active .gallery-img {
+    transform: scale(1.05);
+    filter: blur(3.5px);
 }
 
 .gallery-overlay {
     position: absolute;
-    inset: 0;
-    background: rgba(3, 4, 8, 0.48);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    background: rgba(3, 4, 8, 0.52);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
+    border-radius: 21px 21px 0 0;
     transition: opacity var(--transition-fast);
+    pointer-events: none;
 }
 
 .gallery-card:hover .gallery-overlay,
-.gallery-card:focus-visible .gallery-overlay {
+.gallery-card:focus-visible .gallery-overlay,
+.gallery-card:active .gallery-overlay {
     opacity: 1;
 }
 
@@ -2361,10 +2380,12 @@ h1, h2, h3, h4, span, p, a, button {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
     transform: translateY(8px);
     transition: transform var(--transition-smooth);
+    pointer-events: none;
 }
 
 .gallery-card:hover .gallery-zoom-btn,
-.gallery-card:focus-visible .gallery-zoom-btn {
+.gallery-card:focus-visible .gallery-zoom-btn,
+.gallery-card:active .gallery-zoom-btn {
     transform: translateY(0);
 }
 
