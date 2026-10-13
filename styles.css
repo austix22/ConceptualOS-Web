@@ -2530,10 +2530,10 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .lightbox-close {
-    position: fixed;
-    top: 28px;
-    right: 32px;
-    z-index: 2600;
+    position: fixed !important;
+    top: 28px !important;
+    right: 32px !important;
+    z-index: 9999 !important;
     background: rgba(22, 24, 36, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -2604,8 +2604,8 @@ h1, h2, h3, h4, span, p, a, button {
     }
 
     .lightbox-close {
-        top: 20px;
-        right: 20px;
+        top: 20px !important;
+        right: 20px !important;
         width: 44px;
         height: 44px;
         font-size: 1.15rem;
