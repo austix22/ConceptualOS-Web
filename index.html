@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=1.4.3">
+    <link rel="stylesheet" href="styles.css?v=1.4.4">
 </head>
 
 <body>
@@ -1066,8 +1066,19 @@
             <button class="lightbox-close" id="lightboxCloseBtn" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
             <button class="lightbox-nav lightbox-prev" id="lightboxPrevBtn" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
             <div class="lightbox-figure">
-                <img id="lightboxImg" src="" alt="Captura ampliada" class="lightbox-img">
-                <div class="lightbox-caption">
+                <div class="lightbox-viewport">
+                    <div class="lightbox-track" id="lightboxTrack">
+                        <div class="lightbox-slide"><img src="img/sc1.jpg" alt="Pantalla de inicio" class="lightbox-img" loading="lazy"></div>
+                        <div class="lightbox-slide"><img src="img/sc2.jpg" alt="Biblioteca y carátulas" class="lightbox-img" loading="lazy"></div>
+                        <div class="lightbox-slide"><img src="img/sc3.jpg" alt="Detalles y controles" class="lightbox-img" loading="lazy"></div>
+                        <div class="lightbox-slide"><img src="img/sc4.png" alt="Progreso de logros" class="lightbox-img" loading="lazy"></div>
+                        <div class="lightbox-slide"><img src="img/sc5.jpg" alt="Filtro por fabricante" class="lightbox-img" loading="lazy"></div>
+                        <div class="lightbox-slide"><img src="img/sc6.jpg" alt="Navegador de consolas" class="lightbox-img" loading="lazy"></div>
+                        <div class="lightbox-slide"><img src="img/sc7.png" alt="Perfil y logros" class="lightbox-img" loading="lazy"></div>
+                        <div class="lightbox-slide"><img src="img/sc8.jpg" alt="Centro de descargas" class="lightbox-img" loading="lazy"></div>
+                    </div>
+                </div>
+                <div class="lightbox-caption" id="lightboxCaption">
                     <div class="lightbox-tag-row">
                         <span id="lightboxTag" class="gallery-tag"></span>
                         <span id="lightboxCounter" class="lightbox-counter">1 / 8</span>
@@ -1081,7 +1092,7 @@
     </div>
 
     <!-- Custom Script -->
-    <script src="script.js?v=1.4.3"></script>
+    <script src="script.js?v=1.4.4"></script>
 </body>
 
 </html>

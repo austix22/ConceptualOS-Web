@@ -709,7 +709,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 8. Gallery Showcase & Lightbox Handler
     const galleryCards = document.querySelectorAll('.gallery-card');
     const lightboxModal = document.getElementById('galleryLightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTrack = document.getElementById('lightboxTrack');
+    const lightboxCaption = document.getElementById('lightboxCaption');
     const lightboxTag = document.getElementById('lightboxTag');
     const lightboxTitle = document.getElementById('lightboxTitle');
     const lightboxDesc = document.getElementById('lightboxDesc');
@@ -721,49 +722,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const galleryData = [
         {
-            src: 'img/sc1.jpg',
             tagKey: 'gallery_item1_tag',
             titleKey: 'gallery_item1_title',
             descKey: 'gallery_item1_desc'
         },
         {
-            src: 'img/sc2.jpg',
             tagKey: 'gallery_item2_tag',
             titleKey: 'gallery_item2_title',
             descKey: 'gallery_item2_desc'
         },
         {
-            src: 'img/sc3.jpg',
             tagKey: 'gallery_item3_tag',
             titleKey: 'gallery_item3_title',
             descKey: 'gallery_item3_desc'
         },
         {
-            src: 'img/sc4.png',
             tagKey: 'gallery_item4_tag',
             titleKey: 'gallery_item4_title',
             descKey: 'gallery_item4_desc'
         },
         {
-            src: 'img/sc5.jpg',
             tagKey: 'gallery_item5_tag',
             titleKey: 'gallery_item5_title',
             descKey: 'gallery_item5_desc'
         },
         {
-            src: 'img/sc6.jpg',
             tagKey: 'gallery_item6_tag',
             titleKey: 'gallery_item6_title',
             descKey: 'gallery_item6_desc'
         },
         {
-            src: 'img/sc7.png',
             tagKey: 'gallery_item7_tag',
             titleKey: 'gallery_item7_title',
             descKey: 'gallery_item7_desc'
         },
         {
-            src: 'img/sc8.jpg',
             tagKey: 'gallery_item8_tag',
             titleKey: 'gallery_item8_title',
             descKey: 'gallery_item8_desc'
@@ -772,26 +765,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentGalleryIdx = 0;
 
-    updateLightboxContent = () => {
+    updateLightboxContent = (animate = false) => {
         if (!lightboxModal || !lightboxModal.classList.contains('active')) return;
         const item = galleryData[currentGalleryIdx];
         if (!item) return;
 
+        if (lightboxTrack) {
+            if (!animate) {
+                lightboxTrack.style.transition = 'none';
+            } else {
+                lightboxTrack.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+            }
+            lightboxTrack.style.transform = `translateX(-${currentGalleryIdx * 100}%)`;
+            if (!animate) {
+                void lightboxTrack.offsetWidth;
+                lightboxTrack.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+            }
+        }
+
         const dict = translations[currentLang] || translations.es;
-        lightboxImg.src = item.src;
-        lightboxTag.innerHTML = dict[item.tagKey] || '';
-        lightboxTitle.innerHTML = dict[item.titleKey] || '';
-        lightboxDesc.innerHTML = dict[item.descKey] || '';
-        lightboxCounter.textContent = `${currentGalleryIdx + 1} / ${galleryData.length}`;
+        if (animate && lightboxCaption) {
+            lightboxCaption.classList.add('slide-fade');
+            setTimeout(() => {
+                if (lightboxTag) lightboxTag.innerHTML = dict[item.tagKey] || '';
+                if (lightboxTitle) lightboxTitle.innerHTML = dict[item.titleKey] || '';
+                if (lightboxDesc) lightboxDesc.innerHTML = dict[item.descKey] || '';
+                if (lightboxCounter) lightboxCounter.textContent = `${currentGalleryIdx + 1} / ${galleryData.length}`;
+                lightboxCaption.classList.remove('slide-fade');
+            }, 120);
+        } else {
+            if (lightboxTag) lightboxTag.innerHTML = dict[item.tagKey] || '';
+            if (lightboxTitle) lightboxTitle.innerHTML = dict[item.titleKey] || '';
+            if (lightboxDesc) lightboxDesc.innerHTML = dict[item.descKey] || '';
+            if (lightboxCounter) lightboxCounter.textContent = `${currentGalleryIdx + 1} / ${galleryData.length}`;
+        }
     };
 
-    const openLightbox = (idx) => {
+    const openLightbox = (idx, animate = false) => {
         currentGalleryIdx = (idx + galleryData.length) % galleryData.length;
         if (lightboxModal) {
-            lightboxModal.classList.add('active');
-            lightboxModal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-            updateLightboxContent();
+            const isAlreadyActive = lightboxModal.classList.contains('active');
+            if (!isAlreadyActive) {
+                lightboxModal.classList.add('active');
+                lightboxModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                updateLightboxContent(false);
+            } else {
+                updateLightboxContent(animate);
+            }
         }
     };
 
@@ -806,11 +827,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (galleryCards.length > 0) {
         galleryCards.forEach(card => {
             const idx = parseInt(card.getAttribute('data-gallery-index'), 10);
-            card.addEventListener('click', () => openLightbox(idx));
+            card.addEventListener('click', () => openLightbox(idx, false));
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    openLightbox(idx);
+                    openLightbox(idx, false);
                 }
             });
         });
@@ -822,14 +843,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lightboxPrevBtn) {
         lightboxPrevBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            openLightbox(currentGalleryIdx - 1);
+            openLightbox(currentGalleryIdx - 1, true);
         });
     }
 
     if (lightboxNextBtn) {
         lightboxNextBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            openLightbox(currentGalleryIdx + 1);
+            openLightbox(currentGalleryIdx + 1, true);
         });
     }
 
@@ -838,10 +859,32 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape') {
             closeLightbox();
         } else if (e.key === 'ArrowLeft') {
-            openLightbox(currentGalleryIdx - 1);
+            openLightbox(currentGalleryIdx - 1, true);
         } else if (e.key === 'ArrowRight') {
-            openLightbox(currentGalleryIdx + 1);
+            openLightbox(currentGalleryIdx + 1, true);
         }
     });
+
+    // Touch swipe support for mobile devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const lightboxViewport = document.querySelector('.lightbox-viewport');
+    if (lightboxViewport) {
+        lightboxViewport.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightboxViewport.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diffX = touchEndX - touchStartX;
+            if (Math.abs(diffX) > 40) {
+                if (diffX < 0) {
+                    openLightbox(currentGalleryIdx + 1, true);
+                } else {
+                    openLightbox(currentGalleryIdx - 1, true);
+                }
+            }
+        }, { passive: true });
+    }
 
 });
