@@ -135,26 +135,25 @@ document.addEventListener('DOMContentLoaded', () => {
         '.social-link'
     ].join(',');
 
-    let lastInteractionTime = 0;
-    const triggerTactileClick = (e) => {
-        // Debounce touchstart/pointerdown/click duplicates
+    let lastClick1Time = 0;
+    const playClick1Throttled = () => {
         const now = Date.now();
-        if (now - lastInteractionTime < 90) return;
+        if (now - lastClick1Time < 140) return;
+        lastClick1Time = now;
+        SFX.click1();
+    };
 
+    document.addEventListener('click', (e) => {
         // Skip gallery cards (which play juegoabrir) and modal close (which plays click_2)
         const galleryCard = e.target.closest('.gallery-card');
-        const isLightboxClose = e.target.closest('#lightboxCloseBtn, .lightbox-close, #lightboxOverlay, .lightbox-overlay');
+        const isLightboxClose = e.target.closest('#lightboxCloseBtn, .lightbox-close');
         if (galleryCard || isLightboxClose) return;
 
         const target = e.target.closest(interactiveSelector);
         if (target) {
-            lastInteractionTime = now;
-            SFX.click1();
+            playClick1Throttled();
         }
-    };
-
-    document.addEventListener('pointerdown', triggerTactileClick, { capture: true, passive: true });
-    document.addEventListener('click', triggerTactileClick, { capture: true, passive: true });
+    }, { capture: true, passive: true });
 
     // 1. ABXY & PlayStation Colored Symbols Floating Particles Engine (Bare Symbols)
     const initFloatingButtonsBg = () => {
@@ -1019,7 +1018,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lightboxPrevBtn) {
         lightboxPrevBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            SFX.click1();
+            playClick1Throttled();
             openLightbox(currentGalleryIdx - 1, true);
         });
     }
@@ -1027,7 +1026,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lightboxNextBtn) {
         lightboxNextBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            SFX.click1();
+            playClick1Throttled();
             openLightbox(currentGalleryIdx + 1, true);
         });
     }
