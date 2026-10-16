@@ -2044,7 +2044,7 @@ h1, h2, h3, h4, span, p, a, button {
 
 /* Dedicated About Section Styling */
 .about-section {
-    padding: 3rem 0 4rem 0;
+    padding: 3.5rem 0 2rem 0;
 }
 
 .about-box {
@@ -2075,6 +2075,10 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 /* Ko-fi Support Section - Standard Moon Dust System Border */
+.kofi-section {
+    padding: 2rem 0 4.5rem 0;
+}
+
 .kofi-box {
     padding: 2.8rem 2.2rem;
     max-width: 800px;

@@ -53,12 +53,10 @@
             <!-- Nav Links Capsule Pill Container -->
             <nav class="nav-links nav-capsule">
                 <a href="#features" class="nav-item-pill" data-i18n="nav_features">Funciones</a>
-                <a href="#compatibility" class="nav-item-pill" data-i18n="nav_compat">Compatibilidad</a>
                 <a href="#neural-overlay" class="nav-item-pill" data-i18n="nav_cos_hub">COS HUB</a>
                 <a href="#achievements" class="nav-item-pill" data-i18n="nav_achievements">Logros</a>
                 <a href="#gallery" class="nav-item-pill" data-i18n="nav_gallery">Galería</a>
                 <a href="#download" class="nav-item-pill" data-i18n="nav_download">Descargas</a>
-                <a href="#faq" class="nav-item-pill" data-i18n="nav_faq">FAQ</a>
             </nav>
 
             <div class="nav-actions">
@@ -1011,34 +1009,11 @@
                     <div class="feature-icon glow-cyan">
                         <i class="fa-solid fa-images"></i>
                     </div>
-                    <h3 data-i18n="faq_q6">¿La aplicación descarga automáticamente las carátulas e información de los
-                        juegos?</h3>
-                    <p data-i18n="faq_a6">Sí. Al vincular tus carpetas de juegos, el motor de scraping automático de COS
-                        Launcher identifica tus títulos y descarga en alta definición sus iconos, fondos de pantalla
-                        (banners) e información del juego sin que tengas que configurar nada manualmente.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Support / Ko-fi Section -->
-    <section id="kofi" class="section kofi-section">
-        <div class="container text-center">
-            <div class="kofi-box glass-card">
-                <h2 class="section-title" data-i18n="kofi_title">Apoya el proyecto</h2>
-                <p class="section-description" data-i18n="kofi_desc">
-                    COS Launcher es y seguirá siendo 100% gratuito, libre de publicidad y sin ningún tipo de cobro
-                    oculto. Desarrollarlo y pulir cada detalle requiere muchas horas de código, pruebas y optimización;
-                    si la app te resulta útil en tus partidas y quieres mostrar tu agradecimiento, invitarme a un café
-                    en Ko-fi es una gran forma de valorar mi tiempo y darme un empujón de energía para seguir
-                    mejorándola.
-                </p>
-
-                <div class="kofi-cta">
-                    <a href="https://ko-fi.com/austix" target="_blank" class="btn btn-kofi btn-lg"
-                        aria-label="Apoyar en Ko-fi">
-                        <i class="fa-solid fa-mug-hot"></i> <span data-i18n="kofi_btn">Ko-fi</span>
-                    </a>
+                    <h3 data-i18n="faq_q6">¿Cómo funciona la descarga de recursos e información de los juegos?</h3>
+                    <p data-i18n="faq_a6">El scraping de recursos se realiza mediante conexión con ScreenScraper y
+                        SteamGridDB utilizando tus cuentas y claves API. Al configurarlas en la app, COS Launcher obtiene
+                        e integra iconos en alta definición, fondos de pantalla (banners), vistas previas en video e
+                        información de cada juego.</p>
                 </div>
             </div>
         </div>
@@ -1064,6 +1039,29 @@
                             % sin anuncios</span></div>
                     <div class="about-pill"><i class="fa-solid fa-gamepad"></i> <span data-i18n="about_pill3">Compatible
                             con controles</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support / Ko-fi Section -->
+    <section id="kofi" class="section kofi-section">
+        <div class="container text-center">
+            <div class="kofi-box glass-card">
+                <h2 class="section-title" data-i18n="kofi_title">Apoya el proyecto</h2>
+                <p class="section-description" data-i18n="kofi_desc">
+                    COS Launcher es y seguirá siendo 100% gratuito, libre de publicidad y sin ningún tipo de cobro
+                    oculto. Desarrollarlo y pulir cada detalle requiere muchas horas de código, pruebas y optimización;
+                    si la app te resulta útil en tus partidas y quieres mostrar tu agradecimiento, invitarme a un café
+                    en Ko-fi es una gran forma de valorar mi tiempo y darme un empujón de energía para seguir
+                    mejorándola.
+                </p>
+
+                <div class="kofi-cta">
+                    <a href="https://ko-fi.com/austix" target="_blank" class="btn btn-kofi btn-lg"
+                        aria-label="Apoyar en Ko-fi">
+                        <i class="fa-solid fa-mug-hot"></i> <span data-i18n="kofi_btn">Ko-fi</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -1130,8 +1128,13 @@
         </div>
     </div>
 
+    <!-- Audio SFX Elements Preloaded -->
+    <audio id="sfxClick1" src="m4a/click_1.m4a" preload="auto"></audio>
+    <audio id="sfxClick2" src="m4a/click_2.m4a" preload="auto"></audio>
+    <audio id="sfxJuegoAbrir" src="m4a/juegoabrir.mp3" preload="auto"></audio>
+
     <!-- Custom Script -->
-    <script src="script.js?v=1.6.2"></script>
+    <script src="script.js?v=1.6.3"></script>
 </body>
 
 </html>

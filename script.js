@@ -4,6 +4,144 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // 0. High-Performance Web Audio SFX Engine (Zero-Latency, Instant Preload & Fallback)
+    const SFX = (() => {
+        let audioCtx = null;
+        const soundBuffers = {};
+        const audioElements = {};
+        const soundSources = {
+            click_1: 'm4a/click_1.m4a',
+            click_2: 'm4a/click_2.m4a',
+            juegoabrir: 'm4a/juegoabrir.mp3'
+        };
+
+        const getAudioContext = () => {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) {
+                    audioCtx = new AudioContextClass();
+                }
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume().catch(() => {});
+            }
+            return audioCtx;
+        };
+
+        // Preload sound using Web Audio API buffer (instantaneous decode)
+        const loadSoundBuffer = async (name, url) => {
+            try {
+                const response = await fetch(url);
+                const arrayBuffer = await response.arrayBuffer();
+                const ctx = getAudioContext();
+                if (ctx) {
+                    ctx.decodeAudioData(arrayBuffer, (decoded) => {
+                        soundBuffers[name] = decoded;
+                    }, () => {});
+                }
+            } catch (err) {
+                // If fetch / decode fails (e.g. file:// protocol restriction), fallback smoothly
+            }
+        };
+
+        // Preload HTMLAudioElements as instant fallback pool
+        const initAudioElements = () => {
+            Object.keys(soundSources).forEach(key => {
+                const el = document.getElementById(key === 'click_1' ? 'sfxClick1' : (key === 'click_2' ? 'sfxClick2' : 'sfxJuegoAbrir')) || new Audio(soundSources[key]);
+                el.preload = 'auto';
+                el.load();
+                audioElements[key] = el;
+                loadSoundBuffer(key, soundSources[key]);
+            });
+        };
+
+        initAudioElements();
+
+        // Unlock audio context on any user interaction so first touch produces immediate sound without delay
+        const unlockAudio = () => {
+            getAudioContext();
+            ['pointerdown', 'touchstart', 'mousedown', 'keydown'].forEach(evt => {
+                window.removeEventListener(evt, unlockAudio, true);
+            });
+        };
+        ['pointerdown', 'touchstart', 'mousedown', 'keydown'].forEach(evt => {
+            window.addEventListener(evt, unlockAudio, { capture: true, once: true });
+        });
+
+        const play = (name, volume = 0.85) => {
+            const ctx = getAudioContext();
+            // Try Web Audio API first for zero-latency instant triggering
+            if (ctx && soundBuffers[name]) {
+                try {
+                    const source = ctx.createBufferSource();
+                    const gainNode = ctx.createGain();
+                    gainNode.gain.setValueAtTime(volume, ctx.currentTime);
+                    source.buffer = soundBuffers[name];
+                    source.connect(gainNode);
+                    gainNode.connect(ctx.destination);
+                    source.start(0);
+                    return;
+                } catch (e) {
+                    // fall back to Audio element
+                }
+            }
+
+            // Fallback via HTMLAudioElement clone to prevent queue delays or overlaps
+            try {
+                const baseEl = audioElements[name] || document.getElementById(name === 'click_1' ? 'sfxClick1' : (name === 'click_2' ? 'sfxClick2' : 'sfxJuegoAbrir'));
+                if (baseEl) {
+                    const clone = baseEl.cloneNode(true);
+                    clone.volume = volume;
+                    const p = clone.play();
+                    if (p && typeof p.catch === 'function') {
+                        p.catch(() => {});
+                    }
+                }
+            } catch (err) {}
+        };
+
+        return {
+            click1: (vol = 0.85) => play('click_1', vol),
+            click2: (vol = 0.85) => play('click_2', vol),
+            juegoAbrir: (vol = 0.9) => play('juegoabrir', vol),
+            unlock: unlockAudio
+        };
+    })();
+
+    // Global tactile click listener for interactive elements
+    const interactiveSelector = [
+        'a',
+        'button',
+        '[role="button"]',
+        '.badge-pill',
+        '.nav-item-pill',
+        '.tab-pill',
+        '.action-pill',
+        '.tool-chip',
+        '.kofi-nav-pill',
+        '.lang-toggle-pill',
+        '.faq-item-header',
+        '.accordion-header',
+        '.hero-btn',
+        '.btn',
+        '.btn-kofi',
+        '.download-btn',
+        '.os-filter-pill',
+        '.social-link'
+    ].join(',');
+
+    document.addEventListener('click', (e) => {
+        // If clicking inside gallery card (which triggers juegoabrir) or lightbox modal close/backdrop (which triggers click_2), don't play click_1
+        const galleryCard = e.target.closest('.gallery-card');
+        const isLightboxClose = e.target.closest('#lightboxCloseBtn, .lightbox-close, #lightboxOverlay, .lightbox-overlay');
+        if (galleryCard || isLightboxClose) return;
+
+        const target = e.target.closest(interactiveSelector);
+        if (target) {
+            SFX.click1();
+        }
+    }, { capture: false });
+
     // 1. ABXY & PlayStation Colored Symbols Floating Particles Engine (Bare Symbols)
     const initFloatingButtonsBg = () => {
         const bgContainer = document.getElementById('floatingIconsBg');
@@ -201,8 +339,8 @@ document.addEventListener('DOMContentLoaded', () => {
             faq_a4: "Sí, totalmente. COS Launcher está construido bajo el principio de privacidad por diseño: es una aplicación 100% libre de publicidad, sin rastreadores invasivos ni recolección de datos personales. Puedes descargar el APK oficial compilado directamente o instalarlo desde Google Play Store.",
             faq_q5: "¿Cómo funciona la integración con RetroAchievements (Logros)?",
             faq_a5: "Solo debes vincular tu cuenta de RetroAchievements desde la app. COS Launcher sincronizará automáticamente tus logros obtenidos, mostrará tu progreso en tiempo real dentro de tu perfil y desplegará un menú superpuesto (Overlay) durante tus partidas para consultar y seguir tus logros al instante.",
-            faq_q6: "¿La aplicación descarga automáticamente las carátulas e información de los juegos?",
-            faq_a6: "Sí. Al vincular tus carpetas de juegos, el motor de scraping automático de COS Launcher identifica tus títulos y descarga en alta definición sus iconos, fondos de pantalla (banners) e información del juego sin que tengas que configurar nada manualmente.",
+            faq_q6: "¿Cómo funciona la descarga de recursos e información de los juegos?",
+            faq_a6: "El scraping de recursos se realiza mediante conexión con ScreenScraper y SteamGridDB utilizando tus cuentas y claves API. Al configurarlas en la app, COS Launcher obtiene e integra iconos en alta definición, fondos de pantalla (banners), vistas previas en video e información de cada juego.",
             dl_title: "Obtén COS Launcher",
             dl_desc: "Descarga COS Launcher en tu dispositivo portátil o teléfono Android.",
             dl_apk_badge: "APK DIRECTO",
@@ -328,8 +466,8 @@ document.addEventListener('DOMContentLoaded', () => {
             faq_a4: "Yes, completely safe. COS Launcher is built with privacy-by-design principles: it is 100% ad-free, with zero invasive trackers or personal data collection. You can download the official compiled APK directly or install it from the Google Play Store.",
             faq_q5: "How does RetroAchievements integration work?",
             faq_a5: "Simply link your RetroAchievements account from the app. COS Launcher will automatically sync your earned achievements, display your real-time progress on your profile, and provide an in-game overlay menu to track and view your achievements on the fly.",
-            faq_q6: "Does the app automatically download artwork and game details?",
-            faq_a6: "Yes. When you link your game folders, COS Launcher's automatic scraping engine identifies your titles and downloads high-definition icons, background banners, and game details without requiring any manual setup.",
+            faq_q6: "How does game assets and details scraping work?",
+            faq_a6: "Asset and metadata scraping connects directly to ScreenScraper and SteamGridDB using your accounts and API keys. Once configured in the app, COS Launcher fetches and integrates high-definition icons, background banners, video previews, and details for each game.",
             dl_title: "Get COS Launcher",
             dl_desc: "Download COS Launcher on your handheld device or Android phone.",
             dl_apk_badge: "DIRECT APK",
@@ -806,6 +944,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lightboxModal) {
             const isAlreadyActive = lightboxModal.classList.contains('active');
             if (!isAlreadyActive) {
+                SFX.juegoAbrir();
                 lightboxModal.classList.add('active');
                 lightboxModal.setAttribute('aria-hidden', 'false');
                 document.body.style.overflow = 'hidden';
@@ -817,7 +956,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const closeLightbox = () => {
-        if (lightboxModal) {
+        if (lightboxModal && lightboxModal.classList.contains('active')) {
+            SFX.click2();
             lightboxModal.classList.remove('active');
             lightboxModal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
@@ -837,11 +977,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+    if (lightboxCloseBtn) {
+        lightboxCloseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeLightbox();
+        });
+    }
+
+    if (lightboxOverlay) {
+        lightboxOverlay.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeLightbox();
+        });
+    }
 
     if (lightboxPrevBtn) {
         lightboxPrevBtn.addEventListener('click', (e) => {
             e.stopPropagation();
+            SFX.click1();
             openLightbox(currentGalleryIdx - 1, true);
         });
     }
@@ -849,13 +1002,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lightboxNextBtn) {
         lightboxNextBtn.addEventListener('click', (e) => {
             e.stopPropagation();
+            SFX.click1();
             openLightbox(currentGalleryIdx + 1, true);
         });
     }
 
     document.addEventListener('keydown', (e) => {
         if (!lightboxModal || !lightboxModal.classList.contains('active')) return;
-        if (e.key === 'ArrowLeft') {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
             openLightbox(currentGalleryIdx - 1, true);
         } else if (e.key === 'ArrowRight') {
             openLightbox(currentGalleryIdx + 1, true);
