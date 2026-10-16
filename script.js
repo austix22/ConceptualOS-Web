@@ -108,11 +108,16 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     })();
 
-    // Global tactile click listener for interactive elements
+    // Global tactile click / tap listener for interactive elements (supports pointerdown & click without duplicate triggers)
     const interactiveSelector = [
         'a',
         'button',
         '[role="button"]',
+        '.overlay-icon-btn',
+        '.ra-grid-item',
+        '.tool-card',
+        '.tool-button',
+        '.music-btn',
         '.badge-pill',
         '.nav-item-pill',
         '.tab-pill',
@@ -130,17 +135,26 @@ document.addEventListener('DOMContentLoaded', () => {
         '.social-link'
     ].join(',');
 
-    document.addEventListener('click', (e) => {
-        // If clicking inside gallery card (which triggers juegoabrir) or lightbox modal close/backdrop (which triggers click_2), don't play click_1
+    let lastInteractionTime = 0;
+    const triggerTactileClick = (e) => {
+        // Debounce touchstart/pointerdown/click duplicates
+        const now = Date.now();
+        if (now - lastInteractionTime < 90) return;
+
+        // Skip gallery cards (which play juegoabrir) and modal close (which plays click_2)
         const galleryCard = e.target.closest('.gallery-card');
         const isLightboxClose = e.target.closest('#lightboxCloseBtn, .lightbox-close, #lightboxOverlay, .lightbox-overlay');
         if (galleryCard || isLightboxClose) return;
 
         const target = e.target.closest(interactiveSelector);
         if (target) {
+            lastInteractionTime = now;
             SFX.click1();
         }
-    }, { capture: false });
+    };
+
+    document.addEventListener('pointerdown', triggerTactileClick, { capture: true, passive: true });
+    document.addEventListener('click', triggerTactileClick, { capture: true, passive: true });
 
     // 1. ABXY & PlayStation Colored Symbols Floating Particles Engine (Bare Symbols)
     const initFloatingButtonsBg = () => {
@@ -574,7 +588,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (achGridItems.length > 0) {
         achGridItems.forEach(item => {
-            item.addEventListener('click', () => {
+            const handleAchClick = () => {
                 const isAlreadyActive = item.classList.contains('active');
 
                 // Quitar foco a todos los items
@@ -600,6 +614,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (achMainDesc && desc) achMainDesc.textContent = desc;
                     if (achMainPts && pts) achMainPts.textContent = pts;
                 }
+            };
+
+            item.addEventListener('click', handleAchClick);
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    SFX.click1();
+                    handleAchClick();
+                }
             });
         });
     }
@@ -610,13 +633,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (overlayIconBtns.length > 0 && overlayTabViews.length > 0) {
         overlayIconBtns.forEach((btn, index) => {
-            btn.addEventListener('click', () => {
+            const handleTabClick = () => {
                 overlayIconBtns.forEach(b => b.classList.remove('active'));
                 overlayTabViews.forEach(v => v.classList.remove('active'));
 
                 btn.classList.add('active');
                 if (overlayTabViews[index]) {
                     overlayTabViews[index].classList.add('active');
+                }
+            };
+
+            btn.addEventListener('click', handleTabClick);
+            btn.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    SFX.click1();
+                    handleTabClick();
                 }
             });
         });
