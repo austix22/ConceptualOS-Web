@@ -1016,13 +1016,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (lightboxOverlay) {
-        lightboxOverlay.addEventListener('click', (e) => {
-            e.stopPropagation();
-            closeLightbox();
-        });
-    }
-
     if (lightboxPrevBtn) {
         lightboxPrevBtn.addEventListener('click', (e) => {
             e.stopPropagation();
