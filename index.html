@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=1.6.7">
+    <link rel="stylesheet" href="styles.css?v=1.6.9">
 </head>
 
 <body>
@@ -202,6 +202,36 @@
                     <h3 data-i18n="f6_title">Reproductor de Música</h3>
                     <p data-i18n="f6_desc">Escucha música mientras juegas y ajusta su volumen de forma independiente.
                     </p>
+                </div>
+
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-purple">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 data-i18n="f7_title">Parcheador de ROMs Nativo</h3>
+                    <p data-i18n="f7_desc">Aplica parches binarios y traducciones en vivo desde tu teléfono. Soporte multiformato (.xdelta, .vcdiff, .ips, .bps en Kotlin puro) con operación in-situ cero basura que sobrescribe la ROM original sin duplicar archivos.</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">.xdelta</span>
+                        <span class="feature-tag">.vcdiff</span>
+                        <span class="feature-tag">.ips</span>
+                        <span class="feature-tag">.bps</span>
+                        <span class="feature-tag highlight-tag">Cero Basura</span>
+                    </div>
+                </div>
+
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-blue">
+                        <i class="fa-solid fa-cloud-arrow-down"></i>
+                    </div>
+                    <h3 data-i18n="f8_title">Tienda de Descargas Directas</h3>
+                    <p data-i18n="f8_desc">Conceptual Downloads: repositorio integrado de emuladores con enlaces directos oficiales para instalar fácilmente los emuladores más populares (Yuzu, Citra, Dolphin, NetherSX2, Vita3K, Bachata-S4, etc.).</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">Yuzu</span>
+                        <span class="feature-tag">Citra</span>
+                        <span class="feature-tag">Dolphin</span>
+                        <span class="feature-tag">NetherSX2</span>
+                        <span class="feature-tag">Vita3K</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -860,9 +890,9 @@
                         <div class="gallery-card-meta">
                             <span class="gallery-tag" data-i18n="gallery_item8_tag">08 • DESCARGAS</span>
                         </div>
-                        <h3 class="gallery-card-title" data-i18n="gallery_item8_title">Centro de Descargas</h3>
+                        <h3 class="gallery-card-title" data-i18n="gallery_item8_title">Conceptual Downloads</h3>
                         <p class="gallery-card-desc" data-i18n="gallery_item8_desc">
-                            Gestor de enlaces para la descarga de emuladores organizados por plataforma. Todos los enlaces son oficiales y provienen directamente de sus propios creadores.
+                            Tienda y repositorio de emuladores integrado. Enlaces directos oficiales para descargar e instalar fácilmente los emuladores más populares (Yuzu, Citra, Dolphin, NetherSX2, Vita3K, Bachata-S4, etc.).
                         </p>
                     </div>
                 </div>
@@ -977,10 +1007,7 @@
                         <i class="fa-solid fa-box-open"></i>
                     </div>
                     <h3 data-i18n="faq_q3">¿La aplicación incluye juegos o emuladores?</h3>
-                    <p data-i18n="faq_a3">No. COS Launcher es un organizador de biblioteca e interfaz visual de alto
-                        rendimiento (frontend). Debes poseer tus propios emuladores y juegos (ROMs)
-                        legalmente adquiridos; la aplicación se encarga de organizarlos, descargar sus carátulas y
-                        brindarte lanzamientos directos e instantáneos.</p>
+                    <p data-i18n="faq_a3">No directamente dentro del paquete de instalación. COS Launcher es un organizador de biblioteca e interfaz visual de alto rendimiento (frontend). Sin embargo, cuenta con Conceptual Downloads, una tienda integrada con enlaces directos y oficiales para descargar con comodidad los emuladores más populares (Yuzu, Citra, Dolphin, NetherSX2, Vita3K, Bachata-S4, etc.).</p>
                 </div>
 
                 <!-- FAQ 4 -->
@@ -1017,6 +1044,15 @@
                         SteamGridDB utilizando tus cuentas y claves API. Al configurarlas en la app, COS Launcher obtiene
                         e integra iconos en alta definición, fondos de pantalla (banners), vistas previas en video e
                         información de cada juego.</p>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-purple">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 data-i18n="faq_q7">¿Cómo funciona el Parcheador de ROMs integrado (RomPatchManager)?</h3>
+                    <p data-i18n="faq_a7">Permite traducir y modificar tus juegos directamente desde tu dispositivo Android sin depender de una PC. Desarrollado en Kotlin nativo puro, soporta parches binarios .xdelta, .vcdiff, .ips y .bps con una operación in-situ 'cero basura' que sobrescribe la ROM en su carpeta de origen conservando su nombre y metadatos sin generar copias duplicadas.</p>
                 </div>
             </div>
         </div>
@@ -1137,7 +1173,7 @@
     <audio id="sfxJuegoAbrir" src="m4a/juegoabrir.mp3" preload="auto"></audio>
 
     <!-- Custom Script -->
-    <script src="script.js?v=1.6.8"></script>
+    <script src="script.js?v=1.6.9"></script>
 </body>
 
 </html>

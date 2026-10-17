@@ -301,7 +301,7 @@ h1, h2, h3, h4, span, p, a, button {
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--border-light);
-    border-radius: 30px;
+    border-radius: 9999px;
     margin-left: auto;
 }
 
@@ -311,19 +311,21 @@ h1, h2, h3, h4, span, p, a, button {
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
-    padding: 0.5rem 1.2rem;
-    border-radius: 20px;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
     transition: var(--transition-smooth);
     border: 1px solid transparent;
 }
 
 .nav-item-pill:hover,
 .nav-item-pill:focus,
-.nav-item-pill:active {
+.nav-item-pill:active,
+.nav-item-pill.active {
     color: #FFFFFF !important;
     background: linear-gradient(135deg, rgba(128, 168, 255, 0.25), rgba(206, 181, 255, 0.25));
     border-color: rgba(206, 181, 255, 0.45);
     box-shadow: 0 0 14px rgba(206, 181, 255, 0.35);
+    border-radius: 9999px;
 }
 
 .nav-actions {
@@ -877,6 +879,35 @@ h1, h2, h3, h4, span, p, a, button {
 .feature-card p {
     color: var(--text-secondary);
     font-size: 0.95rem;
+}
+
+.feature-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 1.15rem;
+}
+
+.feature-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.22rem 0.65rem;
+    border-radius: 20px;
+    background: rgba(206, 181, 255, 0.08);
+    border: 1px solid rgba(206, 181, 255, 0.22);
+    color: var(--moondust-cyan);
+    letter-spacing: 0.3px;
+    transition: var(--transition-fast);
+}
+
+.feature-card:hover .feature-tag {
+    border-color: rgba(206, 181, 255, 0.45);
+}
+
+.feature-tag.highlight-tag {
+    background: rgba(0, 230, 118, 0.12);
+    border-color: rgba(0, 230, 118, 0.35);
+    color: #00e676;
 }
 
 /* Deep Dive Sections (COS HUB Overlay & RetroAchievements & Ko-fi) */
