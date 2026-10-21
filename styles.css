@@ -3020,6 +3020,39 @@ h1, h2, h3, h4, span, p, a, button {
     }
 }
 
+/* Live Wallpaper Dedicated Lightbox (Frameless & No Empty Bottom Caption) */
+.wp-lightbox-content {
+    max-width: 1100px;
+    width: 92%;
+}
+
+.wp-lightbox-figure {
+    border-radius: 20px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wp-lightbox-viewport {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    width: 100%;
+}
+
+.wp-lightbox-img {
+    max-height: 82vh;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
 
 
 

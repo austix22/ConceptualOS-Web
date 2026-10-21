@@ -1126,35 +1126,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // 12. Conceptual Live Wallpaper Preview Lightbox Modal
     const wpLightboxModal = document.getElementById('wallpaperLightbox');
     const wpLightboxImg = document.getElementById('wpLightboxImg');
-    const wpLightboxTag = document.getElementById('wpLightboxTag');
-    const wpLightboxTitle = document.getElementById('wpLightboxTitle');
-    const wpLightboxDesc = document.getElementById('wpLightboxDesc');
     const wpLightboxCloseBtn = document.getElementById('wpLightboxCloseBtn');
-    const wpLightboxOverlay = document.getElementById('wpLightboxOverlay');
     const wpCards = document.querySelectorAll('.wallpaper-card');
-    let currentWpMode = 'color';
-
-    updateWpLightboxTexts = () => {
-        if (!wpLightboxModal || !wpLightboxModal.classList.contains('active')) return;
-        const dict = translations[currentLang] || translations.es;
-        if (wpLightboxTag) {
-            wpLightboxTag.textContent = currentWpMode === 'color' ? dict.wp_card1_tag : dict.wp_card2_tag;
-        }
-        if (wpLightboxTitle) {
-            wpLightboxTitle.textContent = currentWpMode === 'color' ? dict.wp_card1_title : dict.wp_card2_title;
-        }
-        if (wpLightboxDesc) {
-            wpLightboxDesc.textContent = currentWpMode === 'color' ? dict.wp_card1_desc : dict.wp_card2_desc;
-        }
-    };
 
     const openWallpaperLightbox = (card) => {
         if (!wpLightboxModal || !card) return;
         const imgSrc = card.getAttribute('data-wp-img');
-        currentWpMode = card.getAttribute('data-wp-mode') || 'color';
-
         if (wpLightboxImg) wpLightboxImg.src = imgSrc;
-        updateWpLightboxTexts();
 
         SFX.juegoAbrir();
         wpLightboxModal.classList.add('active');
@@ -1183,26 +1161,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Modal ONLY closes by clicking the upper right 'X' button
     if (wpLightboxCloseBtn) {
         wpLightboxCloseBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             closeWallpaperLightbox();
         });
     }
-
-    if (wpLightboxOverlay) {
-        wpLightboxOverlay.addEventListener('click', () => {
-            closeWallpaperLightbox();
-        });
-    }
-
-    document.addEventListener('keydown', (e) => {
-        if (wpLightboxModal && wpLightboxModal.classList.contains('active')) {
-            if (e.key === 'Escape') {
-                closeWallpaperLightbox();
-            }
-        }
-    });
 
 });
 
