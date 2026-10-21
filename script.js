@@ -824,10 +824,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 9. Tab 4: Interactive Music Player (Soundtrack 01, Audio playback, Seek bar, Volume)
+    // 9. Tab 4: Interactive Music Player (Soundtrack 01 & 02 Playlist, Seek bar, Volume)
     const bgMusicAudio = document.getElementById('bgMusicAudio');
     const musicPlayPauseBtn = document.getElementById('musicPlayPauseBtn');
     const musicPlayIcon = document.getElementById('musicPlayIcon');
+    const musicTrackTitle = document.getElementById('musicTrackTitle');
+    const musicPrevBtn = document.getElementById('musicPrevBtn');
+    const musicNextBtn = document.getElementById('musicNextBtn');
     const musicSeekSlider = document.getElementById('musicSeekSlider');
     const musicProgressFill = document.getElementById('musicProgressFill');
     const musicSeekThumb = document.getElementById('musicSeekThumb');
@@ -837,6 +840,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicVolFill = document.getElementById('musicVolFill');
     const musicVolThumb = document.getElementById('musicVolThumb');
     const musicVolVal = document.getElementById('musicVolVal');
+
+    const musicPlaylist = [
+        {
+            title: 'Soundtrack 01',
+            src: 'm4a/cos_launcher_background.m4a'
+        },
+        {
+            title: 'Soundtrack 02',
+            src: 'm4a/davinci_modern_videogames.mp3'
+        }
+    ];
+
+    let currentTrackIdx = 0;
 
     const formatAudioTime = (seconds) => {
         if (isNaN(seconds) || seconds === Infinity || seconds < 0) return '00:00';
@@ -848,6 +864,39 @@ document.addEventListener('DOMContentLoaded', () => {
     if (bgMusicAudio) {
         bgMusicAudio.volume = 0.6;
 
+        const loadTrack = (idx, shouldPlay = false) => {
+            currentTrackIdx = (idx + musicPlaylist.length) % musicPlaylist.length;
+            const track = musicPlaylist[currentTrackIdx];
+
+            if (musicTrackTitle) {
+                musicTrackTitle.textContent = track.title;
+            }
+
+            bgMusicAudio.src = track.src;
+            bgMusicAudio.currentTime = 0;
+
+            if (musicCurrentTime) musicCurrentTime.textContent = '00:00';
+            if (musicTotalTime) musicTotalTime.textContent = '00:00';
+            if (musicProgressFill) musicProgressFill.style.width = '0%';
+            if (musicSeekSlider) musicSeekSlider.value = 0;
+            if (musicSeekThumb) musicSeekThumb.style.left = `calc(7px + 0 * (100% - 14px))`;
+
+            if (shouldPlay) {
+                const playPromise = bgMusicAudio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        if (musicPlayIcon) musicPlayIcon.className = 'fa-solid fa-pause';
+                        if (musicPlayPauseBtn) musicPlayPauseBtn.classList.add('playing');
+                    }).catch(err => {
+                        console.warn('Playback prevented:', err);
+                    });
+                }
+            } else {
+                if (musicPlayIcon) musicPlayIcon.className = 'fa-solid fa-play';
+                if (musicPlayPauseBtn) musicPlayPauseBtn.classList.remove('playing');
+            }
+        };
+
         if (musicPlayPauseBtn) {
             musicPlayPauseBtn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -858,7 +907,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (playPromise !== undefined) {
                         playPromise.then(() => {
                             if (musicPlayIcon) musicPlayIcon.className = 'fa-solid fa-pause';
-                            musicPlayPauseBtn.classList.add('playing');
+                            if (musicPlayPauseBtn) musicPlayPauseBtn.classList.add('playing');
                         }).catch(err => {
                             console.warn('Audio play prevented:', err);
                         });
@@ -866,8 +915,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     bgMusicAudio.pause();
                     if (musicPlayIcon) musicPlayIcon.className = 'fa-solid fa-play';
-                    musicPlayPauseBtn.classList.remove('playing');
+                    if (musicPlayPauseBtn) musicPlayPauseBtn.classList.remove('playing');
                 }
+            });
+        }
+
+        if (musicPrevBtn) {
+            musicPrevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                loadTrack(currentTrackIdx - 1, true);
+            });
+        }
+
+        if (musicNextBtn) {
+            musicNextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                loadTrack(currentTrackIdx + 1, true);
             });
         }
 
@@ -900,13 +965,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         bgMusicAudio.addEventListener('ended', () => {
-            if (musicPlayIcon) musicPlayIcon.className = 'fa-solid fa-play';
-            if (musicPlayPauseBtn) musicPlayPauseBtn.classList.remove('playing');
-            bgMusicAudio.currentTime = 0;
-            if (musicCurrentTime) musicCurrentTime.textContent = '00:00';
-            if (musicProgressFill) musicProgressFill.style.width = '0%';
-            if (musicSeekSlider) musicSeekSlider.value = 0;
-            if (musicSeekThumb) musicSeekThumb.style.left = `calc(7px + 0 * (100% - 14px))`;
+            // Auto-advance to next track when finished
+            loadTrack(currentTrackIdx + 1, true);
         });
 
         const musicSeekBox = musicSeekSlider ? musicSeekSlider.closest('.tool-slider-box') : null;

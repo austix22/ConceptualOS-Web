@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=2.1.0">
+    <link rel="stylesheet" href="styles.css?v=2.2.0">
 </head>
 
 <body>
@@ -451,13 +451,13 @@
 
                                     <!-- Media Player Controls -->
                                     <div class="music-controls-row">
-                                        <button class="music-btn disabled" disabled aria-label="Canción anterior"
-                                            title="No disponible"><i class="fa-solid fa-backward-step"></i></button>
+                                        <button class="music-btn" id="musicPrevBtn" aria-label="Canción anterior"
+                                            title="Canción anterior"><i class="fa-solid fa-backward-step"></i></button>
                                         <button class="music-btn play-pause-btn" id="musicPlayPauseBtn"
                                             aria-label="Reproducir o pausar"><i class="fa-solid fa-play"
                                                 id="musicPlayIcon"></i></button>
-                                        <button class="music-btn disabled" disabled aria-label="Siguiente canción"
-                                            title="No disponible"><i class="fa-solid fa-forward-step"></i></button>
+                                        <button class="music-btn" id="musicNextBtn" aria-label="Siguiente canción"
+                                            title="Siguiente canción"><i class="fa-solid fa-forward-step"></i></button>
                                     </div>
 
                                     <!-- Independent Music Volume Bar -->
@@ -1316,7 +1316,7 @@
     <audio id="sfxJuegoAbrir" src="m4a/juegoabrir.mp3" preload="auto"></audio>
 
     <!-- Custom Script -->
-    <script src="script.js?v=2.1.0"></script>
+    <script src="script.js?v=2.2.0"></script>
 </body>
 
 </html>
