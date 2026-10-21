@@ -376,8 +376,7 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 /* Both Primary and Google Play Buttons share vibrant high-contrast gradient */
-.btn-primary,
-.btn-googleplay {
+.btn-primary {
     background: linear-gradient(135deg, #4f73f6, #956aff);
     color: #FFFFFF !important;
     font-weight: 700;
@@ -386,13 +385,30 @@ h1, h2, h3, h4, span, p, a, button {
     border: 1px solid rgba(206, 181, 255, 0.3);
 }
 
-.btn-primary:hover,
-.btn-googleplay:hover {
+.btn-primary:hover {
     background: linear-gradient(135deg, #3d62f5, #8452ff);
     color: #FFFFFF !important;
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(206, 181, 255, 0.5);
     border-color: rgba(206, 181, 255, 0.6);
+}
+
+.btn-googleplay {
+    background: linear-gradient(135deg, #4f73f6, #956aff);
+    color: #FFFFFF !important;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 18px rgba(128, 168, 255, 0.35);
+    border: none !important;
+    outline: none;
+}
+
+.btn-googleplay:hover {
+    background: linear-gradient(135deg, #3d62f5, #8452ff);
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(206, 181, 255, 0.5);
+    border: none !important;
 }
 
 /* Ko-fi Support Button Styling - Warm Coral/Rose Accent */
@@ -2978,24 +2994,16 @@ h1, h2, h3, h4, span, p, a, button {
     padding: 1.05rem 2.4rem;
     border-radius: 16px;
     letter-spacing: 0.2px;
+    border: none !important;
+    outline: none !important;
 }
 
-.wallpaper-cta-note {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    max-width: 620px;
-    margin: 0 auto;
-    line-height: 1.5;
+.wallpaper-play-btn:hover,
+.wallpaper-play-btn:focus-visible {
+    border: none !important;
+    outline: none !important;
 }
 
-.wallpaper-cta-note strong {
-    color: var(--moondust-purple);
-}
-
-.wallpaper-cta-note i {
-    color: var(--moondust-softblue);
-    margin-right: 0.3rem;
-}
 
 @media (max-width: 900px) {
     .wallpaper-preview-grid {
