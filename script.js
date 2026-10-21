@@ -1126,13 +1126,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // 12. Conceptual Live Wallpaper Preview Lightbox Modal
     const wpLightboxModal = document.getElementById('wallpaperLightbox');
     const wpLightboxImg = document.getElementById('wpLightboxImg');
+    const wpLightboxDesc = document.getElementById('wpLightboxDesc');
     const wpLightboxCloseBtn = document.getElementById('wpLightboxCloseBtn');
+    const wpLightboxOverlay = document.getElementById('wpLightboxOverlay');
     const wpCards = document.querySelectorAll('.wallpaper-card');
+
+    let currentWpMode = 'color';
+
+    const renderWpLightboxText = () => {
+        if (!wpLightboxDesc) return;
+        if (currentWpMode === 'mono') {
+            wpLightboxDesc.textContent = currentLang === 'en' ? 'Monochrome Mode' : 'Modo Monocromo';
+        } else {
+            wpLightboxDesc.textContent = currentLang === 'en' ? 'Multicolor Mode' : 'Modo Multicolor';
+        }
+    };
+
+    updateWpLightboxTexts = renderWpLightboxText;
 
     const openWallpaperLightbox = (card) => {
         if (!wpLightboxModal || !card) return;
         const imgSrc = card.getAttribute('data-wp-img');
+        currentWpMode = card.getAttribute('data-wp-mode') || 'color';
+
         if (wpLightboxImg) wpLightboxImg.src = imgSrc;
+        renderWpLightboxText();
 
         SFX.juegoAbrir();
         wpLightboxModal.classList.add('active');
@@ -1164,8 +1182,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Modal ONLY closes by clicking the upper right 'X' button
     if (wpLightboxCloseBtn) {
         wpLightboxCloseBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
             closeWallpaperLightbox();
+        });
+    }
+
+    // Explicitly prevent clicking on backdrop or anywhere else from closing the modal
+    if (wpLightboxOverlay) {
+        wpLightboxOverlay.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+
+    if (wpLightboxModal) {
+        wpLightboxModal.addEventListener('click', (e) => {
+            if (!e.target.closest('#wpLightboxCloseBtn')) {
+                e.stopPropagation();
+            }
         });
     }
 
