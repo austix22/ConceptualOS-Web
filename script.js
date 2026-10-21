@@ -404,7 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_feat3_title: "Ajustes & Personalización",
             wp_feat3_desc: "Personaliza la velocidad, estilos de color y tonos de fondo.",
             wp_feat4_title: "Solo $1.00 USD (Pago Único)",
-            wp_feat4_desc: "Sin suscripciones y sin publicidad invasiva.",
+            wp_feat4_desc: "Sin suscripciones ni publicidad invasiva.",
             wp_cta_btn: "Obtener en Google Play"
         },
         en: {
