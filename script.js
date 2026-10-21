@@ -402,11 +402,10 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_feat2_title: "Cero Consumo de Batería",
             wp_feat2_desc: "Optimizado con pausas automáticas cuando la pantalla se apaga o abres otras aplicaciones.",
             wp_feat3_title: "Ajustes & Personalización",
-            wp_feat3_desc: "Personaliza la velocidad, cantidad de botones en pantalla, estilos de color y tonos de fondo.",
+            wp_feat3_desc: "Personaliza la velocidad, estilos de color y tonos de fondo.",
             wp_feat4_title: "Solo $1.00 USD (Pago Único)",
-            wp_feat4_desc: "Sin suscripciones, sin publicidad invasiva y con soporte para actualizaciones continuas.",
-            wp_cta_btn: "Obtener en Google Play • $1.00 USD",
-            wp_cta_note: '<i class="fa-solid fa-circle-info"></i> Próximamente disponible de manera oficial en la Google Play Store bajo el nombre de <strong>Conceptual Live Wallpaper</strong>.'
+            wp_feat4_desc: "Sin suscripciones y sin publicidad invasiva.",
+            wp_cta_btn: "Obtener en Google Play"
         },
         en: {
             nav_features: "Features",
@@ -558,11 +557,10 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_feat2_title: "Zero Battery Drain",
             wp_feat2_desc: "Engineered with auto-pause whenever your screen turns off or when you launch other apps.",
             wp_feat3_title: "Customizable Settings",
-            wp_feat3_desc: "Fine-tune particle speed, on-screen density, color styles, and background tones.",
+            wp_feat3_desc: "Fine-tune particle speed, color styles, and background tones.",
             wp_feat4_title: "Only $1.00 USD (One-time)",
-            wp_feat4_desc: "No subscriptions, no ads, and lifetime support for future updates.",
-            wp_cta_btn: "Get on Google Play • $1.00 USD",
-            wp_cta_note: '<i class="fa-solid fa-circle-info"></i> Coming soon to the Google Play Store under the official name <strong>Conceptual Live Wallpaper</strong>.'
+            wp_feat4_desc: "No subscriptions and no ads.",
+            wp_cta_btn: "Get on Google Play"
         }
     };
 
