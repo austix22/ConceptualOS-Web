@@ -1986,13 +1986,13 @@ h1, h2, h3, h4, span, p, a, button {
     color: var(--moondust-purple);
 }
 
-/* Download Section - Wider Comfortable Cards */
+/* Download Section - Google Play Store Card */
 .download-cards-wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 380px));
+    display: flex;
     justify-content: center;
-    gap: 1.8rem;
-    margin: 2rem 0 1.5rem 0;
+    max-width: 420px;
+    margin: 2.2rem auto 1.5rem auto;
+    width: 100%;
 }
 
 .download-card {
