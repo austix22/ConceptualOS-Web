@@ -144,10 +144,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.addEventListener('click', (e) => {
-        // Skip gallery cards (which play juegoabrir) and modal close (which plays click_2)
+        // Skip gallery and wallpaper cards (which play juegoabrir) and modal close (which plays click_2)
         const galleryCard = e.target.closest('.gallery-card');
-        const isLightboxClose = e.target.closest('#lightboxCloseBtn, .lightbox-close');
-        if (galleryCard || isLightboxClose) return;
+        const wallpaperCard = e.target.closest('.wallpaper-card');
+        const isLightboxClose = e.target.closest('#lightboxCloseBtn, #wpLightboxCloseBtn, .lightbox-close');
+        if (galleryCard || wallpaperCard || isLightboxClose) return;
 
         const target = e.target.closest(interactiveSelector);
         if (target) {
@@ -382,7 +383,30 @@ document.addEventListener('DOMContentLoaded', () => {
             about_pill2: "100 % sin anuncios",
             about_pill3: "Compatible con controles",
             footer_rights: "&copy; 2026 COS Launcher. Todos los derechos reservados.",
-            footer_dev_text: "Desarrollado por"
+            footer_dev_text: "Desarrollado por",
+            nav_wallpaper: "Live Wallpaper",
+            wp_subtitle: "FONDO ANIMADO INTERACTIVO",
+            wp_title: 'Lleva este fondo a tu Android con <br><span class="gradient-text">Conceptual Live Wallpaper</span>',
+            wp_desc: "¿Te fascina el efecto de partículas flotantes que ves en esta página? Disfruta del mismo motor interactivo directamente en la pantalla de inicio y bloqueo de tu teléfono Android.",
+            wp_badge_android: "Android Live Wallpaper",
+            wp_badge_price: "$1.00 USD en Google Play",
+            wp_badge_engine: "Mismo Motor de Partículas",
+            wp_card1_tag: "MODO MULTICOLOR",
+            wp_card1_title: "Paleta Gamer Multicolor",
+            wp_card1_desc: "Los clásicos símbolos A, B, X, Y y PlayStation flotando con sus colores icónicos retro sobre fondos oscuros personalizables.",
+            wp_card2_tag: "MODO MONOCROMO",
+            wp_card2_title: "Minimalismo Puro & AMOLED",
+            wp_card2_desc: "Estilo monocromático limpio y elegante en escala de grises y plata, diseñado para fondos negros puros y máximo ahorro de energía.",
+            wp_feat1_title: "Mismo Motor de Partículas",
+            wp_feat1_desc: "La misma física reactiva y partículas suaves que estás viendo en el fondo de este sitio web.",
+            wp_feat2_title: "Cero Consumo de Batería",
+            wp_feat2_desc: "Optimizado con pausas automáticas cuando la pantalla se apaga o abres otras aplicaciones.",
+            wp_feat3_title: "Ajustes & Personalización",
+            wp_feat3_desc: "Personaliza la velocidad, cantidad de botones en pantalla, estilos de color y tonos de fondo.",
+            wp_feat4_title: "Solo $1.00 USD (Pago Único)",
+            wp_feat4_desc: "Sin suscripciones, sin publicidad invasiva y con soporte para actualizaciones continuas.",
+            wp_cta_btn: "Obtener en Google Play • $1.00 USD",
+            wp_cta_note: '<i class="fa-solid fa-circle-info"></i> Próximamente disponible de manera oficial en la Google Play Store bajo el nombre de <strong>Conceptual Live Wallpaper</strong>.'
         },
         en: {
             nav_features: "Features",
@@ -515,12 +539,36 @@ document.addEventListener('DOMContentLoaded', () => {
             about_pill2: "100% ad-free",
             about_pill3: "Controller-friendly",
             footer_rights: "&copy; 2026 COS Launcher. All rights reserved.",
-            footer_dev_text: "Developed by"
+            footer_dev_text: "Developed by",
+            nav_wallpaper: "Live Wallpaper",
+            wp_subtitle: "INTERACTIVE LIVE WALLPAPER",
+            wp_title: 'Bring this background to Android with <br><span class="gradient-text">Conceptual Live Wallpaper</span>',
+            wp_desc: "Love the floating particle effect on this page? Enjoy the exact same interactive engine directly on your Android phone's home and lock screen.",
+            wp_badge_android: "Android Live Wallpaper",
+            wp_badge_price: "$1.00 USD on Google Play",
+            wp_badge_engine: "Same Particle Engine",
+            wp_card1_tag: "MULTICOLOR MODE",
+            wp_card1_title: "Classic Gamer Multicolor",
+            wp_card1_desc: "Classic A, B, X, Y and PlayStation symbols floating with their iconic retro colors on customizable dark backgrounds.",
+            wp_card2_tag: "MONOCHROME MODE",
+            wp_card2_title: "Pure Minimalism & AMOLED",
+            wp_card2_desc: "Clean and sleek monochrome aesthetic in silver and grayscale, designed for pure black OLED displays and maximum battery savings.",
+            wp_feat1_title: "Same Particle Engine",
+            wp_feat1_desc: "The exact same reactive physics and floating particles you see in the background of this website.",
+            wp_feat2_title: "Zero Battery Drain",
+            wp_feat2_desc: "Engineered with auto-pause whenever your screen turns off or when you launch other apps.",
+            wp_feat3_title: "Customizable Settings",
+            wp_feat3_desc: "Fine-tune particle speed, on-screen density, color styles, and background tones.",
+            wp_feat4_title: "Only $1.00 USD (One-time)",
+            wp_feat4_desc: "No subscriptions, no ads, and lifetime support for future updates.",
+            wp_cta_btn: "Get on Google Play • $1.00 USD",
+            wp_cta_note: '<i class="fa-solid fa-circle-info"></i> Coming soon to the Google Play Store under the official name <strong>Conceptual Live Wallpaper</strong>.'
         }
     };
 
     let currentLang = localStorage.getItem('cos_web_lang') || 'es';
     let updateLightboxContent = () => {};
+    let updateWpLightboxTexts = () => {};
 
     function updateDndSubText() {
         const dndBtnEl = document.getElementById('dndBtn');
@@ -555,6 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateDndSubText();
         updateLightboxContent();
+        updateWpLightboxTexts();
         const sysNoteInput = document.getElementById('sysNoteInput');
         if (sysNoteInput) {
             sysNoteInput.placeholder = lang === 'en' ? 'Write a note...' : 'Escribe una nota...';
@@ -1076,4 +1125,86 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
+    // 12. Conceptual Live Wallpaper Preview Lightbox Modal
+    const wpLightboxModal = document.getElementById('wallpaperLightbox');
+    const wpLightboxImg = document.getElementById('wpLightboxImg');
+    const wpLightboxTag = document.getElementById('wpLightboxTag');
+    const wpLightboxTitle = document.getElementById('wpLightboxTitle');
+    const wpLightboxDesc = document.getElementById('wpLightboxDesc');
+    const wpLightboxCloseBtn = document.getElementById('wpLightboxCloseBtn');
+    const wpLightboxOverlay = document.getElementById('wpLightboxOverlay');
+    const wpCards = document.querySelectorAll('.wallpaper-card');
+    let currentWpMode = 'color';
+
+    updateWpLightboxTexts = () => {
+        if (!wpLightboxModal || !wpLightboxModal.classList.contains('active')) return;
+        const dict = translations[currentLang] || translations.es;
+        if (wpLightboxTag) {
+            wpLightboxTag.textContent = currentWpMode === 'color' ? dict.wp_card1_tag : dict.wp_card2_tag;
+        }
+        if (wpLightboxTitle) {
+            wpLightboxTitle.textContent = currentWpMode === 'color' ? dict.wp_card1_title : dict.wp_card2_title;
+        }
+        if (wpLightboxDesc) {
+            wpLightboxDesc.textContent = currentWpMode === 'color' ? dict.wp_card1_desc : dict.wp_card2_desc;
+        }
+    };
+
+    const openWallpaperLightbox = (card) => {
+        if (!wpLightboxModal || !card) return;
+        const imgSrc = card.getAttribute('data-wp-img');
+        currentWpMode = card.getAttribute('data-wp-mode') || 'color';
+
+        if (wpLightboxImg) wpLightboxImg.src = imgSrc;
+        updateWpLightboxTexts();
+
+        SFX.juegoAbrir();
+        wpLightboxModal.classList.add('active');
+        wpLightboxModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeWallpaperLightbox = () => {
+        if (wpLightboxModal && wpLightboxModal.classList.contains('active')) {
+            SFX.click2();
+            wpLightboxModal.classList.remove('active');
+            wpLightboxModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+    };
+
+    if (wpCards.length > 0) {
+        wpCards.forEach(card => {
+            card.addEventListener('click', () => openWallpaperLightbox(card));
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openWallpaperLightbox(card);
+                }
+            });
+        });
+    }
+
+    if (wpLightboxCloseBtn) {
+        wpLightboxCloseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeWallpaperLightbox();
+        });
+    }
+
+    if (wpLightboxOverlay) {
+        wpLightboxOverlay.addEventListener('click', () => {
+            closeWallpaperLightbox();
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (wpLightboxModal && wpLightboxModal.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                closeWallpaperLightbox();
+            }
+        }
+    });
+
 });
+
