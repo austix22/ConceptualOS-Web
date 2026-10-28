@@ -241,15 +241,15 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .nav-container {
-    max-width: 1440px;
+    max-width: 1760px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 clamp(1rem, 2.5vw, 2.5rem);
+    padding: 0 clamp(1.25rem, 3vw, 3.5rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    gap: 0.8rem;
+    gap: 1.5rem;
 }
 
 /* Clean Unencapsulated Brand Logo */
@@ -259,7 +259,9 @@ h1, h2, h3, h4, span, p, a, button {
     gap: 0.75rem;
     text-decoration: none;
     color: var(--text-primary);
-    flex-shrink: 0;
+    flex: 1 1 0%;
+    justify-content: flex-start;
+    min-width: max-content;
 }
 
 .brand-text {
@@ -304,15 +306,16 @@ h1, h2, h3, h4, span, p, a, button {
     display: inline-flex;
     gap: clamp(0.2rem, 0.45vw, 0.55rem);
     align-items: center;
-    padding: 0.3rem 0.5rem;
-    background: rgba(22, 24, 36, 0.7);
+    padding: 0.32rem 0.55rem;
+    background: rgba(22, 24, 36, 0.75);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--border-light);
     border-radius: 9999px;
-    margin-left: auto;
+    margin: 0 auto;
     box-sizing: border-box;
     flex-wrap: nowrap;
+    flex: 0 0 auto;
 }
 
 /* Sub-capsule Pill Nav Items */
@@ -320,8 +323,8 @@ h1, h2, h3, h4, span, p, a, button {
     color: var(--text-secondary) !important;
     text-decoration: none;
     font-weight: 600;
-    font-size: clamp(0.85rem, 0.92vw, 0.95rem);
-    padding: 0.45rem clamp(0.65rem, 0.9vw, 1.15rem);
+    font-size: clamp(0.82rem, 0.88vw, 0.95rem);
+    padding: 0.45rem clamp(0.55rem, 0.85vw, 1.15rem);
     border-radius: 9999px;
     transition: var(--transition-smooth);
     border: 1px solid transparent;
@@ -342,9 +345,10 @@ h1, h2, h3, h4, span, p, a, button {
 .nav-actions {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 0.65rem;
-    margin-left: 0.5rem;
-    flex-shrink: 0;
+    flex: 1 1 0%;
+    min-width: max-content;
 }
 
 .mobile-toggle {
@@ -2565,6 +2569,15 @@ h1, h2, h3, h4, span, p, a, button {
 
     .nav-container {
         padding: 0 1.25rem;
+    }
+
+    .brand-logo {
+        flex: 0 1 auto;
+    }
+
+    .nav-actions {
+        flex: 0 0 auto;
+        margin-left: auto;
     }
 
     .mobile-toggle {
