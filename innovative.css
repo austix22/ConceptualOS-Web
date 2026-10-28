@@ -63,25 +63,25 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.72rem;
+    font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--moondust-purple);
     background: rgba(206, 181, 255, 0.1);
     border: 1px solid rgba(206, 181, 255, 0.2);
-    padding: 4px 12px;
+    padding: 5px 14px;
     border-radius: 999px;
     margin-bottom: 20px;
     width: fit-content;
 }
 
 .bento-hud-tag i {
-    font-size: 0.65rem;
+    font-size: 0.8rem;
 }
 
 .bento-card-title {
-    font-size: 1.35rem;
+    font-size: 1.45rem;
     font-weight: 700;
     color: #FFFFFF;
     margin-bottom: 12px;
@@ -89,9 +89,9 @@
 }
 
 .bento-card-desc {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
+    font-size: 1.05rem;
+    color: var(--text-body, #B5C0DD);
+    line-height: 1.65;
     margin-bottom: 24px;
 }
 

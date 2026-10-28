@@ -224,20 +224,23 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLiveClock();
     setInterval(updateLiveClock, 30000);
 
-    // 3. Mobile Navigation Menu Toggle
+    // 3. Mobile Navigation Menu Toggle - Enhanced for Android & Mobile Web
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.querySelector('.nav-links');
 
     if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             navLinks.classList.toggle('active');
             const icon = mobileMenuBtn.querySelector('i');
             if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-xmark');
+                const isActive = navLinks.classList.contains('active');
+                icon.classList.toggle('fa-bars', !isActive);
+                icon.classList.toggle('fa-xmark', isActive);
             }
         });
 
+        // Close when clicking any nav item
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -247,6 +250,30 @@ document.addEventListener('DOMContentLoaded', () => {
                     icon.classList.remove('fa-xmark');
                 }
             });
+        });
+
+        // Close cleanly when tapping anywhere outside (crucial for Android touch events)
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-xmark');
+                }
+            }
+        });
+
+        // Auto-close on resize/orientation change to desktop widths
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1040 && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-xmark');
+                }
+            }
         });
     }
 
