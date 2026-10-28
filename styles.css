@@ -2315,15 +2315,24 @@ h1, h2, h3, h4, span, p, a, button {
     display: flex;
     flex-direction: column;
     gap: 0.65rem;
+    text-align: left;
 }
 
 .tier-features-list li {
     display: flex;
     align-items: flex-start;
+    justify-content: flex-start;
     gap: 0.6rem;
     font-size: 0.84rem;
     color: var(--text-primary);
     line-height: 1.35;
+    text-align: left;
+}
+
+.tier-features-list li span {
+    text-align: left;
+    display: block;
+    flex: 1;
 }
 
 .tier-features-list li i {
