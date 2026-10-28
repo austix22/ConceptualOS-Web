@@ -642,7 +642,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    let currentLang = localStorage.getItem('cos_web_lang') || 'es';
+    let currentLang = localStorage.getItem('cos_web_lang_pref') || 'en';
     let updateLightboxContent = () => {};
     let updateWpLightboxTexts = () => {};
 
@@ -660,14 +660,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const applyLanguage = (lang) => {
         currentLang = lang;
-        localStorage.setItem('cos_web_lang', lang);
+        localStorage.setItem('cos_web_lang_pref', lang);
+        document.documentElement.lang = lang;
 
         const langTextElement = document.getElementById('langText');
         if (langTextElement) {
             langTextElement.textContent = lang === 'es' ? 'ES' : 'EN';
         }
 
-        const dictionary = translations[lang];
+        const dictionary = translations[lang] || translations.en;
         if (!dictionary) return;
 
         document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -1149,7 +1150,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        const dict = translations[currentLang] || translations.es;
+        const dict = translations[currentLang] || translations.en;
         if (animate && lightboxCaption) {
             lightboxCaption.classList.add('slide-fade');
             setTimeout(() => {
