@@ -2120,6 +2120,10 @@ h1, h2, h3, h4, span, p, a, button {
     box-sizing: border-box;
 }
 
+.download-card-title + .download-specs-list {
+    margin-top: 0.75rem;
+}
+
 .download-spec-item {
     display: flex;
     align-items: center;
