@@ -2256,6 +2256,10 @@ h1, h2, h3, h4, span, p, a, button {
     border: 1px solid rgba(206, 181, 255, 0.35);
 }
 
+.pricing-tier-header {
+    text-align: center;
+}
+
 .tier-name {
     font-size: 1.25rem;
     font-weight: 800;
@@ -2266,6 +2270,7 @@ h1, h2, h3, h4, span, p, a, button {
 .tier-price {
     display: flex;
     align-items: baseline;
+    justify-content: center;
     gap: 4px;
     margin-bottom: 0.3rem;
 }
