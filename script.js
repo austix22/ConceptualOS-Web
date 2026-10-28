@@ -368,21 +368,21 @@ document.addEventListener('DOMContentLoaded', () => {
             dl_apk_btn: "Descargar APK",
             dl_cos_title: "COS Launcher",
             dl_store_badge: "TIENDA OFICIAL",
-            dl_store_desc: "Instala y actualiza la aplicación desde la tienda oficial.",
+            dl_store_desc: "Instala y actualiza la app desde Google Play.",
             dl_store_btn: "Abrir tienda",
             dl_spec_version: "<strong>Versión:</strong> v1.1.0 Platinum",
             dl_spec_req: "<strong>Requisitos:</strong> Android 9.0 o superior",
             dl_apk_security: "<strong>Seguridad:</strong> 100% libre de anuncios y virus",
-            dl_spec_updates: "<strong>Actualizaciones:</strong> Automáticas en segundo plano",
-            dl_spec_protect: "<strong>Seguridad:</strong> Verificado por Google Play Protect",
+            dl_spec_updates: "<strong>Actualizaciones:</strong> Automáticas",
+            dl_spec_protect: "<strong>Seguridad:</strong> Play Protect",
             dl_km_badge: "PLUGIN OFICIAL",
             dl_km_title: "Conceptual Key Mapper",
-            dl_km_desc: "Plugin para COS Launcher para abrir el overlay sin tocar la pantalla, pulsando un botón o combinación. Ideal para monitores externos o TV.",
-            dl_km_spec_type: "<strong>Tipo:</strong> Plugin para COS Launcher",
-            dl_km_spec_overlay: "<strong>Acceso:</strong> Abre el Overlay sin tocar la pantalla (botón o combo)",
-            dl_km_spec_target: "<strong>Ideal para:</strong> Monitores externos, TV y mandos",
-            dl_km_spec_setup: "<strong>Configuración:</strong> Automática (se configura sola al instalar)",
-            dl_km_btn: "Descargar en GitHub",
+            dl_km_desc: "Abre el overlay con mando o combo sin tocar la pantalla. Ideal para TV y monitores.",
+            dl_km_spec_type: "<strong>Tipo:</strong> Plugin oficial COS",
+            dl_km_spec_overlay: "<strong>Acceso:</strong> Botón o combinación",
+            dl_km_spec_target: "<strong>Ideal para:</strong> TV, monitores y mandos",
+            dl_km_spec_setup: "<strong>Ajuste:</strong> Automático al instalar",
+            dl_km_btn: "Descargar",
             kofi_title: 'Apoya el <span class="gradient-text">proyecto</span>',
             kofi_desc: "Desarrollar COS Launcher y pulir cada detalle requiere muchas horas de código, pruebas y optimización; si la app te resulta útil en tus partidas y quieres mostrar tu agradecimiento, invitarme a un café en Ko-fi es una gran forma de valorar mi tiempo y darme un empujón de energía para seguir mejorándola.",
             kofi_btn: "Ko-fi",
@@ -531,21 +531,21 @@ document.addEventListener('DOMContentLoaded', () => {
             dl_apk_btn: "Download APK",
             dl_cos_title: "COS Launcher",
             dl_store_badge: "OFFICIAL STORE",
-            dl_store_desc: "Install and update the application from the official store.",
+            dl_store_desc: "Install and update the app from Google Play.",
             dl_store_btn: "Open store",
             dl_spec_version: "<strong>Version:</strong> v1.1.0 Platinum",
             dl_spec_req: "<strong>Requirements:</strong> Android 9.0 or higher",
             dl_apk_security: "<strong>Security:</strong> 100% ad-free & virus-free",
-            dl_spec_updates: "<strong>Updates:</strong> Automatic background updates",
-            dl_spec_protect: "<strong>Security:</strong> Verified by Google Play Protect",
+            dl_spec_updates: "<strong>Updates:</strong> Automatic",
+            dl_spec_protect: "<strong>Security:</strong> Play Protect",
             dl_km_badge: "OFFICIAL PLUGIN",
             dl_km_title: "Conceptual Key Mapper",
-            dl_km_desc: "COS Launcher companion plugin to open the overlay hands-free using a physical button or combo. Ideal for external TVs or monitors.",
-            dl_km_spec_type: "<strong>Type:</strong> Plugin for COS Launcher",
-            dl_km_spec_overlay: "<strong>Access:</strong> Trigger Overlay without touch (button or combo)",
-            dl_km_spec_target: "<strong>Ideal for:</strong> External monitors, TV & gamepads",
-            dl_km_spec_setup: "<strong>Configuration:</strong> Automatic (auto-configures on install)",
-            dl_km_btn: "Download on GitHub",
+            dl_km_desc: "Open the overlay using controller or combo without touching screen. Ideal for TVs.",
+            dl_km_spec_type: "<strong>Type:</strong> Official COS Plugin",
+            dl_km_spec_overlay: "<strong>Access:</strong> Controller button or combo",
+            dl_km_spec_target: "<strong>Best for:</strong> TV, monitors & gamepads",
+            dl_km_spec_setup: "<strong>Setup:</strong> Auto-configures on install",
+            dl_km_btn: "Download",
             kofi_title: 'Support the <span class="gradient-text">Project</span>',
             kofi_desc: "Developing COS Launcher and refining every detail takes countless hours of coding, testing, and optimization; if you find the app useful and want to show appreciation, buying me a coffee on Ko-fi is a wonderful way to support my time and fuel future improvements.",
             kofi_btn: "Ko-fi",
@@ -1279,5 +1279,71 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Automatic Direct APK Download for Conceptual Key Mapper Latest Release
+    function setupKeyMapperDirectDownload() {
+        const dlButtons = document.querySelectorAll('.btn-keymapper-dl');
+        if (!dlButtons.length) return;
+
+        const repoApi = 'https://api.github.com/repos/austix22/conceptual-key-mapper/releases/latest';
+        let directApkUrl = null;
+        let apkFileName = 'ConceptualKeyMapper.apk';
+
+        // Pre-fetch latest release on page load
+        fetch(repoApi)
+            .then(res => res.ok ? res.json() : Promise.reject('No release found'))
+            .then(data => {
+                if (data.assets && data.assets.length > 0) {
+                    const apk = data.assets.find(a => a.name.toLowerCase().endsWith('.apk')) || data.assets[0];
+                    if (apk && apk.browser_download_url) {
+                        directApkUrl = apk.browser_download_url;
+                        apkFileName = apk.name;
+                        dlButtons.forEach(btn => {
+                            btn.href = directApkUrl;
+                            btn.setAttribute('download', apkFileName);
+                            btn.removeAttribute('target');
+                        });
+                    }
+                }
+            })
+            .catch(() => {});
+
+        // Direct Download click action
+        dlButtons.forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                if (directApkUrl) {
+                    // Browser native download will proceed automatically
+                    return;
+                }
+                e.preventDefault();
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ' + (currentLang === 'en' ? 'Downloading...' : 'Descargando...');
+
+                try {
+                    const res = await fetch(repoApi);
+                    if (res.ok) {
+                        const data = await res.json();
+                        const apk = data.assets && (data.assets.find(a => a.name.toLowerCase().endsWith('.apk')) || data.assets[0]);
+                        if (apk && apk.browser_download_url) {
+                            directApkUrl = apk.browser_download_url;
+                            btn.href = directApkUrl;
+                            btn.setAttribute('download', apk.name);
+                            window.location.href = directApkUrl;
+                            setTimeout(() => { btn.innerHTML = originalHtml; }, 2000);
+                            return;
+                        }
+                    }
+                } catch (err) {
+                    console.error('Download error:', err);
+                }
+
+                alert(currentLang === 'en'
+                    ? 'No APK release found in the repository yet. Upload an APK to GitHub Releases first.'
+                    : 'Aún no se ha publicado ningún archivo APK en las Releases de GitHub.');
+                btn.innerHTML = originalHtml;
+            });
+        });
+    }
+
+    setupKeyMapperDirectDownload();
 });
 
