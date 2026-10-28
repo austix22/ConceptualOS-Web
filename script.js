@@ -1340,9 +1340,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const dlButtons = document.querySelectorAll('.btn-keymapper-dl');
         if (!dlButtons.length) return;
 
-        const repoApi = 'https://api.github.com/repos/austix22/conceptual-key-mapper/releases/latest';
-        let directApkUrl = null;
-        let apkFileName = 'ConceptualKeyMapper.apk';
+        const repoApi = 'https://api.github.com/repos/austix22/ConceptualOS-Web/releases/latest';
+        let directApkUrl = 'https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Key.Mapper.apk';
+        let apkFileName = 'Conceptual.Key.Mapper.apk';
 
         // Pre-fetch latest release on page load
         fetch(repoApi)
