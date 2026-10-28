@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
             faq_q6: "¿Cómo funciona la descarga de recursos e información de los juegos?",
             faq_a6: "El scraping de recursos se realiza mediante conexión con ScreenScraper y SteamGridDB utilizando tus cuentas y claves API. Al configurarlas en la app, COS Launcher obtiene e integra iconos en alta definición, fondos de pantalla (banners), vistas previas en video e información de cada juego.",
             faq_q7: "¿COS Launcher es gratis o tiene compras dentro de la app?",
-            faq_a7: "COS Launcher se descarga y se disfruta 100% gratis con juegos ilimitados, scraping y hasta 2 consolas sin publicidad. Si deseas agregar más de 2 consolas, ver logros y accesos rápidos en el overlay, y personalizar nombres con animaciones, colores e iconos, puedes desbloquear la edición completa por un único pago de $1.50 USD dentro de la app (sin suscripciones).",
+            faq_a7: "COS Launcher se descarga y se disfruta 100% gratis con juegos ilimitados, scraping y hasta 2 consolas sin publicidad. Si deseas agregar más de 2 consolas, ver logros y accesos rápidos en el overlay, además de personalizar nombres con animaciones, colores e iconos, puedes desbloquear la edición completa por un único pago de $1.50 USD dentro de la app (sin suscripciones).",
             dl_title: 'Obtén <span class="gradient-text">COS Launcher</span>',
             dl_desc: "Descarga COS Launcher en tu dispositivo portátil o teléfono Android.",
             dl_apk_badge: "APK DIRECTO",
