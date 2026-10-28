@@ -2008,6 +2008,78 @@ h1, h2, h3, h4, span, p, a, button {
     color: var(--moondust-purple);
 }
 
+/* Download Section - Dual Side-by-Side Layout (Main App & Companion Plugin) */
+.download-dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.8rem;
+    align-items: stretch;
+    max-width: 860px;
+    margin: 0 auto 3.2rem auto;
+    width: 100%;
+}
+
+.download-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.download-col-header {
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.download-col-title {
+    font-size: 1.85rem;
+    font-weight: 700;
+    margin-bottom: 0.65rem;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
+.download-col-desc {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+    margin: 0 auto;
+    max-width: 380px;
+    text-align: center;
+}
+
+@media (min-width: 861px) {
+    .download-col-desc {
+        min-height: 3.6em;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+}
+
+.download-column .download-card {
+    height: 100%;
+    flex: 1;
+    max-width: 380px;
+    width: 100%;
+}
+
+@media (max-width: 860px) {
+    .download-dual-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+        max-width: 420px;
+    }
+
+    .download-col-header {
+        margin-bottom: 1.8rem;
+    }
+}
+
 /* Download Section - Google Play Store & Companion Plugin Cards */
 .download-cards-wrapper {
     display: flex;
