@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS Base -->
-    <link rel="stylesheet" href="styles.css?v=2.3.0">
+    <link rel="stylesheet" href="styles.css?v=2.4.0">
     <!-- Next-Gen Cyber Bento & Console OS Stylesheet -->
     <link rel="stylesheet" href="innovative.css?v=1.0.1">
 </head>
@@ -1091,6 +1091,71 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Freemium Transparent Model Comparison Block -->
+            <div class="pricing-showcase-box glass-card">
+                <div class="pricing-header text-center">
+                    <span class="badge-pill" style="margin-bottom: 0.8rem; display: inline-flex;">
+                        <i class="fa-solid fa-gem" style="color: var(--moondust-purple); margin-right: 6px;"></i>
+                        <span data-i18n="pricing_badge">TRANSPARENCIA & VALOR</span>
+                    </span>
+                    <h3 class="pricing-main-title" data-i18n="pricing_title">
+                        Juega Gratis o Desbloquea <span class="gradient-text">Todo el Potencial</span>
+                    </h3>
+                    <p class="pricing-subtitle" data-i18n="pricing_desc">
+                        COS Launcher es 100% funcional y libre de anuncios desde el primer segundo. Si deseas consolas ilimitadas y personalización avanzada, puedes desbloquearlo con un pago único.
+                    </p>
+                </div>
+
+                <div class="pricing-tiers-grid">
+                    <!-- Free Tier Card -->
+                    <div class="pricing-tier-card glass-card">
+                        <div class="pricing-tier-header">
+                            <span class="tier-badge free" data-i18n="pricing_free_badge">GRATIS SIEMPRE</span>
+                            <h4 class="tier-name" data-i18n="pricing_free_title">Edición Estándar</h4>
+                            <div class="tier-price">
+                                <span class="price-currency">$</span><span class="price-val">0</span>
+                                <span class="price-period" data-i18n="pricing_free_period">/ Para siempre</span>
+                            </div>
+                            <p class="tier-sub" data-i18n="pricing_free_desc">Ideal para jugar tus emuladores principales sin costo alguno.</p>
+                        </div>
+
+                        <ul class="tier-features-list">
+                            <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="pricing_f1"><strong>Juegos ilimitados</strong> en tu biblioteca</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="pricing_f2">Hasta <strong>2 consolas</strong> configuradas</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="pricing_f3">Navegación nativa con <strong>mandos</strong></span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="pricing_f4">Scraping de carátulas y fondos HD</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="pricing_f5">Menú <strong>Overlay</strong> en partida básico</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="pricing_f6"><strong>100% libre de anuncios</strong> y rastreo</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="pricing_f7">Cambio de nombres estándar</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Premium Tier Card -->
+                    <div class="pricing-tier-card glass-card pro-card">
+                        <div class="tier-popular-pill" data-i18n="pricing_pro_pill">PAGO ÚNICO • DE POR VIDA</div>
+                        <div class="pricing-tier-header">
+                            <span class="tier-badge pro" data-i18n="pricing_pro_badge">DESBLOQUEO COMPLETO</span>
+                            <h4 class="tier-name" data-i18n="pricing_pro_title">Edición Completa</h4>
+                            <div class="tier-price pro-price">
+                                <span class="price-currency">$</span><span class="price-val">1.50</span>
+                                <span class="price-period" data-i18n="pricing_pro_period">USD (pago único)</span>
+                            </div>
+                            <p class="tier-sub" data-i18n="pricing_pro_desc">Desbloqueo directo en la app. Sin suscripciones.</p>
+                        </div>
+
+                        <ul class="tier-features-list">
+                            <li><i class="fa-solid fa-circle-check glow-check"></i> <span data-i18n="pricing_p0"><strong>Todo lo de la versión gratuita</strong></span></li>
+                            <li><i class="fa-solid fa-circle-check glow-check"></i> <span data-i18n="pricing_p1"><strong>Consolas ilimitadas</strong> (agrega más de 2)</span></li>
+                            <li><i class="fa-solid fa-circle-check glow-check"></i> <span data-i18n="pricing_p2"><strong>Logros en tiempo real</strong> en el Overlay</span></li>
+                            <li><i class="fa-solid fa-circle-check glow-check"></i> <span data-i18n="pricing_p3"><strong>Accesos rápidos</strong> en el Overlay</span></li>
+                            <li><i class="fa-solid fa-circle-check glow-check"></i> <span data-i18n="pricing_p4"><strong>Nombres animados</strong> con colores e iconos</span></li>
+                            <li><i class="fa-solid fa-circle-check glow-check"></i> <span data-i18n="pricing_p5"><strong>Cero suscripciones:</strong> pago único vitalicio</span></li>
+                            <li><i class="fa-solid fa-heart" style="color: #ff5e5b;"></i> <span data-i18n="pricing_p6"><strong>Apoyo directo</strong> al creador independiente</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1271,6 +1336,12 @@
                     <h3 data-i18n="faq_q6">¿Cómo funciona la descarga de recursos e información de los juegos?</h3>
                     <p data-i18n="faq_a6">El scraping se realiza conectando con ScreenScraper y SteamGridDB mediante tus cuentas y claves API, obteniendo portadas HD, banners y videos automáticamente.</p>
                 </div>
+
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-purple"><i class="fa-solid fa-gem"></i></div>
+                    <h3 data-i18n="faq_q7">¿COS Launcher es gratis o tiene compras dentro de la app?</h3>
+                    <p data-i18n="faq_a7">COS Launcher se descarga y se disfruta 100% gratis con juegos ilimitados, scraping y hasta 2 consolas sin publicidad. Si deseas agregar más de 2 consolas, ver logros y accesos rápidos en el overlay, y personalizar nombres con animaciones, colores e iconos, puedes desbloquear la edición completa por un único pago de $1.50 USD dentro de la app (sin suscripciones).</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1396,7 +1467,7 @@
     <audio id="sfxJuegoAbrir" src="m4a/juegoabrir.mp3" preload="auto"></audio>
 
     <!-- Custom Scripts -->
-    <script src="script.js?v=2.3.0"></script>
+    <script src="script.js?v=2.4.0"></script>
     <script src="innovative.js?v=1.0.1"></script>
 </body>
 
