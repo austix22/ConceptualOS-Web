@@ -1,0 +1,233 @@
+/* ==========================================================================
+   COS Launcher - Multi-Page Console Web Portal Stylesheet
+   Theme: Official Moon Dust Palette | Premium Product Architecture
+   ========================================================================== */
+
+/* Active Page Pill Indicator in Navbar */
+.nav-item-pill.active {
+    background: rgba(206, 181, 255, 0.16);
+    border-color: var(--moondust-purple);
+    color: #FFFFFF;
+    box-shadow: 0 0 16px rgba(206, 181, 255, 0.25);
+    position: relative;
+}
+
+.nav-item-pill.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 2px;
+    background: var(--moondust-purple);
+    border-radius: 999px;
+    box-shadow: 0 0 6px var(--moondust-purple);
+}
+
+/* Page Hero Header for Sub-Pages */
+.page-hero-section {
+    padding: 130px 0 40px 0;
+    position: relative;
+    text-align: center;
+}
+
+.page-hero-container {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.page-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--moondust-cyan);
+    margin-bottom: 16px;
+    background: rgba(22, 24, 36, 0.6);
+    border: 1px solid var(--border-light);
+    padding: 6px 16px;
+    border-radius: 999px;
+}
+
+.page-breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.page-breadcrumb a:hover {
+    color: #FFFFFF;
+}
+
+.page-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: #FFFFFF;
+}
+
+.page-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* Home Portal Dashboard Grid */
+.portal-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+    margin-bottom: 60px;
+}
+
+.portal-nav-card {
+    background: linear-gradient(135deg, rgba(22, 24, 36, 0.85) 0%, rgba(12, 14, 22, 0.95) 100%);
+    border: 1px solid var(--border-light);
+    border-radius: 24px;
+    padding: 32px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+.portal-nav-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(206, 181, 255, 0.45), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portal-nav-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(206, 181, 255, 0.5);
+    box-shadow: 0 24px 50px -15px rgba(0, 0, 0, 0.8),
+                0 0 35px -8px rgba(128, 168, 255, 0.3);
+}
+
+.portal-nav-card:hover::before {
+    opacity: 1;
+}
+
+.portal-card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--moondust-purple);
+    background: rgba(206, 181, 255, 0.1);
+    border: 1px solid rgba(206, 181, 255, 0.2);
+    padding: 4px 12px;
+    border-radius: 999px;
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+.portal-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+    line-height: 1.25;
+}
+
+.portal-card-desc {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.portal-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--moondust-cyan);
+}
+
+.portal-nav-card:hover .portal-card-footer i {
+    transform: translateX(4px);
+    transition: transform 0.2s ease;
+}
+
+/* Quick Page Switcher Bar (Bottom Floating Navigator) */
+.portal-quick-dock {
+    position: sticky;
+    bottom: 24px;
+    margin: 40px auto 0 auto;
+    width: fit-content;
+    background: rgba(14, 16, 26, 0.88);
+    border: 1px solid rgba(211, 211, 255, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 8px 12px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 850;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 25px rgba(128, 168, 255, 0.18);
+}
+
+.dock-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.dock-item:hover, .dock-item.active {
+    background: rgba(206, 181, 255, 0.15);
+    color: #FFFFFF;
+    border: 1px solid rgba(206, 181, 255, 0.3);
+}
+
+/* Responsive Grid Rules */
+@media (max-width: 992px) {
+    .portal-nav-card.span-6, 
+    .portal-nav-card.span-4,
+    .portal-nav-card.span-8 {
+        grid-column: span 12 !important;
+    }
+    .page-title {
+        font-size: 2.2rem;
+    }
+    .portal-quick-dock {
+        display: none;
+    }
+}

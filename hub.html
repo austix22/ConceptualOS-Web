@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COS HUB & Funciones | COS Launcher</title>
+    <meta name="description"
+        content="COS HUB reúne herramientas útiles sin sacarte de la partida: logros, volumen, brillo, notas, navegador web y música.">
+
+    <link rel="icon" type="image/png" href="app_icon.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css?v=2.2.1">
+    <link rel="stylesheet" href="innovative.css?v=1.0.0">
+    <link rel="stylesheet" href="portal.css?v=1.0.0">
+</head>
+
+<body>
+
+    <!-- Floating Controller Symbols Particle Engine -->
+    <div id="floatingIconsBg" class="floating-icons-container"></div>
+
+    <!-- Ambient Moon Dust Glows -->
+    <div class="glow-bg glow-top-left"></div>
+    <div class="glow-bg glow-bottom-right"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="home.html" class="brand-logo">
+                <img src="app_icon.png" alt="Logotipo de COS Launcher" class="brand-app-icon">
+                <div class="brand-text">
+                    <span class="brand-title brand-title-white">COS LAUNCHER</span>
+                </div>
+            </a>
+
+            <!-- Multi-Page Navigation Bar -->
+            <nav class="nav-links nav-capsule">
+                <a href="home.html" class="nav-item-pill">Inicio</a>
+                <a href="hub.html" class="nav-item-pill active">COS HUB</a>
+                <a href="achievements.html" class="nav-item-pill">Logros</a>
+                <a href="gallery.html" class="nav-item-pill">Galería</a>
+                <a href="download.html" class="nav-item-pill">Descargas</a>
+                <a href="about.html" class="nav-item-pill">FAQ & Acerca de</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="about.html#kofi" class="badge-pill kofi-nav-pill" id="kofiNavBtn" title="Apoyar en Ko-fi">
+                    <i class="fa-solid fa-mug-hot"></i>
+                    <span class="badge-text" data-i18n="nav_kofi">Ko-fi</span>
+                </a>
+                <div class="badge-pill lang-toggle-pill" id="langToggleBtn" role="button" tabindex="0" title="Cambiar idioma">
+                    <i class="fa-solid fa-globe"></i>
+                    <span class="badge-text" id="langText">ES</span>
+                </div>
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir Menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sub-Page Hero Header -->
+    <section class="page-hero-section">
+        <div class="container page-hero-container">
+            <div class="page-breadcrumb">
+                <a href="home.html">Inicio</a> <span>/</span> <span>Módulo 01</span>
+            </div>
+            <h1 class="page-title"><span class="gradient-text">COS HUB</span> & Funciones</h1>
+            <p class="page-subtitle" data-i18n="hub_desc">
+                COS HUB reúne herramientas útiles sin sacarte de la partida. Consulta tus logros, controla el
+                volumen y el brillo, revisa el almacenamiento y el estado del dispositivo, administra tus controles,
+                toma notas o realiza una búsqueda rápida desde el navegador integrado.
+            </p>
+        </div>
+    </section>
+
+    <!-- Deep Dive: COS HUB Interactive Overlay Simulator -->
+    <section id="neural-overlay" class="section overlay-section" style="padding-top: 0;">
+        <div class="container overlay-container">
+            <div class="overlay-visual">
+                <div class="cos-overlay-window glass-card">
+                    <!-- Top Overlay Header & Navigation Tabs (7 Tabs) -->
+                    <div class="overlay-top-nav">
+                        <div class="overlay-brand">
+                            <span class="overlay-title-text">COS HUB</span>
+                        </div>
+                        <div class="overlay-tabs-row">
+                            <span class="overlay-icon-btn active" role="button" tabindex="0" title="Jugando"><i
+                                    class="fa-solid fa-play"></i></span>
+                            <span class="overlay-icon-btn" role="button" tabindex="0" title="Logros"><i
+                                    class="fa-solid fa-trophy"></i></span>
+                            <span class="overlay-icon-btn" role="button" tabindex="0" title="Herramientas"><i
+                                    class="fa-solid fa-wrench"></i></span>
+                            <span class="overlay-icon-btn" role="button" tabindex="0" title="Música"><i
+                                    class="fa-solid fa-music"></i></span>
+                            <span class="overlay-icon-btn" role="button" tabindex="0" title="Navegador Web"><i
+                                    class="fa-solid fa-magnifying-glass"></i></span>
+                            <span class="overlay-icon-btn" role="button" tabindex="0" title="Controles"><i
+                                    class="fa-solid fa-gamepad"></i></span>
+                            <span class="overlay-icon-btn" role="button" tabindex="0" title="Estado del dispositivo"><i
+                                    class="fa-solid fa-microchip"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Overlay Active View: Dynamic 7-Tabs Viewport -->
+                    <div class="overlay-viewport-content">
+                        <!-- Tab View 1: Jugando -->
+                        <div class="overlay-tab-view active centered-tab-view" id="overlayViewPlaying">
+                            <div class="overlay-ambient-glow"></div>
+                            <div class="active-game-info text-center-info">
+                                <span class="game-status-pill"><i class="fa-solid fa-play"></i> JUGANDO A</span>
+                                <h3 class="active-game-title">Aetherium: Zero</h3>
+                            </div>
+                        </div>
+
+                        <!-- Tab View 2: Logros -->
+                        <div class="overlay-tab-view" id="overlayViewAchievements">
+                            <div class="overlay-ach-header">
+                                <div class="active-game-info">
+                                    <span class="game-status-pill"><i class="fa-solid fa-trophy"></i> LOGROS</span>
+                                </div>
+                            </div>
+
+                            <div class="overlay-ach-content-wrap">
+                                <div class="overlay-ach-subbar">
+                                    <h3 class="active-game-title">Aetherium: Zero</h3>
+                                    <div class="ach-header-progress">
+                                        <div class="ra-progress-track" style="width: 100px;">
+                                            <div class="ra-progress-fill" style="width: 50%;"></div>
+                                        </div>
+                                        <span class="ra-subcapsule-badge">25/50</span>
+                                    </div>
+                                </div>
+
+                                <div class="overlay-ach-list">
+                                    <div class="overlay-ach-item">
+                                        <span class="ach-item-title">Primer campeón</span>
+                                        <span class="pts-gold">5 PTS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab View 3: Herramientas de Sistema -->
+                        <div class="overlay-tab-view" id="overlayViewSystem">
+                            <div class="overlay-tab-header">
+                                <div class="active-game-info">
+                                    <span class="game-status-pill"><i class="fa-solid fa-wrench"></i> HERRAMIENTAS DE SISTEMA</span>
+                                </div>
+                            </div>
+
+                            <div class="overlay-tools-content-wrap">
+                                <div class="overlay-tools-grid">
+                                    <!-- Volume Slider -->
+                                    <div class="tool-card">
+                                        <div class="tool-label-row">
+                                            <span><i class="fa-solid fa-volume-high" id="sysVolIcon"></i> Volumen</span>
+                                            <span class="tool-val-text" id="sysVolVal">75%</span>
+                                        </div>
+                                        <div class="tool-slider-box">
+                                            <input type="range" class="tool-slider-native" id="sysVolSlider" min="0"
+                                                max="100" value="75" aria-label="Volumen">
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar-fill" id="sysVolFill" style="width: 75%;"></div>
+                                            </div>
+                                            <div class="tool-slider-thumb" id="sysVolThumb"
+                                                style="left: calc(7px + 0.75 * (100% - 14px));"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Brightness Slider -->
+                                    <div class="tool-card">
+                                        <div class="tool-label-row">
+                                            <span><i class="fa-solid fa-sun" id="sysBrightIcon"></i> Brillo</span>
+                                            <span class="tool-val-text" id="sysBrightVal">85%</span>
+                                        </div>
+                                        <div class="tool-slider-box">
+                                            <input type="range" class="tool-slider-native" id="sysBrightSlider" min="0"
+                                                max="100" value="85" aria-label="Brillo">
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar-fill" id="sysBrightFill" style="width: 85%;"></div>
+                                            </div>
+                                            <div class="tool-slider-thumb" id="sysBrightThumb"
+                                                style="left: calc(7px + 0.85 * (100% - 14px));"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- DND Button -->
+                                    <div class="tool-card tool-button active" id="dndBtn" role="button" tabindex="0" aria-label="Modo no molestar">
+                                        <i class="fa-solid fa-moon"></i>
+                                        <div class="tool-btn-info">
+                                            <span class="tool-btn-title">No molestar</span>
+                                            <span class="tool-btn-sub" id="dndSubText">Activado</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Notes Box -->
+                                    <div class="tool-card tool-note-card">
+                                        <div class="tool-label-row">
+                                            <span><i class="fa-solid fa-note-sticky"></i> Notas</span>
+                                        </div>
+                                        <div class="tool-note-box">
+                                            <input type="text" class="tool-note-input" id="sysNoteInput"
+                                                value="Ataque especial: fase 2" placeholder="Escribe una nota..."
+                                                spellcheck="false" autocomplete="off" aria-label="Notas del juego">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab View 4: Reproductor de Música -->
+                        <div class="overlay-tab-view" id="overlayViewMusic">
+                            <div class="overlay-tab-header">
+                                <div class="active-game-info">
+                                    <span class="game-status-pill"><i class="fa-solid fa-music"></i> REPRODUCTOR DE MÚSICA</span>
+                                </div>
+                            </div>
+
+                            <div class="overlay-music-content-wrap">
+                                <h3 class="active-game-title" id="musicTrackTitle">Soundtrack 01</h3>
+                                <div class="overlay-music-box">
+                                    <audio id="bgMusicAudio" src="m4a/cos_launcher_background.m4a" preload="metadata"></audio>
+
+                                    <div class="music-time-row">
+                                        <span id="musicCurrentTime">00:00</span>
+                                        <div class="tool-slider-box" style="flex: 1;">
+                                            <input type="range" class="tool-slider-native" id="musicSeekSlider" min="0"
+                                                max="100" value="0" step="0.1" aria-label="Progreso de la canción">
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar-fill" id="musicProgressFill" style="width: 0%;"></div>
+                                            </div>
+                                            <div class="tool-slider-thumb" id="musicSeekThumb" style="left: calc(7px + 0 * (100% - 14px));"></div>
+                                        </div>
+                                        <span id="musicTotalTime">00:00</span>
+                                    </div>
+
+                                    <div class="music-controls-row">
+                                        <button class="music-btn" id="musicPrevBtn" aria-label="Canción anterior"><i class="fa-solid fa-backward-step"></i></button>
+                                        <button class="music-btn play-pause-btn" id="musicPlayPauseBtn" aria-label="Reproducir o pausar"><i class="fa-solid fa-play" id="musicPlayIcon"></i></button>
+                                        <button class="music-btn" id="musicNextBtn" aria-label="Siguiente canción"><i class="fa-solid fa-forward-step"></i></button>
+                                    </div>
+
+                                    <div class="music-vol-row">
+                                        <div class="tool-label-row" style="width: 100%;">
+                                            <span><i class="fa-solid fa-sliders"></i> Volumen de Música</span>
+                                            <span class="tool-val-text" id="musicVolVal">60%</span>
+                                        </div>
+                                        <div class="tool-slider-box" style="width: 100%;">
+                                            <input type="range" class="tool-slider-native" id="musicVolSlider" min="0"
+                                                max="100" value="60" aria-label="Volumen de Música">
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar-fill" id="musicVolFill" style="width: 60%;"></div>
+                                            </div>
+                                            <div class="tool-slider-thumb" id="musicVolThumb" style="left: calc(7px + 0.60 * (100% - 14px));"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab View 5: Navegador Web -->
+                        <div class="overlay-tab-view" id="overlayViewBrowser">
+                            <div class="overlay-tab-header">
+                                <div class="active-game-info">
+                                    <span class="game-status-pill"><i class="fa-solid fa-magnifying-glass"></i> NAVEGADOR WEB INTEGRADO</span>
+                                </div>
+                            </div>
+
+                            <div class="overlay-browser-content-wrap">
+                                <div class="web-url-bar">
+                                    <i class="fa-solid fa-globe"></i>
+                                    <span>Aetherium: Zero Guía</span>
+                                </div>
+
+                                <div class="overlay-browser-preview">
+                                    <div class="browser-result-card">
+                                        <span class="result-site">Guía de Juego • Wiki Gamer</span>
+                                        <h4>Aetherium: Zero Guía - Estrategia para Vencer Jefes</h4>
+                                        <p>Guía paso a paso para esquivar ataques y derrotar a los jefes de Aetherium: Zero...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab View 6: Controles y batería -->
+                        <div class="overlay-tab-view" id="overlayViewGamepad">
+                            <div class="overlay-tab-header">
+                                <div class="active-game-info">
+                                    <span class="game-status-pill"><i class="fa-solid fa-gamepad"></i> CONTROLES</span>
+                                </div>
+                            </div>
+
+                            <div class="overlay-gamepad-content-wrap">
+                                <div class="overlay-gamepad-box">
+                                    <div class="gamepad-status-card">
+                                        <i class="fa-solid fa-gamepad gamepad-hero-icon"></i>
+                                        <div class="gamepad-info">
+                                            <span class="gamepad-name">Control</span>
+                                            <span class="gamepad-battery-text"><i class="fa-solid fa-battery-full green-glow"></i> Batería del control: 85%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab View 7: Estado del Dispositivo -->
+                        <div class="overlay-tab-view" id="overlayViewHardware">
+                            <div class="overlay-tab-header">
+                                <div class="active-game-info">
+                                    <span class="game-status-pill"><i class="fa-solid fa-microchip"></i> ESTADO DEL DISPOSITIVO</span>
+                                </div>
+                            </div>
+
+                            <div class="overlay-hardware-content-wrap">
+                                <div class="overlay-hardware-grid">
+                                    <div class="hw-card">
+                                        <span class="hw-label"><i class="fa-solid fa-temperature-half"></i> Temp. Batería</span>
+                                        <span class="hw-val">34°C</span>
+                                    </div>
+                                    <div class="hw-card">
+                                        <span class="hw-label"><i class="fa-solid fa-microchip"></i> Temp. CPU</span>
+                                        <span class="hw-val">42°C</span>
+                                    </div>
+                                    <div class="hw-card">
+                                        <span class="hw-label"><i class="fa-solid fa-hard-drive"></i> Almacenamiento</span>
+                                        <span class="hw-val">45 GB de 256 GB</span>
+                                    </div>
+                                    <div class="hw-card">
+                                        <span class="hw-label"><i class="fa-solid fa-memory"></i> Memoria RAM</span>
+                                        <span class="hw-val">4.5 GB de 12 GB</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overlay-content">
+                <span class="section-subtitle" data-i18n="hub_subtitle">ACCESOS RÁPIDOS DURANTE LA PARTIDA</span>
+                <h2 class="section-title" data-i18n="hub_title"><span class="gradient-text">COS HUB</span> Overlay</h2>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check1">Superposición flotante fluida y transparente.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check2">Abre COS HUB desde el acceso rápido en pantalla.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check3">Reproductor de música con control de volumen independiente.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check4">Navegador web integrado para consultar guías y trucos al instante.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check5">Monitoreo en tiempo real de batería, almacenamiento y controles.</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section: Cyber Bento Grid -->
+    <section id="features" class="section features-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">CAPACIDADES DEL SISTEMA</span>
+                <h2 class="section-title" data-i18n="features_title">Diseñado para <span class="gradient-text">dispositivos portátiles</span></h2>
+                <p class="section-description" data-i18n="features_desc">
+                    Organiza tu colección de juegos con recursos gráficos, logros y accesos rápidos en pantalla.
+                </p>
+            </div>
+
+            <div class="bento-features-grid">
+                <div class="bento-card bento-span-8">
+                    <div>
+                        <div class="bento-hud-tag"><i class="fa-solid fa-gamepad"></i> <span>01 • MANDO NATIVO</span></div>
+                        <h3 class="bento-card-title" data-i18n="f1_title">Navegación con controles</h3>
+                        <p class="bento-card-desc" data-i18n="f1_desc">Recorre la interfaz con tus controles y disfruta de una navegación fluida e intuitiva.</p>
+                    </div>
+                    <div class="bento-card-visual bento-gamepad-visual">
+                        <div class="dpad-cluster">
+                            <div class="dpad-btn up"><i class="fa-solid fa-caret-up"></i></div>
+                            <div class="dpad-btn left"><i class="fa-solid fa-caret-left"></i></div>
+                            <div class="dpad-btn center"></div>
+                            <div class="dpad-btn right"><i class="fa-solid fa-caret-right"></i></div>
+                            <div class="dpad-btn down"><i class="fa-solid fa-caret-down"></i></div>
+                        </div>
+                        <div style="text-align: center;">
+                            <span class="badge-pill" style="margin-bottom: 8px;"><i class="fa-solid fa-circle-check" style="color: #00E676;"></i> PLUG & PLAY</span>
+                            <div style="font-size: 0.78rem; color: var(--text-secondary);">Compatible Bluetooth & USB-C</div>
+                        </div>
+                        <div class="abxy-cluster">
+                            <div class="abxy-btn btn-y">Y</div>
+                            <div class="abxy-btn btn-x">X</div>
+                            <div class="abxy-btn btn-b">B</div>
+                            <div class="abxy-btn btn-a">A</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-card bento-span-4">
+                    <div>
+                        <div class="bento-hud-tag"><i class="fa-solid fa-music"></i> <span>02 • AUDIO HUB</span></div>
+                        <h3 class="bento-card-title" data-i18n="f6_title">Reproductor de Música</h3>
+                        <p class="bento-card-desc" data-i18n="f6_desc">Escucha música mientras juegas y ajusta su volumen de forma independiente.</p>
+                    </div>
+                    <div class="bento-card-visual">
+                        <div class="audio-visualizer-bars">
+                            <div class="viz-bar"></div>
+                            <div class="viz-bar"></div>
+                            <div class="viz-bar"></div>
+                            <div class="viz-bar"></div>
+                            <div class="viz-bar"></div>
+                            <div class="viz-bar"></div>
+                            <div class="viz-bar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-card bento-span-4">
+                    <div>
+                        <div class="bento-hud-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> <span>03 • NATIVO</span></div>
+                        <h3 class="bento-card-title" data-i18n="f8_title">Parcheador de ROMs</h3>
+                        <p class="bento-card-desc" data-i18n="f8_desc">Parchea tus juegos en vivo de forma nativa sin necesidad de aplicaciones externas.</p>
+                    </div>
+                    <div class="bento-card-visual rom-patcher-sim">
+                        <div class="patch-row-done"><i class="fa-solid fa-check"></i> IPS/BPS Patch Loaded</div>
+                        <div class="patch-row-status">> CRC32 Verified: 100% OK</div>
+                    </div>
+                </div>
+
+                <div class="bento-card bento-span-4">
+                    <div>
+                        <div class="bento-hud-tag"><i class="fa-solid fa-images"></i> <span>04 • SCRAPING</span></div>
+                        <h3 class="bento-card-title" data-i18n="f2_title">Recursos y copias de seguridad</h3>
+                        <p class="bento-card-desc" data-i18n="f2_desc">Descarga recursos gráficos de forma automática o manual, e importa o exporta copias de seguridad.</p>
+                    </div>
+                    <div class="bento-card-visual" style="display: flex; gap: 8px; justify-content: center;">
+                        <span class="badge-pill"><i class="fa-solid fa-cloud-arrow-up"></i> Backup</span>
+                        <span class="badge-pill"><i class="fa-solid fa-image"></i> Boxart HD</span>
+                    </div>
+                </div>
+
+                <div class="bento-card bento-span-4">
+                    <div>
+                        <div class="bento-hud-tag"><i class="fa-solid fa-clock-rotate-left"></i> <span>05 • ANALYTICS</span></div>
+                        <h3 class="bento-card-title" data-i18n="f5_title">Seguimiento de Tiempo de Juego</h3>
+                        <p class="bento-card-desc" data-i18n="f5_desc">Consulta cuánto tiempo has dedicado a cada juego.</p>
+                    </div>
+                    <div class="bento-card-visual" style="text-align: center;">
+                        <div style="font-size: 1.6rem; font-weight: 800; color: #FFFFFF;">142h 35m</div>
+                        <span style="font-size: 0.75rem; color: var(--moondust-cyan);">Tiempo acumulado</span>
+                    </div>
+                </div>
+
+                <div class="bento-card bento-span-6">
+                    <div>
+                        <div class="bento-hud-tag"><i class="fa-solid fa-clapperboard"></i> <span>06 • CINEMATIC</span></div>
+                        <h3 class="bento-card-title" data-i18n="f9_title">Videos de inicio</h3>
+                        <p class="bento-card-desc" data-i18n="f9_desc">Asigna clips de vídeo de inicio personalizados a cada consola para una entrada más cinematográfica a los juegos.</p>
+                    </div>
+                </div>
+
+                <div class="bento-card bento-span-6">
+                    <div>
+                        <div class="bento-hud-tag"><i class="fa-solid fa-cloud-arrow-down"></i> <span>07 • EMULADORES</span></div>
+                        <h3 class="bento-card-title" data-i18n="f7_title">Central de descargas</h3>
+                        <p class="bento-card-desc" data-i18n="f7_desc">Enlaces de descarga directos y oficiales de los emuladores integrados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Quick Dock -->
+    <div class="portal-quick-dock">
+        <a href="home.html" class="dock-item"><i class="fa-solid fa-house"></i> Inicio</a>
+        <a href="hub.html" class="dock-item active"><i class="fa-solid fa-microchip"></i> COS HUB</a>
+        <a href="achievements.html" class="dock-item"><i class="fa-solid fa-trophy"></i> Logros</a>
+        <a href="gallery.html" class="dock-item"><i class="fa-solid fa-images"></i> Galería</a>
+        <a href="download.html" class="dock-item"><i class="fa-brands fa-google-play"></i> Descargas</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-legal">
+                <p data-i18n="footer_rights">&copy; 2026 COS Launcher. Todos los derechos reservados.</p>
+                <p class="footer-author-line">
+                    <span data-i18n="footer_dev_text">Desarrollado por</span>
+                    <span class="author-name">Austin González</span>
+                    <svg class="inline-flag" width="20" height="13" viewBox="0 0 6 4" xmlns="http://www.w3.org/2000/svg" title="Costa Rica">
+                        <rect width="6" height="4" fill="#002B7F" />
+                        <rect y="0.667" width="6" height="2.667" fill="#FFFFFF" />
+                        <rect y="1.333" width="6" height="1.333" fill="#CE1126" />
+                    </svg>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Elements -->
+    <audio id="sfxClick1" src="m4a/click_1.m4a" preload="auto"></audio>
+    <audio id="sfxClick2" src="m4a/click_2.m4a" preload="auto"></audio>
+    <audio id="sfxJuegoAbrir" src="m4a/juegoabrir.mp3" preload="auto"></audio>
+
+    <script src="script.js?v=2.2.1"></script>
+    <script src="innovative.js?v=1.0.0"></script>
+</body>
+
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargas & Live Wallpaper | COS Launcher</title>
+    <meta name="description"
+        content="Descarga COS Launcher en tu dispositivo portátil o teléfono Android desde Google Play Store.">
+
+    <link rel="icon" type="image/png" href="app_icon.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css?v=2.2.1">
+    <link rel="stylesheet" href="innovative.css?v=1.0.0">
+    <link rel="stylesheet" href="portal.css?v=1.0.0">
+</head>
+
+<body>
+
+    <!-- Floating Controller Symbols Particle Engine -->
+    <div id="floatingIconsBg" class="floating-icons-container"></div>
+
+    <!-- Ambient Moon Dust Glows -->
+    <div class="glow-bg glow-top-left"></div>
+    <div class="glow-bg glow-bottom-right"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="home.html" class="brand-logo">
+                <img src="app_icon.png" alt="Logotipo de COS Launcher" class="brand-app-icon">
+                <div class="brand-text">
+                    <span class="brand-title brand-title-white">COS LAUNCHER</span>
+                </div>
+            </a>
+
+            <!-- Multi-Page Navigation Bar -->
+            <nav class="nav-links nav-capsule">
+                <a href="home.html" class="nav-item-pill">Inicio</a>
+                <a href="hub.html" class="nav-item-pill">COS HUB</a>
+                <a href="achievements.html" class="nav-item-pill">Logros</a>
+                <a href="gallery.html" class="nav-item-pill">Galería</a>
+                <a href="download.html" class="nav-item-pill active">Descargas</a>
+                <a href="about.html" class="nav-item-pill">FAQ & Acerca de</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="about.html#kofi" class="badge-pill kofi-nav-pill" id="kofiNavBtn" title="Apoyar en Ko-fi">
+                    <i class="fa-solid fa-mug-hot"></i>
+                    <span class="badge-text" data-i18n="nav_kofi">Ko-fi</span>
+                </a>
+                <div class="badge-pill lang-toggle-pill" id="langToggleBtn" role="button" tabindex="0" title="Cambiar idioma">
+                    <i class="fa-solid fa-globe"></i>
+                    <span class="badge-text" id="langText">ES</span>
+                </div>
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir Menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sub-Page Hero Header -->
+    <section class="page-hero-section">
+        <div class="container page-hero-container">
+            <div class="page-breadcrumb">
+                <a href="home.html">Inicio</a> <span>/</span> <span>Módulo 04</span>
+            </div>
+            <h1 class="page-title">Centro de <span class="gradient-text">Descargas</span></h1>
+            <p class="page-subtitle" data-i18n="dl_desc">
+                Instala COS Launcher en tu dispositivo portátil o teléfono Android de forma oficial y segura.
+            </p>
+        </div>
+    </section>
+
+    <!-- Download Card Section -->
+    <section id="download" class="section download-section" style="padding-top: 0;">
+        <div class="container text-center">
+            <div class="download-cards-wrapper" style="margin-top: 0;">
+                <!-- Card 1: COS Launcher (Google Play) -->
+                <div class="download-card glass-card">
+                    <div class="card-badge-top store" data-i18n="dl_store_badge">TIENDA OFICIAL</div>
+                    <div class="card-icon"><i class="fa-brands fa-google-play"></i></div>
+                    <h3 class="download-card-title" data-i18n="dl_cos_title">COS Launcher</h3>
+                    <p class="download-card-description" data-i18n="dl_store_desc">Instala y actualiza la app desde Google Play.</p>
+
+                    <div class="download-specs-list">
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-tag"></i>
+                            <span data-i18n="dl_spec_version"><strong>Versión:</strong> v1.1.0 Platinum</span>
+                        </div>
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                            <span data-i18n="dl_spec_req"><strong>Requisitos:</strong> Android 9.0 o superior</span>
+                        </div>
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                            <span data-i18n="dl_spec_updates"><strong>Actualizaciones:</strong> Automáticas en segundo plano</span>
+                        </div>
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span data-i18n="dl_spec_protect"><strong>Verificación:</strong> Protegido por Google Play Protect</span>
+                        </div>
+                    </div>
+
+                    <div class="download-action-group">
+                        <a href="https://play.google.com/store/apps/details?id=com.austin.conceptualos" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-googleplay btn-block" aria-label="Abrir Google Play Store">
+                            <i class="fa-brands fa-google-play"></i> <span data-i18n="dl_store_btn">Abrir tienda</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Conceptual Key Mapper (GitHub Releases) -->
+                <div class="download-card glass-card">
+                    <div class="card-badge-top plugin" data-i18n="dl_km_badge">PLUGIN OFICIAL</div>
+                    <div class="card-icon plugin-icon"><i class="fa-solid fa-gamepad"></i></div>
+                    <h3 class="download-card-title" data-i18n="dl_km_title">Conceptual Key Mapper</h3>
+                    <p class="download-card-description" data-i18n="dl_km_desc">Plugin para COS Launcher para abrir el overlay sin tocar la pantalla, pulsando un botón o combinación. Ideal para monitores externos o TV.</p>
+
+                    <div class="download-specs-list">
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-puzzle-piece"></i>
+                            <span data-i18n="dl_km_spec_type"><strong>Tipo:</strong> Plugin para COS Launcher</span>
+                        </div>
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-gamepad"></i>
+                            <span data-i18n="dl_km_spec_overlay"><strong>Acceso:</strong> Abre el Overlay sin tocar la pantalla (botón o combo)</span>
+                        </div>
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-tv"></i>
+                            <span data-i18n="dl_km_spec_target"><strong>Ideal para:</strong> Monitores externos, TV y mandos</span>
+                        </div>
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span data-i18n="dl_km_spec_setup"><strong>Configuración:</strong> Automática (se configura sola al instalar)</span>
+                        </div>
+                    </div>
+
+                    <div class="download-action-group">
+                        <a href="https://github.com/austix22/conceptual-key-mapper/releases" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-github btn-block" aria-label="Descargar Conceptual Key Mapper en GitHub Releases">
+                            <i class="fa-brands fa-github"></i> <span data-i18n="dl_km_btn">Descargar en GitHub</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conceptual Live Wallpaper Showcase Section -->
+    <section id="wallpaper" class="section wallpaper-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle" data-i18n="wp_subtitle">FONDO ANIMADO INTERACTIVO</span>
+                <h2 class="section-title" data-i18n="wp_title">
+                    Lleva este fondo a tu Android con <br>
+                    <span class="gradient-text">Conceptual Live Wallpaper</span>
+                </h2>
+                <p class="section-description" data-i18n="wp_desc">
+                    ¿Te fascina el efecto de partículas flotantes que ves en esta página? Disfruta del mismo motor interactivo directamente en la pantalla de inicio y bloqueo de tu teléfono Android.
+                </p>
+            </div>
+
+            <div class="wallpaper-showcase-box glass-card">
+                <div class="wallpaper-badge-row">
+                    <span class="wallpaper-pill-badge">
+                        <i class="fa-brands fa-android"></i> <span data-i18n="wp_badge_android">Android Live Wallpaper</span>
+                    </span>
+                    <span class="wallpaper-pill-badge oled-pill">
+                        <i class="fa-solid fa-atom"></i> <span data-i18n="wp_badge_engine">Mismo Motor de Partículas</span>
+                    </span>
+                </div>
+
+                <div class="wallpaper-preview-grid">
+                    <!-- Multicolor Mode Card -->
+                    <div class="wallpaper-card glass-card" data-wp-img="img/live2.png" data-wp-mode="color" tabindex="0" role="button" aria-label="Ampliar captura del modo multicolor">
+                        <div class="wallpaper-media-wrap">
+                            <img src="img/live2.png" alt="Conceptual Live Wallpaper - Modo Color Clásico" class="wallpaper-img" loading="lazy">
+                            <div class="wallpaper-overlay">
+                                <span class="wallpaper-mode-tag color-tag" data-i18n="wp_card1_tag">MODO MULTICOLOR</span>
+                            </div>
+                            <div class="gallery-overlay">
+                                <span class="gallery-zoom-btn">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                    <span data-i18n="gallery_zoom_hint">Ampliar captura</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="wallpaper-card-content">
+                            <div class="wallpaper-card-header">
+                                <h3 data-i18n="wp_card1_title">Paleta Gamer Multicolor</h3>
+                                <div class="wallpaper-dots-indicator" title="Colores retro">
+                                    <span class="color-dot dot-green" title="A / Triángulo"></span>
+                                    <span class="color-dot dot-red" title="B / Círculo"></span>
+                                    <span class="color-dot dot-blue" title="X / Cruz"></span>
+                                    <span class="color-dot dot-yellow" title="Y"></span>
+                                    <span class="color-dot dot-pink" title="Cuadrado"></span>
+                                </div>
+                            </div>
+                            <p data-i18n="wp_card1_desc">
+                                Los clásicos símbolos A, B, X, Y y PlayStation flotando con sus colores icónicos retro sobre fondos oscuros personalizables.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Monochrome Mode Card -->
+                    <div class="wallpaper-card glass-card" data-wp-img="img/live1.jpeg" data-wp-mode="mono" tabindex="0" role="button" aria-label="Ampliar captura del modo monocromo">
+                        <div class="wallpaper-media-wrap">
+                            <img src="img/live1.jpeg" alt="Conceptual Live Wallpaper - Modo Monocromo Minimalista" class="wallpaper-img" loading="lazy">
+                            <div class="wallpaper-overlay">
+                                <span class="wallpaper-mode-tag mono-tag" data-i18n="wp_card2_tag">MODO MONOCROMO</span>
+                            </div>
+                            <div class="gallery-overlay">
+                                <span class="gallery-zoom-btn">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                    <span data-i18n="gallery_zoom_hint">Ampliar captura</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="wallpaper-card-content">
+                            <div class="wallpaper-card-header">
+                                <h3 data-i18n="wp_card2_title">Minimalismo Puro & AMOLED</h3>
+                                <div class="wallpaper-dots-indicator" title="Monocromo">
+                                    <span class="color-dot dot-white" title="Blanco puro"></span>
+                                    <span class="color-dot dot-silver" title="Plata suave"></span>
+                                    <span class="color-dot dot-dim" title="Gris sideral"></span>
+                                </div>
+                            </div>
+                            <p data-i18n="wp_card2_desc">
+                                Estilo monocromático limpio y elegante en escala de grises y plata, diseñado para fondos negros puros y máximo ahorro de energía.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wallpaper-features-grid">
+                    <div class="wp-feat-item">
+                        <div class="wp-feat-icon glow-cyan"><i class="fa-solid fa-atom"></i></div>
+                        <div class="wp-feat-info">
+                            <h4 data-i18n="wp_feat1_title">Mismo Motor de Partículas</h4>
+                            <p data-i18n="wp_feat1_desc">La misma física reactiva y partículas suaves que estás viendo en el fondo de este sitio web.</p>
+                        </div>
+                    </div>
+
+                    <div class="wp-feat-item">
+                        <div class="wp-feat-icon glow-purple"><i class="fa-solid fa-battery-full"></i></div>
+                        <div class="wp-feat-info">
+                            <h4 data-i18n="wp_feat2_title">Cero Consumo de Batería</h4>
+                            <p data-i18n="wp_feat2_desc">Optimizado con pausas automáticas cuando la pantalla se apaga o abres otras aplicaciones.</p>
+                        </div>
+                    </div>
+
+                    <div class="wp-feat-item">
+                        <div class="wp-feat-icon glow-blue"><i class="fa-solid fa-sliders"></i></div>
+                        <div class="wp-feat-info">
+                            <h4 data-i18n="wp_feat3_title">Ajustes & Personalización</h4>
+                            <p data-i18n="wp_feat3_desc">Personaliza la velocidad, estilos de color y tonos de fondo.</p>
+                        </div>
+                    </div>
+
+                    <div class="wp-feat-item">
+                        <div class="wp-feat-icon glow-purple"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                        <div class="wp-feat-info">
+                            <h4 data-i18n="wp_feat4_title">Solo $1.00 USD (Pago Único)</h4>
+                            <p data-i18n="wp_feat4_desc">Sin suscripciones ni publicidad invasiva.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wallpaper-cta-box text-center">
+                    <a href="https://play.google.com/store/search?q=Conceptual+Live+Wallpaper&c=apps" target="_blank" rel="noopener noreferrer" class="btn btn-googleplay btn-lg wallpaper-play-btn" id="wpGooglePlayBtn">
+                        <i class="fa-brands fa-google-play"></i>
+                        <span data-i18n="wp_cta_btn">Obtener en Google Play</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dedicated Lightbox Modal for Conceptual Live Wallpaper -->
+    <div id="wallpaperLightbox" class="gallery-lightbox" aria-hidden="true" role="dialog" aria-label="Visor de fondo animado">
+        <div class="lightbox-overlay" id="wpLightboxOverlay"></div>
+        <button class="lightbox-close" id="wpLightboxCloseBtn" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+        <div class="lightbox-content wp-lightbox-content">
+            <div class="lightbox-figure wp-lightbox-figure">
+                <div class="lightbox-viewport wp-lightbox-viewport">
+                    <img id="wpLightboxImg" src="" alt="Vista previa de Conceptual Live Wallpaper" class="lightbox-img wp-lightbox-img">
+                </div>
+                <div class="wp-lightbox-caption" id="wpLightboxCaption">
+                    <p class="wp-lightbox-desc" id="wpLightboxDesc">Modo Multicolor</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Quick Dock -->
+    <div class="portal-quick-dock">
+        <a href="home.html" class="dock-item"><i class="fa-solid fa-house"></i> Inicio</a>
+        <a href="hub.html" class="dock-item"><i class="fa-solid fa-microchip"></i> COS HUB</a>
+        <a href="achievements.html" class="dock-item"><i class="fa-solid fa-trophy"></i> Logros</a>
+        <a href="gallery.html" class="dock-item"><i class="fa-solid fa-images"></i> Galería</a>
+        <a href="download.html" class="dock-item active"><i class="fa-brands fa-google-play"></i> Descargas</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-legal">
+                <p data-i18n="footer_rights">&copy; 2026 COS Launcher. Todos los derechos reservados.</p>
+                <p class="footer-author-line">
+                    <span data-i18n="footer_dev_text">Desarrollado por</span>
+                    <span class="author-name">Austin González</span>
+                    <svg class="inline-flag" width="20" height="13" viewBox="0 0 6 4" xmlns="http://www.w3.org/2000/svg" title="Costa Rica">
+                        <rect width="6" height="4" fill="#002B7F" />
+                        <rect y="0.667" width="6" height="2.667" fill="#FFFFFF" />
+                        <rect y="1.333" width="6" height="1.333" fill="#CE1126" />
+                    </svg>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Elements -->
+    <audio id="sfxClick1" src="m4a/click_1.m4a" preload="auto"></audio>
+    <audio id="sfxClick2" src="m4a/click_2.m4a" preload="auto"></audio>
+    <audio id="sfxJuegoAbrir" src="m4a/juegoabrir.mp3" preload="auto"></audio>
+
+    <script src="script.js?v=2.2.1"></script>
+    <script src="innovative.js?v=1.0.0"></script>
+</body>
+
+</html>

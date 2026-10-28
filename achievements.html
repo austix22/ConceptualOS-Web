@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logros & RetroAchievements | COS Launcher</title>
+    <meta name="description"
+        content="Integración nativa con RetroAchievements utilizando el motor oficial rcheevos. Desbloquea logros, suma puntos y sigue tu progreso.">
+
+    <link rel="icon" type="image/png" href="app_icon.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css?v=2.2.1">
+    <link rel="stylesheet" href="innovative.css?v=1.0.0">
+    <link rel="stylesheet" href="portal.css?v=1.0.0">
+</head>
+
+<body>
+
+    <!-- Floating Controller Symbols Particle Engine -->
+    <div id="floatingIconsBg" class="floating-icons-container"></div>
+
+    <!-- Ambient Moon Dust Glows -->
+    <div class="glow-bg glow-top-left"></div>
+    <div class="glow-bg glow-bottom-right"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="home.html" class="brand-logo">
+                <img src="app_icon.png" alt="Logotipo de COS Launcher" class="brand-app-icon">
+                <div class="brand-text">
+                    <span class="brand-title brand-title-white">COS LAUNCHER</span>
+                </div>
+            </a>
+
+            <!-- Multi-Page Navigation Bar -->
+            <nav class="nav-links nav-capsule">
+                <a href="home.html" class="nav-item-pill">Inicio</a>
+                <a href="hub.html" class="nav-item-pill">COS HUB</a>
+                <a href="achievements.html" class="nav-item-pill active">Logros</a>
+                <a href="gallery.html" class="nav-item-pill">Galería</a>
+                <a href="download.html" class="nav-item-pill">Descargas</a>
+                <a href="about.html" class="nav-item-pill">FAQ & Acerca de</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="about.html#kofi" class="badge-pill kofi-nav-pill" id="kofiNavBtn" title="Apoyar en Ko-fi">
+                    <i class="fa-solid fa-mug-hot"></i>
+                    <span class="badge-text" data-i18n="nav_kofi">Ko-fi</span>
+                </a>
+                <div class="badge-pill lang-toggle-pill" id="langToggleBtn" role="button" tabindex="0" title="Cambiar idioma">
+                    <i class="fa-solid fa-globe"></i>
+                    <span class="badge-text" id="langText">ES</span>
+                </div>
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir Menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sub-Page Hero Header -->
+    <section class="page-hero-section">
+        <div class="container page-hero-container">
+            <div class="page-breadcrumb">
+                <a href="home.html">Inicio</a> <span>/</span> <span>Módulo 02</span>
+            </div>
+            <h1 class="page-title">Sistema de <span class="gradient-text">Logros</span></h1>
+            <p class="page-subtitle" data-i18n="ach_desc">
+                Revive tus juegos favoritos con la emoción de los logros modernos. COS Launcher se conecta de forma
+                directa con tu cuenta de RetroAchievements utilizando el motor oficial <strong>rcheevos</strong>,
+                permitiéndote competir, sumar puntos y llevar un registro de tus hazañas.
+            </p>
+        </div>
+    </section>
+
+    <!-- Interactive Achievements Showcase Stage -->
+    <section id="achievements" class="section achievements-section" style="padding-top: 0;">
+        <div class="container overlay-container">
+            <div class="overlay-visual">
+                <div class="ra-hud-card glass-card" style="box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(206, 181, 255, 0.25);">
+                    <div class="ra-header-capsule">
+                        <div class="ra-header-top">
+                            <div class="ra-header-left">
+                                <div class="ra-main-icon-wrap" id="achIconWrap">
+                                    <i class="fa-solid fa-gamepad" id="achMainIcon"></i>
+                                </div>
+                                <div class="ra-header-titles">
+                                    <h4 id="achMainTitle">Aetherium: Zero</h4>
+                                    <span id="achMainDesc">Progreso de logros</span>
+                                </div>
+                            </div>
+                            <span class="pts-gold" id="achMainPts"></span>
+                        </div>
+
+                        <div class="ra-progress-row">
+                            <div class="ra-progress-track">
+                                <div class="ra-progress-fill" id="achMainProgress" style="width: 50%;"></div>
+                            </div>
+                            <span class="ra-subcapsule-badge" id="achMainCount">25/50</span>
+                        </div>
+                    </div>
+
+                    <!-- 10 Interactive Achievement Icons -->
+                    <div class="ra-icons-grid" id="achIconsGrid">
+                        <div class="ra-grid-item" role="button" tabindex="0" data-title="Primer campeón" data-desc="Gana tu primera batalla"
+                            data-pts="5 PTS" data-icon="fa-trophy">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <div class="ra-grid-item" role="button" tabindex="0" data-title="Velocidad Máxima" data-desc="Supera el récord"
+                            data-pts="10 PTS" data-icon="fa-bolt">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div class="ra-grid-item" role="button" tabindex="0" data-title="Escudo Inquebrantable" data-desc="Bloquea diez ataques"
+                            data-pts="15 PTS" data-icon="fa-shield-halved">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div class="ra-grid-item" role="button" tabindex="0" data-title="Poder Elemental" data-desc="Domina los elementos"
+                            data-pts="20 PTS" data-icon="fa-fire">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <div class="ra-grid-item" role="button" tabindex="0" data-title="Cazador Supremo" data-desc="Vence al jefe"
+                            data-pts="25 PTS" data-icon="fa-skull">
+                            <i class="fa-solid fa-skull"></i>
+                        </div>
+                        <div class="ra-grid-item" role="button" tabindex="0" data-title="Corona Legendaria" data-desc="Consigue el trono"
+                            data-pts="30 PTS" data-icon="fa-crown">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <div class="ra-grid-item" role="button" tabindex="0" data-title="Gema Oculta" data-desc="Encuentra el secreto"
+                            data-pts="10 PTS" data-icon="fa-gem">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <div class="ra-grid-item" role="button" tabindex="0" data-title="Estratega Maestro" data-desc="Plan perfecto ejecutado"
+                            data-pts="25 PTS" data-icon="fa-medal">
+                            <i class="fa-solid fa-medal"></i>
+                        </div>
+                        <div class="ra-grid-item" role="button" tabindex="0" data-title="Coleccionista experto" data-desc="Reúne todos los objetos"
+                            data-pts="50 PTS" data-icon="fa-award">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div class="ra-grid-item" role="button" tabindex="0" data-title="Perfección total" data-desc="Alcanza el nivel cien"
+                            data-pts="50 PTS" data-icon="fa-star">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overlay-content">
+                <span class="section-subtitle" data-i18n="ach_subtitle">SISTEMA DE LOGROS</span>
+                <h2 class="section-title">Integración Oficial con <span class="gradient-text">RetroAchievements</span></h2>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="ach_check1">Sincronización de perfil y lista de logros.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="ach_check2">Integración nativa con el motor rcheevos.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="ach_check3">Seguimiento de porcentaje completado.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="ach_check4">Consulta tus logros desbloqueados tanto en el menú como en COS HUB.</span></li>
+                </ul>
+
+                <div style="margin-top: 36px; padding: 24px; background: rgba(22, 24, 36, 0.6); border-radius: 18px; border: 1px solid var(--border-light);">
+                    <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 8px;"><i class="fa-solid fa-lightbulb" style="color: var(--moondust-cyan);"></i> ¿Cómo funciona?</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                        Inicia sesión con tu cuenta de RetroAchievements desde los ajustes de la app. Tus emuladores compatibles informarán directamente de los eventos en tiempo real, desbloqueando insignias y puntuaciones automáticamente en tu perfil.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Quick Dock -->
+    <div class="portal-quick-dock">
+        <a href="home.html" class="dock-item"><i class="fa-solid fa-house"></i> Inicio</a>
+        <a href="hub.html" class="dock-item"><i class="fa-solid fa-microchip"></i> COS HUB</a>
+        <a href="achievements.html" class="dock-item active"><i class="fa-solid fa-trophy"></i> Logros</a>
+        <a href="gallery.html" class="dock-item"><i class="fa-solid fa-images"></i> Galería</a>
+        <a href="download.html" class="dock-item"><i class="fa-brands fa-google-play"></i> Descargas</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-legal">
+                <p data-i18n="footer_rights">&copy; 2026 COS Launcher. Todos los derechos reservados.</p>
+                <p class="footer-author-line">
+                    <span data-i18n="footer_dev_text">Desarrollado por</span>
+                    <span class="author-name">Austin González</span>
+                    <svg class="inline-flag" width="20" height="13" viewBox="0 0 6 4" xmlns="http://www.w3.org/2000/svg" title="Costa Rica">
+                        <rect width="6" height="4" fill="#002B7F" />
+                        <rect y="0.667" width="6" height="2.667" fill="#FFFFFF" />
+                        <rect y="1.333" width="6" height="1.333" fill="#CE1126" />
+                    </svg>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Elements -->
+    <audio id="sfxClick1" src="m4a/click_1.m4a" preload="auto"></audio>
+    <audio id="sfxClick2" src="m4a/click_2.m4a" preload="auto"></audio>
+    <audio id="sfxJuegoAbrir" src="m4a/juegoabrir.mp3" preload="auto"></audio>
+
+    <script src="script.js?v=2.2.1"></script>
+    <script src="innovative.js?v=1.0.0"></script>
+</body>
+
+</html>

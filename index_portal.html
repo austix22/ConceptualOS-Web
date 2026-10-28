@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COS Launcher | Portal Oficial</title>
+    <meta name="description"
+        content="COS Launcher organiza tus juegos de Android y emuladores con navegación mediante controles, RetroAchievements, recursos gráficos y accesos rápidos con COS HUB.">
+
+    <link rel="icon" type="image/png" href="app_icon.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css?v=2.2.1">
+    <link rel="stylesheet" href="innovative.css?v=1.0.0">
+    <link rel="stylesheet" href="portal.css?v=1.0.0">
+</head>
+
+<body>
+
+    <!-- Floating Controller Symbols Particle Engine -->
+    <div id="floatingIconsBg" class="floating-icons-container"></div>
+
+    <!-- Ambient Moon Dust Glows -->
+    <div class="glow-bg glow-top-left"></div>
+    <div class="glow-bg glow-bottom-right"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="home.html" class="brand-logo">
+                <img src="app_icon.png" alt="Logotipo de COS Launcher" class="brand-app-icon">
+                <div class="brand-text">
+                    <span class="brand-title brand-title-white">COS LAUNCHER</span>
+                </div>
+            </a>
+
+            <!-- Multi-Page Navigation Bar -->
+            <nav class="nav-links nav-capsule">
+                <a href="home.html" class="nav-item-pill active">Inicio</a>
+                <a href="hub.html" class="nav-item-pill">COS HUB</a>
+                <a href="achievements.html" class="nav-item-pill">Logros</a>
+                <a href="gallery.html" class="nav-item-pill">Galería</a>
+                <a href="download.html" class="nav-item-pill">Descargas</a>
+                <a href="about.html" class="nav-item-pill">FAQ & Acerca de</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="about.html#kofi" class="badge-pill kofi-nav-pill" id="kofiNavBtn" title="Apoyar en Ko-fi">
+                    <i class="fa-solid fa-mug-hot"></i>
+                    <span class="badge-text" data-i18n="nav_kofi">Ko-fi</span>
+                </a>
+                <div class="badge-pill lang-toggle-pill" id="langToggleBtn" role="button" tabindex="0" title="Cambiar idioma">
+                    <i class="fa-solid fa-globe"></i>
+                    <span class="badge-text" id="langText">ES</span>
+                </div>
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir Menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Console Dashboard Hero -->
+    <section class="hero-section" style="padding-bottom: 30px;">
+        <div class="container hero-container" style="flex-direction: column; align-items: center; text-align: center;">
+            <div class="hero-content" style="max-width: 840px; margin: 0 auto;">
+                <div class="hero-badges-row" style="justify-content: center;">
+                    <div class="badge-pill">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text" data-i18n="hero_badge">COS Launcher V1.1.0 Platinum</span>
+                    </div>
+                </div>
+
+                <h1 class="hero-title" data-i18n="hero_title" style="margin-bottom: 20px;">
+                    Tus juegos, <br>
+                    <span class="gradient-text">en un solo lugar</span>
+                </h1>
+                <p class="hero-description" data-i18n="hero_desc" style="max-width: 680px; margin: 0 auto 36px auto;">
+                    COS Launcher reúne tus juegos de Android y emuladores en una biblioteca organizada. Disfruta de
+                    navegación con controles, logros de RetroAchievements y accesos rápidos durante tus partidas con COS
+                    HUB.
+                </p>
+
+                <div class="hero-cta-group" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px;">
+                    <a href="download.html" class="btn btn-primary" style="padding: 14px 30px; border-radius: 999px;">
+                        <i class="fa-brands fa-google-play"></i>
+                        <span data-i18n="dl_store_btn">Obtener en Google Play</span>
+                    </a>
+                    <a href="hub.html" class="btn btn-secondary" style="padding: 14px 30px; border-radius: 999px;">
+                        <i class="fa-solid fa-play"></i>
+                        <span>Probar Simulador COS HUB</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Virtual Handheld Console Interactive Stage -->
+            <div class="hero-stage-wrapper">
+                <div class="console-ambient-glow"></div>
+                
+                <div class="handheld-console">
+                    <!-- Left Console Grip -->
+                    <div class="console-grip">
+                        <div class="console-shoulder-trigger">L1 • L2</div>
+                        <div class="console-analog-stick" title="Stick analógico izquierdo"></div>
+                        <div class="dpad-cluster">
+                            <div class="dpad-btn up"><i class="fa-solid fa-caret-up"></i></div>
+                            <div class="dpad-btn left"><i class="fa-solid fa-caret-left"></i></div>
+                            <div class="dpad-btn center"></div>
+                            <div class="dpad-btn right"><i class="fa-solid fa-caret-right"></i></div>
+                            <div class="dpad-btn down"><i class="fa-solid fa-caret-down"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Center OLED Console Screen -->
+                    <div class="console-screen-bezel">
+                        <div class="console-display">
+                            <div class="console-top-bar">
+                                <div class="console-status-left">
+                                    <span class="console-status-pill"><i class="fa-solid fa-circle-dot"></i> SISTEMA ACTIVO</span>
+                                    <span style="font-size: 0.75rem; color: var(--text-secondary);"><i class="fa-solid fa-wifi"></i> 5G</span>
+                                </div>
+                                <div class="console-status-right">
+                                    <span id="liveClock" style="font-weight: 700;">12:00 PM</span>
+                                    <span style="color: #00E676;"><i class="fa-solid fa-battery-full"></i> 85%</span>
+                                </div>
+                            </div>
+
+                            <div class="console-screen-body">
+                                <div class="console-game-card">
+                                    <div class="console-game-thumb">
+                                        <i class="fa-solid fa-gamepad"></i>
+                                    </div>
+                                    <div class="console-game-meta">
+                                        <div style="display: flex; gap: 8px; margin-bottom: 4px;">
+                                            <span class="game-status-pill"><i class="fa-solid fa-play"></i> JUGANDO A</span>
+                                            <span class="ra-subcapsule-badge"><i class="fa-solid fa-trophy"></i> 25/50 LOGROS</span>
+                                        </div>
+                                        <h3>Aetherium: Zero</h3>
+                                        <p>Emulador PS2 • 60 FPS • Control Conectado</p>
+                                    </div>
+                                </div>
+
+                                <div class="console-quick-row">
+                                    <a href="hub.html" class="console-quick-btn active">
+                                        <i class="fa-solid fa-microchip"></i> <span>Abrir COS HUB</span>
+                                    </a>
+                                    <a href="achievements.html" class="console-quick-btn">
+                                        <i class="fa-solid fa-trophy"></i> <span>Ver Logros</span>
+                                    </a>
+                                    <a href="gallery.html" class="console-quick-btn">
+                                        <i class="fa-solid fa-images"></i> <span>Ver Capturas</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Console Grip -->
+                    <div class="console-grip">
+                        <div class="console-shoulder-trigger">R1 • R2</div>
+                        <div class="abxy-cluster">
+                            <div class="abxy-btn btn-y">Y</div>
+                            <div class="abxy-btn btn-x">X</div>
+                            <div class="abxy-btn btn-b">B</div>
+                            <div class="abxy-btn btn-a">A</div>
+                        </div>
+                        <div class="console-analog-stick" title="Stick analógico derecho"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Page Exploration Portals -->
+    <section class="section" style="padding-top: 20px;">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">EXPLORA EL SISTEMA</span>
+                <h2 class="section-title">Módulos de <span class="gradient-text">COS Launcher</span></h2>
+                <p class="section-description">
+                    Accede a cada sección especializada del launcher sin interfaces saturadas.
+                </p>
+            </div>
+
+            <!-- Portal Dashboard Grid (4 Main Access Portals) -->
+            <div class="portal-dashboard-grid">
+                <!-- Portal 1: COS HUB & Funciones -->
+                <a href="hub.html" class="portal-nav-card span-6">
+                    <div>
+                        <div class="portal-card-badge"><i class="fa-solid fa-microchip"></i> <span>MÓDULO 01</span></div>
+                        <h3 class="portal-card-title">COS HUB & Funciones</h3>
+                        <p class="portal-card-desc">
+                            Superposición flotante durante tus partidas. Control de volumen y brillo, notas, navegador web integrado y reproductor de música.
+                        </p>
+                    </div>
+                    <div class="portal-card-footer">
+                        <span>Explorar simulador y funciones</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Portal 2: RetroAchievements -->
+                <a href="achievements.html" class="portal-nav-card span-6">
+                    <div>
+                        <div class="portal-card-badge"><i class="fa-solid fa-trophy"></i> <span>MÓDULO 02</span></div>
+                        <h3 class="portal-card-title">Sistema de Logros</h3>
+                        <p class="portal-card-desc">
+                            Integración nativa con RetroAchievements y el motor oficial rcheevos. Compite, suma puntos y consulta tu progreso en tiempo real.
+                        </p>
+                    </div>
+                    <div class="portal-card-footer">
+                        <span>Ver vitrina interactiva de trofeos</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Portal 3: Galería & Capturas -->
+                <a href="gallery.html" class="portal-nav-card span-6">
+                    <div>
+                        <div class="portal-card-badge"><i class="fa-solid fa-images"></i> <span>MÓDULO 03</span></div>
+                        <h3 class="portal-card-title">Galería de la Interfaz</h3>
+                        <p class="portal-card-desc">
+                            Recorrido visual por el sistema en consolas portátiles y Android. 8 capturas en alta resolución con zoom y detalles de cada pantalla.
+                        </p>
+                    </div>
+                    <div class="portal-card-footer">
+                        <span>Ver capturas del sistema</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Portal 4: Descargas & Live Wallpaper -->
+                <a href="download.html" class="portal-nav-card span-6">
+                    <div>
+                        <div class="portal-card-badge"><i class="fa-brands fa-google-play"></i> <span>MÓDULO 04</span></div>
+                        <h3 class="portal-card-title">Descargas & Live Wallpaper</h3>
+                        <p class="portal-card-desc">
+                            Enlace oficial de Google Play, lista de emuladores soportados y el fondo de pantalla animado interactivo para tu teléfono.
+                        </p>
+                    </div>
+                    <div class="portal-card-footer">
+                        <span>Descargar COS Launcher</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Highlights Specs Bar -->
+            <div class="hero-satellites-container" style="margin: 0 auto;">
+                <div class="satellite-chip">
+                    <div class="satellite-icon icon-purple"><i class="fa-solid fa-gamepad"></i></div>
+                    <div class="satellite-text">
+                        <span class="satellite-val">100% Controles</span>
+                        <span class="satellite-label">Plug & Play Bluetooth / USB</span>
+                    </div>
+                </div>
+
+                <div class="satellite-chip">
+                    <div class="satellite-icon icon-blue"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="satellite-text">
+                        <span class="satellite-val">Sin Anuncios</span>
+                        <span class="satellite-label">Privacidad por diseño</span>
+                    </div>
+                </div>
+
+                <div class="satellite-chip">
+                    <div class="satellite-icon icon-cyan"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <div class="satellite-text">
+                        <span class="satellite-val">Android 9.0+</span>
+                        <span class="satellite-label">Consolas, Móviles y Tablets</span>
+                    </div>
+                </div>
+
+                <div class="satellite-chip">
+                    <div class="satellite-icon icon-purple"><i class="fa-solid fa-code"></i></div>
+                    <div class="satellite-text">
+                        <span class="satellite-val">Indie Dev</span>
+                        <span class="satellite-label">Austin González • Costa Rica</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-legal">
+                <p data-i18n="footer_rights">&copy; 2026 COS Launcher. Todos los derechos reservados.</p>
+                <p class="footer-author-line">
+                    <span data-i18n="footer_dev_text">Desarrollado por</span>
+                    <span class="author-name">Austin González</span>
+                    <svg class="inline-flag" width="20" height="13" viewBox="0 0 6 4" xmlns="http://www.w3.org/2000/svg" title="Costa Rica">
+                        <rect width="6" height="4" fill="#002B7F" />
+                        <rect y="0.667" width="6" height="2.667" fill="#FFFFFF" />
+                        <rect y="1.333" width="6" height="1.333" fill="#CE1126" />
+                    </svg>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio SFX Elements Preloaded -->
+    <audio id="sfxClick1" src="m4a/click_1.m4a" preload="auto"></audio>
+    <audio id="sfxClick2" src="m4a/click_2.m4a" preload="auto"></audio>
+    <audio id="sfxJuegoAbrir" src="m4a/juegoabrir.mp3" preload="auto"></audio>
+
+    <!-- Custom Scripts -->
+    <script src="script.js?v=2.2.1"></script>
+    <script src="innovative.js?v=1.0.0"></script>
+</body>
+
+</html>

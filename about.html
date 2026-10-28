@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes & Acerca de | COS Launcher</title>
+    <meta name="description"
+        content="Preguntas frecuentes, filosofía de desarrollo independiente y apoyo al proyecto COS Launcher.">
+
+    <link rel="icon" type="image/png" href="app_icon.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css?v=2.2.1">
+    <link rel="stylesheet" href="innovative.css?v=1.0.0">
+    <link rel="stylesheet" href="portal.css?v=1.0.0">
+</head>
+
+<body>
+
+    <!-- Floating Controller Symbols Particle Engine -->
+    <div id="floatingIconsBg" class="floating-icons-container"></div>
+
+    <!-- Ambient Moon Dust Glows -->
+    <div class="glow-bg glow-top-left"></div>
+    <div class="glow-bg glow-bottom-right"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="home.html" class="brand-logo">
+                <img src="app_icon.png" alt="Logotipo de COS Launcher" class="brand-app-icon">
+                <div class="brand-text">
+                    <span class="brand-title brand-title-white">COS LAUNCHER</span>
+                </div>
+            </a>
+
+            <!-- Multi-Page Navigation Bar -->
+            <nav class="nav-links nav-capsule">
+                <a href="home.html" class="nav-item-pill">Inicio</a>
+                <a href="hub.html" class="nav-item-pill">COS HUB</a>
+                <a href="achievements.html" class="nav-item-pill">Logros</a>
+                <a href="gallery.html" class="nav-item-pill">Galería</a>
+                <a href="download.html" class="nav-item-pill">Descargas</a>
+                <a href="about.html" class="nav-item-pill active">FAQ & Acerca de</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#kofi" class="badge-pill kofi-nav-pill" id="kofiNavBtn" title="Apoyar en Ko-fi">
+                    <i class="fa-solid fa-mug-hot"></i>
+                    <span class="badge-text" data-i18n="nav_kofi">Ko-fi</span>
+                </a>
+                <div class="badge-pill lang-toggle-pill" id="langToggleBtn" role="button" tabindex="0" title="Cambiar idioma">
+                    <i class="fa-solid fa-globe"></i>
+                    <span class="badge-text" id="langText">ES</span>
+                </div>
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir Menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sub-Page Hero Header -->
+    <section class="page-hero-section">
+        <div class="container page-hero-container">
+            <div class="page-breadcrumb">
+                <a href="home.html">Inicio</a> <span>/</span> <span>Módulo 05</span>
+            </div>
+            <h1 class="page-title">Preguntas Frecuentes & <span class="gradient-text">Comunidad</span></h1>
+            <p class="page-subtitle" data-i18n="faq_desc">
+                Todo lo que necesitas saber sobre compatibilidad, instalación, emuladores y el funcionamiento de COS Launcher.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section faq-section" style="padding-top: 0;">
+        <div class="container">
+            <div class="features-grid faq-grid">
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-purple"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h3 data-i18n="faq_q1">¿Qué dispositivos y versiones de Android son compatibles?</h3>
+                    <p data-i18n="faq_a1">COS Launcher es compatible con Android 9.0 (Pie) en adelante. Está optimizado para consolas portátiles (Ayn Odin, Retroid Pocket, Anbernic, Logitech G Cloud), smartphones, tablets y Android TV.</p>
+                </div>
+
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-blue"><i class="fa-solid fa-gamepad"></i></div>
+                    <h3 data-i18n="faq_q2">¿Cómo funciona la navegación con controles?</h3>
+                    <p data-i18n="faq_a2">El soporte es 100% nativo. Puedes conectar tu control por Bluetooth o USB-C y navegar por toda la interfaz, biblioteca y COS HUB sin requerir aplicaciones externas de mapeo.</p>
+                </div>
+
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-cyan"><i class="fa-solid fa-box-open"></i></div>
+                    <h3 data-i18n="faq_q3">¿La aplicación incluye juegos o emuladores?</h3>
+                    <p data-i18n="faq_a3">No. COS Launcher es un organizador de biblioteca e interfaz visual (frontend). Debes poseer tus propios emuladores y juegos (ROMs) legalmente adquiridos.</p>
+                </div>
+
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-purple"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3 data-i18n="faq_q4">¿Es segura la instalación desde Google Play Store?</h3>
+                    <p data-i18n="faq_a4">Sí, totalmente. Construido bajo privacidad por diseño: sin anuncios invasivos ni recolección de datos, verificado por Google Play Protect.</p>
+                </div>
+
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-blue"><i class="fa-solid fa-trophy"></i></div>
+                    <h3 data-i18n="faq_q5">¿Cómo funciona la integración con RetroAchievements (Logros)?</h3>
+                    <p data-i18n="faq_a5">Solo vincula tu cuenta de RetroAchievements. Sincronizará automáticamente tus logros obtenidos y mostrará tu avance tanto en el menú como en la overlay en partida.</p>
+                </div>
+
+                <div class="feature-card glass-card">
+                    <div class="feature-icon glow-cyan"><i class="fa-solid fa-images"></i></div>
+                    <h3 data-i18n="faq_q6">¿Cómo funciona la descarga de recursos e información de los juegos?</h3>
+                    <p data-i18n="faq_a6">El scraping se realiza conectando con ScreenScraper y SteamGridDB mediante tus cuentas y claves API, obteniendo portadas HD, banners y videos automáticamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dedicated About Section -->
+    <section id="about" class="section about-section">
+        <div class="container text-center">
+            <div class="about-box glass-card" style="box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(206, 181, 255, 0.2);">
+                <h2 class="section-title" data-i18n="about_title">Acerca de <span class="gradient-text">COS Launcher</span></h2>
+                <p class="section-description" data-i18n="about_desc">
+                    Creemos que encender tu dispositivo y ponerte a jugar debería ser algo inmediato, sin interfaces
+                    saturadas, configuraciones complejas ni distracciones innecesarias. COS Launcher transforma
+                    cualquier dispositivo Android en un entorno de consola limpio y directo, donde tu colección de
+                    juegos, carátulas y logros se sienten integrados de forma natural con tus controles. Un desarrollo
+                    independiente pensado para ofrecer ligereza, privacidad y comodidad real desde la primera partida.
+                </p>
+
+                <div class="about-highlights">
+                    <div class="about-pill"><i class="fa-solid fa-code"></i> <span data-i18n="about_pill1">Desarrollo independiente</span></div>
+                    <div class="about-pill"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="about_pill2">100 % sin anuncios</span></div>
+                    <div class="about-pill"><i class="fa-solid fa-gamepad"></i> <span data-i18n="about_pill3">Compatible con controles</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support / Ko-fi Section -->
+    <section id="kofi" class="section kofi-section">
+        <div class="container text-center">
+            <div class="kofi-box glass-card" style="box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(245, 158, 11, 0.2);">
+                <h2 class="section-title" data-i18n="kofi_title">Apoya el <span class="gradient-text">proyecto</span></h2>
+                <p class="section-description" data-i18n="kofi_desc">
+                    Desarrollar COS Launcher y pulir cada detalle requiere muchas horas de código, pruebas y optimización;
+                    si la app te resulta útil en tus partidas y quieres mostrar tu agradecimiento, invitarme a un café
+                    en Ko-fi es una gran forma de valorar mi tiempo y darme un empujón de energía para seguir
+                    mejorándola.
+                </p>
+
+                <div class="kofi-cta">
+                    <a href="https://ko-fi.com/austix" target="_blank" class="btn btn-kofi btn-lg" aria-label="Apoyar en Ko-fi">
+                        <i class="fa-solid fa-mug-hot"></i> <span data-i18n="kofi_btn">Ko-fi</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Quick Dock -->
+    <div class="portal-quick-dock">
+        <a href="home.html" class="dock-item"><i class="fa-solid fa-house"></i> Inicio</a>
+        <a href="hub.html" class="dock-item"><i class="fa-solid fa-microchip"></i> COS HUB</a>
+        <a href="achievements.html" class="dock-item"><i class="fa-solid fa-trophy"></i> Logros</a>
+        <a href="gallery.html" class="dock-item"><i class="fa-solid fa-images"></i> Galería</a>
+        <a href="download.html" class="dock-item"><i class="fa-brands fa-google-play"></i> Descargas</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-legal">
+                <p data-i18n="footer_rights">&copy; 2026 COS Launcher. Todos los derechos reservados.</p>
+                <p class="footer-author-line">
+                    <span data-i18n="footer_dev_text">Desarrollado por</span>
+                    <span class="author-name">Austin González</span>
+                    <svg class="inline-flag" width="20" height="13" viewBox="0 0 6 4" xmlns="http://www.w3.org/2000/svg" title="Costa Rica">
+                        <rect width="6" height="4" fill="#002B7F" />
+                        <rect y="0.667" width="6" height="2.667" fill="#FFFFFF" />
+                        <rect y="1.333" width="6" height="1.333" fill="#CE1126" />
+                    </svg>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Elements -->
+    <audio id="sfxClick1" src="m4a/click_1.m4a" preload="auto"></audio>
+    <audio id="sfxClick2" src="m4a/click_2.m4a" preload="auto"></audio>
+    <audio id="sfxJuegoAbrir" src="m4a/juegoabrir.mp3" preload="auto"></audio>
+
+    <script src="script.js?v=2.2.1"></script>
+    <script src="innovative.js?v=1.0.0"></script>
+</body>
+
+</html>
