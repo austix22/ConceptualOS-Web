@@ -1416,7 +1416,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const releasesApi = 'https://api.github.com/repos/austix22/ConceptualOS-Web/releases';
         let keyMapperUrl = 'https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Key.Mapper.apk';
         let keyMapperName = 'Conceptual.Key.Mapper.apk';
-        let rescalerUrl = null;
+        let rescalerUrl = 'https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Screen.Rescaler.apk';
         let rescalerName = 'Conceptual.Screen.Rescaler.apk';
 
         const applyDownloadInfo = () => {
