@@ -534,7 +534,7 @@ h1, h2, h3, h4, span, p, a, button {
 .lang-toggle-pill {
     cursor: pointer;
     background: rgba(128, 168, 255, 0.12);
-    border-color: rgba(128, 168, 255, 0.4);
+    border: 1px solid rgba(128, 168, 255, 0.4);
     color: var(--moondust-cyan);
     transition: var(--transition-smooth);
     user-select: none;
@@ -545,6 +545,7 @@ h1, h2, h3, h4, span, p, a, button {
     justify-content: center;
     gap: 0.55rem;
     box-sizing: border-box;
+    line-height: 1;
 }
 
 .lang-toggle-pill i {
@@ -553,13 +554,15 @@ h1, h2, h3, h4, span, p, a, button {
     align-items: center;
     justify-content: center;
     line-height: 1;
-    transform: translateY(-1.5px);
+    margin: 0;
+    padding: 0;
 }
 
 .lang-toggle-pill .badge-text {
     line-height: 1;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
 }
 
 .lang-toggle-pill:hover,
@@ -574,24 +577,26 @@ h1, h2, h3, h4, span, p, a, button {
 .kofi-nav-pill {
     width: 42px;
     height: 42px;
+    min-width: 42px;
+    min-height: 42px;
     padding: 0;
     margin: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 9999px;
+    border-radius: 50%;
     flex-shrink: 0;
     text-decoration: none;
     user-select: none;
     cursor: pointer;
     transition: var(--transition-smooth);
     box-sizing: border-box;
-    letter-spacing: normal;
+    line-height: 1;
 }
 
 .youtube-nav-pill {
     background: rgba(255, 0, 0, 0.12);
-    border-color: rgba(255, 50, 75, 0.4);
+    border: 1px solid rgba(255, 50, 75, 0.4);
     color: #ff4d6d;
 }
 
@@ -609,11 +614,11 @@ h1, h2, h3, h4, span, p, a, button {
     color: #ff334b;
     transition: color var(--transition-smooth);
     margin: 0;
+    padding: 0;
     line-height: 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transform: translateY(-2px);
 }
 
 .youtube-nav-pill:hover i,
@@ -623,7 +628,7 @@ h1, h2, h3, h4, span, p, a, button {
 
 .kofi-nav-pill {
     background: rgba(255, 94, 91, 0.12);
-    border-color: rgba(255, 94, 91, 0.4);
+    border: 1px solid rgba(255, 94, 91, 0.4);
     color: #ff7572;
 }
 
@@ -641,11 +646,11 @@ h1, h2, h3, h4, span, p, a, button {
     color: #ff7572;
     transition: color var(--transition-smooth);
     margin: 0;
+    padding: 0;
     line-height: 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transform: translate(-1.5px, -2.5px);
 }
 
 .kofi-nav-pill:hover i,
@@ -3417,8 +3422,9 @@ h1, h2, h3, h4, span, p, a, button {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        border-radius: 999px;
+        border-radius: 50%;
         flex-shrink: 0;
+        box-sizing: border-box;
     }
 
     .lang-toggle-pill {
@@ -3429,13 +3435,11 @@ h1, h2, h3, h4, span, p, a, button {
     .youtube-nav-pill i {
         font-size: 1.15rem;
         margin: 0;
-        transform: translateY(-1.5px);
     }
 
     .kofi-nav-pill i {
         font-size: 1.05rem;
         margin: 0;
-        transform: translate(-1.5px, -2px);
     }
 }
 
@@ -3489,20 +3493,19 @@ h1, h2, h3, h4, span, p, a, button {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        border-radius: 999px;
+        border-radius: 50%;
         flex-shrink: 0;
+        box-sizing: border-box;
     }
 
     .kofi-nav-pill i {
         font-size: 1rem;
         margin: 0;
-        transform: translate(-1.5px, -2px);
     }
 
     .youtube-nav-pill i {
         font-size: 1.1rem;
         margin: 0;
-        transform: translateY(-1.5px);
     }
 
     .lang-toggle-pill {
