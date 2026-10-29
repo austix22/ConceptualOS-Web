@@ -599,6 +599,131 @@ h1, h2, h3, h4, span, p, a, button {
     flex-wrap: wrap;
 }
 
+/* Hero YouTube Video Showcase Capsule (Option A) */
+.hero-video-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.15rem;
+    padding: 0.75rem 1.15rem 0.75rem 0.75rem;
+    background: rgba(18, 20, 32, 0.75);
+    border: 1px solid var(--border-light);
+    border-radius: 18px;
+    margin-top: 0.4rem;
+    margin-bottom: 1.8rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: var(--transition-smooth);
+    max-width: fit-content;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.hero-video-card:hover {
+    background: rgba(26, 28, 44, 0.88);
+    border-color: rgba(206, 181, 255, 0.45);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(206, 181, 255, 0.2);
+}
+
+.hero-video-thumb-wrap {
+    position: relative;
+    width: 105px;
+    height: 60px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    background: #000000;
+}
+
+.hero-video-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.hero-video-card:hover .hero-video-thumb {
+    transform: scale(1.06);
+}
+
+.hero-video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(255, 0, 0, 0.9);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    padding-left: 2px;
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.hero-video-card:hover .hero-video-play-btn {
+    transform: translate(-50%, -50%) scale(1.15);
+    background: #ff0033;
+}
+
+.hero-video-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    text-align: left;
+}
+
+.hero-video-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #ff4d6d;
+}
+
+.hero-video-tag i {
+    font-size: 0.85rem;
+    color: #ff0033;
+}
+
+.hero-video-title {
+    font-size: 1.02rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 1.25;
+}
+
+.hero-video-sub {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.hero-video-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.4rem;
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.hero-video-card:hover .hero-video-action {
+    color: var(--moondust-cyan);
+    transform: translate(2px, -2px);
+}
+
 /* Left-Aligned Stats Bar with Enhanced Prominent Typography */
 /* Hero Highlights Grid (Right Side Cards - Strict 50/50 Equal Columns) */
 .hero-highlights-grid {
@@ -3141,6 +3266,34 @@ h1, h2, h3, h4, span, p, a, button {
         flex-shrink: 0;
     }
 
+    /* Hero Video Showcase Card Mobile */
+    .hero-video-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.65rem 0.85rem 0.65rem 0.65rem;
+        gap: 0.8rem;
+        box-sizing: border-box;
+        margin-top: 0.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-video-thumb-wrap {
+        width: 88px;
+        height: 50px;
+    }
+
+    .hero-video-title {
+        font-size: 0.94rem;
+    }
+
+    .hero-video-tag {
+        font-size: 0.72rem;
+    }
+
+    .hero-video-sub {
+        font-size: 0.78rem;
+    }
+
     /* Hero Highlights Grid - Anti-Overflow & Compact Clean Cards */
     .hero-highlights-grid {
         gap: 0.65rem;
@@ -3297,6 +3450,19 @@ h1, h2, h3, h4, span, p, a, button {
     .brand-app-icon {
         width: 24px;
         height: 24px;
+    }
+
+    .hero-video-thumb-wrap {
+        width: 76px;
+        height: 44px;
+    }
+
+    .hero-video-title {
+        font-size: 0.88rem;
+    }
+
+    .hero-video-action {
+        display: none;
     }
 
     .hero-highlights-grid {
