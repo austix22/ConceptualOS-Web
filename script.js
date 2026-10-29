@@ -1407,67 +1407,108 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Automatic Direct APK Download for Conceptual Key Mapper Latest Release
-    function setupKeyMapperDirectDownload() {
-        const dlButtons = document.querySelectorAll('.btn-keymapper-dl');
-        if (!dlButtons.length) return;
+    // Automatic Direct APK Download for Official Plugins (Key Mapper & Screen Rescaler)
+    function setupPluginsDirectDownload() {
+        const kmButtons = document.querySelectorAll('.btn-keymapper-dl');
+        const rescalerButtons = document.querySelectorAll('.btn-rescaler-dl');
+        if (!kmButtons.length && !rescalerButtons.length) return;
 
-        const repoApi = 'https://api.github.com/repos/austix22/ConceptualOS-Web/releases/latest';
-        let directApkUrl = 'https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Key.Mapper.apk';
-        let apkFileName = 'Conceptual.Key.Mapper.apk';
+        const releasesApi = 'https://api.github.com/repos/austix22/ConceptualOS-Web/releases';
+        let keyMapperUrl = 'https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Key.Mapper.apk';
+        let keyMapperName = 'Conceptual.Key.Mapper.apk';
+        let rescalerUrl = null;
+        let rescalerName = 'Conceptual.Screen.Rescaler.apk';
 
-        // Pre-fetch latest release on page load
-        fetch(repoApi)
-            .then(res => res.ok ? res.json() : Promise.reject('No release found'))
-            .then(data => {
-                if (data.assets && data.assets.length > 0) {
-                    const apk = data.assets.find(a => a.name.toLowerCase().endsWith('.apk')) || data.assets[0];
-                    if (apk && apk.browser_download_url) {
-                        directApkUrl = apk.browser_download_url;
-                        apkFileName = apk.name;
-                        dlButtons.forEach(btn => {
-                            btn.href = directApkUrl;
-                            btn.setAttribute('download', apkFileName);
-                            btn.removeAttribute('target');
-                        });
+        const applyDownloadInfo = () => {
+            if (keyMapperUrl) {
+                kmButtons.forEach(btn => {
+                    btn.href = keyMapperUrl;
+                    btn.setAttribute('download', keyMapperName);
+                    btn.removeAttribute('target');
+                });
+            }
+            if (rescalerUrl) {
+                rescalerButtons.forEach(btn => {
+                    btn.href = rescalerUrl;
+                    btn.setAttribute('download', rescalerName);
+                    btn.removeAttribute('target');
+                });
+            }
+        };
+
+        const fetchReleases = async () => {
+            try {
+                const res = await fetch(releasesApi);
+                if (!res.ok) return;
+                const releases = await res.json();
+                if (!Array.isArray(releases)) return;
+
+                for (const rel of releases) {
+                    if (!rel.assets || !rel.assets.length) continue;
+                    for (const asset of rel.assets) {
+                        const name = (asset.name || '').toLowerCase();
+                        if (name.endsWith('.apk')) {
+                            if (!keyMapperUrl || keyMapperUrl.includes('v1.0.0')) {
+                                if (name.includes('key') || name.includes('mapper')) {
+                                    keyMapperUrl = asset.browser_download_url;
+                                    keyMapperName = asset.name;
+                                }
+                            }
+                            if (!rescalerUrl) {
+                                if (name.includes('rescaler') || name.includes('screen')) {
+                                    rescalerUrl = asset.browser_download_url;
+                                    rescalerName = asset.name;
+                                }
+                            }
+                        }
                     }
                 }
-            })
-            .catch(() => {});
+                applyDownloadInfo();
+            } catch (err) {
+                console.error('Error fetching plugin releases:', err);
+            }
+        };
 
-        // Direct Download click action
-        dlButtons.forEach(btn => {
+        // Pre-fetch releases on load
+        fetchReleases();
+
+        // Key Mapper download click
+        kmButtons.forEach(btn => {
             btn.addEventListener('click', async (e) => {
-                if (directApkUrl) {
-                    // Browser native download will proceed automatically
-                    return;
-                }
+                if (keyMapperUrl) return;
                 e.preventDefault();
                 const originalHtml = btn.innerHTML;
                 btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ' + (currentLang === 'en' ? 'Downloading...' : 'Descargando...');
-
-                try {
-                    const res = await fetch(repoApi);
-                    if (res.ok) {
-                        const data = await res.json();
-                        const apk = data.assets && (data.assets.find(a => a.name.toLowerCase().endsWith('.apk')) || data.assets[0]);
-                        if (apk && apk.browser_download_url) {
-                            directApkUrl = apk.browser_download_url;
-                            btn.href = directApkUrl;
-                            btn.setAttribute('download', apk.name);
-                            window.location.href = directApkUrl;
-                            setTimeout(() => { btn.innerHTML = originalHtml; }, 2000);
-                            return;
-                        }
-                    }
-                } catch (err) {
-                    console.error('Download error:', err);
+                await fetchReleases();
+                if (keyMapperUrl) {
+                    window.location.href = keyMapperUrl;
+                    setTimeout(() => { btn.innerHTML = originalHtml; }, 2000);
+                } else {
+                    alert(currentLang === 'en'
+                        ? 'No APK release found for Conceptual Key Mapper yet.'
+                        : 'Aún no se ha publicado el APK de Conceptual Key Mapper en GitHub Releases.');
+                    btn.innerHTML = originalHtml;
                 }
+            });
+        });
 
-                alert(currentLang === 'en'
-                    ? 'No APK release found in the repository yet. Upload an APK to GitHub Releases first.'
-                    : 'Aún no se ha publicado ningún archivo APK en las Releases de GitHub.');
-                btn.innerHTML = originalHtml;
+        // Screen Rescaler download click
+        rescalerButtons.forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                if (rescalerUrl) return;
+                e.preventDefault();
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ' + (currentLang === 'en' ? 'Checking...' : 'Buscando...');
+                await fetchReleases();
+                if (rescalerUrl) {
+                    window.location.href = rescalerUrl;
+                    setTimeout(() => { btn.innerHTML = originalHtml; }, 2000);
+                } else {
+                    alert(currentLang === 'en'
+                        ? 'Conceptual Screen Rescaler APK is not yet uploaded to GitHub Releases. Please check back soon!'
+                        : 'El APK de Conceptual Screen Rescaler aún no se ha subido a GitHub Releases. ¡Estará disponible en breve!');
+                    btn.innerHTML = originalHtml;
+                }
             });
         });
     }
@@ -1568,6 +1609,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     initProgressiveDisclosure();
-    setupKeyMapperDirectDownload();
+    setupPluginsDirectDownload();
 });
 
