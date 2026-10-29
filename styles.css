@@ -542,8 +542,24 @@ h1, h2, h3, h4, span, p, a, button {
     padding: 0 1.15rem;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.55rem;
     box-sizing: border-box;
+}
+
+.lang-toggle-pill i {
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transform: translateY(-1.5px);
+}
+
+.lang-toggle-pill .badge-text {
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
 }
 
 .lang-toggle-pill:hover,
@@ -559,6 +575,7 @@ h1, h2, h3, h4, span, p, a, button {
     width: 42px;
     height: 42px;
     padding: 0;
+    margin: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -569,6 +586,7 @@ h1, h2, h3, h4, span, p, a, button {
     cursor: pointer;
     transition: var(--transition-smooth);
     box-sizing: border-box;
+    letter-spacing: normal;
 }
 
 .youtube-nav-pill {
@@ -595,7 +613,7 @@ h1, h2, h3, h4, span, p, a, button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transform: translateY(-0.5px);
+    transform: translateY(-2px);
 }
 
 .youtube-nav-pill:hover i,
@@ -627,7 +645,7 @@ h1, h2, h3, h4, span, p, a, button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transform: translateY(-1.5px);
+    transform: translate(-1.5px, -2.5px);
 }
 
 .kofi-nav-pill:hover i,
@@ -3411,11 +3429,13 @@ h1, h2, h3, h4, span, p, a, button {
     .youtube-nav-pill i {
         font-size: 1.15rem;
         margin: 0;
+        transform: translateY(-1.5px);
     }
 
     .kofi-nav-pill i {
         font-size: 1.05rem;
         margin: 0;
+        transform: translate(-1.5px, -2px);
     }
 }
 
@@ -3476,11 +3496,13 @@ h1, h2, h3, h4, span, p, a, button {
     .kofi-nav-pill i {
         font-size: 1rem;
         margin: 0;
+        transform: translate(-1.5px, -2px);
     }
 
     .youtube-nav-pill i {
         font-size: 1.1rem;
         margin: 0;
+        transform: translateY(-1.5px);
     }
 
     .lang-toggle-pill {
