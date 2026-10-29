@@ -2506,30 +2506,76 @@ h1, h2, h3, h4, span, p, a, button {
     filter: drop-shadow(0 0 6px rgba(206, 181, 255, 0.4));
 }
 
-/* Dedicated About Section Styling */
+/* Dedicated About & Support Bento Grid Layout (Option A) */
 .about-section {
-    padding: 3.5rem 0 2rem 0;
+    padding: 3.5rem 0 4.5rem 0;
 }
 
-.about-box {
-    padding: 2.8rem 2.2rem;
-    max-width: 840px;
+.about-kofi-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+    max-width: 1140px;
     margin: 0 auto;
+    align-items: stretch;
+}
+
+.about-kofi-bento-grid .about-box,
+.about-kofi-bento-grid .kofi-box {
+    margin: 0;
+    max-width: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 2.6rem 2.2rem;
+    box-sizing: border-box;
+    text-align: left;
+    border: 1px solid var(--border-light);
+    border-radius: 24px;
+}
+
+.about-kofi-bento-grid .about-box:hover {
+    border-color: rgba(206, 181, 255, 0.45);
+    box-shadow: 0 16px 40px rgba(206, 181, 255, 0.18);
+}
+
+.about-kofi-bento-grid .kofi-box {
+    scroll-margin-top: 6rem;
+}
+
+.about-kofi-bento-grid .kofi-box:hover {
+    border-color: rgba(245, 158, 11, 0.45);
+    box-shadow: 0 16px 40px rgba(245, 158, 11, 0.18);
+}
+
+.about-kofi-bento-grid .section-title {
+    margin-bottom: 1.1rem;
+    text-align: left;
+}
+
+.about-kofi-bento-grid .section-description {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    font-size: 1.02rem;
+    line-height: 1.65;
 }
 
 .about-highlights {
     display: flex;
-    justify-content: center;
-    gap: 1rem;
+    justify-content: flex-start;
+    gap: 0.75rem;
     flex-wrap: wrap;
-    margin-top: 1.6rem;
+    margin-top: auto;
+    padding-top: 1rem;
 }
 
 .about-pill {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    padding: 0.5rem 1.2rem;
+    padding: 0.5rem 1.15rem;
     background: rgba(206, 181, 255, 0.08);
     border: 1px solid var(--border-light);
     border-radius: 20px;
@@ -2538,9 +2584,17 @@ h1, h2, h3, h4, span, p, a, button {
     color: var(--moondust-cyan);
 }
 
-/* About Section Contact Card */
+.kofi-cta {
+    margin-top: auto;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* About Section Contact Card - Spans full width across both cards */
 .about-contact-card {
-    margin-top: 2.2rem;
+    grid-column: 1 / -1;
+    margin-top: 0.4rem;
     padding: 1.6rem 2rem;
     background: rgba(10, 12, 22, 0.7);
     border: 1px solid rgba(211, 211, 255, 0.15);
@@ -2550,6 +2604,8 @@ h1, h2, h3, h4, span, p, a, button {
     justify-content: space-between;
     gap: 1.6rem;
     text-align: left;
+    width: 100%;
+    box-sizing: border-box;
     transition: var(--transition-smooth);
 }
 
@@ -2627,27 +2683,6 @@ h1, h2, h3, h4, span, p, a, button {
 
 .btn-contact-email:hover i {
     color: #FFFFFF;
-}
-
-/* Ko-fi Support Section - Standard Moon Dust System Border */
-.kofi-section {
-    padding: 2rem 0 4.5rem 0;
-}
-
-.kofi-box {
-    padding: 2.8rem 2.2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    border: 1px solid var(--border-light);
-}
-
-.kofi-box:hover {
-    border-color: rgba(206, 181, 255, 0.45);
-    box-shadow: 0 16px 40px rgba(206, 181, 255, 0.18);
-}
-
-.kofi-cta {
-    margin-top: 1.5rem;
 }
 
 .faq-grid {
@@ -2930,6 +2965,30 @@ h1, h2, h3, h4, span, p, a, button {
     .hero-container, .overlay-container {
         grid-template-columns: 1fr;
         gap: 2.5rem;
+    }
+
+    .about-kofi-bento-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .about-kofi-bento-grid .about-box,
+    .about-kofi-bento-grid .kofi-box {
+        text-align: center;
+        padding: 2.2rem 1.6rem;
+    }
+
+    .about-kofi-bento-grid .section-title,
+    .about-kofi-bento-grid .section-description {
+        text-align: center;
+    }
+
+    .about-highlights {
+        justify-content: center;
+    }
+
+    .kofi-cta {
+        justify-content: center;
     }
 
     .footer-container {
