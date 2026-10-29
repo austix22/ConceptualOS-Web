@@ -1104,15 +1104,15 @@ h1, h2, h3, h4, span, p, a, button {
     flex-direction: column;
     gap: 1rem;
     width: 100%;
-    height: 100%;
     min-height: 100%;
-    flex: 1;
+    height: auto;
+    flex: 1 0 auto;
     box-sizing: border-box;
 }
 
 .overlay-tab-view.active {
     display: flex;
-    flex: 1;
+    flex: 1 0 auto;
     animation: fadeIn 0.3s ease;
 }
 
@@ -1655,25 +1655,25 @@ h1, h2, h3, h4, span, p, a, button {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    flex: 1;
+    flex: 1 0 auto;
     margin-top: 0.85rem;
     width: 100%;
-    padding-bottom: 1.25rem;
 }
 
 .overlay-hardware-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.85rem;
-    padding-bottom: 1rem;
 }
 
-.overlay-hardware-grid .hw-card:last-child {
-    margin-bottom: 1.25rem;
-}
-
-#overlayViewHardware {
-    padding-bottom: 1.25rem;
+/* Dedicated Scroll Spacer to ensure bottom clearance in scrollable views */
+.overlay-bottom-spacer {
+    display: block;
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    flex-shrink: 0;
+    pointer-events: none;
 }
 
 .hw-card {
@@ -3270,18 +3270,16 @@ h1, h2, h3, h4, span, p, a, button {
 
     .overlay-tools-grid {
         grid-template-columns: 1fr;
-        padding-bottom: 0.85rem;
     }
 
     .overlay-hardware-grid {
         grid-template-columns: 1fr;
         gap: 0.65rem;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1.5rem;
     }
 
-    .overlay-hardware-grid .hw-card:last-child {
-        margin-bottom: 1.5rem;
+    .overlay-bottom-spacer {
+        height: 56px;
+        min-height: 56px;
     }
 }
 
