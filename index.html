@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=2.8.2">
+    <link rel="stylesheet" href="styles.css?v=2.8.3">
 </head>
 
 <body>
@@ -935,7 +935,7 @@
         <div class="container text-center">
             <div class="download-dual-grid">
                 <!-- Left Column: COS Launcher App -->
-                <div class="download-column">
+                <div class="download-column download-column-main">
                     <div class="download-col-header">
                         <h2 class="section-title download-col-title" data-i18n="dl_title">Obtén <span class="gradient-text">COS Launcher</span></h2>
                         <p class="section-description download-col-desc" data-i18n="dl_desc">
@@ -977,44 +977,79 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Official Plugins / Key Mapper -->
-                <div class="download-column">
+                <!-- Right Column: Official Plugins & Companion Apps -->
+                <div class="download-column download-column-plugins">
                     <div class="download-col-header">
                         <h2 class="section-title download-col-title" data-i18n="plugins_title">Complementos <span class="gradient-text">Oficiales</span></h2>
                         <p class="section-description download-col-desc" data-i18n="plugins_desc">
-                            Descarga el plugin oficial para abrir el overlay con tu mando sin tocar la pantalla, ideal para TV y monitores.
+                            Plugins y complementos oficiales para abrir el overlay con tu mando y optimizar la resolución en TV o monitores.
                         </p>
                     </div>
 
-                    <div class="download-card glass-card">
-                        <div class="card-badge-top plugin" data-i18n="dl_km_badge">PLUGIN OFICIAL</div>
-                        <div class="card-icon plugin-icon"><i class="fa-solid fa-gamepad"></i></div>
-                        <h3 class="download-card-title" data-i18n="dl_km_title">Conceptual Key Mapper</h3>
+                    <div class="plugins-cards-grid">
+                        <!-- Card 1: Conceptual Key Mapper -->
+                        <div class="download-card glass-card">
+                            <div class="card-badge-top plugin" data-i18n="dl_km_badge">PLUGIN OFICIAL</div>
+                            <div class="card-icon plugin-icon"><i class="fa-solid fa-gamepad"></i></div>
+                            <h3 class="download-card-title" data-i18n="dl_km_title">Conceptual Key Mapper</h3>
 
-                        <div class="download-specs-list">
-                            <div class="download-spec-item">
-                                <i class="fa-solid fa-puzzle-piece"></i>
-                                <span data-i18n="dl_km_spec_type"><strong>Tipo:</strong> Plugin oficial COS</span>
+                            <div class="download-specs-list">
+                                <div class="download-spec-item">
+                                    <i class="fa-solid fa-puzzle-piece"></i>
+                                    <span data-i18n="dl_km_spec_type"><strong>Tipo:</strong> Plugin oficial COS</span>
+                                </div>
+                                <div class="download-spec-item">
+                                    <i class="fa-solid fa-gamepad"></i>
+                                    <span data-i18n="dl_km_spec_overlay"><strong>Acceso:</strong> Botón o combinación</span>
+                                </div>
+                                <div class="download-spec-item">
+                                    <i class="fa-solid fa-tv"></i>
+                                    <span data-i18n="dl_km_spec_target"><strong>Ideal para:</strong> TV y monitores</span>
+                                </div>
+                                <div class="download-spec-item">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                    <span data-i18n="dl_km_spec_setup"><strong>Ajuste:</strong> Automático al instalar</span>
+                                </div>
                             </div>
-                            <div class="download-spec-item">
-                                <i class="fa-solid fa-gamepad"></i>
-                                <span data-i18n="dl_km_spec_overlay"><strong>Acceso:</strong> Botón o combinación</span>
-                            </div>
-                            <div class="download-spec-item">
-                                <i class="fa-solid fa-tv"></i>
-                                <span data-i18n="dl_km_spec_target"><strong>Ideal para:</strong> TV y monitores</span>
-                            </div>
-                            <div class="download-spec-item">
-                                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                                <span data-i18n="dl_km_spec_setup"><strong>Ajuste:</strong> Automático al instalar</span>
+
+                            <div class="download-action-group">
+                                <a href="https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Key.Mapper.apk" download="Conceptual.Key.Mapper.apk"
+                                    class="btn btn-plugin-dl btn-keymapper-dl btn-block" id="keyMapperDlBtn" aria-label="Descargar Conceptual Key Mapper">
+                                    <i class="fa-solid fa-download"></i> <span data-i18n="dl_km_btn">Descargar</span>
+                                </a>
                             </div>
                         </div>
 
-                        <div class="download-action-group">
-                            <a href="https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Key.Mapper.apk" download="Conceptual.Key.Mapper.apk"
-                                class="btn btn-plugin-dl btn-keymapper-dl btn-block" id="keyMapperDlBtn" aria-label="Descargar Conceptual Key Mapper">
-                                <i class="fa-solid fa-download"></i> <span data-i18n="dl_km_btn">Descargar</span>
-                            </a>
+                        <!-- Card 2: Conceptual Screen Rescaler -->
+                        <div class="download-card glass-card">
+                            <div class="card-badge-top rescaler" data-i18n="dl_rescaler_badge">UTILIDAD OFICIAL</div>
+                            <div class="card-icon rescaler-icon"><i class="fa-solid fa-expand"></i></div>
+                            <h3 class="download-card-title" data-i18n="dl_rescaler_title">Conceptual Screen Rescaler</h3>
+
+                            <div class="download-specs-list">
+                                <div class="download-spec-item">
+                                    <i class="fa-solid fa-tv"></i>
+                                    <span data-i18n="dl_rescaler_spec_type"><strong>Función:</strong> Reescalado para TV y pantallas</span>
+                                </div>
+                                <div class="download-spec-item">
+                                    <i class="fa-solid fa-crop-simple"></i>
+                                    <span data-i18n="dl_rescaler_spec_bars"><strong>Formato:</strong> Elimina franjas negras</span>
+                                </div>
+                                <div class="download-spec-item">
+                                    <i class="fa-solid fa-sliders"></i>
+                                    <span data-i18n="dl_rescaler_spec_setup"><strong>Ajuste:</strong> En tiempo real en partida</span>
+                                </div>
+                                <div class="download-spec-item">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                    <span data-i18n="dl_rescaler_spec_target"><strong>Requisitos:</strong> Android 9.0+ sin root</span>
+                                </div>
+                            </div>
+
+                            <div class="download-action-group">
+                                <a href="#" class="btn btn-plugin-dl btn-rescaler-dl btn-block" id="screenRescalerDlBtn" aria-label="Descargar Conceptual Screen Rescaler">
+                                    <i class="fa-solid fa-download"></i> <span data-i18n="dl_rescaler_btn">Descargar</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1482,7 +1517,7 @@
     <audio id="sfxJuegoAbrir" src="m4a/juegoabrir.mp3" preload="auto"></audio>
 
     <!-- Custom Script -->
-    <script src="script.js?v=2.7.2"></script>
+    <script src="script.js?v=2.7.3"></script>
 </body>
 
 </html>
