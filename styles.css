@@ -2531,6 +2531,97 @@ h1, h2, h3, h4, span, p, a, button {
     color: var(--moondust-cyan);
 }
 
+/* About Section Contact Card */
+.about-contact-card {
+    margin-top: 2rem;
+    padding: 1.4rem 1.8rem;
+    background: rgba(10, 12, 22, 0.65);
+    border: 1px solid rgba(211, 211, 255, 0.12);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    text-align: left;
+    transition: var(--transition-smooth);
+}
+
+.about-contact-card:hover {
+    border-color: rgba(206, 181, 255, 0.35);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(206, 181, 255, 0.12);
+}
+
+.about-contact-header {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    flex: 1;
+}
+
+.about-contact-header i {
+    font-size: 1.6rem;
+    color: var(--moondust-purple);
+    background: rgba(206, 181, 255, 0.12);
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(206, 181, 255, 0.25);
+}
+
+.about-contact-header h4 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 0 0 0.25rem 0;
+    line-height: 1.3;
+}
+
+.about-contact-header p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.45;
+}
+
+.btn-contact-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1.3rem;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--moondust-cyan);
+    background: rgba(128, 168, 255, 0.1);
+    border: 1px solid rgba(128, 168, 255, 0.28);
+    white-space: nowrap;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+}
+
+.btn-contact-email:hover {
+    color: #FFFFFF;
+    background: rgba(206, 181, 255, 0.22);
+    border-color: var(--moondust-purple);
+    box-shadow: 0 0 16px rgba(206, 181, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-contact-email i {
+    color: var(--moondust-purple);
+    font-size: 0.95rem;
+    transition: color 0.25s ease;
+}
+
+.btn-contact-email:hover i {
+    color: #FFFFFF;
+}
+
 /* Ko-fi Support Section - Standard Moon Dust System Border */
 .kofi-section {
     padding: 2rem 0 4.5rem 0;
@@ -2633,6 +2724,49 @@ h1, h2, h3, h4, span, p, a, button {
     font-size: 0.88rem;
     margin-bottom: 0.4rem;
     text-align: center;
+}
+
+.footer-contact-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin: 0.45rem 0;
+}
+
+.footer-email-link {
+    color: var(--moondust-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(128, 168, 255, 0.08);
+    border: 1px solid rgba(128, 168, 255, 0.18);
+    transition: all 0.25s ease;
+}
+
+.footer-email-link:hover {
+    color: #FFFFFF;
+    background: rgba(206, 181, 255, 0.2);
+    border-color: var(--moondust-purple);
+    box-shadow: 0 0 12px rgba(206, 181, 255, 0.35);
+    transform: translateY(-1px);
+}
+
+.footer-email-link i {
+    font-size: 0.85rem;
+    color: var(--moondust-purple);
+    transition: color 0.25s ease;
+}
+
+.footer-email-link:hover i {
+    color: #FFFFFF;
 }
 
 .footer-author-line {
@@ -2851,6 +2985,25 @@ h1, h2, h3, h4, span, p, a, button {
         height: 425px;
         min-height: 425px;
         max-height: 425px;
+    }
+
+    .about-contact-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.2rem;
+        padding: 1.5rem 1.2rem;
+    }
+
+    .about-contact-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+
+    .btn-contact-email {
+        width: 100%;
+        justify-content: center;
     }
 }
 
