@@ -2553,7 +2553,65 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .faq-grid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 992px) {
+    .faq-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Wide / Full-Width Horizontal FAQ Capsule (Spans full width side-to-side) */
+.faq-card-wide {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.8rem;
+    padding: 2.2rem 2.4rem;
+}
+
+.faq-card-wide .feature-icon {
+    margin-bottom: 0;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+}
+
+.faq-wide-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    flex: 1;
+}
+
+.faq-wide-content h3 {
+    margin: 0;
+    font-size: clamp(1.2rem, 1.3vw, 1.35rem);
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.35;
+}
+
+.faq-wide-content p {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .faq-card-wide {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 1.8rem 1.4rem;
+    }
 }
 
 /* Centered Minimalist Footer */
