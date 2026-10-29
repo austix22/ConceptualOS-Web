@@ -1696,23 +1696,41 @@ h1, h2, h3, h4, span, p, a, button {
     color: #FFFFFF;
 }
 
-.game-status-pill {
+.game-status-pill,
+.cos-overlay-window .game-status-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.82rem;
+    justify-content: center;
+    gap: 0.45rem;
+    font-family: var(--font-official);
+    font-size: 0.78rem;
     font-weight: 800;
     color: var(--moondust-cyan);
-    letter-spacing: 1.1px;
+    letter-spacing: 0.85px;
     background: rgba(128, 168, 255, 0.12);
     border: 1px solid rgba(128, 168, 255, 0.25);
-    padding: 0.28rem 0.85rem;
+    padding: 0 0.85rem 1px 0.85rem;
     border-radius: 999px;
     height: 28px;
     box-sizing: border-box;
     line-height: 1;
     margin: 0;
     flex-shrink: 0;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.game-status-pill i,
+.cos-overlay-window .game-status-pill i {
+    font-size: 0.8rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    transform: translateY(0.5px);
 }
 
 .active-game-title {
@@ -1742,7 +1760,6 @@ h1, h2, h3, h4, span, p, a, button {
     overflow-wrap: anywhere;
 }
 
-.cos-overlay-window .game-status-pill,
 .cos-overlay-window .ach-item-desc,
 .cos-overlay-window .tool-label-row,
 .cos-overlay-window .tool-btn-title,
