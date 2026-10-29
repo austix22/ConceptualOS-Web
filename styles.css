@@ -1094,6 +1094,78 @@ h1, h2, h3, h4, span, p, a, button {
     color: #00e676;
 }
 
+/* Progressive Disclosure Toggle Buttons & Collapsible Elements */
+.expand-toggle-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5rem;
+    width: 100%;
+}
+
+.btn-expand-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(211, 211, 255, 0.22);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: #FFFFFF;
+    font-size: 0.98rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+    transition: transform var(--transition-smooth), border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-expand-toggle:hover {
+    transform: translateY(-2px);
+    background: rgba(206, 181, 255, 0.12);
+    border-color: rgba(206, 181, 255, 0.6);
+    box-shadow: 0 12px 32px rgba(128, 168, 255, 0.25);
+}
+
+.btn-expand-toggle:active {
+    transform: translateY(0);
+}
+
+.btn-expand-toggle .toggle-icon {
+    font-size: 0.9rem;
+    color: var(--moondust-cyan);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-expand-toggle.is-expanded .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.feature-card-collapsible,
+.gallery-card-collapsible {
+    display: none !important;
+}
+
+.feature-card-collapsible.expanded,
+.gallery-card-collapsible.expanded {
+    display: flex !important;
+    animation: expandFadeIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes expandFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Deep Dive Sections (COS HUB Overlay & RetroAchievements & Ko-fi) */
 .overlay-section,
 .achievements-section,
@@ -2797,6 +2869,165 @@ h1, h2, h3, h4, span, p, a, button {
         flex-direction: column;
         gap: 1.2rem;
         padding: 1.8rem 1.4rem;
+    }
+}
+
+/* ==========================================================================
+   Interactive Accordion FAQ (Progressive Disclosure)
+   ========================================================================== */
+.faq-accordion {
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.faq-accordion-item {
+    border-radius: 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.faq-accordion-item:hover {
+    border-color: rgba(206, 181, 255, 0.45);
+}
+
+.faq-accordion-item.active {
+    border-color: rgba(206, 181, 255, 0.7);
+    box-shadow: 0 8px 30px rgba(128, 168, 255, 0.16);
+    background: rgba(20, 24, 45, 0.75);
+}
+
+.faq-accordion-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    padding: 1.35rem 1.6rem;
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: background 0.2s ease;
+}
+
+.faq-accordion-header:focus-visible {
+    outline: 2px solid var(--moondust-purple);
+    outline-offset: -2px;
+}
+
+.faq-header-title {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    flex: 1;
+}
+
+.faq-header-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    color: #FFFFFF;
+    flex-shrink: 0;
+}
+
+.faq-header-text {
+    font-size: clamp(1.02rem, 1.1vw, 1.15rem);
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.4;
+}
+
+.faq-chevron-icon {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(211, 211, 255, 0.12);
+    color: var(--text-secondary);
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, color 0.25s ease;
+    flex-shrink: 0;
+}
+
+.faq-accordion-item.active .faq-chevron-icon {
+    transform: rotate(180deg);
+    background: rgba(206, 181, 255, 0.2);
+    color: #FFFFFF;
+}
+
+.faq-accordion-collapse {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    opacity: 0;
+}
+
+.faq-accordion-item.active .faq-accordion-collapse {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+.faq-accordion-body {
+    overflow: hidden;
+}
+
+.faq-accordion-body p {
+    padding: 0 1.6rem 1.4rem calc(1.6rem + 42px + 1.1rem);
+    margin: 0;
+    color: var(--text-body);
+    font-size: clamp(0.96rem, 1.05vw, 1.02rem);
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .faq-accordion-header {
+        padding: 1.1rem 1.15rem;
+        gap: 0.85rem;
+    }
+
+    .faq-header-title {
+        gap: 0.85rem;
+    }
+
+    .faq-header-icon {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+
+    .faq-header-text {
+        font-size: 0.98rem;
+    }
+
+    .faq-chevron-icon {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        font-size: 0.85rem;
+    }
+
+    .faq-accordion-body p {
+        padding: 0 1.15rem 1.25rem 1.15rem;
+        font-size: 0.94rem;
+        line-height: 1.65;
     }
 }
 

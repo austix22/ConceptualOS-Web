@@ -324,6 +324,8 @@ document.addEventListener('DOMContentLoaded', () => {
             f8_desc: "Parchea tus juegos en vivo de forma nativa sin necesidad de aplicaciones externas.",
             f9_title: "Videos de inicio",
             f9_desc: "Asigna clips de vídeo de inicio personalizados a cada consola para una entrada más cinematográfica a los juegos.",
+            features_show_more: "Ver más características (3)",
+            features_show_less: "Ver menos características",
             compat_subtitle: "ECOSISTEMA INTEGRADO",
             compat_title: 'Compatibilidad <span class="gradient-text">Amplia</span>',
             compat_desc: "COS Launcher está diseñado para comunicarse con tus emuladores favoritos, mandos físicos y dispositivos Android sin configuraciones complicadas.",
@@ -376,6 +378,8 @@ document.addEventListener('DOMContentLoaded', () => {
             gallery_item8_tag: "08 • DESCARGAS",
             gallery_item8_title: "Centro de Descargas",
             gallery_item8_desc: "Gestor de enlaces para la descarga de emuladores organizados por plataforma. Todos los enlaces son oficiales y provienen directamente de sus propios creadores.",
+            gallery_show_more: "Ver todas las capturas (8)",
+            gallery_show_less: "Ver menos capturas",
             faq_subtitle: "RESOLVEMOS TUS DUDAS",
             faq_title: 'Preguntas <span class="gradient-text">Frecuentes</span>',
             faq_desc: "Todo lo que necesitas saber sobre compatibilidad, instalación y funcionamiento de COS Launcher.",
@@ -524,6 +528,8 @@ document.addEventListener('DOMContentLoaded', () => {
             f8_desc: "Patch your games live natively without needing external apps.",
             f9_title: "Startup Videos",
             f9_desc: "Assign custom startup video clips to each console for a more cinematic entrance into your games.",
+            features_show_more: "View more features (3)",
+            features_show_less: "View fewer features",
             compat_subtitle: "INTEGRATED ECOSYSTEM",
             compat_title: 'Broad <span class="gradient-text">Compatibility</span>',
             compat_desc: "COS Launcher seamlessly connects with your favorite emulators, physical controllers, and Android handhelds.",
@@ -576,6 +582,8 @@ document.addEventListener('DOMContentLoaded', () => {
             gallery_item8_tag: "08 • DOWNLOADS",
             gallery_item8_title: "Download Center",
             gallery_item8_desc: "Platform-organized link manager for downloading emulators. All links are official and point directly to their original creators.",
+            gallery_show_more: "View all screenshots (8)",
+            gallery_show_less: "View fewer screenshots",
             faq_subtitle: "EVERYTHING YOU NEED TO KNOW",
             faq_title: 'Frequently Asked <span class="gradient-text">Questions</span>',
             faq_desc: "Key answers about compatibility, installation, and how COS Launcher works.",
@@ -1446,6 +1454,98 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ==========================================================================
+    // Progressive Disclosure (Show More / Less) & Interactive FAQ Accordion
+    // ==========================================================================
+    const initProgressiveDisclosure = () => {
+        // 1. Features Show More / Less Toggle
+        const featuresToggleBtn = document.getElementById('featuresToggleBtn');
+        const featureCollapsibles = document.querySelectorAll('.feature-card-collapsible');
+        if (featuresToggleBtn && featureCollapsibles.length > 0) {
+            let isExpanded = false;
+            featuresToggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                isExpanded = !isExpanded;
+                featuresToggleBtn.classList.toggle('is-expanded', isExpanded);
+                featuresToggleBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+                featureCollapsibles.forEach(card => card.classList.toggle('expanded', isExpanded));
+                
+                const dict = translations[currentLang] || translations.es;
+                const textSpan = featuresToggleBtn.querySelector('.toggle-text');
+                if (textSpan) {
+                    const key = isExpanded ? 'features_show_less' : 'features_show_more';
+                    textSpan.setAttribute('data-i18n', key);
+                    textSpan.textContent = dict[key] || (isExpanded ? 'Ver menos' : 'Ver más características');
+                }
+                if (typeof SFX !== 'undefined') SFX.click1();
+            });
+        }
+
+        // 2. Gallery Show More / Less Toggle
+        const galleryToggleBtn = document.getElementById('galleryToggleBtn');
+        const galleryCollapsibles = document.querySelectorAll('.gallery-card-collapsible');
+        if (galleryToggleBtn && galleryCollapsibles.length > 0) {
+            let isExpanded = false;
+            galleryToggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                isExpanded = !isExpanded;
+                galleryToggleBtn.classList.toggle('is-expanded', isExpanded);
+                galleryToggleBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+                galleryCollapsibles.forEach(card => card.classList.toggle('expanded', isExpanded));
+                
+                const dict = translations[currentLang] || translations.es;
+                const textSpan = galleryToggleBtn.querySelector('.toggle-text');
+                if (textSpan) {
+                    const key = isExpanded ? 'gallery_show_less' : 'gallery_show_more';
+                    textSpan.setAttribute('data-i18n', key);
+                    textSpan.textContent = dict[key] || (isExpanded ? 'Ver menos' : 'Ver todas las capturas (8)');
+                }
+                if (typeof SFX !== 'undefined') SFX.click1();
+            });
+        }
+
+        // 3. FAQ Interactive Accordion
+        const faqItems = document.querySelectorAll('.faq-accordion-item');
+        if (faqItems.length > 0) {
+            faqItems.forEach(item => {
+                const header = item.querySelector('.faq-accordion-header');
+                if (!header) return;
+
+                const toggleFaq = () => {
+                    const isCurrentlyActive = item.classList.contains('active');
+                    // Collapse all items to keep mobile view ultra clean
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                        const otherHeader = otherItem.querySelector('.faq-accordion-header');
+                        if (otherHeader) otherHeader.setAttribute('aria-expanded', 'false');
+                    });
+
+                    // If it was not active, expand it
+                    if (!isCurrentlyActive) {
+                        item.classList.add('active');
+                        header.setAttribute('aria-expanded', 'true');
+                        if (typeof SFX !== 'undefined') SFX.click1();
+                    } else {
+                        if (typeof SFX !== 'undefined') SFX.click2();
+                    }
+                };
+
+                header.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    toggleFaq();
+                });
+
+                header.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleFaq();
+                    }
+                });
+            });
+        }
+    };
+
+    initProgressiveDisclosure();
     setupKeyMapperDirectDownload();
 });
 
