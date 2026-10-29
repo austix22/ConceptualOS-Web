@@ -2738,8 +2738,14 @@ h1, h2, h3, h4, span, p, a, button {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
+    gap: 0.65rem;
+    flex-wrap: nowrap;
+}
+
+.kofi-highlights .about-pill {
+    padding: 0.45rem 1rem;
+    font-size: 0.83rem;
+    white-space: nowrap;
 }
 
 .kofi-box:hover {
