@@ -538,6 +538,12 @@ h1, h2, h3, h4, span, p, a, button {
     color: var(--moondust-cyan);
     transition: var(--transition-smooth);
     user-select: none;
+    height: 42px;
+    padding: 0 1.15rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    box-sizing: border-box;
 }
 
 .lang-toggle-pill:hover,
@@ -550,8 +556,8 @@ h1, h2, h3, h4, span, p, a, button {
 
 .youtube-nav-pill,
 .kofi-nav-pill {
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
     padding: 0;
     display: inline-flex;
     align-items: center;
@@ -562,6 +568,7 @@ h1, h2, h3, h4, span, p, a, button {
     user-select: none;
     cursor: pointer;
     transition: var(--transition-smooth);
+    box-sizing: border-box;
 }
 
 .youtube-nav-pill {
@@ -580,10 +587,11 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .youtube-nav-pill i {
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     color: #ff334b;
     transition: color var(--transition-smooth);
     margin: 0;
+    line-height: 1;
 }
 
 .youtube-nav-pill:hover i,
@@ -607,10 +615,11 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .kofi-nav-pill i {
-    font-size: 0.95rem;
+    font-size: 1.15rem;
     color: #ff7572;
     transition: color var(--transition-smooth);
     margin: 0;
+    line-height: 1;
 }
 
 .kofi-nav-pill:hover i,
@@ -3357,8 +3366,8 @@ h1, h2, h3, h4, span, p, a, button {
 @media (max-width: 600px) {
     .kofi-nav-pill,
     .youtube-nav-pill {
-        width: 34px;
-        height: 34px;
+        width: 36px;
+        height: 36px;
         padding: 0;
         display: inline-flex;
         align-items: center;
@@ -3367,14 +3376,18 @@ h1, h2, h3, h4, span, p, a, button {
         flex-shrink: 0;
     }
 
-    .kofi-nav-pill .badge-text,
-    .youtube-nav-pill .badge-text {
-        display: none;
+    .lang-toggle-pill {
+        height: 36px;
+        padding: 0 0.8rem;
     }
 
-    .kofi-nav-pill i,
     .youtube-nav-pill i {
-        font-size: 0.95rem;
+        font-size: 1.15rem;
+        margin: 0;
+    }
+
+    .kofi-nav-pill i {
+        font-size: 1.05rem;
         margin: 0;
     }
 }
@@ -3423,8 +3436,8 @@ h1, h2, h3, h4, span, p, a, button {
 
     .kofi-nav-pill,
     .youtube-nav-pill {
-        width: 34px;
-        height: 34px;
+        width: 35px;
+        height: 35px;
         padding: 0;
         display: inline-flex;
         align-items: center;
@@ -3433,20 +3446,20 @@ h1, h2, h3, h4, span, p, a, button {
         flex-shrink: 0;
     }
 
-    .kofi-nav-pill .badge-text,
-    .youtube-nav-pill .badge-text {
-        display: none;
+    .kofi-nav-pill i {
+        font-size: 1rem;
+        margin: 0;
     }
 
-    .kofi-nav-pill i,
     .youtube-nav-pill i {
-        font-size: 0.92rem;
+        font-size: 1.1rem;
         margin: 0;
     }
 
     .lang-toggle-pill {
-        padding: 0.32rem 0.55rem;
-        font-size: 0.8rem;
+        height: 35px;
+        padding: 0 0.65rem;
+        font-size: 0.82rem;
         gap: 0.35rem;
         flex-shrink: 0;
     }
