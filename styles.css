@@ -2032,10 +2032,10 @@ h1, h2, h3, h4, span, p, a, button {
 .download-dual-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2.8rem;
+    gap: clamp(3.2rem, 5vw, 4.8rem);
     align-items: stretch;
-    max-width: 860px;
-    margin: 0 auto 3.2rem auto;
+    max-width: 1040px;
+    margin: 0 auto 3.5rem auto;
     width: 100%;
 }
 
@@ -2044,15 +2044,27 @@ h1, h2, h3, h4, span, p, a, button {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 100%;
 }
 
 .download-col-header {
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 2.2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+@media (min-width: 861px) {
+    .download-col-header {
+        min-height: 120px;
+        justify-content: flex-start;
+    }
+
+    .download-col-title {
+        white-space: nowrap;
+    }
 }
 
 .download-col-title {
@@ -2068,13 +2080,14 @@ h1, h2, h3, h4, span, p, a, button {
     color: var(--text-body);
     line-height: 1.6;
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 480px;
     text-align: center;
+    text-wrap: balance;
 }
 
 @media (min-width: 861px) {
     .download-col-desc {
-        min-height: 3.8em;
+        min-height: 3.4em;
         display: flex;
         align-items: flex-start;
         justify-content: center;
@@ -2084,8 +2097,11 @@ h1, h2, h3, h4, span, p, a, button {
 .download-column .download-card {
     height: 100%;
     flex: 1;
-    max-width: 380px;
+    max-width: 410px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
 @media (max-width: 860px) {
@@ -2106,8 +2122,8 @@ h1, h2, h3, h4, span, p, a, button {
     justify-content: center;
     align-items: stretch;
     flex-wrap: wrap;
-    gap: 2.8rem; /* Separadas claramente */
-    max-width: 820px;
+    gap: 3rem;
+    max-width: 880px;
     margin: 2rem auto 1.5rem auto;
     width: 100%;
     padding: 0 1rem;
@@ -2115,14 +2131,14 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .download-card {
-    padding: 1.7rem 1.5rem 1.5rem; /* No tan largas */
+    padding: 1.8rem 1.6rem 1.6rem;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
     width: 100%;
-    max-width: 380px;
+    max-width: 410px;
     flex: 1 1 290px;
     box-sizing: border-box;
     transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
@@ -2145,16 +2161,20 @@ h1, h2, h3, h4, span, p, a, button {
 
 .card-badge-top {
     position: absolute;
-    top: -12px;
+    top: -14px;
     background: linear-gradient(135deg, var(--moondust-blue), var(--moondust-purple));
     color: #fff;
-    font-size: 0.82rem;
-    font-weight: 700;
-    padding: 0.32rem 1.2rem;
-    border-radius: 20px;
-    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 0.35rem 1.35rem;
+    border-radius: 999px;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    min-width: 170px;
+    text-align: center;
+    box-sizing: border-box;
+    white-space: nowrap;
 }
 
 .card-badge-top.store {
@@ -2193,11 +2213,11 @@ h1, h2, h3, h4, span, p, a, button {
     justify-content: center;
     max-width: 32ch;
     text-align: center;
-    line-height: 1.5;
-    font-size: 1rem;
+    line-height: 1.45;
+    font-size: 0.98rem;
     color: var(--text-body);
-    margin-bottom: 0.9rem;
-    min-height: 2.8em;
+    margin-bottom: 0.75rem;
+    min-height: 2.6em;
 }
 
 .download-specs-list {
@@ -2205,16 +2225,18 @@ h1, h2, h3, h4, span, p, a, button {
     display: flex;
     flex-direction: column;
     gap: 0.55rem;
-    margin: 0.2rem 0 1.2rem 0;
-    padding: 0.85rem 1.05rem;
+    margin: 0.4rem 0 1.2rem 0;
+    padding: 0.95rem 1.15rem;
     background: rgba(3, 4, 8, 0.55);
     border: 1px solid rgba(211, 211, 255, 0.12);
     border-radius: 14px;
     box-sizing: border-box;
+    flex: 1;
+    justify-content: center;
 }
 
 .download-card-title + .download-specs-list {
-    margin-top: 0.85rem;
+    margin-top: calc(2.6em + 0.75rem);
 }
 
 .download-spec-item {
