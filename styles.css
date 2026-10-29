@@ -1021,28 +1021,7 @@ h1, h2, h3, h4, span, p, a, button {
     transform: rotate(180deg);
 }
 
-.features-toggle-wrapper {
-    margin-top: 1.8rem;
-    margin-bottom: 0;
-}
 
-.features-panel-collapsible {
-    display: none;
-    margin-top: 2.2rem;
-}
-
-.features-panel-collapsible.is-open {
-    display: grid !important;
-    animation: expandFadeIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.features-panel-close-wrap {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: center;
-    padding-top: 1rem;
-    padding-bottom: 0.5rem;
-}
 
 .feature-card-collapsible,
 .gallery-card-collapsible {

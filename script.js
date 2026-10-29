@@ -324,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
             f8_desc: "Parchea tus juegos en vivo de forma nativa sin necesidad de aplicaciones externas.",
             f9_title: "Videos de inicio",
             f9_desc: "Asigna clips de vídeo de inicio personalizados a cada consola para una entrada más cinematográfica a los juegos.",
-            features_show_more: "Ver más funciones",
+            features_show_more: "Ver más funciones (6)",
             features_show_less: "Ocultar funciones",
             compat_subtitle: "ECOSISTEMA INTEGRADO",
             compat_title: 'Compatibilidad <span class="gradient-text">Amplia</span>',
@@ -530,7 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
             f8_desc: "Patch your games live natively without needing external apps.",
             f9_title: "Startup Videos",
             f9_desc: "Assign custom startup video clips to each console for a more cinematic entrance into your games.",
-            features_show_more: "View more features",
+            features_show_more: "View more features (6)",
             features_show_less: "Hide features",
             compat_subtitle: "INTEGRATED ECOSYSTEM",
             compat_title: 'Broad <span class="gradient-text">Compatibility</span>',
@@ -1462,51 +1462,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // Progressive Disclosure (Show More / Less) & Interactive FAQ Accordion
     // ==========================================================================
     const initProgressiveDisclosure = () => {
-        // 1. Features Show More / Less Panel Toggle
+        // 1. Features Show More / Less Toggle (Show 3 key features + 6 collapsible)
         const featuresToggleBtn = document.getElementById('featuresToggleBtn');
-        const featuresGrid = document.getElementById('featuresGrid');
-        const featuresCloseBtn = document.querySelector('.btn-features-close');
-
-        if (featuresToggleBtn && featuresGrid) {
+        const featureCollapsibles = document.querySelectorAll('.feature-card-collapsible');
+        if (featuresToggleBtn && featureCollapsibles.length > 0) {
             let isExpanded = false;
-
-            const updateFeaturesState = (expanded) => {
-                isExpanded = expanded;
+            featuresToggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                isExpanded = !isExpanded;
                 featuresToggleBtn.classList.toggle('is-expanded', isExpanded);
                 featuresToggleBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-                featuresGrid.classList.toggle('is-open', isExpanded);
+                featureCollapsibles.forEach(card => card.classList.toggle('expanded', isExpanded));
 
                 const dict = translations[currentLang] || translations.es;
                 const textSpan = featuresToggleBtn.querySelector('.toggle-text');
                 if (textSpan) {
                     const key = isExpanded ? 'features_show_less' : 'features_show_more';
                     textSpan.setAttribute('data-i18n', key);
-                    textSpan.textContent = dict[key] || (isExpanded ? 'Ocultar funciones' : 'Ver más funciones');
+                    textSpan.textContent = dict[key] || (isExpanded ? 'Ocultar funciones' : 'Ver más funciones (6)');
+                }
+                if (!isExpanded) {
+                    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
                 if (typeof SFX !== 'undefined') SFX.click1();
-            };
-
-            featuresToggleBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                updateFeaturesState(!isExpanded);
-            });
-
-            if (featuresCloseBtn) {
-                featuresCloseBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    updateFeaturesState(false);
-                    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                });
-            }
-
-            document.querySelectorAll('a[href="#features"]').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (!isExpanded) {
-                        updateFeaturesState(true);
-                    }
-                });
             });
         }
+
 
         // 2. Gallery Show More / Less Toggle
         const galleryToggleBtn = document.getElementById('galleryToggleBtn');
