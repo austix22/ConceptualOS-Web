@@ -548,6 +548,35 @@ h1, h2, h3, h4, span, p, a, button {
     box-shadow: 0 0 14px rgba(206, 181, 255, 0.35);
 }
 
+.youtube-nav-pill {
+    text-decoration: none;
+    background: rgba(255, 0, 0, 0.12);
+    border-color: rgba(255, 50, 75, 0.4);
+    color: #ff4d6d;
+    transition: var(--transition-smooth);
+    user-select: none;
+    cursor: pointer;
+}
+
+.youtube-nav-pill:hover,
+.youtube-nav-pill:focus {
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.32), rgba(255, 75, 100, 0.32));
+    border-color: #ff2d55;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 14px rgba(255, 0, 0, 0.45);
+}
+
+.youtube-nav-pill i {
+    color: #ff334b;
+    transition: color var(--transition-smooth);
+}
+
+.youtube-nav-pill:hover i,
+.youtube-nav-pill:focus i {
+    color: #ffffff;
+}
+
 .kofi-nav-pill {
     text-decoration: none;
     background: rgba(255, 94, 91, 0.12);
@@ -2145,132 +2174,38 @@ h1, h2, h3, h4, span, p, a, button {
     justify-content: center;
 }
 
-/* Download Section - Dual Side-by-Side Layout (Main App & Companion Plugins) */
-.download-dual-grid {
+/* Download Section - Unified 3-Card Grid (Main App & Companion Plugins) */
+.download-cards-grid {
     display: grid;
-    grid-template-columns: 380px 1fr;
-    gap: clamp(2rem, 3.2vw, 3.5rem);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.85rem;
     align-items: stretch;
     max-width: 1240px;
-    margin: 0 auto 3.5rem auto;
+    margin: 2.2rem auto 3.5rem auto;
     width: 100%;
+    box-sizing: border-box;
 }
 
-.download-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+.download-cards-grid .download-card {
     height: 100%;
-}
-
-.download-column-main {
-    max-width: 380px;
-    margin: 0 auto;
-}
-
-.download-column-plugins {
     width: 100%;
-}
-
-.plugins-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.4rem;
-    width: 100%;
-    align-items: stretch;
-    flex: 1;
-}
-
-.plugins-cards-grid .download-card {
-    height: 100%;
     max-width: 100%;
-    width: 100%;
-}
-
-.download-col-header {
-    width: 100%;
-    margin-bottom: 2.2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-@media (min-width: 992px) {
-    .download-col-header {
-        min-height: 110px;
-        justify-content: flex-start;
-    }
-
-    .download-col-title {
-        white-space: nowrap;
-    }
-}
-
-.download-col-title {
-    font-size: clamp(1.75rem, 2.2vw, 2.1rem);
-    font-weight: 700;
-    margin-bottom: 0.65rem;
-    letter-spacing: -0.02em;
-    line-height: 1.25;
-}
-
-.download-col-desc {
-    font-size: clamp(1.02rem, 1.15vw, 1.12rem);
-    color: var(--text-body);
-    line-height: 1.6;
-    margin: 0 auto;
-    max-width: 540px;
-    text-align: center;
-    text-wrap: balance;
-}
-
-@media (min-width: 992px) {
-    .download-col-desc {
-        min-height: 3.4em;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-    }
-}
-
-.download-column .download-card {
-    height: 100%;
-    flex: 1;
-    max-width: 410px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
     box-sizing: border-box;
 }
 
 @media (max-width: 1080px) {
-    .download-dual-grid {
-        grid-template-columns: 1fr;
-        gap: 3.5rem;
-        max-width: 820px;
-    }
-
-    .download-column-main {
-        max-width: 410px;
+    .download-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+        gap: 2.2rem;
+        max-width: 860px;
     }
 }
 
-@media (max-width: 720px) {
-    .plugins-cards-grid {
+@media (max-width: 680px) {
+    .download-cards-grid {
         grid-template-columns: 1fr;
-        gap: 2.2rem;
+        gap: 2.6rem;
         max-width: 410px;
-        margin: 0 auto;
-    }
-
-    .download-dual-grid {
-        max-width: 420px;
-    }
-
-    .download-col-header {
-        margin-bottom: 1.8rem;
     }
 }
 
@@ -3360,6 +3295,31 @@ h1, h2, h3, h4, span, p, a, button {
     }
 }
 
+@media (max-width: 600px) {
+    .kofi-nav-pill,
+    .youtube-nav-pill {
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        flex-shrink: 0;
+    }
+
+    .kofi-nav-pill .badge-text,
+    .youtube-nav-pill .badge-text {
+        display: none;
+    }
+
+    .kofi-nav-pill i,
+    .youtube-nav-pill i {
+        font-size: 0.95rem;
+        margin: 0;
+    }
+}
+
 @media (max-width: 480px) {
     html {
         font-size: 15px;
@@ -3402,7 +3362,8 @@ h1, h2, h3, h4, span, p, a, button {
         flex-shrink: 0;
     }
 
-    .kofi-nav-pill {
+    .kofi-nav-pill,
+    .youtube-nav-pill {
         width: 34px;
         height: 34px;
         padding: 0;
@@ -3413,11 +3374,13 @@ h1, h2, h3, h4, span, p, a, button {
         flex-shrink: 0;
     }
 
-    .kofi-nav-pill .badge-text {
+    .kofi-nav-pill .badge-text,
+    .youtube-nav-pill .badge-text {
         display: none;
     }
 
-    .kofi-nav-pill i {
+    .kofi-nav-pill i,
+    .youtube-nav-pill i {
         font-size: 0.92rem;
         margin: 0;
     }

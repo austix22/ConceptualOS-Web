@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=2.8.4">
+    <link rel="stylesheet" href="styles.css?v=2.8.5">
 </head>
 
 <body>
@@ -61,6 +61,11 @@
             </nav>
 
             <div class="nav-actions">
+                <a href="https://youtu.be/hauaT58CheM?si=shRMdo5iILFbp9hY" target="_blank" rel="noopener noreferrer"
+                    class="badge-pill youtube-nav-pill" id="youtubeNavBtn" title="Canal de YouTube / YouTube Channel">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span class="badge-text" data-i18n="nav_youtube">YouTube</span>
+                </a>
                 <a href="#kofi" class="badge-pill kofi-nav-pill" id="kofiNavBtn" title="Apoyar en Ko-fi / Support on Ko-fi">
                     <i class="fa-solid fa-mug-hot"></i>
                     <span class="badge-text" data-i18n="nav_kofi">Ko-fi</span>
@@ -707,25 +712,6 @@
                 </p>
             </div>
 
-            <!-- Official YouTube Channel Showcase Banner -->
-            <div class="gallery-video-banner-wrap">
-                <a href="https://youtu.be/hauaT58CheM?si=shRMdo5iILFbp9hY" target="_blank" rel="noopener noreferrer" class="gallery-video-banner glass-card" aria-label="Ver canal oficial de YouTube Conceptual OS">
-                    <div class="gallery-video-thumb-container">
-                        <img src="img/yt_official_thumb.jpg" alt="Conceptual OS en YouTube" class="gallery-video-banner-thumb" loading="lazy">
-                    </div>
-                    <div class="gallery-video-banner-info">
-                        <div class="gallery-video-banner-tag">
-                            <i class="fa-brands fa-youtube"></i>
-                            <span data-i18n="gallery_yt_tag">CANAL OFICIAL DE YOUTUBE</span>
-                        </div>
-                        <h3 class="gallery-video-banner-title" data-i18n="gallery_yt_channel_title">Conceptual OS</h3>
-                    </div>
-                    <div class="gallery-video-banner-action">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </div>
-                </a>
-            </div>
-
             <div class="gallery-grid">
                 <!-- Screenshot 1 -->
                 <div class="gallery-card glass-card" data-gallery-index="0" tabindex="0" role="button"
@@ -933,127 +919,114 @@
     <!-- Download Section -->
     <section id="download" class="section download-section">
         <div class="container text-center">
-            <div class="download-dual-grid">
-                <!-- Left Column: COS Launcher App -->
-                <div class="download-column download-column-main">
-                    <div class="download-col-header">
-                        <h2 class="section-title download-col-title" data-i18n="dl_title">Obtén <span class="gradient-text">COS Launcher</span></h2>
-                        <p class="section-description download-col-desc" data-i18n="dl_desc">
-                            Descarga COS Launcher en tu dispositivo portátil o teléfono Android.
-                        </p>
+            <div class="section-header text-center">
+                <span class="section-subtitle" data-i18n="dl_subtitle">DESCARGAS OFICIALES</span>
+                <h2 class="section-title" data-i18n="dl_title">Obtén <span class="gradient-text">COS Launcher y Complementos Oficiales</span></h2>
+                <p class="section-description" data-i18n="dl_desc">
+                    Descarga COS Launcher y sus complementos oficiales para abrir el overlay con tu mando y reescalar la pantalla del dispositivo para jugar en TV o monitores.
+                </p>
+            </div>
+
+            <div class="download-cards-grid">
+                <!-- Card 1: COS Launcher -->
+                <div class="download-card glass-card">
+                    <div class="card-badge-top store" data-i18n="dl_store_badge">TIENDA OFICIAL</div>
+                    <div class="card-icon"><i class="fa-brands fa-google-play"></i></div>
+                    <h3 class="download-card-title" data-i18n="dl_cos_title">COS Launcher</h3>
+                    <p class="download-card-description" data-i18n="dl_store_desc">Instala y actualiza la app desde Google Play.</p>
+
+                    <div class="download-specs-list">
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-tag"></i>
+                            <span data-i18n="dl_spec_version"><strong>Versión:</strong> v1.1.0 Platinum</span>
+                        </div>
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                            <span data-i18n="dl_spec_req"><strong>Requisitos:</strong> Android 9.0+</span>
+                        </div>
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                            <span data-i18n="dl_spec_updates"><strong>Actualizaciones:</strong> Automáticas</span>
+                        </div>
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span data-i18n="dl_spec_protect"><strong>Seguridad:</strong> Play Protect</span>
+                        </div>
                     </div>
 
-                    <div class="download-card glass-card">
-                        <div class="card-badge-top store" data-i18n="dl_store_badge">TIENDA OFICIAL</div>
-                        <div class="card-icon"><i class="fa-brands fa-google-play"></i></div>
-                        <h3 class="download-card-title" data-i18n="dl_cos_title">COS Launcher</h3>
-                        <p class="download-card-description" data-i18n="dl_store_desc">Instala y actualiza la app desde Google Play.</p>
-
-                        <div class="download-specs-list">
-                            <div class="download-spec-item">
-                                <i class="fa-solid fa-tag"></i>
-                                <span data-i18n="dl_spec_version"><strong>Versión:</strong> v1.1.0 Platinum</span>
-                            </div>
-                            <div class="download-spec-item">
-                                <i class="fa-solid fa-mobile-screen"></i>
-                                <span data-i18n="dl_spec_req"><strong>Requisitos:</strong> Android 9.0+</span>
-                            </div>
-                            <div class="download-spec-item">
-                                <i class="fa-solid fa-arrows-rotate"></i>
-                                <span data-i18n="dl_spec_updates"><strong>Actualizaciones:</strong> Automáticas</span>
-                            </div>
-                            <div class="download-spec-item">
-                                <i class="fa-solid fa-shield-halved"></i>
-                                <span data-i18n="dl_spec_protect"><strong>Seguridad:</strong> Play Protect</span>
-                            </div>
-                        </div>
-
-                        <div class="download-action-group">
-                            <a href="https://play.google.com/store/apps/details?id=com.austin.conceptualos" target="_blank" rel="noopener noreferrer"
-                                class="btn btn-googleplay btn-block" aria-label="Abrir Google Play Store">
-                                <i class="fa-brands fa-google-play"></i> <span data-i18n="dl_store_btn">Abrir tienda</span>
-                            </a>
-                        </div>
+                    <div class="download-action-group">
+                        <a href="https://play.google.com/store/apps/details?id=com.austin.conceptualos" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-googleplay btn-block" aria-label="Abrir Google Play Store">
+                            <i class="fa-brands fa-google-play"></i> <span data-i18n="dl_store_btn">Abrir tienda</span>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Right Column: Official Plugins & Companion Apps -->
-                <div class="download-column download-column-plugins">
-                    <div class="download-col-header">
-                        <h2 class="section-title download-col-title" data-i18n="plugins_title">Complementos <span class="gradient-text">Oficiales</span></h2>
-                        <p class="section-description download-col-desc" data-i18n="plugins_desc">
-                            Plugins y complementos oficiales para abrir el overlay con tu mando y optimizar la resolución en TV o monitores.
-                        </p>
+                <!-- Card 2: Conceptual Key Mapper -->
+                <div class="download-card glass-card">
+                    <div class="card-badge-top plugin" data-i18n="dl_km_badge">PLUGIN OFICIAL</div>
+                    <div class="card-icon plugin-icon"><i class="fa-solid fa-gamepad"></i></div>
+                    <h3 class="download-card-title" data-i18n="dl_km_title">Conceptual Key Mapper</h3>
+                    <p class="download-card-description" data-i18n="dl_km_desc">Abre el overlay con mando sin tocar la pantalla.</p>
+
+                    <div class="download-specs-list">
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-puzzle-piece"></i>
+                            <span data-i18n="dl_km_spec_type"><strong>Tipo:</strong> Plugin oficial COS</span>
+                        </div>
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-gamepad"></i>
+                            <span data-i18n="dl_km_spec_overlay"><strong>Acceso:</strong> Botón o combinación</span>
+                        </div>
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-tv"></i>
+                            <span data-i18n="dl_km_spec_target"><strong>Ideal para:</strong> TV y monitores</span>
+                        </div>
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span data-i18n="dl_km_spec_setup"><strong>Ajuste:</strong> Automático al instalar</span>
+                        </div>
                     </div>
 
-                    <div class="plugins-cards-grid">
-                        <!-- Card 1: Conceptual Key Mapper -->
-                        <div class="download-card glass-card">
-                            <div class="card-badge-top plugin" data-i18n="dl_km_badge">PLUGIN OFICIAL</div>
-                            <div class="card-icon plugin-icon"><i class="fa-solid fa-gamepad"></i></div>
-                            <h3 class="download-card-title" data-i18n="dl_km_title">Conceptual Key Mapper</h3>
-                            <p class="download-card-description" data-i18n="dl_km_desc">Abre el overlay con mando sin tocar la pantalla.</p>
+                    <div class="download-action-group">
+                        <a href="https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Key.Mapper.apk" download="Conceptual.Key.Mapper.apk"
+                            class="btn btn-plugin-dl btn-keymapper-dl btn-block" id="keyMapperDlBtn" aria-label="Descargar Conceptual Key Mapper">
+                            <i class="fa-solid fa-download"></i> <span data-i18n="dl_km_btn">Descargar</span>
+                        </a>
+                    </div>
+                </div>
 
-                            <div class="download-specs-list">
-                                <div class="download-spec-item">
-                                    <i class="fa-solid fa-puzzle-piece"></i>
-                                    <span data-i18n="dl_km_spec_type"><strong>Tipo:</strong> Plugin oficial COS</span>
-                                </div>
-                                <div class="download-spec-item">
-                                    <i class="fa-solid fa-gamepad"></i>
-                                    <span data-i18n="dl_km_spec_overlay"><strong>Acceso:</strong> Botón o combinación</span>
-                                </div>
-                                <div class="download-spec-item">
-                                    <i class="fa-solid fa-tv"></i>
-                                    <span data-i18n="dl_km_spec_target"><strong>Ideal para:</strong> TV y monitores</span>
-                                </div>
-                                <div class="download-spec-item">
-                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                                    <span data-i18n="dl_km_spec_setup"><strong>Ajuste:</strong> Automático al instalar</span>
-                                </div>
-                            </div>
+                <!-- Card 3: Conceptual Screen Rescaler -->
+                <div class="download-card glass-card">
+                    <div class="card-badge-top rescaler" data-i18n="dl_rescaler_badge">UTILIDAD OFICIAL</div>
+                    <div class="card-icon rescaler-icon"><i class="fa-solid fa-expand"></i></div>
+                    <h3 class="download-card-title" data-i18n="dl_rescaler_title">Conceptual Screen Rescaler</h3>
+                    <p class="download-card-description" data-i18n="dl_rescaler_desc">Reescala tu pantalla y juega en TV sin franjas negras.</p>
 
-                            <div class="download-action-group">
-                                <a href="https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Key.Mapper.apk" download="Conceptual.Key.Mapper.apk"
-                                    class="btn btn-plugin-dl btn-keymapper-dl btn-block" id="keyMapperDlBtn" aria-label="Descargar Conceptual Key Mapper">
-                                    <i class="fa-solid fa-download"></i> <span data-i18n="dl_km_btn">Descargar</span>
-                                </a>
-                            </div>
+                    <div class="download-specs-list">
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-tv"></i>
+                            <span data-i18n="dl_rescaler_spec_type"><strong>Función:</strong> Reescalado de pantalla</span>
                         </div>
-
-                        <!-- Card 2: Conceptual Screen Rescaler -->
-                        <div class="download-card glass-card">
-                            <div class="card-badge-top rescaler" data-i18n="dl_rescaler_badge">UTILIDAD OFICIAL</div>
-                            <div class="card-icon rescaler-icon"><i class="fa-solid fa-expand"></i></div>
-                            <h3 class="download-card-title" data-i18n="dl_rescaler_title">Conceptual Screen Rescaler</h3>
-                            <p class="download-card-description" data-i18n="dl_rescaler_desc">Reescala tu pantalla y juega en TV sin franjas negras.</p>
-
-                            <div class="download-specs-list">
-                                <div class="download-spec-item">
-                                    <i class="fa-solid fa-tv"></i>
-                                    <span data-i18n="dl_rescaler_spec_type"><strong>Función:</strong> Reescalado de pantalla</span>
-                                </div>
-                                <div class="download-spec-item">
-                                    <i class="fa-solid fa-crop-simple"></i>
-                                    <span data-i18n="dl_rescaler_spec_bars"><strong>Formato:</strong> Elimina franjas negras</span>
-                                </div>
-                                <div class="download-spec-item">
-                                    <i class="fa-solid fa-display"></i>
-                                    <span data-i18n="dl_rescaler_spec_target"><strong>Ideal para:</strong> TV y monitores externos</span>
-                                </div>
-                                <div class="download-spec-item">
-                                    <i class="fa-solid fa-sliders"></i>
-                                    <span data-i18n="dl_rescaler_spec_setup"><strong>Ajuste:</strong> En tiempo real en partida</span>
-                                </div>
-                            </div>
-
-                            <div class="download-action-group">
-                                <a href="https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Screen.Rescaler.apk" download="Conceptual.Screen.Rescaler.apk"
-                                    class="btn btn-plugin-dl btn-rescaler-dl btn-block" id="screenRescalerDlBtn" aria-label="Descargar Conceptual Screen Rescaler">
-                                    <i class="fa-solid fa-download"></i> <span data-i18n="dl_rescaler_btn">Descargar</span>
-                                </a>
-                            </div>
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-crop-simple"></i>
+                            <span data-i18n="dl_rescaler_spec_bars"><strong>Formato:</strong> Elimina franjas negras</span>
                         </div>
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-display"></i>
+                            <span data-i18n="dl_rescaler_spec_target"><strong>Ideal para:</strong> TV y monitores externos</span>
+                        </div>
+                        <div class="download-spec-item">
+                            <i class="fa-solid fa-sliders"></i>
+                            <span data-i18n="dl_rescaler_spec_setup"><strong>Ajuste:</strong> En tiempo real en partida</span>
+                        </div>
+                    </div>
+
+                    <div class="download-action-group">
+                        <a href="https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Screen.Rescaler.apk" download="Conceptual.Screen.Rescaler.apk"
+                            class="btn btn-plugin-dl btn-rescaler-dl btn-block" id="screenRescalerDlBtn" aria-label="Descargar Conceptual Screen Rescaler">
+                            <i class="fa-solid fa-download"></i> <span data-i18n="dl_rescaler_btn">Descargar</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1520,7 +1493,7 @@
     <audio id="sfxJuegoAbrir" src="m4a/juegoabrir.mp3" preload="auto"></audio>
 
     <!-- Custom Script -->
-    <script src="script.js?v=2.7.5"></script>
+    <script src="script.js?v=2.7.6"></script>
 </body>
 
 </html>
