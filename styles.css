@@ -4616,6 +4616,11 @@ h1, h2, h3, h4, span, p, a, button {
 .dot-matrix-mid { background-color: #00cc44; box-shadow: 0 0 6px rgba(0, 204, 68, 0.6); }
 .dot-matrix-dark { background-color: #006622; box-shadow: 0 0 6px rgba(0, 102, 34, 0.5); }
 
+/* Cosmic 3-Tone Purple & Galaxy Palette */
+.dot-cosmic-light { background-color: #d8b4fe; box-shadow: 0 0 7px rgba(216, 180, 254, 0.75); }
+.dot-cosmic-mid { background-color: #a855f7; box-shadow: 0 0 6px rgba(168, 85, 247, 0.65); }
+.dot-cosmic-dark { background-color: #6366f1; box-shadow: 0 0 6px rgba(99, 102, 241, 0.6); }
+
 /* Feature Highlights Grid */
 .wallpaper-features-grid {
     display: grid;
