@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=3.2.5">
+    <link rel="stylesheet" href="styles.css?v=3.2.6">
 
     <!-- Critical Plugin Modals & Buttons Styles -->
     <style id="critical-plugin-modals-css">
@@ -51,15 +51,17 @@
             box-sizing: border-box !important;
             transition: all 0.25s ease !important;
         }
-        .btn-km-info:hover, .btn-km-info:focus-visible {
-            border-color: #a855f7 !important;
-            color: #c084fc !important;
-            box-shadow: 0 0 22px rgba(168, 85, 247, 0.6) !important;
-        }
-        .btn-rescaler-info:hover, .btn-rescaler-info:focus-visible {
-            border-color: #38bdf8 !important;
-            color: #38bdf8 !important;
-            box-shadow: 0 0 22px rgba(56, 189, 248, 0.6) !important;
+        .btn-plugin-info:hover,
+        .btn-plugin-info:focus-visible,
+        .btn-km-info:hover,
+        .btn-km-info:focus-visible,
+        .btn-rescaler-info:hover,
+        .btn-rescaler-info:focus-visible {
+            background: linear-gradient(135deg, #8b5cf6, #6366f1) !important;
+            border-color: rgba(255, 255, 255, 0.35) !important;
+            color: #FFFFFF !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.65), 0 0 20px rgba(99, 102, 241, 0.5) !important;
         }
         .plugin-info-modal-backdrop {
             position: fixed !important;
