@@ -4621,6 +4621,11 @@ h1, h2, h3, h4, span, p, a, button {
 .dot-cosmic-mid { background-color: #a855f7; box-shadow: 0 0 6px rgba(168, 85, 247, 0.65); }
 .dot-cosmic-dark { background-color: #6366f1; box-shadow: 0 0 6px rgba(99, 102, 241, 0.6); }
 
+/* Runic 3-Tone Arcane Frost & Stone Palette */
+.dot-runic-light { background-color: #38bdf8; box-shadow: 0 0 7px rgba(56, 189, 248, 0.75); }
+.dot-runic-mid { background-color: #0284c7; box-shadow: 0 0 6px rgba(2, 132, 199, 0.65); }
+.dot-runic-stone { background-color: #94a3b8; box-shadow: 0 0 5px rgba(148, 163, 184, 0.5); }
+
 /* Feature Highlights Grid */
 .wallpaper-features-grid {
     display: grid;
