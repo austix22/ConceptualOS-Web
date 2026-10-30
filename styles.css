@@ -4944,7 +4944,7 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .plugin-modal-title {
-    font-size: 1.55rem;
+    font-size: clamp(1.45rem, 1.6vw, 1.65rem);
     font-weight: 800;
     color: #FFFFFF;
     margin: 0 0 0.35rem 0;
@@ -4952,22 +4952,22 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .plugin-modal-subtitle {
-    font-size: 0.94rem;
+    font-size: 1.02rem;
     color: var(--text-body);
     margin: 0;
     max-width: 480px;
-    line-height: 1.45;
+    line-height: 1.5;
 }
 
 .plugin-modal-body {
-    padding: 1.25rem 2rem 1.5rem 2rem;
+    padding: 1.25rem 2rem 2.2rem 2rem;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 1.1rem;
+    gap: 1.15rem;
     color: var(--text-body);
-    font-size: 0.96rem;
-    line-height: 1.6;
+    font-size: 1.02rem;
+    line-height: 1.65;
 }
 
 .plugin-modal-body::-webkit-scrollbar {
@@ -4985,8 +4985,10 @@ h1, h2, h3, h4, span, p, a, button {
     background: rgba(3, 4, 8, 0.55);
     border: 1px solid rgba(211, 211, 255, 0.14);
     border-radius: 16px;
-    padding: 1.15rem 1.3rem;
+    padding: 1.25rem 1.4rem;
     color: var(--text-primary);
+    font-size: 1.02rem;
+    line-height: 1.65;
 }
 
 .plugin-modal-desc-box strong {
@@ -4997,8 +4999,13 @@ h1, h2, h3, h4, span, p, a, button {
     background: linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(99, 102, 241, 0.12));
     border: 1px solid rgba(56, 189, 248, 0.35);
     border-radius: 16px;
-    padding: 1.15rem 1.3rem;
+    padding: 1.2rem 1.35rem;
     color: var(--text-primary);
+}
+
+.plugin-modal-highlight-box p {
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .plugin-modal-highlight-box.km-accent {
@@ -5007,7 +5014,7 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .plugin-modal-highlight-title {
-    font-size: 1.02rem;
+    font-size: 1.06rem;
     font-weight: 700;
     color: #FFFFFF;
     margin: 0 0 0.5rem 0;
@@ -5018,12 +5025,12 @@ h1, h2, h3, h4, span, p, a, button {
 
 .plugin-modal-highlight-title i {
     color: #38bdf8;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
 }
 
 .plugin-modal-highlight-box.km-accent .plugin-modal-highlight-title i {
     color: #c084fc;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
 }
 
 .plugin-modal-features-grid {
@@ -5039,11 +5046,11 @@ h1, h2, h3, h4, span, p, a, button {
     background: rgba(255, 255, 255, 0.035);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
-    padding: 0.85rem 1.05rem;
+    padding: 0.95rem 1.15rem;
 }
 
 .plugin-modal-feature-item i {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     margin-top: 0.2rem;
     flex-shrink: 0;
 }
@@ -5057,17 +5064,17 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .plugin-modal-feature-text h5 {
-    font-size: 0.95rem;
+    font-size: 1.02rem;
     font-weight: 700;
     color: #FFFFFF;
-    margin: 0 0 0.2rem 0;
+    margin: 0 0 0.25rem 0;
 }
 
 .plugin-modal-feature-text p {
-    font-size: 0.88rem;
+    font-size: 0.98rem;
     color: var(--text-body);
     margin: 0;
-    line-height: 1.45;
+    line-height: 1.55;
 }
 
 .plugin-modal-footer {

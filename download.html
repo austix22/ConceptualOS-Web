@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=3.2.4">
+    <link rel="stylesheet" href="styles.css?v=3.2.5">
     <link rel="stylesheet" href="innovative.css?v=1.0.1">
     <link rel="stylesheet" href="portal.css?v=1.0.0">
 
@@ -98,6 +98,41 @@
         }
         .plugin-info-modal-backdrop.active .plugin-info-modal-card {
             transform: scale(1) translateY(0) !important;
+        }
+        .plugin-modal-title {
+            font-size: clamp(1.45rem, 1.6vw, 1.65rem) !important;
+            font-weight: 800 !important;
+            color: #FFFFFF !important;
+            margin: 0 0 0.35rem 0 !important;
+        }
+        .plugin-modal-subtitle {
+            font-size: 1.02rem !important;
+            color: var(--text-body, #94a3b8) !important;
+            line-height: 1.5 !important;
+        }
+        .plugin-modal-body {
+            padding: 1.25rem 2rem 2.2rem 2rem !important;
+            font-size: 1.02rem !important;
+            line-height: 1.65 !important;
+        }
+        .plugin-modal-desc-box {
+            font-size: 1.02rem !important;
+            line-height: 1.65 !important;
+            padding: 1.25rem 1.4rem !important;
+        }
+        .plugin-modal-highlight-title {
+            font-size: 1.06rem !important;
+        }
+        .plugin-modal-highlight-box p {
+            font-size: 1rem !important;
+            line-height: 1.6 !important;
+        }
+        .plugin-modal-feature-text h5 {
+            font-size: 1.02rem !important;
+        }
+        .plugin-modal-feature-text p {
+            font-size: 0.98rem !important;
+            line-height: 1.55 !important;
         }
     </style>
 </head>
@@ -609,12 +644,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="plugin-modal-footer">
-                <a href="https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Key.Mapper.apk" download="Conceptual.Key.Mapper.apk"
-                    class="btn btn-plugin-dl btn-keymapper-dl btn-block" aria-label="Descargar Conceptual Key Mapper">
-                    <i class="fa-solid fa-download"></i> <span data-i18n="dl_km_btn">Descargar APK</span>
-                </a>
             </div>
         </div>
     </div>
