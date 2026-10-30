@@ -538,7 +538,9 @@ document.addEventListener('DOMContentLoaded', () => {
             features_show_more: "Ver funciones",
             features_hide: "Ocultar funciones",
             compat_show_more: "Ver más",
-            compat_hide: "Ocultar"
+            compat_hide: "Ocultar",
+            faq_show_more: "Ver preguntas frecuentes",
+            faq_hide: "Ocultar preguntas"
         },
         en: {
             nav_features: "Features",
@@ -799,7 +801,9 @@ document.addEventListener('DOMContentLoaded', () => {
             features_show_more: "View features",
             features_hide: "Hide features",
             compat_show_more: "View more",
-            compat_hide: "Hide"
+            compat_hide: "Hide",
+            faq_show_more: "View frequently asked questions",
+            faq_hide: "Hide questions"
         }
     };
 
@@ -1763,6 +1767,36 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // 6. FAQ Panel Show More / Less Toggle
+        const faqToggleBtn = document.getElementById('faqToggleBtn');
+        const faqPanel = document.getElementById('faqPanel');
+
+        const setFaqState = (expanded, shouldScroll = false) => {
+            if (!faqPanel || !faqToggleBtn) return;
+            faqPanel.classList.toggle('expanded', expanded);
+            faqToggleBtn.classList.toggle('is-expanded', expanded);
+            faqToggleBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            const dict = translations[currentLang] || translations.es;
+            const topText = faqToggleBtn.querySelector('.toggle-text');
+            if (topText) {
+                const key = expanded ? 'faq_hide' : 'faq_show_more';
+                topText.setAttribute('data-i18n', key);
+                topText.textContent = dict[key] || (expanded ? 'Ocultar preguntas' : 'Ver preguntas frecuentes');
+            }
+            if (!expanded && shouldScroll) {
+                document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            if (typeof SFX !== 'undefined') SFX.click1();
+        };
+
+        if (faqToggleBtn && faqPanel) {
+            faqToggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isCurrentlyExpanded = faqPanel.classList.contains('expanded');
+                setFaqState(!isCurrentlyExpanded, isCurrentlyExpanded);
+            });
+        }
+
         // Auto-expand if navbar anchor link clicked
         document.querySelectorAll('a[href="#features"]').forEach(link => {
             link.addEventListener('click', () => {
@@ -1772,6 +1806,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('a[href="#compatibility"]').forEach(link => {
             link.addEventListener('click', () => {
                 setCompatState(true, false);
+            });
+        });
+        document.querySelectorAll('a[href="#faq"]').forEach(link => {
+            link.addEventListener('click', () => {
+                setFaqState(true, false);
             });
         });
     };

@@ -1117,7 +1117,8 @@ h1, h2, h3, h4, span, p, a, button {
 .gallery-card-collapsible,
 .wallpaper-card-collapsible,
 .features-grid-collapsible,
-.compat-grid-collapsible {
+.compat-grid-collapsible,
+.faq-panel-collapsible {
     display: none !important;
 }
 
@@ -1130,6 +1131,11 @@ h1, h2, h3, h4, span, p, a, button {
 .features-grid-collapsible.expanded,
 .compat-grid-collapsible.expanded {
     display: grid !important;
+    animation: expandFadeIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.faq-panel-collapsible.expanded {
+    display: block !important;
     animation: expandFadeIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -2943,6 +2949,87 @@ h1, h2, h3, h4, span, p, a, button {
     flex-direction: column;
     gap: 1rem;
     width: 100%;
+}
+
+/* FAQ Panel (Unified Full View) */
+.faq-panel-card {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 24px;
+    background: rgba(14, 18, 36, 0.75);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(211, 211, 255, 0.12);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(138, 92, 255, 0.08);
+    overflow: hidden;
+}
+
+.faq-panel-item {
+    padding: 1.8rem 2.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    transition: background 0.25s ease;
+}
+
+.faq-panel-item:last-child {
+    border-bottom: none;
+}
+
+.faq-panel-item:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.faq-panel-header {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    margin-bottom: 0.85rem;
+}
+
+.faq-panel-question {
+    font-size: clamp(1.05rem, 1.15vw, 1.2rem);
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 1.35;
+    font-family: inherit;
+}
+
+.faq-panel-answer {
+    padding-left: calc(42px + 1.1rem);
+}
+
+.faq-panel-answer p {
+    margin: 0;
+    color: var(--text-body);
+    font-size: clamp(0.96rem, 1.02vw, 1.05rem);
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .faq-panel-card {
+        border-radius: 18px;
+    }
+
+    .faq-panel-item {
+        padding: 1.35rem 1.25rem;
+    }
+
+    .faq-panel-header {
+        gap: 0.85rem;
+        margin-bottom: 0.65rem;
+    }
+
+    .faq-panel-question {
+        font-size: 1rem;
+    }
+
+    .faq-panel-answer {
+        padding-left: 0;
+        margin-top: 0.5rem;
+    }
+
+    .faq-panel-answer p {
+        font-size: 0.94rem;
+    }
 }
 
 .faq-accordion-item {

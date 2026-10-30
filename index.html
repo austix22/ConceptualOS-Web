@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=3.2.8">
+    <link rel="stylesheet" href="styles.css?v=3.2.9">
 
     <!-- Critical Plugin Modals & Buttons Styles -->
     <style id="critical-plugin-modals-css">
@@ -1475,116 +1475,90 @@
                 <p class="section-description" data-i18n="faq_desc">
                     Todo lo que necesitas saber sobre compatibilidad, instalación y funcionamiento de COS Launcher.
                 </p>
+                <div class="expand-toggle-wrapper text-center" style="margin-top: 1.8rem;">
+                    <button type="button" id="faqToggleBtn" class="btn-expand-toggle" aria-expanded="false">
+                        <span class="toggle-text" data-i18n="faq_show_more">Ver preguntas frecuentes</span>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                </div>
             </div>
 
-            <div class="faq-accordion" id="faqAccordion">
-                <!-- FAQ 1 -->
-                <div class="faq-accordion-item glass-card" data-faq-index="0">
-                    <button type="button" class="faq-accordion-header" aria-expanded="false" aria-controls="faq-ans-0">
-                        <div class="faq-header-title">
+            <!-- FAQ Panel (Collapsible) -->
+            <div id="faqPanel" class="faq-panel-collapsible" style="margin-top: 2.5rem;">
+                <div class="faq-panel-card glass-card">
+                    <!-- FAQ 1 -->
+                    <div class="faq-panel-item">
+                        <div class="faq-panel-header">
                             <span class="faq-header-icon glow-purple"><i class="fa-solid fa-mobile-screen"></i></span>
-                            <span class="faq-header-text" data-i18n="faq_q1">¿Qué dispositivos y versiones de Android son compatibles?</span>
+                            <h3 class="faq-panel-question" data-i18n="faq_q1">¿Qué dispositivos y versiones de Android son compatibles?</h3>
                         </div>
-                        <span class="faq-chevron-icon"><i class="fa-solid fa-chevron-down"></i></span>
-                    </button>
-                    <div id="faq-ans-0" class="faq-accordion-collapse" role="region">
-                        <div class="faq-accordion-body">
+                        <div class="faq-panel-answer">
                             <p data-i18n="faq_a1">COS Launcher es compatible con Android 9.0 (Pie) en adelante. Está optimizado para funcionar con máxima fluidez tanto en consolas portátiles dedicadas (Ayn Odin, Retroid Pocket, Anbernic, Logitech G Cloud) como en smartphones, tablets y dispositivos Android TV.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- FAQ 2 -->
-                <div class="faq-accordion-item glass-card" data-faq-index="1">
-                    <button type="button" class="faq-accordion-header" aria-expanded="false" aria-controls="faq-ans-1">
-                        <div class="faq-header-title">
+                    <!-- FAQ 2 -->
+                    <div class="faq-panel-item">
+                        <div class="faq-panel-header">
                             <span class="faq-header-icon glow-blue"><i class="fa-solid fa-gamepad"></i></span>
-                            <span class="faq-header-text" data-i18n="faq_q2">¿Cómo funciona la navegación con controles?</span>
+                            <h3 class="faq-panel-question" data-i18n="faq_q2">¿Cómo funciona la navegación con controles?</h3>
                         </div>
-                        <span class="faq-chevron-icon"><i class="fa-solid fa-chevron-down"></i></span>
-                    </button>
-                    <div id="faq-ans-1" class="faq-accordion-collapse" role="region">
-                        <div class="faq-accordion-body">
+                        <div class="faq-panel-answer">
                             <p data-i18n="faq_a2">El soporte es 100% nativo. Puedes conectar tu control por Bluetooth o USB-C y navegar por toda la interfaz, biblioteca y herramientas de COS HUB utilizando la cruceta, sticks y botones sin requerir aplicaciones externas de mapeo.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- FAQ 3 -->
-                <div class="faq-accordion-item glass-card" data-faq-index="2">
-                    <button type="button" class="faq-accordion-header" aria-expanded="false" aria-controls="faq-ans-2">
-                        <div class="faq-header-title">
+                    <!-- FAQ 3 -->
+                    <div class="faq-panel-item">
+                        <div class="faq-panel-header">
                             <span class="faq-header-icon glow-cyan"><i class="fa-solid fa-box-open"></i></span>
-                            <span class="faq-header-text" data-i18n="faq_q3">¿La aplicación incluye juegos o emuladores?</span>
+                            <h3 class="faq-panel-question" data-i18n="faq_q3">¿La aplicación incluye juegos o emuladores?</h3>
                         </div>
-                        <span class="faq-chevron-icon"><i class="fa-solid fa-chevron-down"></i></span>
-                    </button>
-                    <div id="faq-ans-2" class="faq-accordion-collapse" role="region">
-                        <div class="faq-accordion-body">
+                        <div class="faq-panel-answer">
                             <p data-i18n="faq_a3">No. COS Launcher es un organizador de biblioteca e interfaz visual de alto rendimiento (frontend). Debes poseer tus propios emuladores y juegos (ROMs) legalmente adquiridos; la aplicación se encarga de organizarlos, descargar sus carátulas y brindarte lanzamientos directos e instantáneos.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- FAQ 4 -->
-                <div class="faq-accordion-item glass-card" data-faq-index="3">
-                    <button type="button" class="faq-accordion-header" aria-expanded="false" aria-controls="faq-ans-3">
-                        <div class="faq-header-title">
+                    <!-- FAQ 4 -->
+                    <div class="faq-panel-item">
+                        <div class="faq-panel-header">
                             <span class="faq-header-icon glow-purple"><i class="fa-solid fa-shield-halved"></i></span>
-                            <span class="faq-header-text" data-i18n="faq_q4">¿Es segura la instalación desde Google Play Store?</span>
+                            <h3 class="faq-panel-question" data-i18n="faq_q4">¿Es segura la instalación desde Google Play Store?</h3>
                         </div>
-                        <span class="faq-chevron-icon"><i class="fa-solid fa-chevron-down"></i></span>
-                    </button>
-                    <div id="faq-ans-3" class="faq-accordion-collapse" role="region">
-                        <div class="faq-accordion-body">
+                        <div class="faq-panel-answer">
                             <p data-i18n="faq_a4">Sí, totalmente. COS Launcher está construido bajo el principio de privacidad por diseño: es una aplicación sin anuncios invasivos ni recolección de datos personales, verificada y protegida directamente por Google Play Protect.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- FAQ 5 -->
-                <div class="faq-accordion-item glass-card" data-faq-index="4">
-                    <button type="button" class="faq-accordion-header" aria-expanded="false" aria-controls="faq-ans-4">
-                        <div class="faq-header-title">
+                    <!-- FAQ 5 -->
+                    <div class="faq-panel-item">
+                        <div class="faq-panel-header">
                             <span class="faq-header-icon glow-blue"><i class="fa-solid fa-trophy"></i></span>
-                            <span class="faq-header-text" data-i18n="faq_q5">¿Cómo funciona la integración con RetroAchievements (Logros)?</span>
+                            <h3 class="faq-panel-question" data-i18n="faq_q5">¿Cómo funciona la integración con RetroAchievements (Logros)?</h3>
                         </div>
-                        <span class="faq-chevron-icon"><i class="fa-solid fa-chevron-down"></i></span>
-                    </button>
-                    <div id="faq-ans-4" class="faq-accordion-collapse" role="region">
-                        <div class="faq-accordion-body">
+                        <div class="faq-panel-answer">
                             <p data-i18n="faq_a5">Solo debes vincular tu cuenta de RetroAchievements desde la app. COS Launcher sincronizará automáticamente tus logros obtenidos, mostrará tu progreso en tiempo real dentro de tu perfil y desplegará un menú superpuesto (Overlay) durante tus partidas para consultar y seguir tus logros al instante.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- FAQ 6 -->
-                <div class="faq-accordion-item glass-card" data-faq-index="5">
-                    <button type="button" class="faq-accordion-header" aria-expanded="false" aria-controls="faq-ans-5">
-                        <div class="faq-header-title">
+                    <!-- FAQ 6 -->
+                    <div class="faq-panel-item">
+                        <div class="faq-panel-header">
                             <span class="faq-header-icon glow-cyan"><i class="fa-solid fa-images"></i></span>
-                            <span class="faq-header-text" data-i18n="faq_q6">¿Cómo funciona la descarga de recursos e información de los juegos?</span>
+                            <h3 class="faq-panel-question" data-i18n="faq_q6">¿Cómo funciona la descarga de recursos e información de los juegos?</h3>
                         </div>
-                        <span class="faq-chevron-icon"><i class="fa-solid fa-chevron-down"></i></span>
-                    </button>
-                    <div id="faq-ans-5" class="faq-accordion-collapse" role="region">
-                        <div class="faq-accordion-body">
+                        <div class="faq-panel-answer">
                             <p data-i18n="faq_a6">El scraping de recursos se realiza mediante conexión con ScreenScraper y SteamGridDB utilizando tus cuentas y claves API. Al configurarlas en la app, COS Launcher obtiene e integra iconos en alta definición, fondos de pantalla (banners), vistas previas en video e información de cada juego.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- FAQ 7 -->
-                <div class="faq-accordion-item glass-card" data-faq-index="6">
-                    <button type="button" class="faq-accordion-header" aria-expanded="false" aria-controls="faq-ans-6">
-                        <div class="faq-header-title">
+                    <!-- FAQ 7 -->
+                    <div class="faq-panel-item">
+                        <div class="faq-panel-header">
                             <span class="faq-header-icon glow-purple"><i class="fa-solid fa-gem"></i></span>
-                            <span class="faq-header-text" data-i18n="faq_q7">¿COS Launcher es gratis o tiene compras dentro de la app?</span>
+                            <h3 class="faq-panel-question" data-i18n="faq_q7">¿COS Launcher es gratis o tiene compras dentro de la app?</h3>
                         </div>
-                        <span class="faq-chevron-icon"><i class="fa-solid fa-chevron-down"></i></span>
-                    </button>
-                    <div id="faq-ans-6" class="faq-accordion-collapse" role="region">
-                        <div class="faq-accordion-body">
+                        <div class="faq-panel-answer">
                             <p data-i18n="faq_a7">COS Launcher se descarga y se disfruta 100% gratis con juegos ilimitados, scraping y hasta 2 consolas sin publicidad. Si deseas agregar más de 2 consolas, ver logros y accesos rápidos en el overlay, además de personalizar nombres con animaciones, colores e iconos, puedes desbloquear la edición completa por un único pago de $1.50 USD dentro de la app (sin suscripciones).</p>
                         </div>
                     </div>
@@ -1869,7 +1843,7 @@
     </script>
 
     <!-- Custom Script -->
-    <script src="script.js?v=2.9.6"></script>
+    <script src="script.js?v=2.9.7"></script>
 </body>
 
 </html>
