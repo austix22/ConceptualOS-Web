@@ -534,7 +534,11 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_feat3_desc: "Personaliza la velocidad, estilos de partículas, tonos de fondo y colores.",
             wp_feat4_title: "Solo $1.00 USD (Pago Único)",
             wp_feat4_desc: "Sin suscripciones ni publicidad invasiva.",
-            wp_cta_btn: "Obtener en Google Play"
+            wp_cta_btn: "Obtener en Google Play",
+            features_show_more: "Ver funciones",
+            features_hide: "Ocultar funciones",
+            compat_show_more: "Ver más",
+            compat_hide: "Ocultar"
         },
         en: {
             nav_features: "Features",
@@ -791,7 +795,11 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_feat3_desc: "Customize particle speed, particle styles, background tones, and colors.",
             wp_feat4_title: "Only $1.00 USD (One-time)",
             wp_feat4_desc: "No subscriptions and no ads.",
-            wp_cta_btn: "Get on Google Play"
+            wp_cta_btn: "Get on Google Play",
+            features_show_more: "View features",
+            features_hide: "Hide features",
+            compat_show_more: "View more",
+            compat_hide: "Hide"
         }
     };
 
@@ -1694,6 +1702,100 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         }
+
+        // 4. Features Grid Show More / Less Toggle
+        const featuresToggleBtn = document.getElementById('featuresToggleBtn');
+        const featuresCollapseBtn = document.getElementById('featuresCollapseBtn');
+        const featuresGrid = document.getElementById('featuresGrid');
+        const featuresBottomWrapper = document.getElementById('featuresBottomWrapper');
+
+        const setFeaturesState = (expanded, shouldScroll = false) => {
+            if (!featuresGrid || !featuresToggleBtn) return;
+            featuresGrid.classList.toggle('expanded', expanded);
+            featuresToggleBtn.classList.toggle('is-expanded', expanded);
+            featuresToggleBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            if (featuresBottomWrapper) {
+                featuresBottomWrapper.classList.toggle('is-visible', expanded);
+            }
+            const dict = translations[currentLang] || translations.es;
+            const topText = featuresToggleBtn.querySelector('.toggle-text');
+            if (topText) {
+                const key = expanded ? 'features_hide' : 'features_show_more';
+                topText.setAttribute('data-i18n', key);
+                topText.textContent = dict[key] || (expanded ? 'Ocultar funciones' : 'Ver funciones');
+            }
+            if (!expanded && shouldScroll) {
+                document.getElementById('features')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            if (typeof SFX !== 'undefined') SFX.click1();
+        };
+
+        if (featuresToggleBtn && featuresGrid) {
+            featuresToggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isCurrentlyExpanded = featuresGrid.classList.contains('expanded');
+                setFeaturesState(!isCurrentlyExpanded, isCurrentlyExpanded);
+            });
+        }
+        if (featuresCollapseBtn) {
+            featuresCollapseBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                setFeaturesState(false, true);
+            });
+        }
+
+        // 5. Compatibility Grid Show More / Less Toggle
+        const compatToggleBtn = document.getElementById('compatToggleBtn');
+        const compatCollapseBtn = document.getElementById('compatCollapseBtn');
+        const compatGrid = document.getElementById('compatGrid');
+        const compatBottomWrapper = document.getElementById('compatBottomWrapper');
+
+        const setCompatState = (expanded, shouldScroll = false) => {
+            if (!compatGrid || !compatToggleBtn) return;
+            compatGrid.classList.toggle('expanded', expanded);
+            compatToggleBtn.classList.toggle('is-expanded', expanded);
+            compatToggleBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            if (compatBottomWrapper) {
+                compatBottomWrapper.classList.toggle('is-visible', expanded);
+            }
+            const dict = translations[currentLang] || translations.es;
+            const topText = compatToggleBtn.querySelector('.toggle-text');
+            if (topText) {
+                const key = expanded ? 'compat_hide' : 'compat_show_more';
+                topText.setAttribute('data-i18n', key);
+                topText.textContent = dict[key] || (expanded ? 'Ocultar' : 'Ver más');
+            }
+            if (!expanded && shouldScroll) {
+                document.getElementById('compatibility')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            if (typeof SFX !== 'undefined') SFX.click1();
+        };
+
+        if (compatToggleBtn && compatGrid) {
+            compatToggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isCurrentlyExpanded = compatGrid.classList.contains('expanded');
+                setCompatState(!isCurrentlyExpanded, isCurrentlyExpanded);
+            });
+        }
+        if (compatCollapseBtn) {
+            compatCollapseBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                setCompatState(false, true);
+            });
+        }
+
+        // Auto-expand if navbar anchor link clicked
+        document.querySelectorAll('a[href="#features"]').forEach(link => {
+            link.addEventListener('click', () => {
+                setFeaturesState(true, false);
+            });
+        });
+        document.querySelectorAll('a[href="#compatibility"]').forEach(link => {
+            link.addEventListener('click', () => {
+                setCompatState(true, false);
+            });
+        });
     };
 
     // ==========================================================================

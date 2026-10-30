@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=3.2.6">
+    <link rel="stylesheet" href="styles.css?v=3.2.7">
 
     <!-- Critical Plugin Modals & Buttons Styles -->
     <style id="critical-plugin-modals-css">
@@ -274,9 +274,15 @@
                 <p class="section-description" data-i18n="features_desc">
                     Organiza tu colección de juegos con recursos gráficos, logros y accesos rápidos en pantalla.
                 </p>
+                <div class="expand-toggle-wrapper text-center" style="margin-top: 1.8rem;">
+                    <button type="button" id="featuresToggleBtn" class="btn-expand-toggle" aria-expanded="false">
+                        <span class="toggle-text" data-i18n="features_show_more">Ver funciones</span>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                </div>
             </div>
 
-            <div class="features-grid">
+            <div id="featuresGrid" class="features-grid features-grid-collapsible" style="margin-top: 2.5rem;">
                 <!-- 1. Navegación con controles (Visible) -->
                 <div class="feature-card glass-card">
                     <div class="feature-icon glow-purple">
@@ -358,6 +364,14 @@
                     <p data-i18n="f9_desc">Asigna clips de vídeo de inicio personalizados a cada consola para una entrada más cinematográfica a los juegos.</p>
                 </div>
             </div>
+
+            <!-- Bottom Collapse Button for Features -->
+            <div id="featuresBottomWrapper" class="expand-bottom-wrapper text-center">
+                <button type="button" id="featuresCollapseBtn" class="btn-expand-toggle is-expanded" aria-expanded="true">
+                    <span class="toggle-text" data-i18n="features_hide">Ocultar funciones</span>
+                    <i class="fa-solid fa-chevron-up toggle-icon" style="transform: none;"></i>
+                </button>
+            </div>
         </div>
     </section>
 
@@ -371,9 +385,15 @@
                     COS Launcher está diseñado para comunicarse con tus emuladores favoritos, mandos físicos y
                     dispositivos Android sin configuraciones complicadas.
                 </p>
+                <div class="expand-toggle-wrapper text-center" style="margin-top: 1.8rem;">
+                    <button type="button" id="compatToggleBtn" class="btn-expand-toggle" aria-expanded="false">
+                        <span class="toggle-text" data-i18n="compat_show_more">Ver más</span>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                </div>
             </div>
 
-            <div class="features-grid">
+            <div id="compatGrid" class="features-grid compat-grid-collapsible" style="margin-top: 2.5rem;">
                 <!-- Card 1: Emuladores -->
                 <div class="feature-card glass-card">
                     <div class="feature-icon glow-purple">
@@ -403,6 +423,14 @@
                     <p data-i18n="compat_c3_desc">Optimizado para consolas portátiles dedicadas (Ayn Odin, Retroid
                         Pocket, Anbernic, Logitech G Cloud), smartphones y tablets con Android 9.0 o superior.</p>
                 </div>
+            </div>
+
+            <!-- Bottom Collapse Button for Compatibility -->
+            <div id="compatBottomWrapper" class="expand-bottom-wrapper text-center">
+                <button type="button" id="compatCollapseBtn" class="btn-expand-toggle is-expanded" aria-expanded="true">
+                    <span class="toggle-text" data-i18n="compat_hide">Ocultar</span>
+                    <i class="fa-solid fa-chevron-up toggle-icon" style="transform: none;"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -1857,7 +1885,7 @@
     </script>
 
     <!-- Custom Script -->
-    <script src="script.js?v=2.9.4"></script>
+    <script src="script.js?v=2.9.5"></script>
 </body>
 
 </html>
