@@ -80,7 +80,6 @@
             this.time = 0;
             this.lastTimestamp = performance.now();
             this.animationFrameId = null;
-            this.touchPos = null;
 
             this.initParticles();
             this.setupCanvasSize();
@@ -117,14 +116,13 @@
                     colorHex = officialColors[Math.floor(Math.random() * officialColors.length)];
                 }
 
-                // Normalizado para ajustarse al ancho del viewport del smartphone
-                // En Android: Random.nextFloat() * 45f + 48f sobre un canvas de 1080px (aprox 4.5% a 8.6%)
-                const baseSizeRel = (Math.random() * 45 + 48) / 1080;
+                // Tamaño sutil y elegante (aprox 14px a 20px en la pantalla del celular)
+                const sizeFactor = Math.random();
 
                 this.particles.push({
                     x: Math.random(),
                     y: Math.random(),
-                    baseSizeRel: baseSizeRel,
+                    sizeFactor: sizeFactor,
                     alpha: Math.floor(Math.random() * 70 + 185) / 255, // 0.72 a 1.0
                     symbol: symbol,
                     directionX: (Math.random() * 2 - 1) * 0.008,
@@ -154,27 +152,6 @@
             window.addEventListener('resize', () => {
                 this.setupCanvasSize();
             });
-
-            // Soporte táctil reactivo opcional en la pantalla del teléfono
-            const handleTouch = (e) => {
-                const rect = this.canvas.getBoundingClientRect();
-                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-                this.touchPos = {
-                    x: (clientX - rect.left) / rect.width,
-                    y: (clientY - rect.top) / rect.height
-                };
-            };
-
-            const clearTouch = () => {
-                this.touchPos = null;
-            };
-
-            this.canvas.addEventListener('mousemove', handleTouch, { passive: true });
-            this.canvas.addEventListener('mouseleave', clearTouch);
-            this.canvas.addEventListener('touchstart', handleTouch, { passive: true });
-            this.canvas.addEventListener('touchmove', handleTouch, { passive: true });
-            this.canvas.addEventListener('touchend', clearTouch);
         }
 
         draw() {
@@ -213,27 +190,12 @@
                     driftY = (p.y + (effTime * p.directionY)) % 1.0;
                 }
 
-                if (driftX < 0) driftX += 1.0;
-                if (driftY < 0) driftY += 1.0;
-
-                // Si el usuario toca o arrastra cerca, las partículas reaccionan suavemente
-                if (this.touchPos) {
-                    const dx = driftX - this.touchPos.x;
-                    const dy = driftY - this.touchPos.y;
-                    const distSq = dx * dx + dy * dy;
-                    if (distSq < 0.04 && distSq > 0.0001) {
-                        const dist = Math.sqrt(distSq);
-                        const push = (0.2 - dist) * 0.06;
-                        driftX += (dx / dist) * push;
-                        driftY += (dy / dist) * push;
-                    }
-                }
-
                 const drawX = driftX * screenWidth;
                 const drawY = driftY * screenHeight;
 
                 const activeColor = isGrayscale ? grayscaleColor : p.color;
-                const fontSize = Math.max(16, Math.round(p.baseSizeRel * screenWidth * 2.8));
+                // Partículas suaves y proporcionadas (14px - 21px aprox en un ancho de ~340px)
+                const fontSize = Math.round(screenWidth * (0.040 + p.sizeFactor * 0.020));
 
                 ctx.save();
                 ctx.translate(drawX, drawY);
@@ -438,6 +400,30 @@
                     }
                 });
             });
+
+            // Botón Establecer Fondo en Vivo en el teléfono
+            const applyBtn = document.getElementById('wpApplyToPhoneBtn');
+            if (applyBtn) {
+                applyBtn.addEventListener('click', () => {
+                    this.engine.updateConfig(this.config);
+                    this.saveConfig();
+
+                    const phoneBezel = document.querySelector('.wp-phone-bezel');
+                    if (phoneBezel) {
+                        phoneBezel.classList.remove('wp-applied-flash');
+                        void phoneBezel.offsetWidth;
+                        phoneBezel.classList.add('wp-applied-flash');
+                    }
+
+                    if (typeof closePluginModal === 'function') {
+                        closePluginModal('wpConfigModal');
+                    }
+
+                    if (window.SFX && typeof window.SFX.click1 === 'function') {
+                        window.SFX.click1();
+                    }
+                });
+            }
         }
 
         applyOptionChange(group, val, optElement) {

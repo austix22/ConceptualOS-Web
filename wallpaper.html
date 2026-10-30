@@ -506,8 +506,8 @@
                 <div class="wp-modal-section-title" data-i18n="wp_custom_title">PERSONALIZACIÓN DEL FONDO</div>
 
                 <!-- 1. Estilo de Partículas (Particle Style) -->
-                <div class="wp-cat-card expanded" id="wpCatStyle">
-                    <div class="wp-cat-header" tabindex="0" role="button" aria-expanded="true">
+                <div class="wp-cat-card" id="wpCatStyle">
+                    <div class="wp-cat-header" tabindex="0" role="button" aria-expanded="false">
                         <div class="wp-cat-icon-box">
                             <i class="fa-solid fa-shapes"></i>
                         </div>
@@ -809,12 +809,12 @@
                     </div>
                 </div>
 
-                <!-- Botón Principal: Establecer Fondo en Vivo (MainActivity.kt line 330) -->
+                <!-- Botón Principal: Establecer Fondo en Vivo en el teléfono -->
                 <div class="wp-modal-footer-action">
-                    <a href="https://play.google.com/store/search?q=Conceptual+Live+Wallpaper&c=apps" target="_blank" rel="noopener noreferrer" class="wp-modal-action-btn">
-                        <i class="fa-brands fa-google-play"></i>
+                    <button type="button" class="wp-modal-action-btn" id="wpApplyToPhoneBtn" aria-label="Establecer fondo en el molde del teléfono">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
                         <span data-i18n="wp_btn_set_app">ESTABLECER FONDO EN VIVO</span>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
