@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gallery_item8_tag: "08 • DESCARGAS",
             gallery_item8_title: "Centro de Descargas",
             gallery_item8_desc: "Gestor de enlaces para la descarga de emuladores organizados por plataforma. Todos los enlaces son oficiales y provienen directamente de sus propios creadores.",
-            gallery_show_more: "Ver todas las capturas (8)",
+            gallery_show_more: "Ver todas las capturas (4)",
             gallery_show_less: "Ver menos capturas",
             faq_subtitle: "RESOLVEMOS TUS DUDAS",
             faq_title: 'Preguntas <span class="gradient-text">Frecuentes</span>',
@@ -642,7 +642,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gallery_item8_tag: "08 • DOWNLOADS",
             gallery_item8_title: "Download Center",
             gallery_item8_desc: "Platform-organized link manager for downloading emulators. All links are official and point directly to their original creators.",
-            gallery_show_more: "View all screenshots (8)",
+            gallery_show_more: "View all screenshots (4)",
             gallery_show_less: "View fewer screenshots",
             faq_subtitle: "EVERYTHING YOU NEED TO KNOW",
             faq_title: 'Frequently Asked <span class="gradient-text">Questions</span>',
@@ -1631,7 +1631,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (textSpan) {
                     const key = isExpanded ? 'gallery_show_less' : 'gallery_show_more';
                     textSpan.setAttribute('data-i18n', key);
-                    textSpan.textContent = dict[key] || (isExpanded ? 'Ver menos' : 'Ver todas las capturas (8)');
+                    textSpan.textContent = dict[key] || (isExpanded ? 'Ver menos' : 'Ver todas las capturas (4)');
                 }
                 if (typeof SFX !== 'undefined') SFX.click1();
             });
