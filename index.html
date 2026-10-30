@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=3.2.9">
+    <link rel="stylesheet" href="styles.css?v=3.3.0">
 
     <!-- Critical Plugin Modals & Buttons Styles -->
     <style id="critical-plugin-modals-css">
@@ -227,39 +227,29 @@
             </div>
 
             <div class="hero-visual">
-                <div class="hero-highlights-grid">
-                    <div class="highlight-card glass-card">
-                        <div class="highlight-icon icon-purple"><i class="fa-solid fa-gamepad"></i></div>
-                        <div class="highlight-info">
-                            <span class="highlight-val">100%</span>
-                            <span class="highlight-label" data-i18n="stat_controls_label">Navegación con
-                                controles</span>
+                <div class="hero-showcase-container">
+                    <div class="hero-screenshot-card glass-card" id="heroScreenshotCard" role="button" tabindex="0" aria-label="Abrir galería de capturas de COS Launcher">
+                        <div class="hero-device-bezel">
+                            <div class="hero-bezel-bar">
+                                <span class="hero-bezel-tag" data-i18n="gallery_item1_tag">01 • INICIO</span>
+                                <span class="hero-bezel-badge"><i class="fa-solid fa-gamepad"></i> COS Launcher</span>
+                            </div>
+                            <div class="hero-media-wrap">
+                                <img src="img/sc1.jpg" alt="Captura de pantalla de COS Launcher" class="hero-screen-img" loading="eager">
+                                <div class="hero-screen-overlay">
+                                    <span class="hero-zoom-pill">
+                                        <i class="fa-solid fa-expand"></i>
+                                        <span data-i18n="hero_zoom_hint">Explorar capturas (8)</span>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="highlight-card glass-card">
-                        <div class="highlight-icon icon-blue"><i class="fa-solid fa-trophy"></i></div>
-                        <div class="highlight-info">
-                            <span class="highlight-val" data-i18n="stat_achievements_val">Logros</span>
-                            <span class="highlight-label" data-i18n="stat_achievements_label">Logros de
-                                RetroAchievements</span>
-                        </div>
-                    </div>
-
-                    <div class="highlight-card glass-card">
-                        <div class="highlight-icon icon-cyan"><i class="fa-solid fa-microchip"></i></div>
-                        <div class="highlight-info">
-                            <span class="highlight-val">COS HUB</span>
-                            <span class="highlight-label" data-i18n="stat_hub_label">Accesos rápidos en partida</span>
-                        </div>
-                    </div>
-
-                    <div class="highlight-card glass-card">
-                        <div class="highlight-icon icon-purple"><i class="fa-solid fa-images"></i></div>
-                        <div class="highlight-info">
-                            <span class="highlight-val" data-i18n="stat_scraping_val">Recursos</span>
-                            <span class="highlight-label" data-i18n="stat_scraping_label">Recursos gráficos</span>
-                        </div>
+                    <div class="hero-gallery-action text-center">
+                        <button type="button" id="heroGalleryBtn" class="btn-expand-toggle hero-gallery-cta" aria-label="Ver todas las capturas (8)">
+                            <i class="fa-solid fa-images"></i>
+                            <span class="toggle-text" data-i18n="hero_view_gallery">Ver más capturas (8)</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -825,221 +815,7 @@
         </div>
     </section>
 
-    <!-- Gallery Showcase Section -->
-    <section id="gallery" class="section gallery-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-subtitle" data-i18n="gallery_subtitle">INTERFAZ Y CAPTURAS</span>
-                <h2 class="section-title" data-i18n="gallery_title">COS Launcher <span class="gradient-text">en acción</span></h2>
-                <p class="section-description" data-i18n="gallery_desc">
-                    Un recorrido visual por el sistema diseñado para consolas portátiles y dispositivos Android. Fluido,
-                    personalizable y 100% pensado para controles.
-                </p>
-            </div>
 
-            <div class="gallery-grid">
-                <!-- Screenshot 1 -->
-                <div class="gallery-card glass-card" data-gallery-index="0" tabindex="0" role="button"
-                    aria-label="Ver captura 1">
-                    <div class="gallery-media-wrap">
-                        <img src="img/sc1.jpg" alt="Pantalla de inicio de COS Launcher" class="gallery-img"
-                            loading="lazy">
-                        <div class="gallery-overlay">
-                            <span class="gallery-zoom-btn">
-                                <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                <span data-i18n="gallery_zoom_hint">Ampliar captura</span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="gallery-card-body">
-                        <div class="gallery-card-meta">
-                            <span class="gallery-tag" data-i18n="gallery_item1_tag">01 • INICIO</span>
-                        </div>
-                        <h3 class="gallery-card-title" data-i18n="gallery_item1_title">Pantalla de Inicio</h3>
-                        <p class="gallery-card-desc" data-i18n="gallery_item1_desc">
-                            Dashboard principal con juegos, filtro de recientes, logros desbloqueados recientemente y videos de novedades. En la parte superior: cápsula de conexión, hora, cápsula de batería, nombre de usuario e icono de perfil.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Screenshot 2 -->
-                <div class="gallery-card glass-card" data-gallery-index="1" tabindex="0" role="button"
-                    aria-label="Ver captura 2">
-                    <div class="gallery-media-wrap">
-                        <img src="img/sc2.jpg" alt="Panel de fondo e iconos de juegos" class="gallery-img"
-                            loading="lazy">
-                        <div class="gallery-overlay">
-                            <span class="gallery-zoom-btn">
-                                <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                <span data-i18n="gallery_zoom_hint">Ampliar captura</span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="gallery-card-body">
-                        <div class="gallery-card-meta">
-                            <span class="gallery-tag" data-i18n="gallery_item2_tag">02 • PANEL</span>
-                        </div>
-                        <h3 class="gallery-card-title" data-i18n="gallery_item2_title">Panel de Fondo e Iconos</h3>
-                        <p class="gallery-card-desc" data-i18n="gallery_item2_desc">
-                            Vista completa de juegos con información detallada, tiempo de juego acumulado, última vez jugado y logros.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Screenshot 3 -->
-                <div class="gallery-card glass-card" data-gallery-index="2" tabindex="0" role="button"
-                    aria-label="Ver captura 3">
-                    <div class="gallery-media-wrap">
-                        <img src="img/sc3.jpg" alt="Pestaña de juegos y controles" class="gallery-img"
-                            loading="lazy">
-                        <div class="gallery-overlay">
-                            <span class="gallery-zoom-btn">
-                                <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                <span data-i18n="gallery_zoom_hint">Ampliar captura</span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="gallery-card-body">
-                        <div class="gallery-card-meta">
-                            <span class="gallery-tag" data-i18n="gallery_item3_tag">03 • JUEGOS</span>
-                        </div>
-                        <h3 class="gallery-card-title" data-i18n="gallery_item3_title">Pestaña de Juegos</h3>
-                        <p class="gallery-card-desc" data-i18n="gallery_item3_desc">
-                            Metadatos completos (desarrollador, año, jugadores, calificación), cápsula superior de logros, y atajos rápidos para gameplay, opciones y favoritos.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Screenshot 4 -->
-                <div class="gallery-card glass-card" data-gallery-index="3" tabindex="0" role="button"
-                    aria-label="Ver captura 4">
-                    <div class="gallery-media-wrap">
-                        <img src="img/sc4.png" alt="Progreso de logros de RetroAchievements" class="gallery-img"
-                            loading="lazy">
-                        <div class="gallery-overlay">
-                            <span class="gallery-zoom-btn">
-                                <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                <span data-i18n="gallery_zoom_hint">Ampliar captura</span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="gallery-card-body">
-                        <div class="gallery-card-meta">
-                            <span class="gallery-tag" data-i18n="gallery_item4_tag">04 • LOGROS</span>
-                        </div>
-                        <h3 class="gallery-card-title" data-i18n="gallery_item4_title">Progreso de Logros</h3>
-                        <p class="gallery-card-desc" data-i18n="gallery_item4_desc">
-                            Ventana emergente con logros bloqueados y desbloqueados, porcentaje de avance y puntaje oficial de RetroAchievements.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Screenshot 5 -->
-                <div class="gallery-card glass-card gallery-card-collapsible" data-gallery-index="4" tabindex="0" role="button"
-                    aria-label="Ver captura 5">
-                    <div class="gallery-media-wrap">
-                        <img src="img/sc5.jpg" alt="Filtro de fabricantes de consolas" class="gallery-img"
-                            loading="lazy">
-                        <div class="gallery-overlay">
-                            <span class="gallery-zoom-btn">
-                                <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                <span data-i18n="gallery_zoom_hint">Ampliar captura</span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="gallery-card-body">
-                        <div class="gallery-card-meta">
-                            <span class="gallery-tag" data-i18n="gallery_item5_tag">05 • FABRICANTES</span>
-                        </div>
-                        <h3 class="gallery-card-title" data-i18n="gallery_item5_title">Filtro por Fabricante</h3>
-                        <p class="gallery-card-desc" data-i18n="gallery_item5_desc">
-                            Organización visual por marcas (Android, Nintendo, Sony) con opción de añadir nuevas consolas.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Screenshot 6 -->
-                <div class="gallery-card glass-card gallery-card-collapsible" data-gallery-index="5" tabindex="0" role="button"
-                    aria-label="Ver captura 6">
-                    <div class="gallery-media-wrap">
-                        <img src="img/sc6.jpg" alt="Navegador de consolas y emuladores" class="gallery-img"
-                            loading="lazy">
-                        <div class="gallery-overlay">
-                            <span class="gallery-zoom-btn">
-                                <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                <span data-i18n="gallery_zoom_hint">Ampliar captura</span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="gallery-card-body">
-                        <div class="gallery-card-meta">
-                            <span class="gallery-tag" data-i18n="gallery_item6_tag">06 • CONSOLAS</span>
-                        </div>
-                        <h3 class="gallery-card-title" data-i18n="gallery_item6_title">Navegador de Consolas</h3>
-                        <p class="gallery-card-desc" data-i18n="gallery_item6_desc">
-                            Selector directo de sistemas con especificación de generación y conteo de juegos.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Screenshot 7 -->
-                <div class="gallery-card glass-card gallery-card-collapsible" data-gallery-index="6" tabindex="0" role="button"
-                    aria-label="Ver captura 7">
-                    <div class="gallery-media-wrap">
-                        <img src="img/sc7.png" alt="Perfil y resumen de RetroAchievements" class="gallery-img"
-                            loading="lazy">
-                        <div class="gallery-overlay">
-                            <span class="gallery-zoom-btn">
-                                <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                <span data-i18n="gallery_zoom_hint">Ampliar captura</span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="gallery-card-body">
-                        <div class="gallery-card-meta">
-                            <span class="gallery-tag" data-i18n="gallery_item7_tag">07 • RETROACHIEVEMENTS</span>
-                        </div>
-                        <h3 class="gallery-card-title" data-i18n="gallery_item7_title">Perfil y Mis Logros</h3>
-                        <p class="gallery-card-desc" data-i18n="gallery_item7_desc">
-                            Panel de sincronización con puntuación global, avatar de usuario, acceso rápido a la página RetroAchievements interna y catálogo de juegos con logros activos.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Screenshot 8 -->
-                <div class="gallery-card glass-card gallery-card-collapsible" data-gallery-index="7" tabindex="0" role="button"
-                    aria-label="Ver captura 8">
-                    <div class="gallery-media-wrap">
-                        <img src="img/sc8.jpg" alt="Centro de descargas y plataformas" class="gallery-img"
-                            loading="lazy">
-                        <div class="gallery-overlay">
-                            <span class="gallery-zoom-btn">
-                                <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                <span data-i18n="gallery_zoom_hint">Ampliar captura</span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="gallery-card-body">
-                        <div class="gallery-card-meta">
-                            <span class="gallery-tag" data-i18n="gallery_item8_tag">08 • DESCARGAS</span>
-                        </div>
-                        <h3 class="gallery-card-title" data-i18n="gallery_item8_title">Centro de Descargas</h3>
-                        <p class="gallery-card-desc" data-i18n="gallery_item8_desc">
-                            Gestor de enlaces para la descarga de emuladores organizados por plataforma. Todos los enlaces son oficiales y provienen directamente de sus propios creadores.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gallery Progressive Disclosure Toggle Button -->
-            <div class="expand-toggle-wrapper">
-                <button type="button" id="galleryToggleBtn" class="btn-expand-toggle" aria-expanded="false">
-                    <span class="toggle-text" data-i18n="gallery_show_more">Ver todas las capturas (4)</span>
-                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
-                </button>
-            </div>
-        </div>
-    </section>
 
     <!-- Download Section -->
     <section id="download" class="section download-section">
@@ -1681,6 +1457,16 @@
                     <h3 id="lightboxTitle" class="lightbox-title"></h3>
                     <p id="lightboxDesc" class="lightbox-desc"></p>
                 </div>
+                <div class="lightbox-thumbnails-row" id="lightboxThumbnails">
+                    <button type="button" class="lightbox-thumb-btn active" data-thumb-index="0" aria-label="01 • Inicio"><img src="img/sc1.jpg" alt="01 • Inicio"></button>
+                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="1" aria-label="02 • Panel"><img src="img/sc2.jpg" alt="02 • Panel"></button>
+                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="2" aria-label="03 • Juegos"><img src="img/sc3.jpg" alt="03 • Juegos"></button>
+                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="3" aria-label="04 • Logros"><img src="img/sc4.png" alt="04 • Logros"></button>
+                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="4" aria-label="05 • Fabricantes"><img src="img/sc5.jpg" alt="05 • Fabricantes"></button>
+                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="5" aria-label="06 • Consolas"><img src="img/sc6.jpg" alt="06 • Consolas"></button>
+                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="6" aria-label="07 • RetroAchievements"><img src="img/sc7.png" alt="07 • RetroAchievements"></button>
+                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="7" aria-label="08 • Descargas"><img src="img/sc8.jpg" alt="08 • Descargas"></button>
+                </div>
             </div>
             <button class="lightbox-nav lightbox-next" id="lightboxNextBtn" aria-label="Siguiente"><i
                     class="fa-solid fa-chevron-right"></i></button>
@@ -1843,7 +1629,7 @@
     </script>
 
     <!-- Custom Script -->
-    <script src="script.js?v=2.9.7"></script>
+    <script src="script.js?v=2.9.8"></script>
 </body>
 
 </html>

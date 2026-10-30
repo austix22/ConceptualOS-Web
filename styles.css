@@ -693,12 +693,137 @@ h1, h2, h3, h4, span, p, a, button {
 
 
 /* Left-Aligned Stats Bar with Enhanced Prominent Typography */
-/* Hero Highlights Grid (Right Side Cards - Strict 50/50 Equal Columns) */
-.hero-highlights-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.25rem;
+/* Hero Screenshot Showcase (Replacing 2x2 grid) */
+.hero-showcase-container {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.hero-screenshot-card {
+    width: 100%;
+    border-radius: 24px;
+    padding: 0.85rem;
+    background: rgba(18, 22, 45, 0.72);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(211, 211, 255, 0.18);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 35px rgba(138, 92, 255, 0.2);
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-screenshot-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(206, 181, 255, 0.55);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 45px rgba(138, 92, 255, 0.35);
+}
+
+.hero-device-bezel {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-bezel-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 1.15rem;
+    background: rgba(10, 12, 22, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-bezel-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--moondust-cyan);
+    text-transform: uppercase;
+}
+
+.hero-bezel-badge {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.hero-bezel-badge i {
+    color: var(--moondust-purple);
+}
+
+.hero-media-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #000;
+}
+
+.hero-screen-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-screenshot-card:hover .hero-screen-img {
+    transform: scale(1.03);
+}
+
+.hero-screen-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 10, 20, 0.45);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hero-screenshot-card:hover .hero-screen-overlay {
+    opacity: 1;
+}
+
+.hero-zoom-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.65rem 1.45rem;
+    background: rgba(206, 181, 255, 0.25);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(206, 181, 255, 0.6);
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-size: 0.95rem;
+    font-weight: 700;
+    box-shadow: 0 0 20px rgba(138, 92, 255, 0.45);
+    transform: translateY(6px);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-screenshot-card:hover .hero-zoom-pill {
+    transform: translateY(0);
+}
+
+.hero-gallery-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.75rem 1.8rem;
+    font-size: 0.98rem;
+    border-radius: 30px;
 }
 
 .highlight-card {
@@ -4329,6 +4454,68 @@ h1, h2, h3, h4, span, p, a, button {
     color: var(--text-secondary);
     line-height: 1.65;
     margin: 0;
+}
+
+/* Lightbox Thumbnails Strip */
+.lightbox-thumbnails-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.2rem;
+    background: rgba(14, 16, 26, 0.98);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    overflow-x: auto;
+    max-width: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(206, 181, 255, 0.3) transparent;
+}
+
+.lightbox-thumb-btn {
+    width: 68px;
+    height: 42px;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 0;
+    border: 2px solid transparent;
+    background: #000;
+    cursor: pointer;
+    opacity: 0.55;
+    transition: opacity 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    flex-shrink: 0;
+}
+
+.lightbox-thumb-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.lightbox-thumb-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.lightbox-thumb-btn.active {
+    opacity: 1;
+    border-color: var(--moondust-cyan);
+    box-shadow: 0 0 14px rgba(128, 206, 255, 0.6);
+    transform: scale(1.06);
+}
+
+@media (max-width: 768px) {
+    .lightbox-thumbnails-row {
+        justify-content: flex-start;
+        padding: 0.6rem 0.8rem;
+        gap: 0.45rem;
+    }
+
+    .lightbox-thumb-btn {
+        width: 52px;
+        height: 32px;
+        border-radius: 6px;
+    }
 }
 
 .lightbox-close {

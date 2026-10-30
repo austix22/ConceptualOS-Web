@@ -540,7 +540,9 @@ document.addEventListener('DOMContentLoaded', () => {
             compat_show_more: "Ver más",
             compat_hide: "Ocultar",
             faq_show_more: "Ver preguntas frecuentes",
-            faq_hide: "Ocultar preguntas"
+            faq_hide: "Ocultar preguntas",
+            hero_view_gallery: "Ver más capturas (8)",
+            hero_zoom_hint: "Explorar capturas (8)"
         },
         en: {
             nav_features: "Features",
@@ -803,7 +805,9 @@ document.addEventListener('DOMContentLoaded', () => {
             compat_show_more: "View more",
             compat_hide: "Hide",
             faq_show_more: "View frequently asked questions",
-            faq_hide: "Hide questions"
+            faq_hide: "Hide questions",
+            hero_view_gallery: "View all screenshots (8)",
+            hero_zoom_hint: "Explore screenshots (8)"
         }
     };
 
@@ -1331,6 +1335,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (lightboxDesc) lightboxDesc.innerHTML = dict[item.descKey] || '';
             if (lightboxCounter) lightboxCounter.textContent = `${currentGalleryIdx + 1} / ${galleryData.length}`;
         }
+
+        // Update active thumbnail indicator
+        const thumbBtns = document.querySelectorAll('.lightbox-thumb-btn');
+        thumbBtns.forEach((btn, idx) => {
+            btn.classList.toggle('active', idx === currentGalleryIdx);
+        });
     };
 
     const openLightbox = (idx, animate = false) => {
@@ -1370,6 +1380,48 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Hero Showcase Card & Button click handlers
+    const heroScreenshotCard = document.getElementById('heroScreenshotCard');
+    const heroGalleryBtn = document.getElementById('heroGalleryBtn');
+
+    if (heroScreenshotCard) {
+        heroScreenshotCard.addEventListener('click', () => openLightbox(0, false));
+        heroScreenshotCard.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openLightbox(0, false);
+            }
+        });
+    }
+
+    if (heroGalleryBtn) {
+        heroGalleryBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openLightbox(0, false);
+        });
+    }
+
+    // Lightbox Thumbnails interaction
+    const thumbBtns = document.querySelectorAll('.lightbox-thumb-btn');
+    thumbBtns.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const idx = parseInt(btn.getAttribute('data-thumb-index'), 10);
+            if (!isNaN(idx)) {
+                playClick1Throttled();
+                openLightbox(idx, true);
+            }
+        });
+    });
+
+    // In navbar, link to #gallery opens the lightbox modal
+    document.querySelectorAll('a[href="#gallery"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            openLightbox(0, false);
+        });
+    });
 
     if (lightboxCloseBtn) {
         lightboxCloseBtn.addEventListener('click', (e) => {
@@ -1618,28 +1670,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Progressive Disclosure (Show More / Less) & Interactive FAQ Accordion
     // ==========================================================================
     const initProgressiveDisclosure = () => {
-        // 1. Gallery Show More / Less Toggle
-        const galleryToggleBtn = document.getElementById('galleryToggleBtn');
-        const galleryCollapsibles = document.querySelectorAll('.gallery-card-collapsible');
-        if (galleryToggleBtn && galleryCollapsibles.length > 0) {
-            let isExpanded = false;
-            galleryToggleBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                isExpanded = !isExpanded;
-                galleryToggleBtn.classList.toggle('is-expanded', isExpanded);
-                galleryToggleBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-                galleryCollapsibles.forEach(card => card.classList.toggle('expanded', isExpanded));
-                
-                const dict = translations[currentLang] || translations.es;
-                const textSpan = galleryToggleBtn.querySelector('.toggle-text');
-                if (textSpan) {
-                    const key = isExpanded ? 'gallery_show_less' : 'gallery_show_more';
-                    textSpan.setAttribute('data-i18n', key);
-                    textSpan.textContent = dict[key] || (isExpanded ? 'Ver menos' : 'Ver todas las capturas (4)');
-                }
-                if (typeof SFX !== 'undefined') SFX.click1();
-            });
-        }
 
         // 3. Wallpaper Styles Show More / Less Toggle (4 visible by default, 2 collapsible)
         const wallpaperToggleBtn = document.getElementById('wallpaperToggleBtn');
