@@ -4582,54 +4582,58 @@ h1, h2, h3, h4, span, p, a, button {
 .wallpaper-dots-indicator {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    padding: 0.25rem 0.55rem;
-    background: rgba(3, 4, 8, 0.55);
-    border: 1px solid rgba(211, 211, 255, 0.12);
+    gap: 6px;
+    padding: 0.28rem 0.65rem;
+    background: rgba(8, 10, 18, 0.75);
+    border: 1px solid rgba(211, 211, 255, 0.2);
     border-radius: 9999px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .color-dot {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
+    min-width: 9px;
+    min-height: 9px;
     border-radius: 50%;
     display: inline-block;
+    flex-shrink: 0;
 }
 
-.dot-green { background-color: #00e676; box-shadow: 0 0 6px rgba(0, 230, 118, 0.6); }
-.dot-red { background-color: #ff5f56; box-shadow: 0 0 6px rgba(255, 95, 86, 0.6); }
-.dot-blue { background-color: #3b82f6; box-shadow: 0 0 6px rgba(59, 130, 246, 0.6); }
-.dot-yellow { background-color: #f59e0b; box-shadow: 0 0 6px rgba(245, 158, 11, 0.6); }
-.dot-pink { background-color: #ec4899; box-shadow: 0 0 6px rgba(236, 72, 153, 0.6); }
+.dot-green { background-color: #00e676 !important; box-shadow: 0 0 6px rgba(0, 230, 118, 0.8) !important; }
+.dot-red { background-color: #ff5f56 !important; box-shadow: 0 0 6px rgba(255, 95, 86, 0.8) !important; }
+.dot-blue { background-color: #3b82f6 !important; box-shadow: 0 0 6px rgba(59, 130, 246, 0.8) !important; }
+.dot-yellow { background-color: #f59e0b !important; box-shadow: 0 0 6px rgba(245, 158, 11, 0.8) !important; }
+.dot-pink { background-color: #ec4899 !important; box-shadow: 0 0 6px rgba(236, 72, 153, 0.8) !important; }
 
-.dot-white { background-color: #ffffff; box-shadow: 0 0 6px rgba(255, 255, 255, 0.6); }
-.dot-silver { background-color: #a0a5b8; }
-.dot-dim { background-color: #4a4e69; }
+.dot-white { background-color: #ffffff !important; box-shadow: 0 0 7px rgba(255, 255, 255, 0.9) !important; }
+.dot-silver { background-color: #cbd5e1 !important; box-shadow: 0 0 5px rgba(203, 213, 225, 0.7) !important; }
+.dot-dim { background-color: #64748b !important; box-shadow: 0 0 5px rgba(100, 116, 139, 0.7) !important; }
 
-.dot-purple { background-color: #a855f7; box-shadow: 0 0 6px rgba(168, 85, 247, 0.6); }
-.dot-cyan { background-color: #06b6d4; box-shadow: 0 0 6px rgba(6, 182, 212, 0.6); }
-.dot-emerald { background-color: #10b981; box-shadow: 0 0 6px rgba(16, 185, 129, 0.6); }
-.dot-crimson { background-color: #f43f5e; box-shadow: 0 0 6px rgba(244, 63, 94, 0.6); }
+.dot-purple { background-color: #a855f7 !important; box-shadow: 0 0 6px rgba(168, 85, 247, 0.8) !important; }
+.dot-cyan { background-color: #06b6d4 !important; box-shadow: 0 0 6px rgba(6, 182, 212, 0.8) !important; }
+.dot-emerald { background-color: #10b981 !important; box-shadow: 0 0 6px rgba(16, 185, 129, 0.8) !important; }
+.dot-crimson { background-color: #f43f5e !important; box-shadow: 0 0 6px rgba(244, 63, 94, 0.8) !important; }
 
 /* Matrix 3-Tone Green Palette */
-.dot-matrix-light { background-color: #00ff66; box-shadow: 0 0 7px rgba(0, 255, 102, 0.75); }
-.dot-matrix-mid { background-color: #00cc44; box-shadow: 0 0 6px rgba(0, 204, 68, 0.6); }
-.dot-matrix-dark { background-color: #006622; box-shadow: 0 0 6px rgba(0, 102, 34, 0.5); }
+.dot-matrix-light { background-color: #00ff66 !important; box-shadow: 0 0 8px rgba(0, 255, 102, 0.85) !important; }
+.dot-matrix-mid { background-color: #10b981 !important; box-shadow: 0 0 7px rgba(16, 185, 129, 0.75) !important; }
+.dot-matrix-dark { background-color: #22c55e !important; box-shadow: 0 0 6px rgba(34, 197, 94, 0.75) !important; }
 
 /* Cosmic 3-Tone Purple & Galaxy Palette */
-.dot-cosmic-light { background-color: #d8b4fe; box-shadow: 0 0 7px rgba(216, 180, 254, 0.75); }
-.dot-cosmic-mid { background-color: #a855f7; box-shadow: 0 0 6px rgba(168, 85, 247, 0.65); }
-.dot-cosmic-dark { background-color: #6366f1; box-shadow: 0 0 6px rgba(99, 102, 241, 0.6); }
+.dot-cosmic-light { background-color: #e879f9 !important; box-shadow: 0 0 8px rgba(232, 121, 249, 0.85) !important; }
+.dot-cosmic-mid { background-color: #a855f7 !important; box-shadow: 0 0 7px rgba(168, 85, 247, 0.75) !important; }
+.dot-cosmic-dark { background-color: #6366f1 !important; box-shadow: 0 0 7px rgba(99, 102, 241, 0.75) !important; }
 
 /* Runic 3-Tone Arcane Frost & Stone Palette */
-.dot-runic-light { background-color: #38bdf8; box-shadow: 0 0 7px rgba(56, 189, 248, 0.75); }
-.dot-runic-mid { background-color: #0284c7; box-shadow: 0 0 6px rgba(2, 132, 199, 0.65); }
-.dot-runic-stone { background-color: #94a3b8; box-shadow: 0 0 5px rgba(148, 163, 184, 0.5); }
+.dot-runic-light { background-color: #38bdf8 !important; box-shadow: 0 0 8px rgba(56, 189, 248, 0.85) !important; }
+.dot-runic-mid { background-color: #0284c7 !important; box-shadow: 0 0 7px rgba(2, 132, 199, 0.75) !important; }
+.dot-runic-stone { background-color: #e2e8f0 !important; box-shadow: 0 0 6px rgba(226, 232, 240, 0.75) !important; }
 
 /* Bushido Red & White Palette */
-.dot-bushido-red { background-color: #ff1e42; box-shadow: 0 0 7px rgba(255, 30, 66, 0.75); }
-.dot-bushido-white { background-color: #ffffff; box-shadow: 0 0 7px rgba(255, 255, 255, 0.85); }
-.dot-bushido-darkred { background-color: #be123c; box-shadow: 0 0 6px rgba(190, 18, 60, 0.65); }
+.dot-bushido-red { background-color: #ff2a4b !important; box-shadow: 0 0 8px rgba(255, 42, 75, 0.9) !important; }
+.dot-bushido-white { background-color: #ffffff !important; box-shadow: 0 0 8px rgba(255, 255, 255, 0.9) !important; }
+.dot-bushido-darkred { background-color: #ef4444 !important; box-shadow: 0 0 8px rgba(239, 68, 68, 0.85) !important; }
 
 /* Feature Highlights Grid */
 .wallpaper-features-grid {
