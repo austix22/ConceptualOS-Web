@@ -424,6 +424,25 @@
                 this.nativeColorPicker.addEventListener('input', (e) => {
                     this.setCustomColor(this.editingColorIndex, e.target.value);
                 });
+                this.nativeColorPicker.addEventListener('change', (e) => {
+                    this.setCustomColor(this.editingColorIndex, e.target.value);
+                });
+            }
+
+            // Botón Abrir panel multicolor para la bolita enfocada
+            const openPickerBtn = document.getElementById('wpOpenColorPickerBtn');
+            if (openPickerBtn) {
+                openPickerBtn.addEventListener('click', () => {
+                    if (this.nativeColorPicker) {
+                        const currentColors = this.config.customColors || DEFAULT_CONFIG.customColors;
+                        const hex = currentColors[this.editingColorIndex] || '#00E5FF';
+                        this.nativeColorPicker.value = hex;
+                        this.nativeColorPicker.click();
+                    }
+                    if (window.SFX && typeof window.SFX.click1 === 'function') {
+                        window.SFX.click1();
+                    }
+                });
             }
 
             // Quick sync con las tarjetas de la galería (#estilos)
@@ -559,17 +578,14 @@
                 slot.setAttribute('title', `Editar Color #${i + 1} (${hex})`);
                 slot.setAttribute('aria-label', `Color ${i + 1}`);
 
-                slot.innerHTML = `<i class="fa-solid fa-pen"></i>`;
+                // Bolita limpia de color (sin icono de lápiz)
+                slot.innerHTML = '';
 
                 slot.addEventListener('click', () => {
                     this.editingColorIndex = i;
                     document.querySelectorAll('.wp-color-slot').forEach((s, idx) => {
                         s.classList.toggle('active', idx === i);
                     });
-                    if (this.nativeColorPicker) {
-                        this.nativeColorPicker.value = hex;
-                        this.nativeColorPicker.click();
-                    }
                     if (window.SFX && typeof window.SFX.click1 === 'function') {
                         window.SFX.click1();
                     }
