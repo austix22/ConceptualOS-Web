@@ -5670,53 +5670,51 @@ h1, h2, h3, h4, span, p, a, button {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
 }
 
-/* Config Trigger Button Below Phone */
-.wp-config-bar {
-    width: 100%;
-    padding: 0.55rem 0.75rem;
-    border-radius: 18px;
-    background: rgba(14, 18, 30, 0.8);
-    border: 1px solid rgba(211, 211, 255, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-}
-
+/* Config Trigger Button Below Phone - Glassmorphism Premium */
 .wp-config-action-btn {
     width: 100%;
-    display: flex;
+    max-width: 360px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.6rem;
-    padding: 0.75rem 1.4rem;
-    border-radius: 13px;
-    background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(99, 102, 241, 0.25));
-    border: 1px solid rgba(206, 181, 255, 0.4);
+    gap: 0.75rem;
+    padding: 0.95rem 1.8rem;
+    border-radius: 16px;
+    background: rgba(18, 22, 38, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(211, 211, 255, 0.22);
     color: #FFFFFF;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.4px;
     cursor: pointer;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 16px rgba(168, 85, 247, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.12);
     transition: all var(--transition-smooth, 0.25s ease);
 }
 
 .wp-config-action-btn i {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--moondust-cyan, #80ceff);
-    transition: transform 0.25s ease;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .wp-config-action-btn:hover {
-    background: linear-gradient(135deg, rgba(168, 85, 247, 0.45), rgba(99, 102, 241, 0.45));
-    border-color: #FFFFFF;
+    background: rgba(26, 32, 54, 0.9);
+    border-color: rgba(128, 206, 255, 0.55);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 25px rgba(168, 85, 247, 0.45);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(128, 206, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    color: #FFFFFF;
 }
 
 .wp-config-action-btn:hover i {
-    transform: rotate(45deg);
+    transform: rotate(45deg) scale(1.1);
+    color: #a855f7;
+}
+
+.wp-config-action-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* Options Modal Specific Accents */
