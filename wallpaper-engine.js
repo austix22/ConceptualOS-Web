@@ -618,9 +618,9 @@
             // 2. Cantidad
             if (this.subCount) {
                 const c = this.config.count;
-                if (c === 20) this.subCount.textContent = isEs ? 'Sutil (20)' : 'Subtle (20)';
-                else if (c === 70) this.subCount.textContent = isEs ? 'Densa (70)' : 'Dense (70)';
-                else this.subCount.textContent = isEs ? 'Balanceada (45)' : 'Balanced (45)';
+                if (c === 20) this.subCount.textContent = isEs ? 'Sutil' : 'Subtle';
+                else if (c === 70) this.subCount.textContent = isEs ? 'Densa' : 'Dense';
+                else this.subCount.textContent = isEs ? 'Balanceada' : 'Balanced';
             }
 
             // 3. Paleta
