@@ -531,7 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_feat2_title: "Cero Consumo de Batería",
             wp_feat2_desc: "Optimizado con pausas automáticas cuando la pantalla se apaga o abres otras aplicaciones.",
             wp_feat3_title: "Ajustes & Personalización",
-            wp_feat3_desc: "Personaliza la velocidad, estilos de color y tonos de fondo.",
+            wp_feat3_desc: "Personaliza la velocidad, partículas, tonos de fondo y colores de las partículas.",
             wp_feat4_title: "Solo $1.00 USD (Pago Único)",
             wp_feat4_desc: "Sin suscripciones ni publicidad invasiva.",
             wp_cta_btn: "Obtener en Google Play"
@@ -788,7 +788,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_feat2_title: "Zero Battery Drain",
             wp_feat2_desc: "Engineered with auto-pause whenever your screen turns off or when you launch other apps.",
             wp_feat3_title: "Customizable Settings",
-            wp_feat3_desc: "Fine-tune particle speed, color styles, and background tones.",
+            wp_feat3_desc: "Customize particle speed, particle styles, background tones, and particle colors.",
             wp_feat4_title: "Only $1.00 USD (One-time)",
             wp_feat4_desc: "No subscriptions and no ads.",
             wp_cta_btn: "Get on Google Play"
