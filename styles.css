@@ -5516,13 +5516,14 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .wp-page-title {
-    font-size: clamp(2.3rem, 3.8vw, 3.6rem);
+    font-size: clamp(2.1rem, 3.5vw, 3.35rem);
     font-weight: 800;
-    line-height: 1.14;
+    line-height: 1.16;
     letter-spacing: -0.03em;
     color: var(--text-primary);
     margin: 0;
     text-wrap: balance;
+    max-width: 700px;
 }
 
 .wp-page-desc {
