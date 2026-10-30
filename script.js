@@ -1386,26 +1386,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const dict = translations[currentLang] || translations.en;
+        if (lightboxTag) lightboxTag.innerHTML = dict[item.tagKey] || '';
+        if (lightboxTitle) lightboxTitle.innerHTML = dict[item.titleKey] || '';
+        if (lightboxDesc) lightboxDesc.innerHTML = dict[item.descKey] || '';
+        if (lightboxCounter) lightboxCounter.textContent = `${currentGalleryIdx + 1} / ${galleryData.length}`;
+
         if (animate && lightboxCaption) {
+            lightboxCaption.classList.remove('slide-fade');
+            void lightboxCaption.offsetWidth;
             lightboxCaption.classList.add('slide-fade');
             setTimeout(() => {
-                if (lightboxTag) lightboxTag.innerHTML = dict[item.tagKey] || '';
-                if (lightboxTitle) lightboxTitle.innerHTML = dict[item.titleKey] || '';
-                if (lightboxDesc) lightboxDesc.innerHTML = dict[item.descKey] || '';
-                if (lightboxCounter) lightboxCounter.textContent = `${currentGalleryIdx + 1} / ${galleryData.length}`;
-                lightboxCaption.classList.remove('slide-fade');
-            }, 120);
-        } else {
-            if (lightboxTag) lightboxTag.innerHTML = dict[item.tagKey] || '';
-            if (lightboxTitle) lightboxTitle.innerHTML = dict[item.titleKey] || '';
-            if (lightboxDesc) lightboxDesc.innerHTML = dict[item.descKey] || '';
-            if (lightboxCounter) lightboxCounter.textContent = `${currentGalleryIdx + 1} / ${galleryData.length}`;
+                if (lightboxCaption) lightboxCaption.classList.remove('slide-fade');
+            }, 200);
         }
 
-        // Update active thumbnail indicator
+        // Update active thumbnail indicator and smoothly scroll into view
         const thumbBtns = document.querySelectorAll('.lightbox-thumb-btn');
         thumbBtns.forEach((btn, idx) => {
-            btn.classList.toggle('active', idx === currentGalleryIdx);
+            const isActive = idx === currentGalleryIdx;
+            btn.classList.toggle('active', isActive);
+            if (isActive) {
+                btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
         });
     };
 
