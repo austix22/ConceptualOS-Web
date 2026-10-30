@@ -5394,3 +5394,589 @@ h1, h2, h3, h4, span, p, a, button {
         justify-content: center;
     }
 }
+
+/* ==========================================================================
+   Conceptual Live Wallpaper Dedicated Standalone Page (wallpaper.html)
+   ========================================================================== */
+.wp-standalone-page {
+    overflow-x: hidden;
+}
+
+.wp-hero-stage {
+    padding: 7.5rem 0 3.5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.wp-hero-container {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+    align-items: center;
+}
+
+.wp-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+}
+
+.wp-hero-badge {
+    margin-bottom: 0.2rem;
+}
+
+.wp-page-title {
+    font-size: clamp(2.3rem, 3.8vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.14;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.wp-page-desc {
+    font-size: clamp(1.05rem, 1.2vw, 1.18rem);
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin: 0;
+    max-width: 640px;
+}
+
+.wp-hero-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 0.5rem 0 0.8rem 0;
+}
+
+.wp-metric-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 1.05rem;
+    background: rgba(18, 22, 38, 0.7);
+    border: 1px solid rgba(211, 211, 255, 0.2);
+    border-radius: 12px;
+    font-size: 0.92rem;
+    color: var(--text-body);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.wp-metric-chip strong {
+    color: var(--text-primary);
+}
+
+.wp-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.wp-hero-cta {
+    padding: 1rem 2.2rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.wp-btn-explore {
+    padding: 1rem 1.8rem;
+    font-size: 1.02rem;
+}
+
+/* Smartphone Mockup Frame */
+.wp-hero-mockup-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.wp-phone-mockup {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+}
+
+.wp-phone-bezel {
+    width: 100%;
+    background: #090b14;
+    border-radius: 44px;
+    padding: 14px 14px 18px 14px;
+    border: 3px solid rgba(211, 211, 255, 0.28);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(128, 168, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.wp-phone-bezel:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 75px rgba(0, 0, 0, 0.9), 0 0 55px rgba(168, 85, 247, 0.35);
+}
+
+.wp-phone-camera {
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 13px;
+    height: 13px;
+    background: #000;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    z-index: 10;
+    box-shadow: inset 0 0 4px rgba(0, 200, 255, 0.4);
+}
+
+.wp-phone-statusbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.35rem 1rem 0.65rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    user-select: none;
+    z-index: 5;
+    position: relative;
+}
+
+.wp-status-icons {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.72rem;
+}
+
+.wp-phone-screen {
+    width: 100%;
+    aspect-ratio: 9 / 18.5;
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+    cursor: pointer;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+    outline: none;
+}
+
+.wp-phone-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: opacity 0.22s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wp-phone-screen:hover .wp-phone-img {
+    transform: scale(1.04);
+}
+
+.wp-phone-overlay-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    right: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.wp-phone-current-tag {
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    padding: 0.35rem 0.8rem;
+    border-radius: 8px;
+    background: rgba(28, 20, 10, 0.92);
+    border: 1px solid rgba(245, 158, 11, 0.7);
+    color: #fbbf24;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 10px rgba(245, 158, 11, 0.3);
+    transition: all 0.25s ease;
+}
+
+.wp-phone-current-tag.mono-style {
+    background: rgba(18, 20, 32, 0.92);
+    border-color: rgba(211, 211, 255, 0.5);
+    color: #f8fafc;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 255, 255, 0.25);
+}
+
+.wp-phone-zoom-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.82rem;
+    backdrop-filter: blur(8px);
+}
+
+.wp-phone-touch-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: rgba(10, 12, 22, 0.88);
+    border: 1px solid rgba(211, 211, 255, 0.3);
+    color: #e2e8f0;
+    font-size: 0.82rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    opacity: 0.9;
+    transition: opacity 0.25s ease;
+}
+
+.wp-phone-screen:hover .wp-phone-touch-hint {
+    opacity: 1;
+    background: rgba(20, 24, 40, 0.95);
+    border-color: rgba(206, 181, 255, 0.6);
+}
+
+.wp-phone-home-indicator {
+    width: 110px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    margin: 12px auto 0 auto;
+}
+
+.wp-phone-controls-box {
+    width: 100%;
+    padding: 0.9rem 1.1rem;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(14, 18, 30, 0.75);
+    border: 1px solid rgba(211, 211, 255, 0.2);
+}
+
+.wp-controls-label {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.wp-controls-chips {
+    display: flex;
+    gap: 0.65rem;
+    width: 100%;
+}
+
+.wp-switch-btn {
+    flex: 1;
+    padding: 0.55rem 0.75rem;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-body);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    outline: none;
+}
+
+.wp-switch-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border-color: rgba(206, 181, 255, 0.4);
+}
+
+.wp-switch-btn.active {
+    background: rgba(206, 181, 255, 0.18);
+    border-color: rgba(206, 181, 255, 0.65);
+    color: var(--moondust-purple);
+    box-shadow: 0 0 14px rgba(206, 181, 255, 0.3);
+}
+
+/* 6-Grid Styles Section */
+.wp-showcase-box-pro {
+    padding: 3rem 2.5rem;
+}
+
+.wp-grid-6 {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.8rem;
+    margin-bottom: 0;
+}
+
+/* Enhanced Features Section */
+.wp-features-grid-enhanced {
+    gap: 1.6rem;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.wp-features-grid-enhanced .wp-feat-item {
+    padding: 1.8rem;
+    border-radius: 20px;
+    border: 1px solid rgba(211, 211, 255, 0.15);
+    background: rgba(14, 18, 30, 0.75);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: transform var(--transition-fast, 0.25s ease), border-color 0.25s ease;
+}
+
+.wp-features-grid-enhanced .wp-feat-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(206, 181, 255, 0.45);
+}
+
+/* Compatibility & Specs Grid */
+.wp-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.4rem;
+}
+
+.wp-spec-card {
+    padding: 1.8rem 1.4rem;
+    border-radius: 20px;
+    background: rgba(12, 16, 28, 0.75);
+    border: 1px solid rgba(211, 211, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    transition: transform var(--transition-fast, 0.25s ease), border-color 0.25s ease;
+}
+
+.wp-spec-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(128, 168, 255, 0.5);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.wp-spec-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(206, 181, 255, 0.1);
+    border: 1px solid rgba(206, 181, 255, 0.3);
+    color: var(--moondust-purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    margin-bottom: 0.35rem;
+}
+
+.wp-spec-card h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.wp-spec-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* Final Bottom CTA Card */
+.wp-final-cta-card {
+    padding: 3.5rem 2.2rem;
+    border-radius: 28px;
+    background: radial-gradient(circle at center, rgba(142, 193, 222, 0.08) 0%, rgba(10, 13, 22, 0.95) 75%);
+    border: 1px solid rgba(206, 181, 255, 0.25);
+    box-shadow: 0 25px 65px rgba(0, 0, 0, 0.6), 0 0 35px rgba(206, 181, 255, 0.15);
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.wp-cta-headline {
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0.6rem 0;
+}
+
+.wp-cta-subtext {
+    font-size: clamp(1.02rem, 1.15vw, 1.12rem);
+    color: var(--text-secondary);
+    max-width: 580px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.6;
+}
+
+.wp-final-cta-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+/* Home Teaser Card on index.html */
+.wallpaper-teaser-section {
+    padding: 2.5rem 0 3.5rem 0;
+}
+
+.wallpaper-teaser-card {
+    padding: 2.2rem 2.8rem;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(18, 22, 38, 0.9) 0%, rgba(10, 12, 20, 0.92) 100%);
+    border: 1px solid rgba(206, 181, 255, 0.28);
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.5), 0 0 30px rgba(206, 181, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.wallpaper-teaser-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(206, 181, 255, 0.18) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.wp-teaser-left {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+}
+
+.wp-teaser-icon-glow {
+    width: 68px;
+    height: 68px;
+    min-width: 68px;
+    border-radius: 20px;
+    background: rgba(206, 181, 255, 0.12);
+    border: 1px solid rgba(206, 181, 255, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--moondust-purple);
+    box-shadow: 0 0 25px rgba(206, 181, 255, 0.3);
+}
+
+.wp-teaser-text h3 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.35rem 0;
+}
+
+.wp-teaser-text p {
+    font-size: 1.02rem;
+    color: var(--text-secondary);
+    margin: 0;
+    max-width: 600px;
+    line-height: 1.55;
+}
+
+.wp-teaser-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.95rem 1.8rem;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Responsive Styles for Live Wallpaper Page */
+@media (max-width: 1100px) {
+    .wp-hero-container {
+        grid-template-columns: 1fr;
+        gap: 2.8rem;
+    }
+
+    .wp-hero-mockup-wrapper {
+        margin-top: 1rem;
+    }
+
+    .wp-grid-6 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .wp-specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .wallpaper-teaser-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+    }
+
+    .wp-teaser-cta {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .wp-hero-stage {
+        padding-top: 5.5rem;
+    }
+
+    .wp-grid-6 {
+        grid-template-columns: 1fr !important;
+    }
+
+    .wp-showcase-box-pro {
+        padding: 1.8rem 1.2rem;
+    }
+
+    .wp-specs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wp-hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .wp-hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .wp-teaser-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
