@@ -139,13 +139,14 @@
                     <div class="wp-phone-bezel">
                         <!-- Phone Screen Display Viewport (Edge-to-Edge with Overlay Status & Gesture Bar) -->
                         <div class="wp-phone-screen" id="wpPhoneScreen">
-                            <!-- Background Image Filling 100% of Screen -->
+                            <!-- Native Particle Engine Canvas (Exact Port of Android AmbientParticleEngine.kt) -->
+                            <canvas id="wpPhoneCanvas" class="wp-phone-canvas"></canvas>
                             <img src="img/live2.png" alt="Conceptual Live Wallpaper en pantalla de smartphone"
-                                id="wpPhoneImg" class="wp-phone-img" loading="eager">
+                                id="wpPhoneImg" class="wp-phone-img" style="display: none;" loading="eager">
 
                             <!-- Floating Phone Status Bar on Top -->
                             <div class="wp-phone-statusbar">
-                                <span class="wp-status-time">12:00</span>
+                                <span class="wp-status-time" id="wpLiveTime">12:00</span>
                                 <div class="wp-phone-camera"></div>
                                 <div class="wp-status-icons">
                                     <i class="fa-solid fa-wifi"></i>
@@ -490,10 +491,330 @@
                 <p class="plugin-modal-subtitle" data-i18n="wp_config_modal_subtitle">Opciones y personalización de Conceptual Live Wallpaper</p>
             </div>
             <div class="plugin-modal-body wp-config-modal-body">
-                <!-- Ventana vacía preparada para próximas opciones que el usuario indique -->
-                <div class="wp-config-empty-state">
-                    <i class="fa-solid fa-sliders"></i>
-                    <p data-i18n="wp_config_empty_hint">Opciones de configuración disponibles próximamente.</p>
+                <!-- Google Play License Status Card (from MainActivity.kt lines 156-225) -->
+                <div class="wp-modal-license-card">
+                    <div class="wp-lic-icon-wrap">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <div class="wp-lic-text-wrap">
+                        <strong class="wp-lic-title" data-i18n="wp_lic_title">LICENCIA VERIFICADA</strong>
+                        <span class="wp-lic-desc" data-i18n="wp_lic_desc">Verificada en Google Play Store.</span>
+                    </div>
+                </div>
+
+                <!-- Customization Section Header (from MainActivity.kt line 231) -->
+                <div class="wp-modal-section-title" data-i18n="wp_custom_title">PERSONALIZACIÓN DEL FONDO</div>
+
+                <!-- 1. Estilo de Partículas (Particle Style) -->
+                <div class="wp-cat-card expanded" id="wpCatStyle">
+                    <div class="wp-cat-header" tabindex="0" role="button" aria-expanded="true">
+                        <div class="wp-cat-icon-box">
+                            <i class="fa-solid fa-shapes"></i>
+                        </div>
+                        <div class="wp-cat-info">
+                            <span class="wp-cat-title" data-i18n="wp_opt_style">Estilo de Partículas</span>
+                            <span class="wp-cat-subtitle" id="wpValStyle">Gamer</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right wp-cat-arrow"></i>
+                    </div>
+                    <div class="wp-cat-body">
+                        <div class="wp-opt-list" role="radiogroup" aria-label="Estilo de Partículas">
+                            <div class="wp-opt-item active" data-group="style" data-value="gamer" role="radio" aria-checked="true" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title">Gamer</strong>
+                                    <span class="wp-opt-sub">A, B, X, Y, △, ○, □, ×</span>
+                                </div>
+                            </div>
+                            <div class="wp-opt-item" data-group="style" data-value="stardust" role="radio" aria-checked="false" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_style_stardust_title">Polvo Estelar & Galaxia</strong>
+                                    <span class="wp-opt-sub">★, ✦, ✧, ✵, ✶, ✸</span>
+                                </div>
+                            </div>
+                            <div class="wp-opt-item" data-group="style" data-value="code" role="radio" aria-checked="false" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_style_code_title">Tech & Código</strong>
+                                    <span class="wp-opt-sub">0, 1, &lt;/&gt;, { }, [ ], λ, π, &amp;&amp;, ||, ;</span>
+                                </div>
+                            </div>
+                            <div class="wp-opt-item" data-group="style" data-value="runes" role="radio" aria-checked="false" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_style_runes_title">Runas Místicas</strong>
+                                    <span class="wp-opt-sub">ᚠ, ᚢ, ᚦ, ᚨ, ᚱ, ᚷ, ᛗ</span>
+                                </div>
+                            </div>
+                            <div class="wp-opt-item" data-group="style" data-value="kanji" role="radio" aria-checked="false" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_style_kanji_title">Kanjis & Bushido</strong>
+                                    <span class="wp-opt-sub">義, 勇, 仁, 礼, 誠, 名, 忠, 信, 智, 忍, 克, 和</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Cantidad de Partículas (Particle Quantity) -->
+                <div class="wp-cat-card" id="wpCatCount">
+                    <div class="wp-cat-header" tabindex="0" role="button" aria-expanded="false">
+                        <div class="wp-cat-icon-box">
+                            <i class="fa-solid fa-braille"></i>
+                        </div>
+                        <div class="wp-cat-info">
+                            <span class="wp-cat-title" data-i18n="wp_opt_count">Cantidad de Partículas</span>
+                            <span class="wp-cat-subtitle" id="wpValCount">Balanceada (45)</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right wp-cat-arrow"></i>
+                    </div>
+                    <div class="wp-cat-body">
+                        <div class="wp-opt-list" role="radiogroup" aria-label="Cantidad de Partículas">
+                            <div class="wp-opt-item" data-group="count" data-value="20" role="radio" aria-checked="false" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_count_20_title">Sutil (20)</strong>
+                                    <span class="wp-opt-sub" data-i18n="wp_count_20_sub">Máximo ahorro de batería</span>
+                                </div>
+                            </div>
+                            <div class="wp-opt-item active" data-group="count" data-value="45" role="radio" aria-checked="true" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_count_45_title">Balanceada (45)</strong>
+                                    <span class="wp-opt-sub" data-i18n="wp_count_45_sub">Dinámica y fluida</span>
+                                </div>
+                            </div>
+                            <div class="wp-opt-item" data-group="count" data-value="70" role="radio" aria-checked="false" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_count_70_title">Densa (70)</strong>
+                                    <span class="wp-opt-sub" data-i18n="wp_count_70_sub">Totalmente inmersiva</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Paleta de Color de Símbolos (Symbol Color Palette) -->
+                <div class="wp-cat-card" id="wpCatPalette">
+                    <div class="wp-cat-header" tabindex="0" role="button" aria-expanded="false">
+                        <div class="wp-cat-icon-box">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <div class="wp-cat-info">
+                            <span class="wp-cat-title" data-i18n="wp_opt_palette">Paleta de Color de Símbolos</span>
+                            <span class="wp-cat-subtitle" id="wpValPalette">Paleta Oficial del Estilo</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right wp-cat-arrow"></i>
+                    </div>
+                    <div class="wp-cat-body">
+                        <div class="wp-opt-list" role="radiogroup" aria-label="Modo de Paleta">
+                            <div class="wp-opt-item active" data-group="palette" data-value="official" role="radio" aria-checked="true" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_palette_official_title">Paleta Oficial</strong>
+                                    <span class="wp-opt-sub" data-i18n="wp_palette_official_sub">Colores oficiales del estilo seleccionado</span>
+                                </div>
+                            </div>
+                            <div class="wp-opt-item" data-group="palette" data-value="custom" role="radio" aria-checked="false" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_palette_custom_title">Personalizado (Hasta 5 Colores)</strong>
+                                    <span class="wp-opt-sub" data-i18n="wp_palette_custom_sub">Escoge de 1 a 5 colores personalizados</span>
+                                </div>
+                            </div>
+                            <div class="wp-opt-item" data-group="palette" data-value="monochrome" role="radio" aria-checked="false" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_palette_mono_title">Monocromo (Gris)</strong>
+                                    <span class="wp-opt-sub" data-i18n="wp_palette_mono_sub">Elegante en tonos grises (#E5E5E5)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel de Personalización de Colores Dinámico -->
+                        <div class="wp-custom-color-box" id="wpCustomColorSection" style="display: none;">
+                            <hr class="wp-divider">
+                            <span class="wp-section-micro-label" data-i18n="wp_custom_count_label">CANTIDAD DE COLORES A UTILIZAR</span>
+                            <div class="wp-count-chips-row">
+                                <button type="button" class="wp-count-chip" data-count="1">1</button>
+                                <button type="button" class="wp-count-chip" data-count="2">2</button>
+                                <button type="button" class="wp-count-chip active" data-count="3">3</button>
+                                <button type="button" class="wp-count-chip" data-count="4">4</button>
+                                <button type="button" class="wp-count-chip" data-count="5">5</button>
+                            </div>
+
+                            <span class="wp-section-micro-label" data-i18n="wp_custom_edit_label">TOCA UNA BOLITA DE COLOR PARA EDITAR</span>
+                            <div class="wp-color-slots-row" id="wpColorSlotsRow"></div>
+
+                            <span class="wp-section-micro-label" data-i18n="wp_custom_preset_label">PALETA NEÓN DE MUESTRA</span>
+                            <div class="wp-neon-presets-grid">
+                                <span class="wp-neon-dot" data-hex="#00E5FF" style="background:#00E5FF;" title="#00E5FF"></span>
+                                <span class="wp-neon-dot" data-hex="#FF4081" style="background:#FF4081;" title="#FF4081"></span>
+                                <span class="wp-neon-dot" data-hex="#FFD700" style="background:#FFD700;" title="#FFD700"></span>
+                                <span class="wp-neon-dot" data-hex="#7C4DFF" style="background:#7C4DFF;" title="#7C4DFF"></span>
+                                <span class="wp-neon-dot" data-hex="#00E676" style="background:#00E676;" title="#00E676"></span>
+                                <span class="wp-neon-dot" data-hex="#FF3D00" style="background:#FF3D00;" title="#FF3D00"></span>
+                                <span class="wp-neon-dot" data-hex="#E91E63" style="background:#E91E63;" title="#E91E63"></span>
+                                <span class="wp-neon-dot" data-hex="#2196F3" style="background:#2196F3;" title="#2196F3"></span>
+                                <span class="wp-neon-dot" data-hex="#4CAF50" style="background:#4CAF50;" title="#4CAF50"></span>
+                                <span class="wp-neon-dot" data-hex="#FFEB3B" style="background:#FFEB3B;" title="#FFEB3B"></span>
+                                <span class="wp-neon-dot" data-hex="#9C27B0" style="background:#9C27B0;" title="#9C27B0"></span>
+                                <span class="wp-neon-dot" data-hex="#FF5722" style="background:#FF5722;" title="#FF5722"></span>
+                                <span class="wp-neon-dot" data-hex="#00BCD4" style="background:#00BCD4;" title="#00BCD4"></span>
+                                <span class="wp-neon-dot" data-hex="#9E9E9E" style="background:#9E9E9E;" title="#9E9E9E"></span>
+                                <span class="wp-neon-dot" data-hex="#FFFFFF" style="background:#FFFFFF;" title="#FFFFFF"></span>
+                                <span class="wp-neon-dot" data-hex="#000000" style="background:#000000; border-color: rgba(255,255,255,0.4);" title="#000000"></span>
+                            </div>
+
+                            <input type="color" id="wpNativeColorPicker" style="position: absolute; opacity: 0; pointer-events: none; width: 0; height: 0;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Color de Fondo de Pantalla (Background Color) -->
+                <div class="wp-cat-card" id="wpCatBg">
+                    <div class="wp-cat-header" tabindex="0" role="button" aria-expanded="false">
+                        <div class="wp-cat-icon-box">
+                            <i class="fa-solid fa-fill-drip"></i>
+                        </div>
+                        <div class="wp-cat-info">
+                            <span class="wp-cat-title" data-i18n="wp_opt_bg">Color de Fondo de Pantalla</span>
+                            <span class="wp-cat-subtitle" id="wpValBg">Oscuro</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right wp-cat-arrow"></i>
+                    </div>
+                    <div class="wp-cat-body">
+                        <div class="wp-opt-list" role="radiogroup" aria-label="Color de Fondo">
+                            <div class="wp-opt-item active" data-group="bg" data-value="dark" role="radio" aria-checked="true" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_bg_dark">Oscuro</strong>
+                                    <span class="wp-opt-sub">#0F111A</span>
+                                </div>
+                            </div>
+                            <div class="wp-opt-item" data-group="bg" data-value="black" role="radio" aria-checked="false" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_bg_black">Negro (AMOLED)</strong>
+                                    <span class="wp-opt-sub">#000000</span>
+                                </div>
+                            </div>
+                            <div class="wp-opt-item" data-group="bg" data-value="navy" role="radio" aria-checked="false" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_bg_navy">Azul Noche</strong>
+                                    <span class="wp-opt-sub">#0A1128</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Velocidad de Movimiento (Movement Speed) -->
+                <div class="wp-cat-card" id="wpCatSpeed">
+                    <div class="wp-cat-header" tabindex="0" role="button" aria-expanded="false">
+                        <div class="wp-cat-icon-box">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <div class="wp-cat-info">
+                            <span class="wp-cat-title" data-i18n="wp_opt_speed">Velocidad de Movimiento</span>
+                            <span class="wp-cat-subtitle" id="wpValSpeed">Normal (1.0X)</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right wp-cat-arrow"></i>
+                    </div>
+                    <div class="wp-cat-body">
+                        <div class="wp-opt-list" role="radiogroup" aria-label="Velocidad">
+                            <div class="wp-opt-item" data-group="speed" data-value="0.5" role="radio" aria-checked="false" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_speed_slow">Lenta (0.5X)</strong>
+                                </div>
+                            </div>
+                            <div class="wp-opt-item active" data-group="speed" data-value="1.0" role="radio" aria-checked="true" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_speed_normal">Normal (1.0X)</strong>
+                                </div>
+                            </div>
+                            <div class="wp-opt-item" data-group="speed" data-value="2.0" role="radio" aria-checked="false" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_speed_fast">Rápida (2.0X)</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Dirección del Movimiento (Movement Direction) -->
+                <div class="wp-cat-card" id="wpCatDirection">
+                    <div class="wp-cat-header" tabindex="0" role="button" aria-expanded="false">
+                        <div class="wp-cat-icon-box">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <div class="wp-cat-info">
+                            <span class="wp-cat-title" data-i18n="wp_opt_direction">Dirección del Movimiento</span>
+                            <span class="wp-cat-subtitle" id="wpValDirection">Aleatorio</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right wp-cat-arrow"></i>
+                    </div>
+                    <div class="wp-cat-body">
+                        <div class="wp-opt-list" role="radiogroup" aria-label="Dirección">
+                            <div class="wp-opt-item active" data-group="direction" data-value="random" role="radio" aria-checked="true" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_dir_random">Aleatorio</strong>
+                                </div>
+                            </div>
+                            <div class="wp-opt-item" data-group="direction" data-value="vertical" role="radio" aria-checked="false" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_dir_vertical">Vertical</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Giro Individual Fluido (Fluid Rotation) -->
+                <div class="wp-cat-card" id="wpCatRotation">
+                    <div class="wp-cat-header" tabindex="0" role="button" aria-expanded="false">
+                        <div class="wp-cat-icon-box">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                        </div>
+                        <div class="wp-cat-info">
+                            <span class="wp-cat-title" data-i18n="wp_opt_rotation">Giro Individual Fluido</span>
+                            <span class="wp-cat-subtitle" id="wpValRotation">Activado</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right wp-cat-arrow"></i>
+                    </div>
+                    <div class="wp-cat-body">
+                        <div class="wp-opt-list" role="radiogroup" aria-label="Giro">
+                            <div class="wp-opt-item active" data-group="rotation" data-value="true" role="radio" aria-checked="true" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_rot_on">Activado</strong>
+                                </div>
+                            </div>
+                            <div class="wp-opt-item" data-group="rotation" data-value="false" role="radio" aria-checked="false" tabindex="0">
+                                <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
+                                <div class="wp-opt-info">
+                                    <strong class="wp-opt-title" data-i18n="wp_rot_off">Desactivado</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botón Principal: Establecer Fondo en Vivo (MainActivity.kt line 330) -->
+                <div class="wp-modal-footer-action">
+                    <a href="https://play.google.com/store/search?q=Conceptual+Live+Wallpaper&c=apps" target="_blank" rel="noopener noreferrer" class="wp-modal-action-btn">
+                        <i class="fa-brands fa-google-play"></i>
+                        <span data-i18n="wp_btn_set_app">ESTABLECER FONDO EN VIVO</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -526,6 +847,7 @@
 
     <!-- Custom Script -->
     <script src="script.js?v=3.0.2"></script>
+    <script src="wallpaper-engine.js?v=1.0.0"></script>
 
     <!-- Interactive Phone & Options Modal Script -->
     <script>

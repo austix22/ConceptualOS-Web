@@ -6020,3 +6020,443 @@ h1, h2, h3, h4, span, p, a, button {
     }
 }
 
+/* ==========================================================================
+   Conceptual Live Wallpaper - Native Particle Canvas & Interactive Modal Styles
+   Matches Android Studio: AmbientParticleEngine.kt & MainActivity.kt
+   ========================================================================== */
+
+.wp-phone-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    background: #0F111A;
+    cursor: grab;
+}
+
+.wp-phone-canvas:active {
+    cursor: grabbing;
+}
+
+/* Modal Card Customizations for Live Wallpaper */
+.wp-config-modal-card {
+    max-width: 560px;
+    background: #0B0E14;
+    border: 1.5px solid #232B3E;
+    border-radius: 28px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(115, 85, 242, 0.28);
+    overflow: hidden;
+}
+
+.wp-config-modal-header {
+    background: linear-gradient(180deg, rgba(19, 24, 36, 0.8) 0%, rgba(11, 14, 20, 0.95) 100%);
+    border-bottom: 1.5px solid #232B3E;
+}
+
+.wp-config-modal-header .wp-badge {
+    background: linear-gradient(135deg, #7355F2, #00E5FF);
+    color: #FFFFFF;
+}
+
+.wp-config-modal-header .wp-accent {
+    background: rgba(115, 85, 242, 0.16);
+    border-color: rgba(157, 132, 255, 0.35);
+    color: #00E5FF;
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.25);
+}
+
+.wp-config-modal-body {
+    padding: 1.5rem 1.6rem 2rem 1.6rem;
+    gap: 1rem;
+    background: #0B0E14;
+}
+
+/* Google Play License Verified Banner (MainActivity.kt) */
+.wp-modal-license-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(115, 85, 242, 0.14);
+    border: 1.5px solid #7355F2;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(115, 85, 242, 0.15);
+}
+
+.wp-lic-icon-wrap {
+    font-size: 1.8rem;
+    color: #9D84FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.wp-lic-text-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.wp-lic-title {
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+.wp-lic-desc {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.84rem;
+}
+
+/* Section Header */
+.wp-modal-section-title {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0.4rem 0 0.1rem 0;
+}
+
+/* 7 Category Subwindow Cards (MainActivity.kt: CategorySubwindowCard) */
+.wp-cat-card {
+    background: #0B0E14;
+    border: 1.5px solid #232B3E;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.wp-cat-card:hover {
+    border-color: rgba(157, 132, 255, 0.5);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.wp-cat-card.expanded {
+    border-color: #9D84FF;
+    box-shadow: 0 0 25px rgba(115, 85, 242, 0.22);
+}
+
+.wp-cat-header {
+    display: flex;
+    align-items: center;
+    padding: 0.95rem 1.15rem;
+    gap: 0.9rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s ease;
+}
+
+.wp-cat-header:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.wp-cat-icon-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(115, 85, 242, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    color: #9D84FF;
+    flex-shrink: 0;
+}
+
+.wp-cat-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 0.15rem;
+}
+
+.wp-cat-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.wp-cat-subtitle {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #00E5FF;
+}
+
+.wp-cat-arrow {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+
+.wp-cat-card.expanded .wp-cat-arrow {
+    transform: rotate(90deg);
+    color: #00E5FF;
+}
+
+/* Category Body / Accordion Options */
+.wp-cat-body {
+    display: none;
+    padding: 0.4rem 1.15rem 1.15rem 1.15rem;
+    border-top: 1px solid rgba(35, 43, 62, 0.6);
+    background: rgba(19, 24, 36, 0.4);
+    animation: wpExpandFade 0.25s ease forwards;
+}
+
+.wp-cat-card.expanded .wp-cat-body {
+    display: block;
+}
+
+@keyframes wpExpandFade {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.wp-opt-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin-top: 0.5rem;
+}
+
+/* Dialog Option Item (MainActivity.kt: DialogOptionItem) */
+.wp-opt-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1.05rem;
+    background: #0B0E14;
+    border: 1.5px solid #232B3E;
+    border-radius: 14px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.wp-opt-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(157, 132, 255, 0.4);
+}
+
+.wp-opt-item.active {
+    background: rgba(115, 85, 242, 0.25);
+    border-color: #9D84FF;
+    box-shadow: 0 0 15px rgba(115, 85, 242, 0.2);
+}
+
+/* Custom Radio Dot matching Jetpack Compose */
+.wp-radio-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.wp-opt-item.active .wp-radio-circle {
+    border-color: #9D84FF;
+}
+
+.wp-radio-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+.wp-opt-item.active .wp-radio-dot {
+    background: #9D84FF;
+    box-shadow: 0 0 8px #9D84FF;
+}
+
+.wp-opt-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex-grow: 1;
+}
+
+.wp-opt-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.wp-opt-sub {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* Custom Colors Drawer / Section */
+.wp-custom-color-box {
+    margin-top: 0.9rem;
+    padding-top: 0.4rem;
+}
+
+.wp-divider {
+    border: none;
+    height: 1px;
+    background: #232B3E;
+    margin: 0.6rem 0 0.9rem 0;
+}
+
+.wp-section-micro-label {
+    display: block;
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: 900;
+    color: #00E5FF;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+}
+
+.wp-count-chips-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.55rem;
+    margin-bottom: 1.1rem;
+}
+
+.wp-count-chip {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid #232B3E;
+    background: #131824;
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wp-count-chip:hover {
+    border-color: #00E5FF;
+}
+
+.wp-count-chip.active {
+    background: #00E5FF;
+    color: #000000;
+    border-color: #00E5FF;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.45);
+}
+
+.wp-color-slots-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.1rem;
+    flex-wrap: wrap;
+}
+
+.wp-color-slot {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+}
+
+.wp-color-slot:hover {
+    transform: scale(1.12);
+}
+
+.wp-color-slot.active {
+    transform: scale(1.15);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.8);
+    border-color: #00E5FF;
+}
+
+.wp-neon-presets-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.wp-neon-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wp-neon-dot:hover {
+    transform: scale(1.2);
+    border-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Modal Bottom Action Button */
+.wp-modal-footer-action {
+    margin-top: 0.5rem;
+}
+
+.wp-modal-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    height: 52px;
+    background: #7355F2;
+    color: #FFFFFF;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 20px rgba(115, 85, 242, 0.4);
+}
+
+.wp-modal-action-btn:hover {
+    background: #8b6dfc;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(115, 85, 242, 0.6);
+    color: #FFFFFF;
+}
+
+/* Responsiveness on Large Screens: Side-by-Side Live View */
+@media (min-width: 1150px) {
+    .wp-config-backdrop {
+        justify-content: flex-start !important;
+        padding-left: calc((100vw - 1180px) / 2) !important;
+        background: rgba(4, 6, 12, 0.55) !important;
+        backdrop-filter: blur(4px) !important;
+    }
+}
+
+
