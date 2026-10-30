@@ -7,43 +7,58 @@
 (function () {
     'use strict';
 
-    // Official Style Definitions matching AmbientParticleEngine.kt
+    // Definiciones de Estilos y Paletas Oficiales exactas a las tarjetas informativas
     const STYLE_DATA = {
         gamer: {
             id: 'gamer',
             nameEs: 'Gamer',
             nameEn: 'Gamer',
             symbols: ['A', 'B', 'X', 'Y', '△', '○', '□', '×'],
-            colors: ['#4CAF50', '#F44336', '#2196F3', '#FFEB3B', '#9C27B0', '#3F51B5', '#00E5FF']
+            colors: ['#00e676', '#ff5f56', '#3b82f6', '#f59e0b', '#ec4899', '#00f0a0', '#ff4568', '#00a4ef']
         },
         stardust: {
             id: 'stardust',
             nameEs: 'Polvo Estelar & Galaxia',
             nameEn: 'Stardust & Galaxy',
             symbols: ['★', '✦', '✧', '✵', '✶', '✸'],
-            colors: ['#FFD700', '#00E5FF', '#FF4081', '#FFFFFF']
+            colors: ['#e879f9', '#a855f7', '#6366f1'] // 3 tonos de la tarjeta: Nebulosa lila, Violeta cósmico, Índigo galáctico
         },
         code: {
             id: 'code',
             nameEs: 'Tech & Código',
             nameEn: 'Tech & Code',
             symbols: ['0', '1', '</>', '{ }', '[ ]', 'λ', 'π', '&&', '||', ';'],
-            colors: ['#00FF66', '#00E5FF', '#FF9800', '#AEEA00']
+            colors: ['#00ff66', '#10b981', '#22c55e'] // 3 tonos de la tarjeta: Matrix Neón, Matrix Clásico, Matrix Oscuro
         },
         runes: {
             id: 'runes',
             nameEs: 'Runas Místicas',
             nameEn: 'Mystic Runes',
             symbols: ['ᚠ', 'ᚢ', 'ᚦ', 'ᚨ', 'ᚱ', 'ᚷ', 'ᛗ'],
-            colors: ['#9C27B0', '#00E5FF', '#FFD700', '#4CAF50']
+            colors: ['#38bdf8', '#0284c7', '#e2e8f0'] // 3 tonos de la tarjeta: Brillo arcano, Magia nórdica, Piedra ancestral
         },
         kanji: {
             id: 'kanji',
             nameEs: 'Kanjis & Bushido',
             nameEn: 'Kanjis & Bushido',
             symbols: ['義', '勇', '仁', '礼', '誠', '名', '忠', '信', '智', '忍', '克', '和'],
-            colors: ['#FF3D00', '#E91E63', '#FFD700', '#F5F5F5', '#00E5FF']
+            colors: ['#ff5a79', '#ff1e42', '#be123c'] // 3 tonos de la tarjeta: Rojo claro/neón, Rojo carmesí, Rojo rubí
         }
+    };
+
+    // Colores oficiales icónicos para el estilo Gamer
+    // Botones Xbox: A (verde), B (rojo), Y (amarillo), X (azul)
+    // Botones PlayStation: △ (verde), ○ (rojo), × (azul celeste), □ (rosa magenta)
+    const GAMER_OFFICIAL_COLORS = {
+        'A': '#00e676', // Xbox Verde
+        'B': '#ff5f56', // Xbox Rojo
+        'Y': '#f59e0b', // Xbox Amarillo
+        'X': '#3b82f6', // Xbox Azul
+        '△': '#00f0a0', // PlayStation Triángulo (Verde / Menta)
+        '○': '#ff4568', // PlayStation Círculo (Rojo / Coral)
+        '×': '#00a4ef', // PlayStation Cruz / X (Azul celeste)
+        '□': '#ec4899', // PlayStation Cuadrado (Rosa / Magenta)
+        '+': '#00a4ef'
     };
 
     const BG_COLORS = {
@@ -112,11 +127,14 @@
                 let colorHex;
                 if (this.config.paletteMode === 'custom' && activeCustom.length > 0) {
                     colorHex = activeCustom[Math.floor(Math.random() * activeCustom.length)];
+                } else if (this.config.style === 'gamer' && GAMER_OFFICIAL_COLORS[symbol]) {
+                    // Colores oficiales asignados específicamente a cada botón de consola
+                    colorHex = GAMER_OFFICIAL_COLORS[symbol];
                 } else {
                     colorHex = officialColors[Math.floor(Math.random() * officialColors.length)];
                 }
 
-                // Tamaño sutil y elegante (aprox 14px a 20px en la pantalla del celular)
+                // Tamaño variado y sutil, equiparable a las letras de la interfaz del móvil (aprox 12px - 18px)
                 const sizeFactor = Math.random();
 
                 this.particles.push({
@@ -194,8 +212,8 @@
                 const drawY = driftY * screenHeight;
 
                 const activeColor = isGrayscale ? grayscaleColor : p.color;
-                // Partículas suaves y proporcionadas (14px - 21px aprox en un ancho de ~340px)
-                const fontSize = Math.round(screenWidth * (0.040 + p.sizeFactor * 0.020));
+                // Partículas del tamaño de las letras con sutil variación proporcional (aprox 12px a 18px)
+                const fontSize = Math.round(screenWidth * (0.036 + p.sizeFactor * 0.018));
 
                 ctx.save();
                 ctx.translate(drawX, drawY);
@@ -207,12 +225,33 @@
                 }
 
                 ctx.globalAlpha = p.alpha;
-                ctx.fillStyle = activeColor;
-                ctx.font = `bold ${fontSize}px "Outfit", "Plus Jakarta Sans", "Segoe UI Symbol", sans-serif`;
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
 
-                ctx.fillText(p.symbol, 0, 0);
+                if (p.symbol === '△') {
+                    // Triángulo equilátero perfecto (todos sus 3 lados miden exactamente igual)
+                    const s = fontSize * 0.95;
+                    const h = s * (Math.sqrt(3) / 2); // Altura equilátera exacta: h = s * √3 / 2 (~0.866s)
+                    const topY = -h * (2 / 3);
+                    const botY = h / 3;
+                    const halfS = s / 2;
+
+                    ctx.beginPath();
+                    ctx.moveTo(0, topY);
+                    ctx.lineTo(halfS, botY);
+                    ctx.lineTo(-halfS, botY);
+                    ctx.closePath();
+
+                    ctx.strokeStyle = activeColor;
+                    ctx.lineWidth = Math.max(1.8, fontSize * 0.13);
+                    ctx.lineJoin = 'round';
+                    ctx.lineCap = 'round';
+                    ctx.stroke();
+                } else {
+                    ctx.fillStyle = activeColor;
+                    ctx.font = `bold ${fontSize}px "Outfit", "Plus Jakarta Sans", "Segoe UI Symbol", sans-serif`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(p.symbol, 0, 0);
+                }
 
                 ctx.restore();
             }
@@ -387,15 +426,16 @@
                 });
             }
 
-            // Quick sync con las 6 tarjetas de la galería inferior de estilos (#estilos)
-            const styleCards = document.querySelectorAll('.wallpaper-card[data-wp-mode]');
+            // Quick sync con las tarjetas de la galería (#estilos)
+            const styleCards = document.querySelectorAll('.wallpaper-card');
             styleCards.forEach((sc) => {
                 sc.addEventListener('click', () => {
+                    const style = sc.getAttribute('data-wp-style');
                     const mode = sc.getAttribute('data-wp-mode');
                     if (mode === 'mono') {
                         this.applyOptionChange('palette', 'monochrome');
-                    } else if (mode === 'color') {
-                        this.applyOptionChange('style', 'gamer');
+                    } else if (style) {
+                        this.applyOptionChange('style', style);
                         this.applyOptionChange('palette', 'official');
                     }
                 });
