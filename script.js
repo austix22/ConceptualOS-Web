@@ -619,7 +619,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_cta_bottom_title: "¿Listo para transformar tu pantalla?",
             wp_cta_bottom_desc: "Consigue Conceptual Live Wallpaper en Google Play por solo $1.00 USD (pago único) y dale vida a tu pantalla.",
             wp_home_teaser_title: "Lleva este fondo interactivo a tu teléfono con Conceptual Live Wallpaper",
-            wp_home_teaser_desc: "Mismo motor de partículas, 6 estilos únicos, optimizado para AMOLED y cero consumo de batería en reposo.",
+            wp_home_teaser_desc: "Mismo motor de partículas, 6 estilos únicos, optimizado para cualquier pantalla y cero consumo de batería en reposo.",
             wp_home_teaser_btn: "Ver Conceptual Live Wallpaper"
         },
         en: {
@@ -962,7 +962,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_cta_bottom_title: "Ready to transform your screen?",
             wp_cta_bottom_desc: "Get Conceptual Live Wallpaper on Google Play for just $1.00 USD (one-time purchase).",
             wp_home_teaser_title: "Bring this interactive background to your phone with Conceptual Live Wallpaper",
-            wp_home_teaser_desc: "Same particle engine, 6 unique styles, AMOLED optimized, and zero battery drain while asleep.",
+            wp_home_teaser_desc: "Same particle engine, 6 unique styles, optimized for any screen, and zero battery drain while asleep.",
             wp_home_teaser_btn: "Explore Conceptual Live Wallpaper"
         }
     };
@@ -1459,6 +1459,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     let currentGalleryIdx = 0;
+    let captionTransitionTimer = null;
 
     updateLightboxContent = (animate = false) => {
         if (!lightboxModal || !lightboxModal.classList.contains('active')) return;
@@ -1479,18 +1480,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const dict = translations[currentLang] || translations.en;
-        if (lightboxTag) lightboxTag.innerHTML = dict[item.tagKey] || '';
-        if (lightboxTitle) lightboxTitle.innerHTML = dict[item.titleKey] || '';
-        if (lightboxDesc) lightboxDesc.innerHTML = dict[item.descKey] || '';
-        if (lightboxCounter) lightboxCounter.textContent = `${currentGalleryIdx + 1} / ${galleryData.length}`;
 
         if (animate && lightboxCaption) {
-            lightboxCaption.classList.remove('slide-fade');
-            void lightboxCaption.offsetWidth;
+            if (captionTransitionTimer) {
+                clearTimeout(captionTransitionTimer);
+                captionTransitionTimer = null;
+            }
+
+            // Capture exact current height before content swap
+            const prevHeight = lightboxCaption.getBoundingClientRect().height;
+            lightboxCaption.style.height = `${prevHeight}px`;
+            lightboxCaption.style.transition = 'height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease';
             lightboxCaption.classList.add('slide-fade');
-            setTimeout(() => {
-                if (lightboxCaption) lightboxCaption.classList.remove('slide-fade');
-            }, 200);
+
+            // Apply new texts
+            if (lightboxTag) lightboxTag.innerHTML = dict[item.tagKey] || '';
+            if (lightboxTitle) lightboxTitle.innerHTML = dict[item.titleKey] || '';
+            if (lightboxDesc) lightboxDesc.innerHTML = dict[item.descKey] || '';
+            if (lightboxCounter) lightboxCounter.textContent = `${currentGalleryIdx + 1} / ${galleryData.length}`;
+
+            // Measure new natural content height
+            lightboxCaption.style.height = 'auto';
+            const targetHeight = lightboxCaption.getBoundingClientRect().height;
+
+            // Re-apply starting height and force layout reflow
+            lightboxCaption.style.height = `${prevHeight}px`;
+            void lightboxCaption.offsetHeight;
+
+            // Trigger smooth progressive transition to target height
+            lightboxCaption.style.height = `${targetHeight}px`;
+
+            captionTransitionTimer = setTimeout(() => {
+                if (lightboxCaption) {
+                    lightboxCaption.classList.remove('slide-fade');
+                    lightboxCaption.style.height = 'auto';
+                    lightboxCaption.style.transition = '';
+                }
+                captionTransitionTimer = null;
+            }, 400);
+        } else {
+            if (captionTransitionTimer) {
+                clearTimeout(captionTransitionTimer);
+                captionTransitionTimer = null;
+            }
+            if (lightboxTag) lightboxTag.innerHTML = dict[item.tagKey] || '';
+            if (lightboxTitle) lightboxTitle.innerHTML = dict[item.titleKey] || '';
+            if (lightboxDesc) lightboxDesc.innerHTML = dict[item.descKey] || '';
+            if (lightboxCounter) lightboxCounter.textContent = `${currentGalleryIdx + 1} / ${galleryData.length}`;
+            if (lightboxCaption) {
+                lightboxCaption.style.height = 'auto';
+                lightboxCaption.style.transition = '';
+                lightboxCaption.classList.remove('slide-fade');
+            }
         }
 
         // Update active thumbnail indicator and smoothly scroll into view
@@ -1559,6 +1600,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroGalleryBtn) {
         heroGalleryBtn.addEventListener('click', (e) => {
             e.preventDefault();
+            openLightbox(0, false);
+        });
+    }
+
+    const heroMobileGalleryBtn = document.getElementById('heroMobileGalleryBtn');
+    if (heroMobileGalleryBtn) {
+        heroMobileGalleryBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             openLightbox(0, false);
         });
     }
