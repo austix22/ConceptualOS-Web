@@ -797,10 +797,10 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Clean URL in address bar to pretty path /wallpaper
-            if (window.location.pathname.endsWith('wallpaper.html') || window.location.pathname.endsWith('wallpaper/index.html')) {
+            // Clean URL in address bar to pretty path /livewallpaper
+            if (window.location.pathname.includes('wallpaper') && window.location.pathname !== '/livewallpaper') {
                 try {
-                    window.history.replaceState(null, '', '/wallpaper');
+                    window.history.replaceState(null, '', '/livewallpaper');
                 } catch (e) {}
             }
 

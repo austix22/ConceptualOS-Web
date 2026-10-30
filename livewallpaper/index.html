@@ -14,7 +14,7 @@
     <meta property="og:description"
         content="El motor de partículas reactivas de COS Launcher en tu pantalla Android. 6 estilos personalizables, AMOLED friendly y bajo consumo.">
     <meta property="og:image" content="img/live2.png">
-    <meta property="og:url" content="https://coslauncher.com/wallpaper">
+    <meta property="og:url" content="https://coslauncher.com/livewallpaper">
 
     <base href="/">
 
@@ -799,10 +799,10 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Clean URL in address bar to pretty path /wallpaper
-            if (window.location.pathname.endsWith('wallpaper.html') || window.location.pathname.endsWith('wallpaper/index.html') || window.location.pathname.endsWith('wallpaper/')) {
+            // Clean URL in address bar to pretty path /livewallpaper
+            if (window.location.pathname.includes('wallpaper') && window.location.pathname !== '/livewallpaper') {
                 try {
-                    window.history.replaceState(null, '', '/wallpaper');
+                    window.history.replaceState(null, '', '/livewallpaper');
                 } catch (e) {}
             }
 
