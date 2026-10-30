@@ -4466,42 +4466,55 @@ h1, h2, h3, h4, span, p, a, button {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+    display: inline-block;
 }
 
 .wallpaper-mode-tag.color-tag {
-    background: rgba(18, 20, 32, 0.9);
-    border: 1px solid rgba(245, 158, 11, 0.55);
-    color: #f59e0b;
+    background: rgba(28, 20, 10, 0.92) !important;
+    border: 1px solid rgba(245, 158, 11, 0.65) !important;
+    color: #fbbf24 !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), 0 0 12px rgba(245, 158, 11, 0.35) !important;
+    text-shadow: 0 0 8px rgba(245, 158, 11, 0.4) !important;
 }
 
 .wallpaper-mode-tag.mono-tag {
-    background: rgba(18, 20, 32, 0.9);
-    border: 1px solid rgba(211, 211, 255, 0.45);
-    color: #ffffff;
+    background: rgba(18, 20, 32, 0.92) !important;
+    border: 1px solid rgba(211, 211, 255, 0.5) !important;
+    color: #f8fafc !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.2) !important;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.3) !important;
 }
 
 .wallpaper-mode-tag.galaxy-tag {
-    background: rgba(18, 20, 32, 0.9);
-    border: 1px solid rgba(168, 85, 247, 0.55);
-    color: #c084fc;
+    background: rgba(24, 12, 36, 0.92) !important;
+    border: 1px solid rgba(232, 121, 249, 0.6) !important;
+    color: #e879f9 !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), 0 0 12px rgba(232, 121, 249, 0.35) !important;
+    text-shadow: 0 0 8px rgba(232, 121, 249, 0.45) !important;
 }
 
 .wallpaper-mode-tag.code-tag {
-    background: rgba(18, 20, 32, 0.9);
-    border: 1px solid rgba(16, 185, 129, 0.55);
-    color: #34d399;
+    background: rgba(4, 24, 14, 0.92) !important;
+    border: 1px solid rgba(0, 255, 102, 0.6) !important;
+    color: #00ff66 !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), 0 0 12px rgba(0, 255, 102, 0.35) !important;
+    text-shadow: 0 0 8px rgba(0, 255, 102, 0.45) !important;
 }
 
 .wallpaper-mode-tag.runes-tag {
-    background: rgba(18, 20, 32, 0.9);
-    border: 1px solid rgba(56, 189, 248, 0.55);
-    color: #38bdf8;
+    background: rgba(8, 22, 38, 0.92) !important;
+    border: 1px solid rgba(56, 189, 248, 0.6) !important;
+    color: #38bdf8 !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), 0 0 12px rgba(56, 189, 248, 0.35) !important;
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.45) !important;
 }
 
 .wallpaper-mode-tag.bushido-tag {
-    background: rgba(18, 20, 32, 0.9);
-    border: 1px solid rgba(244, 63, 94, 0.55);
-    color: #fb7185;
+    background: rgba(36, 10, 16, 0.92) !important;
+    border: 1px solid rgba(255, 42, 75, 0.6) !important;
+    color: #ff2a4b !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), 0 0 12px rgba(255, 42, 75, 0.35) !important;
+    text-shadow: 0 0 8px rgba(255, 42, 75, 0.45) !important;
 }
 
 /* Empty Placeholder for Upcoming Particle Styles */
