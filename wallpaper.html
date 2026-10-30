@@ -797,6 +797,13 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Clean URL in address bar to pretty path /wallpaper
+            if (window.location.pathname.endsWith('wallpaper.html') || window.location.pathname.endsWith('wallpaper/index.html')) {
+                try {
+                    window.history.replaceState(null, '', '/wallpaper');
+                } catch (e) {}
+            }
+
             const openConfigBtn = document.getElementById('openWpConfigModalBtn');
             if (openConfigBtn) {
                 openConfigBtn.addEventListener('click', () => {
