@@ -1705,18 +1705,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 4. Features Grid Show More / Less Toggle
         const featuresToggleBtn = document.getElementById('featuresToggleBtn');
-        const featuresCollapseBtn = document.getElementById('featuresCollapseBtn');
         const featuresGrid = document.getElementById('featuresGrid');
-        const featuresBottomWrapper = document.getElementById('featuresBottomWrapper');
 
         const setFeaturesState = (expanded, shouldScroll = false) => {
             if (!featuresGrid || !featuresToggleBtn) return;
             featuresGrid.classList.toggle('expanded', expanded);
             featuresToggleBtn.classList.toggle('is-expanded', expanded);
             featuresToggleBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-            if (featuresBottomWrapper) {
-                featuresBottomWrapper.classList.toggle('is-visible', expanded);
-            }
             const dict = translations[currentLang] || translations.es;
             const topText = featuresToggleBtn.querySelector('.toggle-text');
             if (topText) {
@@ -1737,27 +1732,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 setFeaturesState(!isCurrentlyExpanded, isCurrentlyExpanded);
             });
         }
-        if (featuresCollapseBtn) {
-            featuresCollapseBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                setFeaturesState(false, true);
-            });
-        }
 
         // 5. Compatibility Grid Show More / Less Toggle
         const compatToggleBtn = document.getElementById('compatToggleBtn');
-        const compatCollapseBtn = document.getElementById('compatCollapseBtn');
         const compatGrid = document.getElementById('compatGrid');
-        const compatBottomWrapper = document.getElementById('compatBottomWrapper');
 
         const setCompatState = (expanded, shouldScroll = false) => {
             if (!compatGrid || !compatToggleBtn) return;
             compatGrid.classList.toggle('expanded', expanded);
             compatToggleBtn.classList.toggle('is-expanded', expanded);
             compatToggleBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-            if (compatBottomWrapper) {
-                compatBottomWrapper.classList.toggle('is-visible', expanded);
-            }
             const dict = translations[currentLang] || translations.es;
             const topText = compatToggleBtn.querySelector('.toggle-text');
             if (topText) {
@@ -1776,12 +1760,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const isCurrentlyExpanded = compatGrid.classList.contains('expanded');
                 setCompatState(!isCurrentlyExpanded, isCurrentlyExpanded);
-            });
-        }
-        if (compatCollapseBtn) {
-            compatCollapseBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                setCompatState(false, true);
             });
         }
 

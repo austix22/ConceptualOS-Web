@@ -1133,18 +1133,6 @@ h1, h2, h3, h4, span, p, a, button {
     animation: expandFadeIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.expand-bottom-wrapper {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2.5rem;
-    width: 100%;
-}
-
-.expand-bottom-wrapper.is-visible {
-    display: flex !important;
-    animation: expandFadeIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
 
 @keyframes expandFadeIn {
     from {
