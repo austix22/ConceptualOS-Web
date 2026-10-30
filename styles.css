@@ -5574,55 +5574,78 @@ h1, h2, h3, h4, span, p, a, button {
 
 .wp-phone-mockup {
     width: 100%;
-    max-width: 380px;
+    max-width: 360px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.4rem;
+    gap: 1.2rem;
 }
 
 .wp-phone-bezel {
     width: 100%;
     background: #090b14;
     border-radius: 44px;
-    padding: 14px 14px 18px 14px;
+    padding: 10px;
     border: 3px solid rgba(211, 211, 255, 0.28);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(128, 168, 255, 0.2);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 45px rgba(128, 168, 255, 0.2);
     position: relative;
     overflow: hidden;
     transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .wp-phone-bezel:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 30px 75px rgba(0, 0, 0, 0.9), 0 0 55px rgba(168, 85, 247, 0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 30px 75px rgba(0, 0, 0, 0.95), 0 0 55px rgba(168, 85, 247, 0.35);
 }
 
-.wp-phone-camera {
-    position: absolute;
-    top: 22px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 13px;
-    height: 13px;
+.wp-phone-screen {
+    width: 100%;
+    aspect-ratio: 9 / 19.5;
+    border-radius: 34px;
+    overflow: hidden;
+    position: relative;
     background: #000;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    z-index: 10;
-    box-shadow: inset 0 0 4px rgba(0, 200, 255, 0.4);
+    box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.9);
+}
+
+.wp-phone-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: opacity 0.25s ease;
 }
 
 .wp-phone-statusbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.35rem 1rem 0.65rem 1rem;
-    font-size: 0.78rem;
+    padding: 0.65rem 1.15rem 0.5rem 1.15rem;
+    font-size: 0.76rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.92);
     user-select: none;
-    z-index: 5;
-    position: relative;
+    pointer-events: none;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+}
+
+.wp-phone-camera {
+    width: 12px;
+    height: 12px;
+    background: #000;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 4px rgba(0, 200, 255, 0.4), 0 0 4px rgba(0, 0, 0, 0.9);
 }
 
 .wp-status-icons {
@@ -5630,168 +5653,107 @@ h1, h2, h3, h4, span, p, a, button {
     align-items: center;
     gap: 0.45rem;
     font-size: 0.72rem;
-}
-
-.wp-phone-screen {
-    width: 100%;
-    aspect-ratio: 9 / 18.5;
-    border-radius: 32px;
-    overflow: hidden;
-    position: relative;
-    background: #000;
-    cursor: pointer;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
-    outline: none;
-}
-
-.wp-phone-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    transition: opacity 0.22s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.wp-phone-screen:hover .wp-phone-img {
-    transform: scale(1.04);
-}
-
-.wp-phone-overlay-tag {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    right: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    pointer-events: none;
-    z-index: 3;
-}
-
-.wp-phone-current-tag {
-    font-size: 0.76rem;
-    font-weight: 800;
-    letter-spacing: 0.6px;
-    padding: 0.35rem 0.8rem;
-    border-radius: 8px;
-    background: rgba(28, 20, 10, 0.92);
-    border: 1px solid rgba(245, 158, 11, 0.7);
-    color: #fbbf24;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 10px rgba(245, 158, 11, 0.3);
-    transition: all 0.25s ease;
-}
-
-.wp-phone-current-tag.mono-style {
-    background: rgba(18, 20, 32, 0.92);
-    border-color: rgba(211, 211, 255, 0.5);
-    color: #f8fafc;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 255, 255, 0.25);
-}
-
-.wp-phone-zoom-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.65);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 0.82rem;
-    backdrop-filter: blur(8px);
-}
-
-.wp-phone-touch-hint {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    padding: 0.45rem 1rem;
-    border-radius: 999px;
-    background: rgba(10, 12, 22, 0.88);
-    border: 1px solid rgba(211, 211, 255, 0.3);
-    color: #e2e8f0;
-    font-size: 0.82rem;
-    font-weight: 600;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-    pointer-events: none;
-    opacity: 0.9;
-    transition: opacity 0.25s ease;
-}
-
-.wp-phone-screen:hover .wp-phone-touch-hint {
-    opacity: 1;
-    background: rgba(20, 24, 40, 0.95);
-    border-color: rgba(206, 181, 255, 0.6);
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.85));
 }
 
 .wp-phone-home-indicator {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 110px;
     height: 4px;
-    background: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.65);
     border-radius: 999px;
-    margin: 12px auto 0 auto;
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
 }
 
-.wp-phone-controls-box {
+/* Config Trigger Button Below Phone */
+.wp-config-bar {
     width: 100%;
-    padding: 0.9rem 1.1rem;
+    padding: 0.55rem 0.75rem;
     border-radius: 18px;
+    background: rgba(14, 18, 30, 0.8);
+    border: 1px solid rgba(211, 211, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.wp-config-action-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.4rem;
+    border-radius: 13px;
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(99, 102, 241, 0.25));
+    border: 1px solid rgba(206, 181, 255, 0.4);
+    color: #FFFFFF;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 16px rgba(168, 85, 247, 0.2);
+    transition: all var(--transition-smooth, 0.25s ease);
+}
+
+.wp-config-action-btn i {
+    font-size: 1rem;
+    color: var(--moondust-cyan, #80ceff);
+    transition: transform 0.25s ease;
+}
+
+.wp-config-action-btn:hover {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.45), rgba(99, 102, 241, 0.45));
+    border-color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 25px rgba(168, 85, 247, 0.45);
+}
+
+.wp-config-action-btn:hover i {
+    transform: rotate(45deg);
+}
+
+/* Options Modal Specific Accents */
+.plugin-modal-badge.wp-badge {
+    background: rgba(168, 85, 247, 0.2);
+    border-color: rgba(168, 85, 247, 0.5);
+    color: #d8b4fe;
+}
+
+.plugin-modal-icon-wrap.wp-accent {
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(99, 102, 241, 0.1) 70%);
+    border: 1px solid rgba(206, 181, 255, 0.35);
+    color: #c084fc;
+}
+
+.wp-config-empty-state {
+    padding: 2.5rem 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
-    background: rgba(14, 18, 30, 0.75);
-    border: 1px solid rgba(211, 211, 255, 0.2);
-}
-
-.wp-controls-label {
-    font-size: 0.84rem;
-    font-weight: 700;
+    justify-content: center;
+    text-align: center;
+    gap: 0.8rem;
     color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
 }
 
-.wp-controls-chips {
-    display: flex;
-    gap: 0.65rem;
-    width: 100%;
-}
-
-.wp-switch-btn {
-    flex: 1;
-    padding: 0.55rem 0.75rem;
-    border-radius: 10px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: var(--text-body);
-    cursor: pointer;
-    transition: all 0.25s ease;
-    white-space: nowrap;
-    outline: none;
-}
-
-.wp-switch-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-primary);
-    border-color: rgba(206, 181, 255, 0.4);
-}
-
-.wp-switch-btn.active {
-    background: rgba(206, 181, 255, 0.18);
-    border-color: rgba(206, 181, 255, 0.65);
+.wp-config-empty-state i {
+    font-size: 2.2rem;
     color: var(--moondust-purple);
-    box-shadow: 0 0 14px rgba(206, 181, 255, 0.3);
+    opacity: 0.8;
+}
+
+.wp-config-empty-state p {
+    font-size: 0.95rem;
+    margin: 0;
+    max-width: 320px;
+    line-height: 1.5;
 }
 
 /* 6-Grid Styles Section */
