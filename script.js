@@ -1711,6 +1711,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const openModal = (modal) => {
             if (!modal) return;
+            modal.style.setProperty('display', 'flex', 'important');
+            // Force browser layout calculation for smooth transition
+            void modal.offsetHeight;
             modal.classList.add('active');
             modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
@@ -1722,6 +1725,11 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.classList.remove('active');
             modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
+            setTimeout(() => {
+                if (!modal.classList.contains('active')) {
+                    modal.style.setProperty('display', 'none', 'important');
+                }
+            }, 300);
             if (typeof SFX !== 'undefined') SFX.click2();
         };
 
@@ -1776,6 +1784,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (kmModal && kmModal.classList.contains('active')) closeModal(kmModal);
+                if (rescalerModal && rescalerModal.classList.contains('active')) closeModal(rescalerModal);
+            }
+        });
     };
 
     initProgressiveDisclosure();
