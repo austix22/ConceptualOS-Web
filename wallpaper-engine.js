@@ -25,8 +25,8 @@
         },
         code: {
             id: 'code',
-            nameEs: 'Tech & Código',
-            nameEn: 'Tech & Code',
+            nameEs: 'Código',
+            nameEn: 'Code',
             symbols: ['0', '1', '</>', '{ }', '[ ]', 'λ', 'π', '&&', '||', ';'],
             colors: ['#00ff66', '#10b981', '#22c55e'] // 3 tonos de la tarjeta: Matrix Neón, Matrix Clásico, Matrix Oscuro
         },
