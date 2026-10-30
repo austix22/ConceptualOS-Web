@@ -4626,6 +4626,11 @@ h1, h2, h3, h4, span, p, a, button {
 .dot-runic-mid { background-color: #0284c7; box-shadow: 0 0 6px rgba(2, 132, 199, 0.65); }
 .dot-runic-stone { background-color: #94a3b8; box-shadow: 0 0 5px rgba(148, 163, 184, 0.5); }
 
+/* Bushido Red & White Palette */
+.dot-bushido-red { background-color: #ff1e42; box-shadow: 0 0 7px rgba(255, 30, 66, 0.75); }
+.dot-bushido-white { background-color: #ffffff; box-shadow: 0 0 7px rgba(255, 255, 255, 0.85); }
+.dot-bushido-darkred { background-color: #be123c; box-shadow: 0 0 6px rgba(190, 18, 60, 0.65); }
+
 /* Feature Highlights Grid */
 .wallpaper-features-grid {
     display: grid;
