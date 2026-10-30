@@ -4643,10 +4643,13 @@ h1, h2, h3, h4, span, p, a, button {
 .dot-runic-mid { background-color: #0284c7 !important; box-shadow: 0 0 7px rgba(2, 132, 199, 0.75) !important; }
 .dot-runic-stone { background-color: #e2e8f0 !important; box-shadow: 0 0 6px rgba(226, 232, 240, 0.75) !important; }
 
-/* Bushido Red & White Palette */
-.dot-bushido-red { background-color: #ff2a4b !important; box-shadow: 0 0 8px rgba(255, 42, 75, 0.9) !important; }
-.dot-bushido-white { background-color: #ffffff !important; box-shadow: 0 0 8px rgba(255, 255, 255, 0.9) !important; }
-.dot-bushido-darkred { background-color: #ef4444 !important; box-shadow: 0 0 8px rgba(239, 68, 68, 0.85) !important; }
+/* Bushido 3-Tone Red Palette */
+.dot-bushido-light { background-color: #ff5a79 !important; box-shadow: 0 0 8px rgba(255, 90, 121, 0.9) !important; }
+.dot-bushido-mid { background-color: #ff1e42 !important; box-shadow: 0 0 8px rgba(255, 30, 66, 0.9) !important; }
+.dot-bushido-dark { background-color: #be123c !important; box-shadow: 0 0 7px rgba(190, 18, 60, 0.85) !important; }
+.dot-bushido-red { background-color: #ff5a79 !important; box-shadow: 0 0 8px rgba(255, 90, 121, 0.9) !important; }
+.dot-bushido-white { background-color: #ff1e42 !important; box-shadow: 0 0 8px rgba(255, 30, 66, 0.9) !important; }
+.dot-bushido-darkred { background-color: #be123c !important; box-shadow: 0 0 7px rgba(190, 18, 60, 0.85) !important; }
 
 /* Feature Highlights Grid */
 .wallpaper-features-grid {
