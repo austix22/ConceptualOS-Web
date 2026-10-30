@@ -4611,6 +4611,11 @@ h1, h2, h3, h4, span, p, a, button {
 .dot-emerald { background-color: #10b981; box-shadow: 0 0 6px rgba(16, 185, 129, 0.6); }
 .dot-crimson { background-color: #f43f5e; box-shadow: 0 0 6px rgba(244, 63, 94, 0.6); }
 
+/* Matrix 3-Tone Green Palette */
+.dot-matrix-light { background-color: #00ff66; box-shadow: 0 0 7px rgba(0, 255, 102, 0.75); }
+.dot-matrix-mid { background-color: #00cc44; box-shadow: 0 0 6px rgba(0, 204, 68, 0.6); }
+.dot-matrix-dark { background-color: #006622; box-shadow: 0 0 6px rgba(0, 102, 34, 0.5); }
+
 /* Feature Highlights Grid */
 .wallpaper-features-grid {
     display: grid;
