@@ -4807,10 +4807,9 @@ h1, h2, h3, h4, span, p, a, button {
    Plugin Informative Modals (Key Mapper & Screen Rescaler)
    ========================================================================== */
 .plugin-info-modal-backdrop {
-    display: none !important;
     position: fixed !important;
     inset: 0 !important;
-    background: rgba(3, 4, 10, 0.84);
+    background: rgba(3, 4, 10, 0.86);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     z-index: 100000 !important;
@@ -4822,6 +4821,10 @@ h1, h2, h3, h4, span, p, a, button {
     pointer-events: none;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     box-sizing: border-box;
+}
+
+.plugin-info-modal-backdrop:not(.active) {
+    display: none !important;
 }
 
 .plugin-info-modal-backdrop.active {

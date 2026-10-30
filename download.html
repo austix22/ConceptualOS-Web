@@ -19,9 +19,87 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=3.2.2">
+    <link rel="stylesheet" href="styles.css?v=3.2.3">
     <link rel="stylesheet" href="innovative.css?v=1.0.1">
     <link rel="stylesheet" href="portal.css?v=1.0.0">
+
+    <!-- Critical Plugin Modals & Buttons Styles -->
+    <style id="critical-plugin-modals-css">
+        .btn-plugin-info {
+            width: 56px !important;
+            min-width: 56px !important;
+            height: 56px !important;
+            min-height: 56px !important;
+            padding: 0 !important;
+            flex-shrink: 0 !important;
+            background: rgba(18, 22, 38, 0.85) !important;
+            border: 1px solid rgba(211, 211, 255, 0.28) !important;
+            border-radius: 14px !important;
+            color: #e2e8f0 !important;
+            font-size: 1.25rem !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            cursor: pointer !important;
+            outline: none !important;
+            box-sizing: border-box !important;
+            transition: all 0.25s ease !important;
+        }
+        .btn-km-info:hover, .btn-km-info:focus-visible {
+            border-color: #a855f7 !important;
+            color: #c084fc !important;
+            box-shadow: 0 0 22px rgba(168, 85, 247, 0.6) !important;
+        }
+        .plugin-info-modal-backdrop {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            background: rgba(3, 4, 10, 0.86) !important;
+            backdrop-filter: blur(14px) !important;
+            -webkit-backdrop-filter: blur(14px) !important;
+            z-index: 999999 !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 1.25rem !important;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            box-sizing: border-box !important;
+        }
+        .plugin-info-modal-backdrop:not(.active) {
+            display: none !important;
+        }
+        .plugin-info-modal-backdrop.active {
+            display: flex !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+        }
+        .plugin-info-modal-card {
+            background: rgba(14, 17, 28, 0.98) !important;
+            border: 1px solid rgba(211, 211, 255, 0.2) !important;
+            border-radius: 26px !important;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.95), 0 0 45px rgba(139, 92, 246, 0.25) !important;
+            max-width: 620px !important;
+            width: 100% !important;
+            max-height: 88vh !important;
+            display: flex !important;
+            flex-direction: column !important;
+            position: relative !important;
+            overflow: hidden !important;
+            transform: scale(0.92) translateY(20px);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            box-sizing: border-box !important;
+        }
+        .plugin-info-modal-backdrop.active .plugin-info-modal-card {
+            transform: scale(1) translateY(0) !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -168,7 +246,7 @@
                                     class="btn btn-plugin-dl btn-keymapper-dl btn-flex" id="keyMapperDlBtn" aria-label="Descargar Conceptual Key Mapper">
                                     <i class="fa-solid fa-download"></i> <span data-i18n="dl_km_btn">Descargar</span>
                                 </a>
-                                <button type="button" class="btn btn-plugin-info btn-km-info" id="infoKeyMapperBtn" aria-label="Información sobre Conceptual Key Mapper" title="¿Cómo funciona Conceptual Key Mapper?">
+                                <button type="button" class="btn btn-plugin-info btn-km-info" id="infoKeyMapperBtn" onclick="openPluginModal('keyMapperModal')" style="background: rgba(18, 22, 38, 0.85); border: 1px solid rgba(211, 211, 255, 0.28); color: #e2e8f0; width: 56px; min-width: 56px; height: 56px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; flex-shrink: 0;" aria-label="Información sobre Conceptual Key Mapper" title="¿Cómo funciona Conceptual Key Mapper?">
                                     <i class="fa-solid fa-circle-info"></i>
                                 </button>
                             </div>
@@ -491,9 +569,9 @@
     </div>
 
     <!-- Informative Modal: Conceptual Key Mapper -->
-    <div id="keyMapperModal" class="plugin-info-modal-backdrop" style="display: none !important;" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Información sobre Conceptual Key Mapper">
+    <div id="keyMapperModal" class="plugin-info-modal-backdrop" style="display: none;" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Información sobre Conceptual Key Mapper">
         <div class="plugin-info-modal-card">
-            <button type="button" class="plugin-modal-close" id="kmInfoCloseBtn" aria-label="Cerrar ventana"><i class="fa-solid fa-xmark"></i></button>
+            <button type="button" class="plugin-modal-close" id="kmInfoCloseBtn" onclick="closePluginModal('keyMapperModal')" aria-label="Cerrar ventana"><i class="fa-solid fa-xmark"></i></button>
             <div class="plugin-modal-header">
                 <span class="plugin-modal-badge km" data-i18n="km_modal_badge">PLUGIN OFICIAL</span>
                 <div class="plugin-modal-icon-wrap km"><i class="fa-solid fa-gamepad"></i></div>
@@ -579,7 +657,44 @@
     <audio id="sfxClick2" src="m4a/click_2.m4a" preload="auto"></audio>
     <audio id="sfxJuegoAbrir" src="m4a/juegoabrir.mp3" preload="auto"></audio>
 
-    <script src="script.js?v=2.9.1"></script>
+    <!-- Global Plugin Modals Script -->
+    <script>
+        function openPluginModal(id) {
+            var modal = document.getElementById(id);
+            if (!modal) return;
+            modal.style.display = 'flex';
+            void modal.offsetHeight;
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            if (window.SFX && typeof window.SFX.click1 === 'function') {
+                window.SFX.click1();
+            }
+        }
+        function closePluginModal(id) {
+            var modal = document.getElementById(id);
+            if (!modal) return;
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            setTimeout(function() {
+                if (!modal.classList.contains('active')) {
+                    modal.style.display = 'none';
+                }
+            }, 280);
+            if (window.SFX && typeof window.SFX.click2 === 'function') {
+                window.SFX.click2();
+            }
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                var activeModal = document.querySelector('.plugin-info-modal-backdrop.active');
+                if (activeModal) closePluginModal(activeModal.id);
+            }
+        });
+    </script>
+
+    <script src="script.js?v=2.9.2"></script>
     <script src="innovative.js?v=1.0.1"></script>
 </body>
 
