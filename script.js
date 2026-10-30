@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Skip gallery and wallpaper cards (which play juegoabrir) and modal close (which plays click_2)
         const galleryCard = e.target.closest('.gallery-card');
         const wallpaperCard = e.target.closest('.wallpaper-card');
-        const isLightboxClose = e.target.closest('#lightboxCloseBtn, #wpLightboxCloseBtn, .lightbox-close');
+        const isLightboxClose = e.target.closest('#lightboxCloseBtn, #wpLightboxCloseBtn, .lightbox-close, .plugin-modal-close');
         if (galleryCard || wallpaperCard || isLightboxClose) return;
 
         const target = e.target.closest(interactiveSelector);
@@ -434,6 +434,30 @@ document.addEventListener('DOMContentLoaded', () => {
             dl_rescaler_spec_target: "<strong>Ideal para:</strong> TV y monitores externos",
             dl_rescaler_spec_setup: "<strong>Ajuste:</strong> En tiempo real en partida",
             dl_rescaler_btn: "Descargar",
+            km_modal_badge: "PLUGIN OFICIAL",
+            km_modal_title: "Conceptual Key Mapper",
+            km_modal_subtitle: "Abre el overlay y controla todo con tu mando sin tocar la pantalla",
+            km_modal_desc: "Es una extensión oficial diseñada para conectarse automáticamente a <strong>COS Launcher</strong> nada más instalarla. Permite abrir el <strong>COS HUB Overlay</strong> usando únicamente tu control o mando físico, eliminando la necesidad de tocar la pantalla táctil y haciendo que la experiencia de juego sea totalmente con controles.",
+            km_modal_f1_title: "Conexión Automática",
+            km_modal_f1_desc: "Se vincula de inmediato con COS Launcher en segundo plano sin configuraciones manuales complejas.",
+            km_modal_f2_title: "Apertura Directa del COS HUB",
+            km_modal_f2_desc: "Accede al menú superpuesto en plena partida presionando el botón asignado en tu gamepad.",
+            km_modal_f3_title: "Ideal para TV y Monitores",
+            km_modal_f3_desc: "Juega cómodamente desde el sofá sin tener que levantarte a tocar la pantalla táctil del dispositivo.",
+            km_modal_close_btn: "Entendido",
+            rescaler_modal_badge: "UTILIDAD OFICIAL",
+            rescaler_modal_title: "Conceptual Screen Rescaler",
+            rescaler_modal_subtitle: "Reescalado 16:9 y modo consola automático para TV y monitores",
+            rescaler_modal_desc: "Es una aplicación oficial que permite cambiar el tamaño y relación de aspecto de la pantalla del dispositivo a <strong>16:9</strong>, logrando que los juegos y emuladores se vean en auténtica pantalla completa <strong>sin franjas negras</strong> en televisores o monitores externos.",
+            rescaler_modal_dock_title: "Automatización Inteligente (Modo Consola)",
+            rescaler_modal_dock_desc: "Al conectar el cable hacia el monitor externo o TV (USB-C a HDMI/DisplayPort), la aplicación <strong>lo reconoce automáticamente</strong>: ajusta la pantalla a 16:9 y abre <strong>COS Launcher</strong> de inmediato para brindarte una experiencia idéntica a una consola de sobremesa.",
+            rescaler_modal_f1_title: "Sin Franjas Negras",
+            rescaler_modal_f1_desc: "Adapta la imagen a la proporción panorámica nativa de cualquier pantalla externa.",
+            rescaler_modal_f2_title: "Detección Automática de Monitor",
+            rescaler_modal_f2_desc: "Conecta el cable y COS Launcher se inicia al instante en formato consola.",
+            rescaler_modal_f3_title: "Restauración Instantánea",
+            rescaler_modal_f3_desc: "Al desconectar el cable, tu dispositivo vuelve a su resolución y proporción original.",
+            rescaler_modal_close_btn: "Entendido",
             pricing_badge: "TRANSPARENCIA & VALOR",
             pricing_title: 'Juega Gratis o Desbloquea <span class="gradient-text">Todo el Potencial</span>',
             pricing_desc: "COS Launcher es 100% funcional y libre de anuncios desde el primer segundo. Si deseas consolas ilimitadas, COS HUB Overlay completo y personalización avanzada de nombre de perfil, puedes desbloquearlo con un pago único.",
@@ -479,7 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_wallpaper: "Live Wallpaper",
             wp_subtitle: "FONDO ANIMADO INTERACTIVO",
             wp_title: 'Lleva este fondo a tu Android con <br><span class="gradient-text">Conceptual Live Wallpaper</span>',
-            wp_desc: "¿Te fascina el efecto de partículas flotantes que ves en esta página? Disfruta del mismo motor interactivo directamente en la pantalla de inicio y bloqueo de tu teléfono Android.",
+            wp_desc: "¿Te fascina el efecto de partículas flotantes que ves en esta página? Disfruta del mismo motor interactivo y varios estilos adicionales con nuevos iconos flotantes directamente en la pantalla de inicio y bloqueo de tu teléfono Android.",
             wp_badge_android: "Android Live Wallpaper",
             wp_badge_engine: "Mismo Motor de Partículas",
             wp_card1_tag: "MODO MULTICOLOR",
@@ -488,6 +512,20 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_card2_tag: "MODO MONOCROMO",
             wp_card2_title: "Minimalismo Puro & AMOLED",
             wp_card2_desc: "Estilo monocromático limpio y elegante en escala de grises y plata, diseñado para fondos negros puros y máximo ahorro de energía.",
+            wp_card3_tag: "STARDUST & GALAXY",
+            wp_card3_title: "Stardust & Galaxy",
+            wp_card3_desc: "Partículas cósmicas con estrellas, destellos y polvo estelar brillante flotando suavemente sobre el espacio profundo.",
+            wp_card4_tag: "TECH & CODE",
+            wp_card4_title: "Tech & Code",
+            wp_card4_desc: "Estética cyberpunk y desarrollo con números binarios, llaves de código, lambdas y operadores lógicos flotantes.",
+            wp_card5_tag: "MYSTIC RUNES",
+            wp_card5_title: "Mystic Runes",
+            wp_card5_desc: "Antiguas runas nórdicas y símbolos arcanos ancestrales que flotan con un halo místico y legendario.",
+            wp_card6_tag: "KANJIS & BUSHIDO",
+            wp_card6_title: "Kanjis & Bushido",
+            wp_card6_desc: "Kanjis de las virtudes del código Bushido y honor samurái flotando en una atmósfera zen y tradicional.",
+            wp_show_more: "Ver más estilos (6)",
+            wp_show_less: "Ver menos estilos",
             wp_feat1_title: "Mismo Motor de Partículas",
             wp_feat1_desc: "La misma física reactiva y partículas suaves que estás viendo en el fondo de este sitio web.",
             wp_feat2_title: "Cero Consumo de Batería",
@@ -653,6 +691,30 @@ document.addEventListener('DOMContentLoaded', () => {
             dl_rescaler_spec_target: "<strong>Ideal for:</strong> TV & external monitors",
             dl_rescaler_spec_setup: "<strong>Adjustment:</strong> Real-time in-game scaling",
             dl_rescaler_btn: "Download",
+            km_modal_badge: "OFFICIAL PLUGIN",
+            km_modal_title: "Conceptual Key Mapper",
+            km_modal_subtitle: "100% controller-driven overlay without touching the screen",
+            km_modal_desc: "An official companion plugin that automatically connects to <strong>COS Launcher</strong> upon installation. It allows you to open and control the <strong>COS HUB Overlay</strong> solely using your gamepad or physical controller, without needing to touch the screen at any point for a true console experience.",
+            km_modal_f1_title: "Automatic Setup",
+            km_modal_f1_desc: "Seamlessly pairs with COS Launcher in the background with zero complicated configuration.",
+            km_modal_f2_title: "Direct COS HUB Access",
+            km_modal_f2_desc: "Bring up the in-game overlay menu anytime by pressing your assigned controller button.",
+            km_modal_f3_title: "Built for TV & Monitors",
+            km_modal_f3_desc: "Play from your couch with full controller navigation and zero touch-screen dependency.",
+            km_modal_close_btn: "Got it",
+            rescaler_modal_badge: "OFFICIAL UTILITY",
+            rescaler_modal_title: "Conceptual Screen Rescaler",
+            rescaler_modal_subtitle: "16:9 screen rescaling & automatic console dock mode for TVs",
+            rescaler_modal_desc: "An official companion app that rescales your device display to a widescreen <strong>16:9</strong> aspect ratio, allowing games and emulators to run in true full screen <strong>with no black bars</strong> on TVs and external monitors.",
+            rescaler_modal_dock_title: "Smart Automation (Console Dock Mode)",
+            rescaler_modal_dock_desc: "When plugging your video cable (USB-C to HDMI/DisplayPort) into an external TV or monitor, the app <strong>recognizes it automatically</strong>: it adjusts the display to 16:9 and immediately opens <strong>COS Launcher</strong> for an instant home console experience.",
+            rescaler_modal_f1_title: "No Black Bars",
+            rescaler_modal_f1_desc: "Natively adapts your output to widescreen 16:9 displays.",
+            rescaler_modal_f2_title: "Auto Monitor Detection",
+            rescaler_modal_f2_desc: "Plug the cable in and COS Launcher launches right away in dock mode.",
+            rescaler_modal_f3_title: "Instant Restoration",
+            rescaler_modal_f3_desc: "Unplug the cable and your device screen immediately returns to its default resolution.",
+            rescaler_modal_close_btn: "Got it",
             pricing_badge: "TRANSPARENCY & VALUE",
             pricing_title: 'Play Free or Unlock <span class="gradient-text">Full Potential</span>',
             pricing_desc: "COS Launcher is 100% functional and ad-free from day one. If you want unlimited consoles, complete COS HUB Overlay, and advanced profile name customization, unlock it with a one-time micropayment.",
@@ -698,7 +760,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_wallpaper: "Live Wallpaper",
             wp_subtitle: "INTERACTIVE LIVE WALLPAPER",
             wp_title: 'Bring this background to Android with <br><span class="gradient-text">Conceptual Live Wallpaper</span>',
-            wp_desc: "Love the floating particle effect on this page? Enjoy the exact same interactive engine directly on your Android phone's home and lock screen.",
+            wp_desc: "Love the floating particle effect on this page? Enjoy the exact same interactive engine and multiple additional styles with new floating icons directly on your Android phone's home and lock screen.",
             wp_badge_android: "Android Live Wallpaper",
             wp_badge_engine: "Same Particle Engine",
             wp_card1_tag: "MULTICOLOR MODE",
@@ -707,6 +769,20 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_card2_tag: "MONOCHROME MODE",
             wp_card2_title: "Pure Minimalism & AMOLED",
             wp_card2_desc: "Clean and sleek monochrome aesthetic in silver and grayscale, designed for pure black OLED displays and maximum battery savings.",
+            wp_card3_tag: "STARDUST & GALAXY",
+            wp_card3_title: "Stardust & Galaxy",
+            wp_card3_desc: "Cosmic particles featuring glowing stars, sparkles, and deep space stardust floating smoothly across your display.",
+            wp_card4_tag: "TECH & CODE",
+            wp_card4_title: "Tech & Code",
+            wp_card4_desc: "Cyberpunk and coder aesthetic with binary numbers, brackets, lambdas, and floating logical operators.",
+            wp_card5_tag: "MYSTIC RUNES",
+            wp_card5_title: "Mystic Runes",
+            wp_card5_desc: "Ancient Norse runes and ancestral arcane symbols drifting with an ethereal legendary glow.",
+            wp_card6_tag: "KANJIS & BUSHIDO",
+            wp_card6_title: "Kanjis & Bushido",
+            wp_card6_desc: "Japanese kanji characters representing Bushido code virtues and samurai honor in a serene atmosphere.",
+            wp_show_more: "View more styles (6)",
+            wp_show_less: "View fewer styles",
             wp_feat1_title: "Same Particle Engine",
             wp_feat1_desc: "The exact same reactive physics and floating particles you see in the background of this website.",
             wp_feat2_title: "Zero Battery Drain",
@@ -1363,6 +1439,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const openWallpaperLightbox = (card) => {
         if (!wpLightboxModal || !card) return;
         const imgSrc = card.getAttribute('data-wp-img');
+        if (!imgSrc) return;
         currentWpMode = card.getAttribute('data-wp-mode') || 'color';
 
         if (wpLightboxImg) wpLightboxImg.src = imgSrc;
@@ -1579,6 +1656,32 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // 3. Wallpaper Styles Show More / Less Toggle (4 visible by default, 2 collapsible)
+        const wallpaperToggleBtn = document.getElementById('wallpaperToggleBtn');
+        const wallpaperCollapsibles = document.querySelectorAll('.wallpaper-card-collapsible');
+        if (wallpaperToggleBtn && wallpaperCollapsibles.length > 0) {
+            let isExpanded = false;
+            wallpaperToggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                isExpanded = !isExpanded;
+                wallpaperToggleBtn.classList.toggle('is-expanded', isExpanded);
+                wallpaperToggleBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+                wallpaperCollapsibles.forEach(card => card.classList.toggle('expanded', isExpanded));
+                
+                const dict = translations[currentLang] || translations.es;
+                const textSpan = wallpaperToggleBtn.querySelector('.toggle-text');
+                if (textSpan) {
+                    const key = isExpanded ? 'wp_show_less' : 'wp_show_more';
+                    textSpan.setAttribute('data-i18n', key);
+                    textSpan.textContent = dict[key] || (isExpanded ? 'Ver menos estilos' : 'Ver más estilos (6)');
+                }
+                if (!isExpanded) {
+                    document.getElementById('wallpaper')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                if (typeof SFX !== 'undefined') SFX.click1();
+            });
+        }
+
         // 3. FAQ Interactive Accordion
         const faqItems = document.querySelectorAll('.faq-accordion-item');
         if (faqItems.length > 0) {
@@ -1620,7 +1723,90 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // ==========================================================================
+    // Companion Plugin Informative Modals (Key Mapper & Screen Rescaler)
+    // Modal ONLY closes by clicking the upper right 'X' button
+    // ==========================================================================
+    const initPluginInfoModals = () => {
+        const kmModal = document.getElementById('keyMapperModal');
+        const kmOpenBtn = document.getElementById('infoKeyMapperBtn');
+        const kmCloseBtn = document.getElementById('kmInfoCloseBtn');
+
+        const rescalerModal = document.getElementById('screenRescalerModal');
+        const rescalerOpenBtn = document.getElementById('infoRescalerBtn');
+        const rescalerCloseBtn = document.getElementById('rescalerInfoCloseBtn');
+
+        const openModal = (modal) => {
+            if (!modal) return;
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            if (typeof SFX !== 'undefined') SFX.click1();
+        };
+
+        const closeModal = (modal) => {
+            if (!modal || !modal.classList.contains('active')) return;
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (typeof SFX !== 'undefined') SFX.click2();
+        };
+
+        // Key Mapper Listeners
+        if (kmOpenBtn && kmModal) {
+            kmOpenBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(kmModal);
+            });
+        }
+
+        // Modal ONLY closes by clicking the upper right 'X' button
+        if (kmCloseBtn && kmModal) {
+            kmCloseBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                closeModal(kmModal);
+            });
+        }
+
+        // Explicitly prevent clicking on backdrop or card from closing the modal
+        if (kmModal) {
+            kmModal.addEventListener('click', (e) => {
+                if (!e.target.closest('#kmInfoCloseBtn')) {
+                    e.stopPropagation();
+                }
+            });
+        }
+
+        // Screen Rescaler Listeners
+        if (rescalerOpenBtn && rescalerModal) {
+            rescalerOpenBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(rescalerModal);
+            });
+        }
+
+        // Modal ONLY closes by clicking the upper right 'X' button
+        if (rescalerCloseBtn && rescalerModal) {
+            rescalerCloseBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                closeModal(rescalerModal);
+            });
+        }
+
+        // Explicitly prevent clicking on backdrop or card from closing the modal
+        if (rescalerModal) {
+            rescalerModal.addEventListener('click', (e) => {
+                if (!e.target.closest('#rescalerInfoCloseBtn')) {
+                    e.stopPropagation();
+                }
+            });
+        }
+    };
+
     initProgressiveDisclosure();
     setupPluginsDirectDownload();
+    initPluginInfoModals();
 });
 

@@ -987,10 +987,15 @@
                     </div>
 
                     <div class="download-action-group">
-                        <a href="https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Key.Mapper.apk" download="Conceptual.Key.Mapper.apk"
-                            class="btn btn-plugin-dl btn-keymapper-dl btn-block" id="keyMapperDlBtn" aria-label="Descargar Conceptual Key Mapper">
-                            <i class="fa-solid fa-download"></i> <span data-i18n="dl_km_btn">Descargar</span>
-                        </a>
+                        <div class="download-btn-row">
+                            <a href="https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Key.Mapper.apk" download="Conceptual.Key.Mapper.apk"
+                                class="btn btn-plugin-dl btn-keymapper-dl btn-flex" id="keyMapperDlBtn" aria-label="Descargar Conceptual Key Mapper">
+                                <i class="fa-solid fa-download"></i> <span data-i18n="dl_km_btn">Descargar</span>
+                            </a>
+                            <button type="button" class="btn btn-plugin-info btn-km-info" id="infoKeyMapperBtn" aria-label="Información sobre Conceptual Key Mapper" title="¿Cómo funciona Conceptual Key Mapper?">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -1021,10 +1026,15 @@
                     </div>
 
                     <div class="download-action-group">
-                        <a href="https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Screen.Rescaler.apk" download="Conceptual.Screen.Rescaler.apk"
-                            class="btn btn-plugin-dl btn-rescaler-dl btn-block" id="screenRescalerDlBtn" aria-label="Descargar Conceptual Screen Rescaler">
-                            <i class="fa-solid fa-download"></i> <span data-i18n="dl_rescaler_btn">Descargar</span>
-                        </a>
+                        <div class="download-btn-row">
+                            <a href="https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Screen.Rescaler.apk" download="Conceptual.Screen.Rescaler.apk"
+                                class="btn btn-plugin-dl btn-rescaler-dl btn-flex" id="screenRescalerDlBtn" aria-label="Descargar Conceptual Screen Rescaler">
+                                <i class="fa-solid fa-download"></i> <span data-i18n="dl_rescaler_btn">Descargar</span>
+                            </a>
+                            <button type="button" class="btn btn-plugin-info btn-rescaler-info" id="infoRescalerBtn" aria-label="Información sobre Conceptual Screen Rescaler" title="¿Cómo funciona Conceptual Screen Rescaler?">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1102,22 +1112,12 @@
                     <span class="gradient-text">Conceptual Live Wallpaper</span>
                 </h2>
                 <p class="section-description" data-i18n="wp_desc">
-                    ¿Te fascina el efecto de partículas flotantes que ves en esta página? Disfruta del mismo motor interactivo directamente en la pantalla de inicio y bloqueo de tu teléfono Android.
+                    ¿Te fascina el efecto de partículas flotantes que ves en esta página? Disfruta del mismo motor interactivo y varios estilos adicionales con nuevos iconos flotantes directamente en la pantalla de inicio y bloqueo de tu teléfono Android.
                 </p>
             </div>
 
             <!-- Main Wallpaper Showcase Box -->
             <div class="wallpaper-showcase-box glass-card">
-                <!-- Badges Header -->
-                <div class="wallpaper-badge-row">
-                    <span class="wallpaper-pill-badge">
-                        <i class="fa-brands fa-android"></i> <span data-i18n="wp_badge_android">Android Live Wallpaper</span>
-                    </span>
-                    <span class="wallpaper-pill-badge oled-pill">
-                        <i class="fa-solid fa-atom"></i> <span data-i18n="wp_badge_engine">Mismo Motor de Partículas</span>
-                    </span>
-                </div>
-
                 <!-- Showcase Previews Grid (live2.png & live1.jpeg) -->
                 <div class="wallpaper-preview-grid">
                     <!-- Multicolor Mode Card -->
@@ -1179,6 +1179,118 @@
                             </p>
                         </div>
                     </div>
+
+                    <!-- Stardust & Galaxy Card (Visible) -->
+                    <div class="wallpaper-card glass-card" tabindex="0" role="button" aria-label="Estilo Stardust & Galaxy">
+                        <div class="wallpaper-media-wrap wallpaper-placeholder-wrap">
+                            <div class="wallpaper-empty-placeholder">
+                                <div class="placeholder-symbols">★ ✦ ✧ ⁂ ✶ ✸</div>
+                                <span class="placeholder-tag">Captura próximamente</span>
+                            </div>
+                            <div class="wallpaper-overlay">
+                                <span class="wallpaper-mode-tag galaxy-tag" data-i18n="wp_card3_tag">STARDUST & GALAXY</span>
+                            </div>
+                        </div>
+                        <div class="wallpaper-card-content">
+                            <div class="wallpaper-card-header">
+                                <h3 data-i18n="wp_card3_title">Stardust & Galaxy</h3>
+                                <div class="wallpaper-dots-indicator" title="Polvo estelar">
+                                    <span class="color-dot dot-purple" title="Nebulosa"></span>
+                                    <span class="color-dot dot-yellow" title="Estrella"></span>
+                                    <span class="color-dot dot-blue" title="Galaxia"></span>
+                                </div>
+                            </div>
+                            <p data-i18n="wp_card3_desc">
+                                Partículas cósmicas con estrellas, destellos y polvo estelar brillante flotando suavemente sobre el espacio profundo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tech & Code Card (Visible) -->
+                    <div class="wallpaper-card glass-card" tabindex="0" role="button" aria-label="Estilo Tech & Code">
+                        <div class="wallpaper-media-wrap wallpaper-placeholder-wrap">
+                            <div class="wallpaper-empty-placeholder">
+                                <div class="placeholder-symbols">0 1 { } &lt;/&gt; λ ;</div>
+                                <span class="placeholder-tag">Captura próximamente</span>
+                            </div>
+                            <div class="wallpaper-overlay">
+                                <span class="wallpaper-mode-tag code-tag" data-i18n="wp_card4_tag">TECH & CODE</span>
+                            </div>
+                        </div>
+                        <div class="wallpaper-card-content">
+                            <div class="wallpaper-card-header">
+                                <h3 data-i18n="wp_card4_title">Tech & Code</h3>
+                                <div class="wallpaper-dots-indicator" title="Código & lógica">
+                                    <span class="color-dot dot-emerald" title="Terminal"></span>
+                                    <span class="color-dot dot-cyan" title="Sintaxis"></span>
+                                    <span class="color-dot dot-white" title="Binario"></span>
+                                </div>
+                            </div>
+                            <p data-i18n="wp_card4_desc">
+                                Estética cyberpunk y desarrollo con números binarios, llaves de código, lambdas y operadores lógicos flotantes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Mystic Runes Card (Collapsible) -->
+                    <div class="wallpaper-card glass-card wallpaper-card-collapsible" tabindex="0" role="button" aria-label="Estilo Mystic Runes">
+                        <div class="wallpaper-media-wrap wallpaper-placeholder-wrap">
+                            <div class="wallpaper-empty-placeholder">
+                                <div class="placeholder-symbols">ᚠ ᚢ ᚦ ᚨ ᚱ ᛗ</div>
+                                <span class="placeholder-tag">Captura próximamente</span>
+                            </div>
+                            <div class="wallpaper-overlay">
+                                <span class="wallpaper-mode-tag runes-tag" data-i18n="wp_card5_tag">MYSTIC RUNES</span>
+                            </div>
+                        </div>
+                        <div class="wallpaper-card-content">
+                            <div class="wallpaper-card-header">
+                                <h3 data-i18n="wp_card5_title">Mystic Runes</h3>
+                                <div class="wallpaper-dots-indicator" title="Runas antiguas">
+                                    <span class="color-dot dot-blue" title="Arcano"></span>
+                                    <span class="color-dot dot-cyan" title="Runa"></span>
+                                    <span class="color-dot dot-silver" title="Piedra"></span>
+                                </div>
+                            </div>
+                            <p data-i18n="wp_card5_desc">
+                                Antiguas runas nórdicas y símbolos arcanos ancestrales que flotan con un halo místico y legendario.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Kanjis & Bushido Card (Collapsible) -->
+                    <div class="wallpaper-card glass-card wallpaper-card-collapsible" tabindex="0" role="button" aria-label="Estilo Kanjis & Bushido">
+                        <div class="wallpaper-media-wrap wallpaper-placeholder-wrap">
+                            <div class="wallpaper-empty-placeholder">
+                                <div class="placeholder-symbols">義 勇 仁 礼 誠 忠</div>
+                                <span class="placeholder-tag">Captura próximamente</span>
+                            </div>
+                            <div class="wallpaper-overlay">
+                                <span class="wallpaper-mode-tag bushido-tag" data-i18n="wp_card6_tag">KANJIS & BUSHIDO</span>
+                            </div>
+                        </div>
+                        <div class="wallpaper-card-content">
+                            <div class="wallpaper-card-header">
+                                <h3 data-i18n="wp_card6_title">Kanjis & Bushido</h3>
+                                <div class="wallpaper-dots-indicator" title="Bushido">
+                                    <span class="color-dot dot-crimson" title="Honor"></span>
+                                    <span class="color-dot dot-yellow" title="Lealtad"></span>
+                                    <span class="color-dot dot-white" title="Paz"></span>
+                                </div>
+                            </div>
+                            <p data-i18n="wp_card6_desc">
+                                Kanjis de las virtudes del código Bushido y honor samurái flotando en una atmósfera zen y tradicional.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wallpaper Styles Toggle Button (Show More / Less) -->
+                <div class="expand-toggle-wrapper" style="margin: -0.5rem auto 2.5rem auto;">
+                    <button type="button" id="wallpaperToggleBtn" class="btn-expand-toggle" aria-expanded="false">
+                        <span class="toggle-text" data-i18n="wp_show_more">Ver más estilos (6)</span>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
                 </div>
 
                 <!-- Features Highlight Grid -->
@@ -1486,6 +1598,115 @@
                 <div class="wp-lightbox-caption" id="wpLightboxCaption">
                     <p class="wp-lightbox-desc" id="wpLightboxDesc">Modo Multicolor</p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Informative Modal: Conceptual Key Mapper -->
+    <div id="keyMapperModal" class="plugin-info-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Información sobre Conceptual Key Mapper">
+        <div class="plugin-info-modal-card">
+            <button type="button" class="plugin-modal-close" id="kmInfoCloseBtn" aria-label="Cerrar ventana"><i class="fa-solid fa-xmark"></i></button>
+            <div class="plugin-modal-header">
+                <span class="plugin-modal-badge km" data-i18n="km_modal_badge">PLUGIN OFICIAL</span>
+                <div class="plugin-modal-icon-wrap km"><i class="fa-solid fa-gamepad"></i></div>
+                <h3 class="plugin-modal-title" data-i18n="km_modal_title">Conceptual Key Mapper</h3>
+                <p class="plugin-modal-subtitle" data-i18n="km_modal_subtitle">Abre el overlay y controla todo con tu mando sin tocar la pantalla</p>
+            </div>
+            <div class="plugin-modal-body">
+                <div class="plugin-modal-desc-box">
+                    <p data-i18n="km_modal_desc">
+                        Es una extensión oficial diseñada para conectarse automáticamente a <strong>COS Launcher</strong> nada más instalarla. Permite abrir el <strong>COS HUB Overlay</strong> usando únicamente tu control o mando físico, eliminando la necesidad de tocar la pantalla táctil y haciendo que la experiencia de juego sea totalmente con controles.
+                    </p>
+                </div>
+                <div class="plugin-modal-highlight-box km-accent">
+                    <div class="plugin-modal-highlight-title">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span data-i18n="km_modal_f1_title">Conexión Automática</span>
+                    </div>
+                    <p style="margin: 0;" data-i18n="km_modal_f1_desc">
+                        Se vincula de inmediato con COS Launcher en segundo plano sin configuraciones manuales complejas.
+                    </p>
+                </div>
+                <div class="plugin-modal-features-grid">
+                    <div class="plugin-modal-feature-item km">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <div class="plugin-modal-feature-text">
+                            <h5 data-i18n="km_modal_f2_title">Apertura Directa del COS HUB</h5>
+                            <p data-i18n="km_modal_f2_desc">Accede al menú superpuesto en plena partida presionando el botón asignado en tu gamepad.</p>
+                        </div>
+                    </div>
+                    <div class="plugin-modal-feature-item km">
+                        <i class="fa-solid fa-tv"></i>
+                        <div class="plugin-modal-feature-text">
+                            <h5 data-i18n="km_modal_f3_title">Ideal para TV y Monitores</h5>
+                            <p data-i18n="km_modal_f3_desc">Juega cómodamente desde el sofá sin tener que levantarte a tocar la pantalla táctil del dispositivo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="plugin-modal-footer">
+                <a href="https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Key.Mapper.apk" download="Conceptual.Key.Mapper.apk"
+                    class="btn btn-plugin-dl btn-keymapper-dl btn-block" aria-label="Descargar Conceptual Key Mapper">
+                    <i class="fa-solid fa-download"></i> <span data-i18n="dl_km_btn">Descargar APK</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Informative Modal: Conceptual Screen Rescaler -->
+    <div id="screenRescalerModal" class="plugin-info-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Información sobre Conceptual Screen Rescaler">
+        <div class="plugin-info-modal-card rescaler-card">
+            <button type="button" class="plugin-modal-close" id="rescalerInfoCloseBtn" aria-label="Cerrar ventana"><i class="fa-solid fa-xmark"></i></button>
+            <div class="plugin-modal-header">
+                <span class="plugin-modal-badge rescaler" data-i18n="rescaler_modal_badge">UTILIDAD OFICIAL</span>
+                <div class="plugin-modal-icon-wrap rescaler"><i class="fa-solid fa-expand"></i></div>
+                <h3 class="plugin-modal-title" data-i18n="rescaler_modal_title">Conceptual Screen Rescaler</h3>
+                <p class="plugin-modal-subtitle" data-i18n="rescaler_modal_subtitle">Reescalado 16:9 y modo consola automático para TV y monitores</p>
+            </div>
+            <div class="plugin-modal-body">
+                <div class="plugin-modal-desc-box">
+                    <p data-i18n="rescaler_modal_desc">
+                        Es una aplicación oficial que permite cambiar el tamaño y relación de aspecto de la pantalla del dispositivo a <strong>16:9</strong>, logrando que los juegos y emuladores se vean en auténtica pantalla completa <strong>sin franjas negras</strong> en televisores o monitores externos.
+                    </p>
+                </div>
+                <div class="plugin-modal-highlight-box">
+                    <div class="plugin-modal-highlight-title">
+                        <i class="fa-solid fa-plug-circle-bolt"></i>
+                        <span data-i18n="rescaler_modal_dock_title">Automatización Inteligente (Modo Consola)</span>
+                    </div>
+                    <p style="margin: 0;" data-i18n="rescaler_modal_dock_desc">
+                        Al conectar el cable hacia el monitor externo o TV (USB-C a HDMI/DisplayPort), la aplicación <strong>lo reconoce automáticamente</strong>: ajusta la pantalla a 16:9 y abre <strong>COS Launcher</strong> de inmediato para brindarte una experiencia idéntica a una consola de sobremesa.
+                    </p>
+                </div>
+                <div class="plugin-modal-features-grid">
+                    <div class="plugin-modal-feature-item rescaler">
+                        <i class="fa-solid fa-crop-simple"></i>
+                        <div class="plugin-modal-feature-text">
+                            <h5 data-i18n="rescaler_modal_f1_title">Sin Franjas Negras</h5>
+                            <p data-i18n="rescaler_modal_f1_desc">Adapta la imagen a la proporción panorámica nativa de cualquier pantalla externa.</p>
+                        </div>
+                    </div>
+                    <div class="plugin-modal-feature-item rescaler">
+                        <i class="fa-solid fa-display"></i>
+                        <div class="plugin-modal-feature-text">
+                            <h5 data-i18n="rescaler_modal_f2_title">Detección Automática de Monitor</h5>
+                            <p data-i18n="rescaler_modal_f2_desc">Conecta el cable y COS Launcher se inicia al instante en formato consola.</p>
+                        </div>
+                    </div>
+                    <div class="plugin-modal-feature-item rescaler">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <div class="plugin-modal-feature-text">
+                            <h5 data-i18n="rescaler_modal_f3_title">Restauración Instantánea</h5>
+                            <p data-i18n="rescaler_modal_f3_desc">Al desconectar el cable, tu dispositivo vuelve a su resolución y proporción original.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="plugin-modal-footer">
+                <a href="https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Screen.Rescaler.apk" download="Conceptual.Screen.Rescaler.apk"
+                    class="btn btn-plugin-dl btn-rescaler-dl btn-block" aria-label="Descargar Conceptual Screen Rescaler">
+                    <i class="fa-solid fa-download"></i> <span data-i18n="dl_rescaler_btn">Descargar APK</span>
+                </a>
             </div>
         </div>
     </div>
