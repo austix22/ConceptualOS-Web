@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=3.3.1">
+    <link rel="stylesheet" href="styles.css?v=3.3.3">
 </head>
 
 <body class="wp-standalone-page">
@@ -61,11 +61,6 @@
             </nav>
 
             <div class="nav-actions">
-                <a href="https://play.google.com/store/search?q=Conceptual+Live+Wallpaper&c=apps" target="_blank"
-                    rel="noopener noreferrer" class="badge-pill wp-nav-cta-pill" title="Obtener en Google Play">
-                    <i class="fa-brands fa-google-play"></i>
-                    <span class="badge-text" data-i18n="wp_nav_play">Google Play</span>
-                </a>
                 <a href="https://www.youtube.com/@ConceptualOS" target="_blank" rel="noopener noreferrer"
                     class="youtube-nav-pill" id="youtubeNavBtn" title="Canal oficial de YouTube" aria-label="YouTube">
                     <i class="fa-brands fa-youtube"></i>
@@ -89,15 +84,9 @@
     <section class="page-hero-section wp-hero-stage">
         <div class="container wp-hero-container">
             <div class="wp-hero-content">
-                <div class="page-breadcrumb">
-                    <a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
-                    <span>/</span>
-                    <span class="current" data-i18n="wp_badge_android">Conceptual Live Wallpaper</span>
-                </div>
-
                 <div class="badge-pill pulse-glow wp-hero-badge">
                     <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <span data-i18n="wp_subtitle">FONDO ANIMADO INTERACTIVO</span>
+                    <span data-i18n="wp_subtitle">FONDO ANIMADO</span>
                 </div>
 
                 <h1 class="wp-page-title" data-i18n="wp_hero_title">
@@ -494,34 +483,6 @@
         </div>
     </section>
 
-    <!-- Bottom High-Impact Call to Action Box -->
-    <section class="section wp-bottom-cta-section">
-        <div class="container">
-            <div class="wallpaper-cta-box glass-card text-center wp-final-cta-card">
-                <div class="badge-pill mb-2">
-                    <i class="fa-solid fa-star" style="color: #fbbf24;"></i>
-                    <span>Conceptual Live Wallpaper V1.0</span>
-                </div>
-                <h2 class="wp-cta-headline" data-i18n="wp_cta_bottom_title">
-                    ¿Listo para transformar tu pantalla?
-                </h2>
-                <p class="wp-cta-subtext" data-i18n="wp_cta_bottom_desc">
-                    Consigue Conceptual Live Wallpaper en Google Play por solo $1.00 USD (pago único) y dale vida a tu pantalla.
-                </p>
-                <div class="wp-final-cta-buttons">
-                    <a href="https://play.google.com/store/search?q=Conceptual+Live+Wallpaper&c=apps" target="_blank"
-                        rel="noopener noreferrer" class="btn btn-googleplay btn-lg wallpaper-play-btn" id="wpGooglePlayBtn">
-                        <i class="fa-brands fa-google-play"></i>
-                        <span data-i18n="wp_cta_btn">Obtener en Google Play</span>
-                    </a>
-                    <a href="index.html" class="btn btn-glass btn-lg">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <span data-i18n="wp_nav_back">Volver a COS Launcher</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Dedicated Lightbox Modal for Conceptual Live Wallpaper -->
     <div id="wallpaperLightbox" class="gallery-lightbox" aria-hidden="true" role="dialog" aria-label="Visor de fondo animado">
@@ -544,34 +505,30 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container footer-container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <a href="index.html" class="brand-logo">
-                        <img src="app_icon.png" alt="Logotipo de COS Launcher" class="brand-app-icon">
-                        <div class="brand-text">
-                            <span class="brand-title brand-title-white">COS LAUNCHER</span>
-                        </div>
+            <div class="footer-legal">
+                <p data-i18n="footer_rights">&copy; 2026 COS Launcher. Todos los derechos reservados.</p>
+                <p class="footer-contact-line">
+                    <span data-i18n="footer_contact_text">Contacto y Soporte:</span>
+                    <a href="mailto:conceptualos.dev@gmail.com" class="footer-email-link">
+                        <i class="fa-solid fa-envelope"></i> conceptualos.dev@gmail.com
                     </a>
-                    <p class="footer-tagline" data-i18n="footer_tagline">
-                        Ecosistema conceptual para juegos y personalización en Android.
-                    </p>
-                </div>
-                <div class="footer-links-group">
-                    <a href="index.html" data-i18n="wp_nav_back">Inicio COS Launcher</a>
-                    <a href="index.html#download" data-i18n="nav_download">Descargas COS</a>
-                    <a href="https://play.google.com/store/search?q=Conceptual+Live+Wallpaper&c=apps" target="_blank"
-                        rel="noopener noreferrer">Google Play Store</a>
-                    <a href="index.html#kofi" data-i18n="nav_kofi">Apoyar en Ko-fi</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 ConceptualOS. Desarrollado con pasión para la comunidad gamer retro y Android.</p>
+                </p>
+                <p class="footer-author-line">
+                    <span data-i18n="footer_dev_text">Desarrollado por</span>
+                    <span class="author-name">Austin González</span>
+                    <svg class="inline-flag" width="20" height="13" viewBox="0 0 6 4" xmlns="http://www.w3.org/2000/svg"
+                        title="Costa Rica">
+                        <rect width="6" height="4" fill="#002B7F" />
+                        <rect y="0.667" width="6" height="2.667" fill="#FFFFFF" />
+                        <rect y="1.333" width="6" height="1.333" fill="#CE1126" />
+                    </svg>
+                </p>
             </div>
         </div>
     </footer>
 
     <!-- Custom Script -->
-    <script src="script.js?v=2.9.9"></script>
+    <script src="script.js?v=3.0.1"></script>
 
     <!-- Interactive Phone Mockup Switcher Script -->
     <script>
