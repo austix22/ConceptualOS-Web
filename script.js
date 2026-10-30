@@ -524,7 +524,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_card6_tag: "KANJIS & BUSHIDO",
             wp_card6_title: "Kanjis & Bushido",
             wp_card6_desc: "Kanjis de las virtudes del código Bushido y honor samurái flotando con resplandor en rojo y blanco sobre fondos oscuros.",
-            wp_show_more: "Ver más estilos (6)",
+            wp_show_more: "Ver más estilos (4)",
             wp_show_less: "Ver menos estilos",
             wp_feat1_title: "Mismo Motor de Partículas",
             wp_feat1_desc: "La misma física reactiva y partículas suaves que estás viendo en el fondo de este sitio web.",
@@ -781,7 +781,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_card6_tag: "KANJIS & BUSHIDO",
             wp_card6_title: "Kanjis & Bushido",
             wp_card6_desc: "Japanese kanji characters representing Bushido code virtues and samurai honor glowing in red and white over dark backgrounds.",
-            wp_show_more: "View more styles (6)",
+            wp_show_more: "View more styles (4)",
             wp_show_less: "View fewer styles",
             wp_feat1_title: "Same Particle Engine",
             wp_feat1_desc: "The exact same reactive physics and floating particles you see in the background of this website.",
@@ -1646,7 +1646,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (textSpan) {
                     const key = isExpanded ? 'wp_show_less' : 'wp_show_more';
                     textSpan.setAttribute('data-i18n', key);
-                    textSpan.textContent = dict[key] || (isExpanded ? 'Ver menos estilos' : 'Ver más estilos (6)');
+                    textSpan.textContent = dict[key] || (isExpanded ? 'Ver menos estilos' : 'Ver más estilos (4)');
                 }
                 if (!isExpanded) {
                     document.getElementById('wallpaper')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
