@@ -1606,34 +1606,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Progressive Disclosure (Show More / Less) & Interactive FAQ Accordion
     // ==========================================================================
     const initProgressiveDisclosure = () => {
-        // 1. Features Show More / Less Toggle (Show 3 key features + 6 collapsible)
-        const featuresToggleBtn = document.getElementById('featuresToggleBtn');
-        const featureCollapsibles = document.querySelectorAll('.feature-card-collapsible');
-        if (featuresToggleBtn && featureCollapsibles.length > 0) {
-            let isExpanded = false;
-            featuresToggleBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                isExpanded = !isExpanded;
-                featuresToggleBtn.classList.toggle('is-expanded', isExpanded);
-                featuresToggleBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-                featureCollapsibles.forEach(card => card.classList.toggle('expanded', isExpanded));
-
-                const dict = translations[currentLang] || translations.es;
-                const textSpan = featuresToggleBtn.querySelector('.toggle-text');
-                if (textSpan) {
-                    const key = isExpanded ? 'features_show_less' : 'features_show_more';
-                    textSpan.setAttribute('data-i18n', key);
-                    textSpan.textContent = dict[key] || (isExpanded ? 'Ocultar funciones' : 'Ver más funciones (6)');
-                }
-                if (!isExpanded) {
-                    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-                if (typeof SFX !== 'undefined') SFX.click1();
-            });
-        }
-
-
-        // 2. Gallery Show More / Less Toggle
+        // 1. Gallery Show More / Less Toggle
         const galleryToggleBtn = document.getElementById('galleryToggleBtn');
         const galleryCollapsibles = document.querySelectorAll('.gallery-card-collapsible');
         if (galleryToggleBtn && galleryCollapsibles.length > 0) {

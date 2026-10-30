@@ -1114,13 +1114,11 @@ h1, h2, h3, h4, span, p, a, button {
 
 
 
-.feature-card-collapsible,
 .gallery-card-collapsible,
 .wallpaper-card-collapsible {
     display: none !important;
 }
 
-.feature-card-collapsible.expanded,
 .gallery-card-collapsible.expanded,
 .wallpaper-card-collapsible.expanded {
     display: flex !important;
