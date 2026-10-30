@@ -504,7 +504,7 @@ h1, h2, h3, h4, span, p, a, button {
 
 .hero-container {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 1fr 1.15fr;
     gap: 3rem;
     align-items: center;
 }
@@ -723,47 +723,19 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .hero-device-bezel {
-    border-radius: 16px;
+    border-radius: 18px;
     overflow: hidden;
     background: #000;
     display: flex;
     flex-direction: column;
-}
-
-.hero-bezel-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.7rem 1.15rem;
-    background: rgba(10, 12, 22, 0.95);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.hero-bezel-tag {
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    color: var(--moondust-cyan);
-    text-transform: uppercase;
-}
-
-.hero-bezel-badge {
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.8);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-}
-
-.hero-bezel-badge i {
-    color: var(--moondust-purple);
+    border: 2px solid rgba(211, 211, 255, 0.22);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), 0 8px 25px rgba(0, 0, 0, 0.5);
 }
 
 .hero-media-wrap {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3120 / 1440;
     overflow: hidden;
     background: #000;
 }
@@ -772,12 +744,13 @@ h1, h2, h3, h4, span, p, a, button {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-screenshot-card:hover .hero-screen-img {
-    transform: scale(1.03);
+    transform: scale(1.025);
 }
 
 .hero-screen-overlay {
