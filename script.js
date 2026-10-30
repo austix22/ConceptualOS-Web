@@ -1006,6 +1006,9 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDndSubText();
         updateLightboxContent();
         updateWpLightboxTexts();
+        if (window.COS_WallpaperController && typeof window.COS_WallpaperController.updateAllSubtitles === 'function') {
+            window.COS_WallpaperController.updateAllSubtitles();
+        }
         const sysNoteInput = document.getElementById('sysNoteInput');
         if (sysNoteInput) {
             sysNoteInput.placeholder = lang === 'en' ? 'Write a note...' : 'Escribe una nota...';

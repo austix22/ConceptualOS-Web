@@ -607,7 +607,7 @@
         }
 
         updateAllSubtitles() {
-            const isEs = (document.documentElement.lang || 'es').startsWith('es');
+            const isEs = (document.documentElement.lang || 'en').startsWith('es');
 
             // 1. Estilo
             if (this.subStyle) {

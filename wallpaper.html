@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -43,8 +43,8 @@
     <header class="navbar">
         <div class="nav-container">
             <!-- Brand Logo linking back to Home -->
-            <a href="index.html" class="brand-logo" title="Volver al inicio de COS Launcher">
-                <img src="app_icon.png" alt="Logotipo de COS Launcher" class="brand-app-icon">
+            <a href="index.html" class="brand-logo" title="Back to COS Launcher home">
+                <img src="app_icon.png" alt="COS Launcher Logo" class="brand-app-icon">
                 <div class="brand-text">
                     <span class="brand-title brand-title-white">COS LAUNCHER</span>
                 </div>
@@ -53,26 +53,26 @@
             <!-- Nav Links Capsule Container -->
             <nav class="nav-links nav-capsule">
                 <a href="index.html" class="nav-item-pill nav-back-pill" data-i18n="wp_nav_back">
-                    <i class="fa-solid fa-arrow-left"></i> Inicio COS
+                    <i class="fa-solid fa-arrow-left"></i> COS Home
                 </a>
-                <a href="#estilos" class="nav-item-pill" data-i18n="wp_nav_styles">Estilos</a>
-                <a href="#caracteristicas" class="nav-item-pill" data-i18n="wp_nav_features">Rendimiento</a>
+                <a href="#estilos" class="nav-item-pill" data-i18n="wp_nav_styles">Styles</a>
+                <a href="#caracteristicas" class="nav-item-pill" data-i18n="wp_nav_features">Performance</a>
             </nav>
 
             <div class="nav-actions">
                 <a href="https://www.youtube.com/@ConceptualOS" target="_blank" rel="noopener noreferrer"
-                    class="youtube-nav-pill" id="youtubeNavBtn" title="Canal oficial de YouTube" aria-label="YouTube">
+                    class="youtube-nav-pill" id="youtubeNavBtn" title="Official YouTube Channel" aria-label="YouTube">
                     <i class="fa-brands fa-youtube"></i>
                 </a>
-                <a href="index.html#kofi" class="kofi-nav-pill" id="kofiNavBtn" title="Apoyar en Ko-fi" aria-label="Ko-fi">
+                <a href="index.html#kofi" class="kofi-nav-pill" id="kofiNavBtn" title="Support on Ko-fi" aria-label="Ko-fi">
                     <i class="fa-solid fa-mug-hot"></i>
                 </a>
                 <div class="badge-pill lang-toggle-pill" id="langToggleBtn" role="button" tabindex="0"
-                    title="Cambiar idioma / Change language">
+                    title="Change language / Cambiar idioma">
                     <i class="fa-solid fa-globe"></i>
-                    <span class="badge-text" id="langText">EN</span>
+                    <span class="badge-text" id="langText">ES</span>
                 </div>
-                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir Menú">
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Open Menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
@@ -84,11 +84,11 @@
         <div class="container wp-hero-container">
             <div class="wp-hero-content">
                 <h1 class="wp-page-title" data-i18n="wp_hero_title">
-                    Tu pantalla cobra vida con&nbsp;<span class="gradient-text">Conceptual Live Wallpaper</span>
+                    Bring your screen to life with&nbsp;<span class="gradient-text">Conceptual Live Wallpaper</span>
                 </h1>
 
                 <p class="wp-page-desc" data-i18n="wp_hero_subtitle">
-                    Lleva la física reactiva y partículas fluidas de esta web directamente a tu pantalla Android. Personaliza tu teléfono o tablet con 6 estilos visuales exclusivos, desde gamer y estética matrix hasta runas y kanjis, con paletas de color a medida y un consumo de batería prácticamente nulo.
+                    Bring the reactive physics and fluid particles of this website directly to your Android screen. Customize your phone or tablet with 6 exclusive visual styles, from gamer and matrix themes to runes and kanjis, featuring tailored color palettes and near-zero battery drain.
                 </p>
 
                 <!-- Hero Action Buttons -->
@@ -97,7 +97,7 @@
                         rel="noopener noreferrer" class="btn btn-googleplay btn-lg wallpaper-play-btn wp-hero-cta"
                         id="wpGooglePlayBtnHero">
                         <i class="fa-brands fa-google-play"></i>
-                        <span data-i18n="wp_cta_btn">Obtener en Google Play</span>
+                        <span data-i18n="wp_cta_btn">Get on Google Play</span>
                     </a>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                         <div class="wp-phone-screen" id="wpPhoneScreen">
                             <!-- Native Particle Engine Canvas (Exact Port of Android AmbientParticleEngine.kt) -->
                             <canvas id="wpPhoneCanvas" class="wp-phone-canvas"></canvas>
-                            <img src="img/live2.png" alt="Conceptual Live Wallpaper en pantalla de smartphone"
+                            <img src="img/live2.png" alt="Conceptual Live Wallpaper smartphone screen"
                                 id="wpPhoneImg" class="wp-phone-img" style="display: none;" loading="eager">
 
                             <!-- Floating Phone Status Bar on Top -->
@@ -130,9 +130,9 @@
                     </div>
 
                     <!-- Config Trigger Button Below Phone -->
-                    <button type="button" class="wp-config-action-btn" id="openWpConfigModalBtn" aria-label="Configurar fondo animado">
+                    <button type="button" class="wp-config-action-btn" id="openWpConfigModalBtn" aria-label="Configure live wallpaper">
                         <i class="fa-solid fa-sliders"></i>
-                        <span data-i18n="wp_config_btn">Configurar</span>
+                        <span data-i18n="wp_config_btn">Configure</span>
                     </button>
                 </div>
             </div>
@@ -143,12 +143,12 @@
     <section id="estilos" class="section wallpaper-section wp-styles-section">
         <div class="container">
             <div class="section-header text-center">
-                <span class="section-subtitle" data-i18n="wp_styles_subtitle">COLECCIÓN DE TEMAS</span>
+                <span class="section-subtitle" data-i18n="wp_styles_subtitle">THEME COLLECTION</span>
                 <h2 class="section-title" data-i18n="wp_styles_title">
-                    6 Estilos y Paletas <span class="gradient-text">Únicas</span>
+                    6 Unique Styles & <span class="gradient-text">Palettes</span>
                 </h2>
                 <p class="section-description" data-i18n="wp_styles_desc">
-                    Elige entre múltiples variantes estéticas. Cada una cuenta con símbolos exclusivos y paletas diseñadas para cualquier tipo de pantalla.
+                    Choose from multiple visual variants. Each one features exclusive symbols and color palettes designed for any screen.
                 </p>
             </div>
 
@@ -157,149 +157,149 @@
                 <div class="wallpaper-preview-grid wp-grid-6">
 
                     <!-- 1. Multicolor Mode Card -->
-                    <div class="wallpaper-card glass-card" data-wp-style="gamer" data-wp-img="img/live2.png" data-wp-mode="color" tabindex="0" role="button" aria-label="Ampliar captura del modo multicolor">
+                    <div class="wallpaper-card glass-card" data-wp-style="gamer" data-wp-img="img/live2.png" data-wp-mode="color" tabindex="0" role="button" aria-label="Expand multicolor mode capture">
                         <div class="wallpaper-media-wrap">
-                            <img src="img/live2.png" alt="Conceptual Live Wallpaper - Modo Color Clásico" class="wallpaper-img" loading="lazy">
+                            <img src="img/live2.png" alt="Conceptual Live Wallpaper - Classic Multicolor Mode" class="wallpaper-img" loading="lazy">
                             <div class="wallpaper-overlay">
-                                <span class="wallpaper-mode-tag color-tag" style="color: #fbbf24; border-color: rgba(245, 158, 11, 0.65); background: rgba(28, 20, 10, 0.92); box-shadow: 0 0 12px rgba(245, 158, 11, 0.35); text-shadow: 0 0 8px rgba(245, 158, 11, 0.4);" data-i18n="wp_card1_tag">MODO MULTICOLOR</span>
+                                <span class="wallpaper-mode-tag color-tag" style="color: #fbbf24; border-color: rgba(245, 158, 11, 0.65); background: rgba(28, 20, 10, 0.92); box-shadow: 0 0 12px rgba(245, 158, 11, 0.35); text-shadow: 0 0 8px rgba(245, 158, 11, 0.4);" data-i18n="wp_card1_tag">MULTICOLOR MODE</span>
                             </div>
                             <div class="gallery-overlay">
                                 <span class="gallery-zoom-btn">
                                     <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                    <span data-i18n="gallery_zoom_hint">Ampliar captura</span>
+                                    <span data-i18n="gallery_zoom_hint">Expand screenshot</span>
                                 </span>
                             </div>
                         </div>
                         <div class="wallpaper-card-content">
                             <div class="wallpaper-card-header">
-                                <h3 data-i18n="wp_card1_title">Paleta Gamer Multicolor</h3>
-                                <div class="wallpaper-dots-indicator" title="Colores retro">
-                                    <span class="color-dot dot-green" style="background-color: #00e676; box-shadow: 0 0 6px #00e676;" title="A / Triángulo"></span>
-                                    <span class="color-dot dot-red" style="background-color: #ff5f56; box-shadow: 0 0 6px #ff5f56;" title="B / Círculo"></span>
-                                    <span class="color-dot dot-blue" style="background-color: #3b82f6; box-shadow: 0 0 6px #3b82f6;" title="X / Cruz"></span>
+                                <h3 data-i18n="wp_card1_title">Classic Gamer Multicolor</h3>
+                                <div class="wallpaper-dots-indicator" title="Retro colors">
+                                    <span class="color-dot dot-green" style="background-color: #00e676; box-shadow: 0 0 6px #00e676;" title="A / Triangle"></span>
+                                    <span class="color-dot dot-red" style="background-color: #ff5f56; box-shadow: 0 0 6px #ff5f56;" title="B / Circle"></span>
+                                    <span class="color-dot dot-blue" style="background-color: #3b82f6; box-shadow: 0 0 6px #3b82f6;" title="X / Cross"></span>
                                     <span class="color-dot dot-yellow" style="background-color: #f59e0b; box-shadow: 0 0 6px #f59e0b;" title="Y"></span>
-                                    <span class="color-dot dot-pink" style="background-color: #ec4899; box-shadow: 0 0 6px #ec4899;" title="Cuadrado"></span>
+                                    <span class="color-dot dot-pink" style="background-color: #ec4899; box-shadow: 0 0 6px #ec4899;" title="Square"></span>
                                 </div>
                             </div>
                             <p data-i18n="wp_card1_desc">
-                                Los clásicos símbolos flotando con sus colores icónicos retro sobre fondos oscuros personalizables.
+                                Classic symbols floating with their iconic retro colors on customizable dark backgrounds.
                             </p>
                         </div>
                     </div>
 
                     <!-- 2. Monochrome Mode Card -->
-                    <div class="wallpaper-card glass-card" data-wp-style="gamer" data-wp-img="img/live1.jpeg" data-wp-mode="mono" tabindex="0" role="button" aria-label="Ampliar captura del modo monocromo">
+                    <div class="wallpaper-card glass-card" data-wp-style="gamer" data-wp-img="img/live1.jpeg" data-wp-mode="mono" tabindex="0" role="button" aria-label="Expand monochrome mode capture">
                         <div class="wallpaper-media-wrap">
-                            <img src="img/live1.jpeg" alt="Conceptual Live Wallpaper - Modo Monocromo Minimalista" class="wallpaper-img" loading="lazy">
+                            <img src="img/live1.jpeg" alt="Conceptual Live Wallpaper - Minimalist Monochrome Mode" class="wallpaper-img" loading="lazy">
                             <div class="wallpaper-overlay">
-                                <span class="wallpaper-mode-tag mono-tag" style="color: #f8fafc; border-color: rgba(211, 211, 255, 0.5); background: rgba(18, 20, 32, 0.92); box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);" data-i18n="wp_card2_tag">MODO MONOCROMO</span>
+                                <span class="wallpaper-mode-tag mono-tag" style="color: #f8fafc; border-color: rgba(211, 211, 255, 0.5); background: rgba(18, 20, 32, 0.92); box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);" data-i18n="wp_card2_tag">MONOCHROME MODE</span>
                             </div>
                             <div class="gallery-overlay">
                                 <span class="gallery-zoom-btn">
                                     <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                    <span data-i18n="gallery_zoom_hint">Ampliar captura</span>
+                                    <span data-i18n="gallery_zoom_hint">Expand screenshot</span>
                                 </span>
                             </div>
                         </div>
                         <div class="wallpaper-card-content">
                             <div class="wallpaper-card-header">
-                                <h3 data-i18n="wp_card2_title">Minimalismo Puro & AMOLED</h3>
-                                <div class="wallpaper-dots-indicator" title="Monocromo">
-                                    <span class="color-dot dot-white" style="background-color: #ffffff; box-shadow: 0 0 7px #ffffff;" title="Blanco puro"></span>
-                                    <span class="color-dot dot-silver" style="background-color: #cbd5e1; box-shadow: 0 0 5px #cbd5e1;" title="Plata suave"></span>
-                                    <span class="color-dot dot-dim" style="background-color: #64748b; box-shadow: 0 0 5px #64748b;" title="Gris sideral"></span>
+                                <h3 data-i18n="wp_card2_title">Pure Minimalism & AMOLED</h3>
+                                <div class="wallpaper-dots-indicator" title="Monochrome">
+                                    <span class="color-dot dot-white" style="background-color: #ffffff; box-shadow: 0 0 7px #ffffff;" title="Pure white"></span>
+                                    <span class="color-dot dot-silver" style="background-color: #cbd5e1; box-shadow: 0 0 5px #cbd5e1;" title="Soft silver"></span>
+                                    <span class="color-dot dot-dim" style="background-color: #64748b; box-shadow: 0 0 5px #64748b;" title="Space gray"></span>
                                 </div>
                             </div>
                             <p data-i18n="wp_card2_desc">
-                                Estilo monocromático limpio y elegante en escala de grises y plata, diseñado para fondos negros puros y máximo ahorro de energía.
+                                Clean and sleek monochrome aesthetic in silver and grayscale, designed for pure black OLED displays and maximum battery savings.
                             </p>
                         </div>
                     </div>
 
                     <!-- 3. Cosmic Particles Card -->
-                    <div class="wallpaper-card glass-card" data-wp-style="stardust" tabindex="0" role="button" aria-label="Estilo Partículas Cósmicas">
+                    <div class="wallpaper-card glass-card" data-wp-style="stardust" tabindex="0" role="button" aria-label="Cosmic Particles Style">
                         <div class="wallpaper-media-wrap wallpaper-placeholder-wrap">
                             <div class="wallpaper-empty-placeholder">
                                 <div class="placeholder-symbols">★ ✦ ✧ ⁂ ✶ ✸</div>
-                                <span class="placeholder-tag">Captura próximamente</span>
+                                <span class="placeholder-tag">Capture coming soon</span>
                             </div>
                             <div class="wallpaper-overlay">
-                                <span class="wallpaper-mode-tag galaxy-tag" style="color: #e879f9; border-color: rgba(232, 121, 249, 0.6); background: rgba(24, 12, 36, 0.92); box-shadow: 0 0 12px rgba(232, 121, 249, 0.35); text-shadow: 0 0 8px rgba(232, 121, 249, 0.45);" data-i18n="wp_card3_tag">PARTÍCULAS CÓSMICAS</span>
+                                <span class="wallpaper-mode-tag galaxy-tag" style="color: #e879f9; border-color: rgba(232, 121, 249, 0.6); background: rgba(24, 12, 36, 0.92); box-shadow: 0 0 12px rgba(232, 121, 249, 0.35); text-shadow: 0 0 8px rgba(232, 121, 249, 0.45);" data-i18n="wp_card3_tag">COSMIC PARTICLES</span>
                             </div>
                         </div>
                         <div class="wallpaper-card-content">
                             <div class="wallpaper-card-header">
-                                <h3 data-i18n="wp_card3_title">Partículas Cósmicas</h3>
-                                <div class="wallpaper-dots-indicator" title="Tonos Cósmicos">
-                                    <span class="color-dot dot-cosmic-light" style="background-color: #e879f9; box-shadow: 0 0 8px #e879f9;" title="Nebulosa lila"></span>
-                                    <span class="color-dot dot-cosmic-mid" style="background-color: #a855f7; box-shadow: 0 0 7px #a855f7;" title="Violeta cósmico"></span>
-                                    <span class="color-dot dot-cosmic-dark" style="background-color: #6366f1; box-shadow: 0 0 7px #6366f1;" title="Índigo galáctico"></span>
+                                <h3 data-i18n="wp_card3_title">Cosmic Particles</h3>
+                                <div class="wallpaper-dots-indicator" title="Cosmic Tones">
+                                    <span class="color-dot dot-cosmic-light" style="background-color: #e879f9; box-shadow: 0 0 8px #e879f9;" title="Lilac nebula"></span>
+                                    <span class="color-dot dot-cosmic-mid" style="background-color: #a855f7; box-shadow: 0 0 7px #a855f7;" title="Cosmic violet"></span>
+                                    <span class="color-dot dot-cosmic-dark" style="background-color: #6366f1; box-shadow: 0 0 7px #6366f1;" title="Galactic indigo"></span>
                                 </div>
                             </div>
                             <p data-i18n="wp_card3_desc">
-                                Partículas cósmicas con estrellas, destellos y polvo estelar brillante flotando suavemente sobre el espacio profundo.
+                                Cosmic particles featuring glowing stars, sparkles, and deep space stardust floating smoothly across your display.
                             </p>
                         </div>
                     </div>
 
                     <!-- 4. Code Card -->
-                    <div class="wallpaper-card glass-card" data-wp-style="code" tabindex="0" role="button" aria-label="Estilo Código">
+                    <div class="wallpaper-card glass-card" data-wp-style="code" tabindex="0" role="button" aria-label="Code Style">
                         <div class="wallpaper-media-wrap wallpaper-placeholder-wrap">
                             <div class="wallpaper-empty-placeholder">
                                 <div class="placeholder-symbols">0 1 { } &lt;/&gt; λ ;</div>
-                                <span class="placeholder-tag">Captura próximamente</span>
+                                <span class="placeholder-tag">Capture coming soon</span>
                             </div>
                             <div class="wallpaper-overlay">
-                                <span class="wallpaper-mode-tag code-tag" style="color: #00ff66; border-color: rgba(0, 255, 102, 0.6); background: rgba(4, 24, 14, 0.92); box-shadow: 0 0 12px rgba(0, 255, 102, 0.35); text-shadow: 0 0 8px rgba(0, 255, 102, 0.45);" data-i18n="wp_card4_tag">CÓDIGO</span>
+                                <span class="wallpaper-mode-tag code-tag" style="color: #00ff66; border-color: rgba(0, 255, 102, 0.6); background: rgba(4, 24, 14, 0.92); box-shadow: 0 0 12px rgba(0, 255, 102, 0.35); text-shadow: 0 0 8px rgba(0, 255, 102, 0.45);" data-i18n="wp_card4_tag">CODE</span>
                             </div>
                         </div>
                         <div class="wallpaper-card-content">
                             <div class="wallpaper-card-header">
-                                <h3 data-i18n="wp_card4_title">Código</h3>
-                                <div class="wallpaper-dots-indicator" title="Tonos Matrix">
-                                    <span class="color-dot dot-matrix-light" style="background-color: #00ff66; box-shadow: 0 0 8px #00ff66;" title="Matrix Neón"></span>
-                                    <span class="color-dot dot-matrix-mid" style="background-color: #10b981; box-shadow: 0 0 7px #10b981;" title="Matrix Clásico"></span>
-                                    <span class="color-dot dot-matrix-dark" style="background-color: #22c55e; box-shadow: 0 0 7px #22c55e;" title="Matrix Oscuro"></span>
+                                <h3 data-i18n="wp_card4_title">Code</h3>
+                                <div class="wallpaper-dots-indicator" title="Matrix Tones">
+                                    <span class="color-dot dot-matrix-light" style="background-color: #00ff66; box-shadow: 0 0 8px #00ff66;" title="Matrix Neon"></span>
+                                    <span class="color-dot dot-matrix-mid" style="background-color: #10b981; box-shadow: 0 0 7px #10b981;" title="Matrix Classic"></span>
+                                    <span class="color-dot dot-matrix-dark" style="background-color: #22c55e; box-shadow: 0 0 7px #22c55e;" title="Matrix Dark"></span>
                                 </div>
                             </div>
                             <p data-i18n="wp_card4_desc">
-                                Inspirado en la lluvia digital y la programación, con números binarios, llaves de código, lambdas y operadores lógicos flotantes.
+                                Inspired by digital rain and programming, featuring binary numbers, code brackets, lambdas, and floating logical operators.
                             </p>
                         </div>
                     </div>
 
                     <!-- 5. Runes Card -->
-                    <div class="wallpaper-card glass-card" data-wp-style="runes" tabindex="0" role="button" aria-label="Estilo Runas">
+                    <div class="wallpaper-card glass-card" data-wp-style="runes" tabindex="0" role="button" aria-label="Runes Style">
                         <div class="wallpaper-media-wrap wallpaper-placeholder-wrap">
                             <div class="wallpaper-empty-placeholder">
                                 <div class="placeholder-symbols">ᚠ ᚢ ᚦ ᚨ ᚱ ᛗ</div>
-                                <span class="placeholder-tag">Captura próximamente</span>
+                                <span class="placeholder-tag">Capture coming soon</span>
                             </div>
                             <div class="wallpaper-overlay">
-                                <span class="wallpaper-mode-tag runes-tag" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.6); background: rgba(8, 22, 38, 0.92); box-shadow: 0 0 12px rgba(56, 189, 248, 0.35); text-shadow: 0 0 8px rgba(56, 189, 248, 0.45);" data-i18n="wp_card5_tag">RUNAS</span>
+                                <span class="wallpaper-mode-tag runes-tag" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.6); background: rgba(8, 22, 38, 0.92); box-shadow: 0 0 12px rgba(56, 189, 248, 0.35); text-shadow: 0 0 8px rgba(56, 189, 248, 0.45);" data-i18n="wp_card5_tag">RUNES</span>
                             </div>
                         </div>
                         <div class="wallpaper-card-content">
                             <div class="wallpaper-card-header">
-                                <h3 data-i18n="wp_card5_title">Runas</h3>
-                                <div class="wallpaper-dots-indicator" title="Colores rúnicos">
-                                    <span class="color-dot dot-runic-light" style="background-color: #38bdf8; box-shadow: 0 0 8px #38bdf8;" title="Brillo arcano"></span>
-                                    <span class="color-dot dot-runic-mid" style="background-color: #0284c7; box-shadow: 0 0 7px #0284c7;" title="Magia nórdica"></span>
-                                    <span class="color-dot dot-runic-stone" style="background-color: #e2e8f0; box-shadow: 0 0 6px #e2e8f0;" title="Piedra ancestral"></span>
+                                <h3 data-i18n="wp_card5_title">Runes</h3>
+                                <div class="wallpaper-dots-indicator" title="Runic colors">
+                                    <span class="color-dot dot-runic-light" style="background-color: #38bdf8; box-shadow: 0 0 8px #38bdf8;" title="Arcane glow"></span>
+                                    <span class="color-dot dot-runic-mid" style="background-color: #0284c7; box-shadow: 0 0 7px #0284c7;" title="Nordic magic"></span>
+                                    <span class="color-dot dot-runic-stone" style="background-color: #e2e8f0; box-shadow: 0 0 6px #e2e8f0;" title="Ancestral stone"></span>
                                 </div>
                             </div>
                             <p data-i18n="wp_card5_desc">
-                                Antiguas runas nórdicas y símbolos arcanos ancestrales que flotan con un halo místico y legendario.
+                                Ancient Norse runes and ancestral arcane symbols drifting with an ethereal legendary glow.
                             </p>
                         </div>
                     </div>
 
                     <!-- 6. Kanjis & Bushido Card -->
-                    <div class="wallpaper-card glass-card" data-wp-style="kanji" tabindex="0" role="button" aria-label="Estilo Kanjis & Bushido">
+                    <div class="wallpaper-card glass-card" data-wp-style="kanji" tabindex="0" role="button" aria-label="Kanjis & Bushido Style">
                         <div class="wallpaper-media-wrap wallpaper-placeholder-wrap">
                             <div class="wallpaper-empty-placeholder">
                                 <div class="placeholder-symbols">義 勇 仁 礼 誠 忠</div>
-                                <span class="placeholder-tag">Captura próximamente</span>
+                                <span class="placeholder-tag">Capture coming soon</span>
                             </div>
                             <div class="wallpaper-overlay">
                                 <span class="wallpaper-mode-tag bushido-tag" style="color: #ff2a4b; border-color: rgba(255, 42, 75, 0.6); background: rgba(36, 10, 16, 0.92); box-shadow: 0 0 12px rgba(255, 42, 75, 0.35); text-shadow: 0 0 8px rgba(255, 42, 75, 0.45);" data-i18n="wp_card6_tag">KANJIS & BUSHIDO</span>
@@ -308,14 +308,14 @@
                         <div class="wallpaper-card-content">
                             <div class="wallpaper-card-header">
                                 <h3 data-i18n="wp_card6_title">Kanjis & Bushido</h3>
-                                <div class="wallpaper-dots-indicator" title="Tonos Rojos Bushido">
-                                    <span class="color-dot dot-bushido-light" style="background-color: #ff5a79; box-shadow: 0 0 8px #ff5a79;" title="Rojo claro / neón"></span>
-                                    <span class="color-dot dot-bushido-mid" style="background-color: #ff1e42; box-shadow: 0 0 8px #ff1e42;" title="Rojo carmesí"></span>
-                                    <span class="color-dot dot-bushido-dark" style="background-color: #be123c; box-shadow: 0 0 7px #be123c;" title="Rojo oscuro rubí"></span>
+                                <div class="wallpaper-dots-indicator" title="Bushido Red Tones">
+                                    <span class="color-dot dot-bushido-light" style="background-color: #ff5a79; box-shadow: 0 0 8px #ff5a79;" title="Light / neon red"></span>
+                                    <span class="color-dot dot-bushido-mid" style="background-color: #ff1e42; box-shadow: 0 0 8px #ff1e42;" title="Crimson red"></span>
+                                    <span class="color-dot dot-bushido-dark" style="background-color: #be123c; box-shadow: 0 0 7px #be123c;" title="Dark ruby red"></span>
                                 </div>
                             </div>
                             <p data-i18n="wp_card6_desc">
-                                Kanjis de las virtudes del código Bushido y honor samurái flotando con resplandor en tonos rojos sobre fondos oscuros.
+                                Japanese kanji characters representing Bushido code virtues and samurai honor glowing in red tones over dark backgrounds.
                             </p>
                         </div>
                     </div>
@@ -329,12 +329,12 @@
     <section id="caracteristicas" class="section wp-features-section">
         <div class="container">
             <div class="section-header text-center">
-                <span class="section-subtitle" data-i18n="wp_feat_subtitle">RENDIMIENTO</span>
+                <span class="section-subtitle" data-i18n="wp_feat_subtitle">PERFORMANCE</span>
                 <h2 class="section-title" data-i18n="wp_feat_main_title">
-                    Diseñado para la <span class="gradient-text">Máxima Eficiencia</span>
+                    Engineered for <span class="gradient-text">Maximum Efficiency</span>
                 </h2>
                 <p class="section-description" data-i18n="wp_feat_main_desc">
-                    A diferencia de otros fondos animados pesados, Conceptual Live Wallpaper fue desarrollado con optimización gráfica nativa y bajo uso de memoria.
+                    Unlike heavy live wallpapers, Conceptual Live Wallpaper is built with native GPU rendering and ultra-low memory footprints.
                 </p>
             </div>
 
@@ -343,32 +343,32 @@
                 <div class="wp-feat-item glass-card">
                     <div class="wp-feat-icon glow-cyan"><i class="fa-solid fa-atom"></i></div>
                     <div class="wp-feat-info">
-                        <h4 data-i18n="wp_feat1_title">Mismo Motor de Partículas</h4>
-                        <p data-i18n="wp_feat1_desc">La misma física reactiva y partículas suaves que estás viendo en el fondo de este sitio web.</p>
+                        <h4 data-i18n="wp_feat1_title">Same Particle Engine</h4>
+                        <p data-i18n="wp_feat1_desc">The exact same reactive physics and floating particles you see in the background of this website.</p>
                     </div>
                 </div>
 
                 <div class="wp-feat-item glass-card">
                     <div class="wp-feat-icon glow-purple"><i class="fa-solid fa-battery-full"></i></div>
                     <div class="wp-feat-info">
-                        <h4 data-i18n="wp_feat2_title">Cero Consumo de Batería</h4>
-                        <p data-i18n="wp_feat2_desc">Optimizado con pausas automáticas cuando la pantalla se apaga o abres otras aplicaciones.</p>
+                        <h4 data-i18n="wp_feat2_title">Zero Battery Drain</h4>
+                        <p data-i18n="wp_feat2_desc">Engineered with auto-pause whenever your screen turns off or when you launch other apps.</p>
                     </div>
                 </div>
 
                 <div class="wp-feat-item glass-card">
                     <div class="wp-feat-icon glow-blue"><i class="fa-solid fa-sliders"></i></div>
                     <div class="wp-feat-info">
-                        <h4 data-i18n="wp_feat3_title">Ajustes & Personalización</h4>
-                        <p data-i18n="wp_feat3_desc">Personaliza la velocidad, estilos de partículas, tonos de fondo y colores.</p>
+                        <h4 data-i18n="wp_feat3_title">Customizable Settings</h4>
+                        <p data-i18n="wp_feat3_desc">Customize particle speed, particle styles, background tones, and colors.</p>
                     </div>
                 </div>
 
                 <div class="wp-feat-item glass-card">
                     <div class="wp-feat-icon glow-purple"><i class="fa-solid fa-hand-holding-dollar"></i></div>
                     <div class="wp-feat-info">
-                        <h4 data-i18n="wp_feat4_title">Solo $1.00 USD (Pago Único)</h4>
-                        <p data-i18n="wp_feat4_desc">Sin suscripciones ni publicidad invasiva.</p>
+                        <h4 data-i18n="wp_feat4_title">Only $1.00 USD (One-time)</h4>
+                        <p data-i18n="wp_feat4_desc">No subscriptions and no ads.</p>
                     </div>
                 </div>
             </div>
@@ -377,30 +377,30 @@
 
 
     <!-- Dedicated Lightbox Modal for Conceptual Live Wallpaper -->
-    <div id="wallpaperLightbox" class="gallery-lightbox" aria-hidden="true" role="dialog" aria-label="Visor de fondo animado">
+    <div id="wallpaperLightbox" class="gallery-lightbox" aria-hidden="true" role="dialog" aria-label="Live wallpaper viewer">
         <div class="lightbox-overlay" id="wpLightboxOverlay"></div>
-        <button class="lightbox-close" id="wpLightboxCloseBtn" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+        <button class="lightbox-close" id="wpLightboxCloseBtn" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
         <div class="lightbox-content wp-lightbox-content">
             <div class="lightbox-figure wp-lightbox-figure">
                 <div class="lightbox-viewport wp-lightbox-viewport">
-                    <img id="wpLightboxImg" src="" alt="Vista previa de Conceptual Live Wallpaper" class="lightbox-img wp-lightbox-img">
+                    <img id="wpLightboxImg" src="" alt="Preview of Conceptual Live Wallpaper" class="lightbox-img wp-lightbox-img">
                 </div>
                 <div class="wp-lightbox-caption" id="wpLightboxCaption">
-                    <p class="wp-lightbox-desc" id="wpLightboxDesc">Modo Multicolor</p>
+                    <p class="wp-lightbox-desc" id="wpLightboxDesc">Multicolor Mode</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Options Modal: Configurar Conceptual Live Wallpaper -->
-    <div id="wpConfigModal" class="plugin-info-modal-backdrop" style="display: none;" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Ventana de configuración">
+    <!-- Options Modal: Configure Conceptual Live Wallpaper -->
+    <div id="wpConfigModal" class="plugin-info-modal-backdrop" style="display: none;" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Settings window">
         <div class="plugin-info-modal-card wp-config-modal-card">
-            <button type="button" class="plugin-modal-close" id="wpConfigModalCloseBtn" onclick="closePluginModal('wpConfigModal')" aria-label="Cerrar ventana"><i class="fa-solid fa-xmark"></i></button>
+            <button type="button" class="plugin-modal-close" id="wpConfigModalCloseBtn" onclick="closePluginModal('wpConfigModal')" aria-label="Close window"><i class="fa-solid fa-xmark"></i></button>
             <div class="plugin-modal-header wp-config-modal-header">
-                <span class="plugin-modal-badge wp-badge" data-i18n="wp_config_badge">CONFIGURACIÓN</span>
+                <span class="plugin-modal-badge wp-badge" data-i18n="wp_config_badge">SETTINGS</span>
                 <div class="plugin-modal-icon-wrap wp-accent"><i class="fa-solid fa-sliders"></i></div>
-                <h3 class="plugin-modal-title" data-i18n="wp_config_modal_title">Configuración</h3>
-                <p class="plugin-modal-subtitle" data-i18n="wp_config_modal_subtitle">Opciones y personalización de Conceptual Live Wallpaper</p>
+                <h3 class="plugin-modal-title" data-i18n="wp_config_modal_title">Configuration</h3>
+                <p class="plugin-modal-subtitle" data-i18n="wp_config_modal_subtitle">Conceptual Live Wallpaper options and personalization</p>
             </div>
             <div class="plugin-modal-body wp-config-modal-body">
                 <!-- Google Play License Status Card (from MainActivity.kt lines 156-225) -->
@@ -409,13 +409,13 @@
                         <i class="fa-solid fa-circle-check"></i>
                     </div>
                     <div class="wp-lic-text-wrap">
-                        <strong class="wp-lic-title" data-i18n="wp_lic_title">LICENCIA VERIFICADA</strong>
-                        <span class="wp-lic-desc" data-i18n="wp_lic_desc">Verificada en Google Play Store.</span>
+                        <strong class="wp-lic-title" data-i18n="wp_lic_title">LICENSE VERIFIED</strong>
+                        <span class="wp-lic-desc" data-i18n="wp_lic_desc">Verified on Google Play Store.</span>
                     </div>
                 </div>
 
                 <!-- Customization Section Header (from MainActivity.kt line 231) -->
-                <div class="wp-modal-section-title" data-i18n="wp_custom_title">PERSONALIZACIÓN DEL FONDO</div>
+                <div class="wp-modal-section-title" data-i18n="wp_custom_title">WALLPAPER CUSTOMIZATION</div>
 
                 <!-- 1. Estilo de Partículas (Particle Style) -->
                 <div class="wp-cat-card" id="wpCatStyle">
@@ -424,7 +424,7 @@
                             <i class="fa-solid fa-shapes"></i>
                         </div>
                         <div class="wp-cat-info">
-                            <span class="wp-cat-title" data-i18n="wp_opt_style">Estilo de Partículas</span>
+                            <span class="wp-cat-title" data-i18n="wp_opt_style">Particle Style</span>
                             <span class="wp-cat-subtitle" id="wpValStyle">Gamer</span>
                         </div>
                         <i class="fa-solid fa-chevron-right wp-cat-arrow"></i>
@@ -436,27 +436,25 @@
                                 <div class="wp-opt-info">
                                     <strong class="wp-opt-title">Gamer</strong>
                                     <span class="wp-opt-sub">A, B, X, Y, △, ○, □, ×</span>
-                                </div>
-                            </div>
-                            <div class="wp-opt-item" data-group="style" data-value="stardust" role="radio" aria-checked="false" tabindex="0">
+                                                    <div class="wp-opt-item" data-group="style" data-value="stardust" role="radio" aria-checked="false" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_style_stardust_title">Polvo Estelar & Galaxia</strong>
+                                    <strong class="wp-opt-title" data-i18n="wp_style_stardust_title">Stardust & Galaxy</strong>
                                     <span class="wp-opt-sub">★, ✦, ✧, ✵, ✶, ✸</span>
                                 </div>
                             </div>
                             <div class="wp-opt-item" data-group="style" data-value="code" role="radio" aria-checked="false" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_style_code_title">Código</strong>
+                                    <strong class="wp-opt-title" data-i18n="wp_style_code_title">Code</strong>
                                     <span class="wp-opt-sub">0, 1, &lt;/&gt;, { }, [ ], λ, π, &amp;&amp;, ||, ;</span>
                                 </div>
                             </div>
                             <div class="wp-opt-item" data-group="style" data-value="runes" role="radio" aria-checked="false" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_style_runes_title">Runas Místicas</strong>
-                                    <span class="wp-opt-sub">ᚠ, ᚢ, ᚦ, ᚨ, ᚱ, ᚷ, ᛗ</span>
+                                    <strong class="wp-opt-title" data-i18n="wp_style_runes_title">Mystic Runes</strong>
+                                    <span class="wp-opt-sub">ᚠ, ᚢ, ᚦ, ᚨ, ᚱ, ᛗ</span>
                                 </div>
                             </div>
                             <div class="wp-opt-item" data-group="style" data-value="kanji" role="radio" aria-checked="false" tabindex="0">
@@ -477,32 +475,32 @@
                             <i class="fa-solid fa-braille"></i>
                         </div>
                         <div class="wp-cat-info">
-                            <span class="wp-cat-title" data-i18n="wp_opt_count">Cantidad de Partículas</span>
-                            <span class="wp-cat-subtitle" id="wpValCount">Balanceada</span>
+                            <span class="wp-cat-title" data-i18n="wp_opt_count">Particle Quantity</span>
+                            <span class="wp-cat-subtitle" id="wpValCount">Balanced</span>
                         </div>
                         <i class="fa-solid fa-chevron-right wp-cat-arrow"></i>
                     </div>
                     <div class="wp-cat-body">
-                        <div class="wp-opt-list" role="radiogroup" aria-label="Cantidad de Partículas">
+                        <div class="wp-opt-list" role="radiogroup" aria-label="Particle Quantity">
                             <div class="wp-opt-item" data-group="count" data-value="20" role="radio" aria-checked="false" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_count_20_title">Sutil</strong>
-                                    <span class="wp-opt-sub" data-i18n="wp_count_20_sub">Máximo ahorro de batería</span>
+                                    <strong class="wp-opt-title" data-i18n="wp_count_20_title">Subtle</strong>
+                                    <span class="wp-opt-sub" data-i18n="wp_count_20_sub">Maximum battery saving</span>
                                 </div>
                             </div>
                             <div class="wp-opt-item active" data-group="count" data-value="45" role="radio" aria-checked="true" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_count_45_title">Balanceada</strong>
-                                    <span class="wp-opt-sub" data-i18n="wp_count_45_sub">Dinámica y fluida</span>
+                                    <strong class="wp-opt-title" data-i18n="wp_count_45_title">Balanced</strong>
+                                    <span class="wp-opt-sub" data-i18n="wp_count_45_sub">Smooth & dynamic</span>
                                 </div>
                             </div>
                             <div class="wp-opt-item" data-group="count" data-value="70" role="radio" aria-checked="false" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_count_70_title">Densa</strong>
-                                    <span class="wp-opt-sub" data-i18n="wp_count_70_sub">Totalmente inmersiva</span>
+                                    <strong class="wp-opt-title" data-i18n="wp_count_70_title">Dense</strong>
+                                    <span class="wp-opt-sub" data-i18n="wp_count_70_sub">Fully immersive experience</span>
                                 </div>
                             </div>
                         </div>
@@ -516,32 +514,32 @@
                             <i class="fa-solid fa-palette"></i>
                         </div>
                         <div class="wp-cat-info">
-                            <span class="wp-cat-title" data-i18n="wp_opt_palette">Paleta de Color de Símbolos</span>
-                            <span class="wp-cat-subtitle" id="wpValPalette">Paleta Oficial del Estilo</span>
+                            <span class="wp-cat-title" data-i18n="wp_opt_palette">Symbol Color Palette</span>
+                            <span class="wp-cat-subtitle" id="wpValPalette">Official Palette</span>
                         </div>
                         <i class="fa-solid fa-chevron-right wp-cat-arrow"></i>
                     </div>
                     <div class="wp-cat-body">
-                        <div class="wp-opt-list" role="radiogroup" aria-label="Modo de Paleta">
+                        <div class="wp-opt-list" role="radiogroup" aria-label="Palette Mode">
                             <div class="wp-opt-item active" data-group="palette" data-value="official" role="radio" aria-checked="true" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_palette_official_title">Paleta Oficial</strong>
-                                    <span class="wp-opt-sub" data-i18n="wp_palette_official_sub">Colores oficiales del estilo seleccionado</span>
+                                    <strong class="wp-opt-title" data-i18n="wp_palette_official_title">Official Palette</strong>
+                                    <span class="wp-opt-sub" data-i18n="wp_palette_official_sub">Original theme colors for current style</span>
                                 </div>
                             </div>
                             <div class="wp-opt-item" data-group="palette" data-value="custom" role="radio" aria-checked="false" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_palette_custom_title">Personalizado (Hasta 5 Colores)</strong>
-                                    <span class="wp-opt-sub" data-i18n="wp_palette_custom_sub">Escoge de 1 a 5 colores personalizados</span>
+                                    <strong class="wp-opt-title" data-i18n="wp_palette_custom_title">Custom Colors (Up to 5)</strong>
+                                    <span class="wp-opt-sub" data-i18n="wp_palette_custom_sub">Choose 1 to 5 custom colors for particles</span>
                                 </div>
                             </div>
                             <div class="wp-opt-item" data-group="palette" data-value="monochrome" role="radio" aria-checked="false" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_palette_mono_title">Monocromo (Gris)</strong>
-                                    <span class="wp-opt-sub" data-i18n="wp_palette_mono_sub">Elegante en tonos grises (#E5E5E5)</span>
+                                    <strong class="wp-opt-title" data-i18n="wp_palette_mono_title">Monochrome (Grayscale)</strong>
+                                    <span class="wp-opt-sub" data-i18n="wp_palette_mono_sub">Minimalist silver tones (#E5E5E5)</span>
                                 </div>
                             </div>
                         </div>
@@ -549,7 +547,7 @@
                         <!-- Panel de Personalización de Colores Dinámico -->
                         <div class="wp-custom-color-box" id="wpCustomColorSection" style="display: none;">
                             <hr class="wp-divider">
-                            <span class="wp-section-micro-label" data-i18n="wp_custom_count_label">CANTIDAD DE COLORES A UTILIZAR</span>
+                            <span class="wp-section-micro-label" data-i18n="wp_custom_count_label">NUMBER OF CUSTOM COLORS</span>
                             <div class="wp-count-chips-row">
                                 <button type="button" class="wp-count-chip" data-count="1">1</button>
                                 <button type="button" class="wp-count-chip" data-count="2">2</button>
@@ -558,17 +556,17 @@
                                 <button type="button" class="wp-count-chip" data-count="5">5</button>
                             </div>
 
-                            <span class="wp-section-micro-label" data-i18n="wp_custom_edit_label">TOCA UNA BOLITA DE COLOR PARA SELECCIONAR</span>
+                            <span class="wp-section-micro-label" data-i18n="wp_custom_edit_label">TAP A COLOR CIRCLE TO SELECT</span>
                             <div class="wp-color-slots-row" id="wpColorSlotsRow"></div>
 
                             <div class="wp-open-picker-wrap">
                                 <button type="button" class="wp-btn-open-picker" id="wpOpenColorPickerBtn">
                                     <i class="fa-solid fa-palette"></i>
-                                    <span data-i18n="wp_btn_open_picker">Abrir panel multicolor</span>
+                                    <span data-i18n="wp_btn_open_picker">Open color picker panel</span>
                                 </button>
                             </div>
 
-                            <span class="wp-section-micro-label" data-i18n="wp_custom_preset_label">PALETA NEÓN DE MUESTRA</span>
+                            <span class="wp-section-micro-label" data-i18n="wp_custom_preset_label">PRESET NEON PALETTE</span>
                             <div class="wp-neon-presets-grid">
                                 <span class="wp-neon-dot" data-hex="#00E5FF" style="background:#00E5FF;" title="#00E5FF"></span>
                                 <span class="wp-neon-dot" data-hex="#FF4081" style="background:#FF4081;" title="#FF4081"></span>
@@ -600,31 +598,31 @@
                             <i class="fa-solid fa-fill-drip"></i>
                         </div>
                         <div class="wp-cat-info">
-                            <span class="wp-cat-title" data-i18n="wp_opt_bg">Color de Fondo de Pantalla</span>
-                            <span class="wp-cat-subtitle" id="wpValBg">Oscuro</span>
+                            <span class="wp-cat-title" data-i18n="wp_opt_bg">Background Color</span>
+                            <span class="wp-cat-subtitle" id="wpValBg">Dark</span>
                         </div>
                         <i class="fa-solid fa-chevron-right wp-cat-arrow"></i>
                     </div>
                     <div class="wp-cat-body">
-                        <div class="wp-opt-list" role="radiogroup" aria-label="Color de Fondo">
+                        <div class="wp-opt-list" role="radiogroup" aria-label="Background Color">
                             <div class="wp-opt-item active" data-group="bg" data-value="dark" role="radio" aria-checked="true" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_bg_dark">Oscuro</strong>
+                                    <strong class="wp-opt-title" data-i18n="wp_bg_dark">Dark</strong>
                                     <span class="wp-opt-sub">#0F111A</span>
                                 </div>
                             </div>
                             <div class="wp-opt-item" data-group="bg" data-value="black" role="radio" aria-checked="false" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_bg_black">Negro (AMOLED)</strong>
+                                    <strong class="wp-opt-title" data-i18n="wp_bg_black">Black (AMOLED)</strong>
                                     <span class="wp-opt-sub">#000000</span>
                                 </div>
                             </div>
                             <div class="wp-opt-item" data-group="bg" data-value="navy" role="radio" aria-checked="false" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_bg_navy">Azul Noche</strong>
+                                    <strong class="wp-opt-title" data-i18n="wp_bg_navy">Navy Blue</strong>
                                     <span class="wp-opt-sub">#0A1128</span>
                                 </div>
                             </div>
@@ -639,17 +637,17 @@
                             <i class="fa-solid fa-gauge-high"></i>
                         </div>
                         <div class="wp-cat-info">
-                            <span class="wp-cat-title" data-i18n="wp_opt_speed">Velocidad de Movimiento</span>
+                            <span class="wp-cat-title" data-i18n="wp_opt_speed">Movement Speed</span>
                             <span class="wp-cat-subtitle" id="wpValSpeed">Normal (1.0X)</span>
                         </div>
                         <i class="fa-solid fa-chevron-right wp-cat-arrow"></i>
                     </div>
                     <div class="wp-cat-body">
-                        <div class="wp-opt-list" role="radiogroup" aria-label="Velocidad">
+                        <div class="wp-opt-list" role="radiogroup" aria-label="Speed">
                             <div class="wp-opt-item" data-group="speed" data-value="0.5" role="radio" aria-checked="false" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_speed_slow">Lenta (0.5X)</strong>
+                                    <strong class="wp-opt-title" data-i18n="wp_speed_slow">Slow (0.5X)</strong>
                                 </div>
                             </div>
                             <div class="wp-opt-item active" data-group="speed" data-value="1.0" role="radio" aria-checked="true" tabindex="0">
@@ -661,7 +659,7 @@
                             <div class="wp-opt-item" data-group="speed" data-value="2.0" role="radio" aria-checked="false" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_speed_fast">Rápida (2.0X)</strong>
+                                    <strong class="wp-opt-title" data-i18n="wp_speed_fast">Fast (2.0X)</strong>
                                 </div>
                             </div>
                         </div>
@@ -675,17 +673,17 @@
                             <i class="fa-solid fa-compass"></i>
                         </div>
                         <div class="wp-cat-info">
-                            <span class="wp-cat-title" data-i18n="wp_opt_direction">Dirección del Movimiento</span>
-                            <span class="wp-cat-subtitle" id="wpValDirection">Aleatorio</span>
+                            <span class="wp-cat-title" data-i18n="wp_opt_direction">Movement Direction</span>
+                            <span class="wp-cat-subtitle" id="wpValDirection">Random</span>
                         </div>
                         <i class="fa-solid fa-chevron-right wp-cat-arrow"></i>
                     </div>
                     <div class="wp-cat-body">
-                        <div class="wp-opt-list" role="radiogroup" aria-label="Dirección">
+                        <div class="wp-opt-list" role="radiogroup" aria-label="Direction">
                             <div class="wp-opt-item active" data-group="direction" data-value="random" role="radio" aria-checked="true" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_dir_random">Aleatorio</strong>
+                                    <strong class="wp-opt-title" data-i18n="wp_dir_random">Random</strong>
                                 </div>
                             </div>
                             <div class="wp-opt-item" data-group="direction" data-value="vertical" role="radio" aria-checked="false" tabindex="0">
@@ -705,23 +703,23 @@
                             <i class="fa-solid fa-arrows-rotate"></i>
                         </div>
                         <div class="wp-cat-info">
-                            <span class="wp-cat-title" data-i18n="wp_opt_rotation">Giro Individual Fluido</span>
-                            <span class="wp-cat-subtitle" id="wpValRotation">Activado</span>
+                            <span class="wp-cat-title" data-i18n="wp_opt_rotation">Individual Fluid Rotation</span>
+                            <span class="wp-cat-subtitle" id="wpValRotation">Enabled</span>
                         </div>
                         <i class="fa-solid fa-chevron-right wp-cat-arrow"></i>
                     </div>
                     <div class="wp-cat-body">
-                        <div class="wp-opt-list" role="radiogroup" aria-label="Giro">
+                        <div class="wp-opt-list" role="radiogroup" aria-label="Rotation">
                             <div class="wp-opt-item active" data-group="rotation" data-value="true" role="radio" aria-checked="true" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_rot_on">Activado</strong>
+                                    <strong class="wp-opt-title" data-i18n="wp_rot_on">Enabled</strong>
                                 </div>
                             </div>
                             <div class="wp-opt-item" data-group="rotation" data-value="false" role="radio" aria-checked="false" tabindex="0">
                                 <span class="wp-radio-circle"><span class="wp-radio-dot"></span></span>
                                 <div class="wp-opt-info">
-                                    <strong class="wp-opt-title" data-i18n="wp_rot_off">Desactivado</strong>
+                                    <strong class="wp-opt-title" data-i18n="wp_rot_off">Disabled</strong>
                                 </div>
                             </div>
                         </div>
@@ -730,9 +728,9 @@
 
                 <!-- Botón Principal: Establecer Fondo en Vivo en el teléfono -->
                 <div class="wp-modal-footer-action">
-                    <button type="button" class="wp-modal-action-btn" id="wpApplyToPhoneBtn" aria-label="Establecer fondo en el molde del teléfono">
+                    <button type="button" class="wp-modal-action-btn" id="wpApplyToPhoneBtn" aria-label="Apply live wallpaper to phone preview">
                         <i class="fa-solid fa-wand-magic-sparkles"></i>
-                        <span data-i18n="wp_btn_set_app">ESTABLECER FONDO EN VIVO</span>
+                        <span data-i18n="wp_btn_set_app">SET LIVE WALLPAPER</span>
                     </button>
                 </div>
             </div>
@@ -743,15 +741,15 @@
     <footer class="footer">
         <div class="container footer-container">
             <div class="footer-legal">
-                <p data-i18n="footer_rights">&copy; 2026 COS Launcher. Todos los derechos reservados.</p>
+                <p data-i18n="footer_rights">&copy; 2026 COS Launcher. All rights reserved.</p>
                 <p class="footer-contact-line">
-                    <span data-i18n="footer_contact_text">Contacto y Soporte:</span>
+                    <span data-i18n="footer_contact_text">Contact & Support:</span>
                     <a href="mailto:conceptualos.dev@gmail.com" class="footer-email-link">
                         <i class="fa-solid fa-envelope"></i> conceptualos.dev@gmail.com
                     </a>
                 </p>
                 <p class="footer-author-line">
-                    <span data-i18n="footer_dev_text">Desarrollado por</span>
+                    <span data-i18n="footer_dev_text">Developed by</span>
                     <span class="author-name">Austin González</span>
                     <svg class="inline-flag" width="20" height="13" viewBox="0 0 6 4" xmlns="http://www.w3.org/2000/svg"
                         title="Costa Rica">
@@ -765,8 +763,8 @@
     </footer>
 
     <!-- Custom Script -->
-    <script src="script.js?v=3.5.0"></script>
-    <script src="wallpaper-engine.js?v=1.5.0"></script>
+    <script src="script.js?v=3.6.0"></script>
+    <script src="wallpaper-engine.js?v=1.6.0"></script>
 
     <!-- Interactive Phone & Options Modal Script -->
     <script>
