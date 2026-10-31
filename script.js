@@ -2165,6 +2165,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // 14. Smooth scrolling for in-page anchor links (prevents <base> tag from redirecting to root on subpages)
+    document.addEventListener('click', (e) => {
+        const anchor = e.target.closest('a[href*="#"]');
+        if (!anchor) return;
+        const href = anchor.getAttribute('href');
+        if (!href) return;
+        const hashIdx = href.indexOf('#');
+        if (hashIdx === -1) return;
+        const targetId = href.slice(hashIdx + 1);
+        if (!targetId) return;
+
+        // Verify if target element exists on the CURRENT page
+        const targetEl = document.getElementById(targetId);
+        if (!targetEl) return;
+
+        // Check if link is intended for the current document
+        const pathPart = href.slice(0, hashIdx);
+        const currentPath = window.location.pathname;
+        const currentFile = currentPath.split('/').pop() || 'index.html';
+        const isCurrentPage = !pathPart ||
+                              href.startsWith('#') ||
+                              pathPart.endsWith(currentFile) ||
+                              (pathPart.includes('wallpaper') && currentPath.includes('wallpaper'));
+
+        if (isCurrentPage) {
+            e.preventDefault();
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            try {
+                history.pushState(null, '', '#' + targetId);
+            } catch (err) {}
+
+            // Close mobile navigation menu if open
+            if (navLinks && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn?.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-xmark');
+                }
+            }
+        }
+    });
+
     initProgressiveDisclosure();
     setupPluginsDirectDownload();
     initPluginInfoModals();
