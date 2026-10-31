@@ -331,6 +331,10 @@ h1, h2, h3, h4, span, p, a, button {
     transition: var(--transition-smooth);
     border: 1px solid transparent;
     white-space: nowrap;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: inherit;
 }
 
 .nav-item-pill:hover,

@@ -2171,8 +2171,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // 14. Smooth scrolling for in-page anchor links (prevents reload on repeated clicks and protects against <base> tag)
+    // 14. Smooth scrolling for in-page navigation (both data-scroll-to buttons and in-page anchor links)
     document.addEventListener('click', (e) => {
+        // Handle dedicated scroll buttons
+        const scrollBtn = e.target.closest('[data-scroll-to]');
+        if (scrollBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            const targetId = scrollBtn.getAttribute('data-scroll-to');
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            if (navLinks && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn?.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-xmark');
+                }
+            }
+            return;
+        }
+
         const anchor = e.target.closest('a[href*="#"]');
         if (!anchor) return;
         // Skip lightbox controls, modals or tabs
@@ -2191,6 +2212,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Element exists right here on this page: ALWAYS prevent default and scroll smoothly
         e.preventDefault();
+        e.stopPropagation();
         targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
         // Close mobile navigation menu if open
