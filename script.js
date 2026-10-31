@@ -2204,8 +2204,75 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 15. Seamless Smooth Page Transitions (Home <-> Live Wallpaper) with full audio playback
+    const initPageTransitions = () => {
+        const isTransitionLink = (a) => {
+            if (!a || !a.href) return false;
+            if (a.target === '_blank' || a.hasAttribute('download')) return false;
+
+            const rawHref = (a.getAttribute('href') || '').trim();
+            if (!rawHref || rawHref.startsWith('#') || rawHref.startsWith('javascript:')) return false;
+
+            try {
+                const targetUrl = new URL(a.href, window.location.href);
+                if (targetUrl.origin !== window.location.origin) return false;
+
+                // Same path with in-page anchor is handled by smooth scroll
+                if (targetUrl.pathname === window.location.pathname && targetUrl.hash) return false;
+
+                const targetPath = targetUrl.pathname.toLowerCase();
+                const currentPath = window.location.pathname.toLowerCase();
+
+                // Check if target is Live Wallpaper or Home
+                const isTargetWp = targetPath.includes('wallpaper') || targetPath.endsWith('/livewallpaper') || targetPath.endsWith('/livewallpaper/');
+                const isTargetHome = targetPath.endsWith('/') || targetPath.endsWith('/index.html') || targetPath.endsWith('/pag/') || targetPath.endsWith('/pag');
+
+                const isCurrentWp = currentPath.includes('wallpaper') || currentPath.endsWith('/livewallpaper') || currentPath.endsWith('/livewallpaper/');
+                const isCurrentHome = currentPath.endsWith('/') || currentPath.endsWith('/index.html') || currentPath.endsWith('/pag/') || currentPath.endsWith('/pag');
+
+                if ((isCurrentHome && isTargetWp) || (isCurrentWp && isTargetHome)) return true;
+                if (rawHref === 'livewallpaper' || rawHref === 'wallpaper.html' || rawHref === 'index.html') return true;
+                if (a.classList.contains('nav-back-pill') || a.classList.contains('nav-pill-wp')) return true;
+
+                return false;
+            } catch (err) {
+                return false;
+            }
+        };
+
+        document.addEventListener('click', (e) => {
+            if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+            const link = e.target.closest('a');
+            if (!link || !isTransitionLink(link)) return;
+
+            const destination = link.href;
+            if (!destination) return;
+
+            e.preventDefault();
+
+            // Play clean click sound without premature browser cut-off
+            if (window.SFX && typeof window.SFX.click1 === 'function') {
+                window.SFX.click1();
+            }
+
+            // Animate page smoothly out
+            document.body.classList.add('page-transitioning-out');
+
+            setTimeout(() => {
+                window.location.href = destination;
+            }, 180);
+        });
+
+        // Ensure page is immediately visible if loaded from back/forward cache
+        window.addEventListener('pageshow', () => {
+            document.body.classList.remove('page-transitioning-out');
+        });
+    };
+
     initProgressiveDisclosure();
     setupPluginsDirectDownload();
     initPluginInfoModals();
+    initPageTransitions();
 });
 

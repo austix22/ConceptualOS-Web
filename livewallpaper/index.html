@@ -783,14 +783,14 @@
         function openPluginModal(id) {
             var modal = document.getElementById(id);
             if (!modal) return;
+            if (window.SFX && typeof window.SFX.juegoAbrir === 'function') {
+                window.SFX.juegoAbrir();
+            }
             modal.style.display = 'flex';
             void modal.offsetHeight;
             modal.classList.add('active');
             modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
-            if (window.SFX && typeof window.SFX.click1 === 'function') {
-                window.SFX.click1();
-            }
         }
         function closePluginModal(id) {
             var modal = document.getElementById(id);

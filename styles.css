@@ -4439,6 +4439,12 @@ h1, h2, h3, h4, span, p, a, button {
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
     display: flex;
     flex-direction: column;
+    transform: scale(0.96);
+    transition: transform 0.3s ease;
+}
+
+.gallery-lightbox.active .lightbox-figure {
+    transform: scale(1);
 }
 
 .lightbox-viewport {
@@ -5157,6 +5163,12 @@ h1, h2, h3, h4, span, p, a, button {
     display: flex;
     flex-direction: column;
     width: 100%;
+    transform: scale(0.96);
+    transition: transform 0.3s ease;
+}
+
+.gallery-lightbox.active .wp-lightbox-figure {
+    transform: scale(1);
 }
 
 .wp-lightbox-viewport {
@@ -6594,5 +6606,27 @@ h1, h2, h3, h4, span, p, a, button {
         backdrop-filter: blur(4px) !important;
     }
 }
+/* ==========================================================================
+   Seamless Smooth Page Transitions (Home <-> Live Wallpaper)
+   ========================================================================== */
+@keyframes smoothPageFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.995);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
+body {
+    animation: smoothPageFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+body.page-transitioning-out {
+    opacity: 0 !important;
+    transform: scale(0.995) !important;
+    pointer-events: none !important;
+}
