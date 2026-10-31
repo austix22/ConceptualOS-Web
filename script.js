@@ -1698,14 +1698,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const wpLightboxOverlay = document.getElementById('wpLightboxOverlay');
     const wpCards = document.querySelectorAll('.wallpaper-card');
 
+    let currentWpStyle = '';
     let currentWpMode = 'color';
 
     const renderWpLightboxText = () => {
         if (!wpLightboxDesc) return;
-        if (currentWpMode === 'mono') {
-            wpLightboxDesc.textContent = currentLang === 'en' ? 'Monochrome Mode' : 'Modo Monocromo';
+        const isEn = (typeof currentLang !== 'undefined' && currentLang === 'en');
+        if (currentWpStyle === 'stardust') {
+            wpLightboxDesc.textContent = isEn ? 'Cosmic Particles Style' : 'Estilo Partículas Cósmicas';
+        } else if (currentWpStyle === 'code') {
+            wpLightboxDesc.textContent = isEn ? 'Code Style' : 'Estilo Código';
+        } else if (currentWpStyle === 'runes') {
+            wpLightboxDesc.textContent = isEn ? 'Runes Style' : 'Estilo Runas';
+        } else if (currentWpStyle === 'kanji') {
+            wpLightboxDesc.textContent = isEn ? 'Kanjis & Bushido Style' : 'Estilo Kanjis & Bushido';
+        } else if (currentWpMode === 'mono') {
+            wpLightboxDesc.textContent = isEn ? 'Monochrome Mode' : 'Modo Monocromo';
         } else {
-            wpLightboxDesc.textContent = currentLang === 'en' ? 'Multicolor Mode' : 'Modo Multicolor';
+            wpLightboxDesc.textContent = isEn ? 'Multicolor Mode' : 'Modo Multicolor';
         }
     };
 
@@ -1715,6 +1725,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!wpLightboxModal || !card) return;
         const imgSrc = card.getAttribute('data-wp-img');
         if (!imgSrc) return;
+        currentWpStyle = card.getAttribute('data-wp-style') || '';
         currentWpMode = card.getAttribute('data-wp-mode') || 'color';
 
         if (wpLightboxImg) wpLightboxImg.src = imgSrc;
