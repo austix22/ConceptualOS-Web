@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=3.8.1">
+    <link rel="stylesheet" href="styles.css?v=3.8.2">
 
     <!-- Critical Plugin Modals & Buttons Styles -->
     <style id="critical-plugin-modals-css">
@@ -75,6 +75,7 @@
             backdrop-filter: blur(14px) !important;
             -webkit-backdrop-filter: blur(14px) !important;
             z-index: 999999 !important;
+            display: none;
             align-items: center !important;
             justify-content: center !important;
             padding: 1.25rem !important;
@@ -82,6 +83,9 @@
             pointer-events: none !important;
             transition: opacity 0.3s ease !important;
             box-sizing: border-box !important;
+            overflow-y: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            overscroll-behavior: contain !important;
         }
         .plugin-info-modal-backdrop.active {
             display: flex !important;
@@ -1195,7 +1199,7 @@
     </footer>
 
     <!-- Lightbox Modal for Gallery -->
-    <div id="galleryLightbox" class="gallery-lightbox" aria-hidden="true" role="dialog" aria-label="Visor de capturas">
+    <div id="galleryLightbox" class="gallery-lightbox" style="display: none;" aria-hidden="true" role="dialog" aria-label="Visor de capturas">
         <div class="lightbox-overlay" id="lightboxOverlay"></div>
         <button class="lightbox-close" id="lightboxCloseBtn" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
         <div class="lightbox-content">
@@ -1396,7 +1400,7 @@
     </script>
 
     <!-- Custom Script -->
-    <script src="script.js?v=3.8.1"></script>
+    <script src="script.js?v=3.8.2"></script>
 </body>
 
 </html>

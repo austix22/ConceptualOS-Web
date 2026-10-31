@@ -1536,13 +1536,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Update active thumbnail indicator and smoothly scroll into view
+        // Update active thumbnail indicator and smoothly scroll inside the thumbnail container
+        const thumbnailsContainer = document.getElementById('lightboxThumbnails');
         const thumbBtns = document.querySelectorAll('.lightbox-thumb-btn');
         thumbBtns.forEach((btn, idx) => {
             const isActive = idx === currentGalleryIdx;
             btn.classList.toggle('active', isActive);
-            if (isActive) {
-                btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            if (isActive && thumbnailsContainer) {
+                const targetScroll = btn.offsetLeft - (thumbnailsContainer.clientWidth - btn.clientWidth) / 2;
+                thumbnailsContainer.scrollTo({ left: targetScroll, behavior: 'smooth' });
             }
         });
     };
@@ -1553,6 +1555,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const isAlreadyActive = lightboxModal.classList.contains('active');
             if (!isAlreadyActive) {
                 SFX.juegoAbrir();
+                lightboxModal.style.setProperty('display', 'flex', 'important');
+                void lightboxModal.offsetHeight;
                 lightboxModal.classList.add('active');
                 lightboxModal.setAttribute('aria-hidden', 'false');
                 document.body.style.overflow = 'hidden';
@@ -1569,6 +1573,11 @@ document.addEventListener('DOMContentLoaded', () => {
             lightboxModal.classList.remove('active');
             lightboxModal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
+            setTimeout(() => {
+                if (!lightboxModal.classList.contains('active')) {
+                    lightboxModal.style.setProperty('display', 'none', 'important');
+                }
+            }, 300);
         }
     };
 
@@ -1734,6 +1743,8 @@ document.addEventListener('DOMContentLoaded', () => {
         renderWpLightboxText();
 
         SFX.juegoAbrir();
+        wpLightboxModal.style.setProperty('display', 'flex', 'important');
+        void wpLightboxModal.offsetHeight;
         wpLightboxModal.classList.add('active');
         wpLightboxModal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -1745,6 +1756,11 @@ document.addEventListener('DOMContentLoaded', () => {
             wpLightboxModal.classList.remove('active');
             wpLightboxModal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
+            setTimeout(() => {
+                if (!wpLightboxModal.classList.contains('active')) {
+                    wpLightboxModal.style.setProperty('display', 'none', 'important');
+                }
+            }, 300);
         }
     };
 
