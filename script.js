@@ -2171,10 +2171,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // 14. Smooth scrolling for in-page anchor links (prevents <base> tag from redirecting to root on subpages)
+    // 14. Smooth scrolling for in-page anchor links (prevents reload on repeated clicks and protects against <base> tag)
     document.addEventListener('click', (e) => {
         const anchor = e.target.closest('a[href*="#"]');
         if (!anchor) return;
+        // Skip lightbox controls, modals or tabs
+        if (anchor.classList.contains('lightbox-close') || anchor.hasAttribute('data-modal') || anchor.hasAttribute('data-tab')) return;
+
         const href = anchor.getAttribute('href');
         if (!href) return;
         const hashIdx = href.indexOf('#');
@@ -2186,30 +2189,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetEl = document.getElementById(targetId);
         if (!targetEl) return;
 
-        // Check if link is intended for the current document
-        const pathPart = href.slice(0, hashIdx);
-        const currentPath = window.location.pathname;
-        const currentFile = currentPath.split('/').pop() || 'index.html';
-        const isCurrentPage = !pathPart ||
-                              href.startsWith('#') ||
-                              pathPart.endsWith(currentFile) ||
-                              (pathPart.includes('wallpaper') && currentPath.includes('wallpaper'));
+        // Element exists right here on this page: ALWAYS prevent default and scroll smoothly
+        e.preventDefault();
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-        if (isCurrentPage) {
-            e.preventDefault();
-            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            try {
-                history.pushState(null, '', '#' + targetId);
-            } catch (err) {}
-
-            // Close mobile navigation menu if open
-            if (navLinks && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                const icon = mobileMenuBtn?.querySelector('i');
-                if (icon) {
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-xmark');
-                }
+        // Close mobile navigation menu if open
+        if (navLinks && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            const icon = mobileMenuBtn?.querySelector('i');
+            if (icon) {
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
             }
         }
     });
