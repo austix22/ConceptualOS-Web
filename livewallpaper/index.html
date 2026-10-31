@@ -795,6 +795,18 @@
         function closePluginModal(id) {
             var modal = document.getElementById(id);
             if (!modal) return;
+            try {
+                if (window.SFX && typeof window.SFX.click2 === 'function') {
+                    window.SFX.click2();
+                } else {
+                    var sfx = document.getElementById('sfxClick2');
+                    if (sfx) {
+                        var clone = sfx.cloneNode(true);
+                        clone.volume = 0.85;
+                        clone.play().catch(function() {});
+                    }
+                }
+            } catch (err) {}
             modal.classList.remove('active');
             modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
@@ -802,10 +814,7 @@
                 if (!modal.classList.contains('active')) {
                     modal.style.display = 'none';
                 }
-            }, 280);
-            if (window.SFX && typeof window.SFX.click2 === 'function') {
-                window.SFX.click2();
-            }
+            }, 300);
         }
 
         document.addEventListener('DOMContentLoaded', () => {

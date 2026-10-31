@@ -5221,25 +5221,19 @@ h1, h2, h3, h4, span, p, a, button {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     z-index: 100000 !important;
+    display: flex;
     align-items: center;
     justify-content: center;
     padding: 1.25rem;
     opacity: 0;
-    visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.3s ease;
     box-sizing: border-box;
 }
 
-.plugin-info-modal-backdrop:not(.active) {
-    display: none !important;
-}
-
 .plugin-info-modal-backdrop.active {
-    display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .plugin-info-modal-card {
@@ -5254,8 +5248,8 @@ h1, h2, h3, h4, span, p, a, button {
     flex-direction: column;
     position: relative;
     overflow: hidden;
-    transform: scale(0.92) translateY(20px);
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(0.96);
+    transition: transform 0.3s ease;
     box-sizing: border-box;
 }
 
@@ -5264,7 +5258,7 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .plugin-info-modal-backdrop.active .plugin-info-modal-card {
-    transform: scale(1) translateY(0);
+    transform: scale(1);
 }
 
 .plugin-modal-close {

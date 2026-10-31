@@ -108,6 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     })();
 
+    window.SFX = SFX;
+
     // Global tactile click / tap listener for interactive elements (supports pointerdown & click without duplicate triggers)
     const interactiveSelector = [
         'a',
@@ -2081,18 +2083,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const rescalerCloseBtn = document.getElementById('rescalerInfoCloseBtn');
 
         const openModal = (modal) => {
+            if (typeof modal === 'string') modal = document.getElementById(modal);
             if (!modal) return;
             modal.style.setProperty('display', 'flex', 'important');
-            // Force browser layout calculation for smooth transition
             void modal.offsetHeight;
             modal.classList.add('active');
             modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
-            if (typeof SFX !== 'undefined') SFX.click1();
+            if (typeof SFX !== 'undefined' && SFX.click1) SFX.click1();
         };
 
         const closeModal = (modal) => {
-            if (!modal || !modal.classList.contains('active')) return;
+            if (typeof modal === 'string') modal = document.getElementById(modal);
+            if (!modal) return;
+            if (typeof SFX !== 'undefined' && SFX.click2) SFX.click2();
             modal.classList.remove('active');
             modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
@@ -2101,8 +2105,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     modal.style.setProperty('display', 'none', 'important');
                 }
             }, 300);
-            if (typeof SFX !== 'undefined') SFX.click2();
         };
+
+        window.openPluginModal = openModal;
+        window.closePluginModal = closeModal;
 
         // Key Mapper Listeners
         if (kmOpenBtn && kmModal) {

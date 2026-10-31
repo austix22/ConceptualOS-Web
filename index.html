@@ -78,19 +78,14 @@
             align-items: center !important;
             justify-content: center !important;
             padding: 1.25rem !important;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            transition: opacity 0.3s ease !important;
             box-sizing: border-box !important;
-        }
-        .plugin-info-modal-backdrop:not(.active) {
-            display: none !important;
         }
         .plugin-info-modal-backdrop.active {
             display: flex !important;
             opacity: 1 !important;
-            visibility: visible !important;
             pointer-events: auto !important;
         }
         .plugin-info-modal-card {
@@ -105,15 +100,15 @@
             flex-direction: column !important;
             position: relative !important;
             overflow: hidden !important;
-            transform: scale(0.92) translateY(20px);
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            transform: scale(0.96) !important;
+            transition: transform 0.3s ease !important;
             box-sizing: border-box !important;
         }
         .plugin-info-modal-card.rescaler-card {
             box-shadow: 0 24px 70px rgba(0, 0, 0, 0.95), 0 0 45px rgba(56, 189, 248, 0.25) !important;
         }
         .plugin-info-modal-backdrop.active .plugin-info-modal-card {
-            transform: scale(1) translateY(0) !important;
+            transform: scale(1) !important;
         }
         .plugin-modal-title {
             font-size: clamp(1.45rem, 1.6vw, 1.65rem) !important;
@@ -1371,6 +1366,18 @@
         function closePluginModal(id) {
             var modal = document.getElementById(id);
             if (!modal) return;
+            try {
+                if (window.SFX && typeof window.SFX.click2 === 'function') {
+                    window.SFX.click2();
+                } else {
+                    var sfx = document.getElementById('sfxClick2');
+                    if (sfx) {
+                        var clone = sfx.cloneNode(true);
+                        clone.volume = 0.85;
+                        clone.play().catch(function() {});
+                    }
+                }
+            } catch (err) {}
             modal.classList.remove('active');
             modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
@@ -1378,10 +1385,7 @@
                 if (!modal.classList.contains('active')) {
                     modal.style.display = 'none';
                 }
-            }, 280);
-            if (window.SFX && typeof window.SFX.click2 === 'function') {
-                window.SFX.click2();
-            }
+            }, 300);
         }
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
