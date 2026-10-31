@@ -2272,8 +2272,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!destination) return;
 
             e.preventDefault();
+            e.stopPropagation();
 
-            // Play clean click sound without premature browser cut-off
+            // Play clean click sound and allow it to finish fully
             if (window.SFX && typeof window.SFX.click1 === 'function') {
                 window.SFX.click1();
             }
@@ -2283,8 +2284,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(() => {
                 window.location.href = destination;
-            }, 180);
-        });
+            }, 280);
+        }, true);
 
         // Ensure page is immediately visible if loaded from back/forward cache
         window.addEventListener('pageshow', () => {

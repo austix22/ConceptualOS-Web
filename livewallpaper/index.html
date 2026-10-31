@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=3.7.0">
+    <link rel="stylesheet" href="styles.css?v=3.8.1">
 </head>
 
 <body class="wp-standalone-page">
@@ -57,8 +57,8 @@
                 <a href="index.html" class="nav-item-pill nav-back-pill" data-i18n="wp_nav_back">
                     <i class="fa-solid fa-arrow-left"></i> COS Home
                 </a>
-                <button type="button" class="nav-item-pill" data-i18n="wp_nav_styles" data-scroll-to="estilos">Styles</button>
-                <button type="button" class="nav-item-pill" data-i18n="wp_nav_features" data-scroll-to="caracteristicas">Performance</button>
+                <a href="javascript:void(0)" class="nav-item-pill" data-i18n="wp_nav_styles" onclick="document.getElementById('estilos')?.scrollIntoView({behavior:'smooth'}); return false;">Styles</a>
+                <a href="javascript:void(0)" class="nav-item-pill" data-i18n="wp_nav_features" onclick="document.getElementById('caracteristicas')?.scrollIntoView({behavior:'smooth'}); return false;">Performance</a>
             </nav>
 
             <div class="nav-actions">
@@ -775,7 +775,7 @@
     </div>
 
     <!-- Custom Script -->
-    <script src="script.js?v=3.7.0"></script>
+    <script src="script.js?v=3.8.1"></script>
     <script src="wallpaper-engine.js?v=1.7.0"></script>
 
     <!-- Interactive Phone & Options Modal Script -->
@@ -835,6 +835,11 @@
             // La ventana de configuración SOLO se cierra tocando la 'X' arriba a la derecha (wpConfigModalCloseBtn)
         });
     </script>
+
+    <!-- Global Audio SFX Pool -->
+    <audio id="sfxClick1" src="m4a/click_1.m4a" preload="auto"></audio>
+    <audio id="sfxClick2" src="m4a/click_2.m4a" preload="auto"></audio>
+    <audio id="sfxJuegoAbrir" src="m4a/juegoabrir.m4a" preload="auto"></audio>
 </body>
 
 </html>
