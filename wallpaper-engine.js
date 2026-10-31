@@ -212,8 +212,8 @@
                 const drawY = driftY * screenHeight;
 
                 const activeColor = isGrayscale ? grayscaleColor : p.color;
-                // Partículas del tamaño de las letras con sutil variación proporcional (aprox 12px a 18px)
-                const fontSize = Math.round(screenWidth * (0.036 + p.sizeFactor * 0.018));
+                // Partículas escaladas al ancho de pantalla idéntico a Android Studio (48px - 93px sobre 1080px = 4.4% a 8.6%)
+                const fontSize = Math.round(screenWidth * (0.0444 + p.sizeFactor * 0.0417));
 
                 ctx.save();
                 ctx.translate(drawX, drawY);
