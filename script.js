@@ -100,10 +100,23 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch (err) {}
         };
 
+        let lastJuegoAbrirTime = 0;
+
         return {
-            click1: (vol = 0.85) => play('click_1', vol),
+            click1: (vol = 0.85) => {
+                if (Date.now() - lastJuegoAbrirTime < 350) return;
+                play('click_1', vol);
+            },
             click2: (vol = 0.85) => play('click_2', vol),
-            juegoAbrir: (vol = 0.9) => play('juegoabrir', vol),
+            juegoAbrir: (vol = 0.9) => {
+                lastJuegoAbrirTime = Date.now();
+                if (pendingClick1Timeout) {
+                    clearTimeout(pendingClick1Timeout);
+                    pendingClick1Timeout = null;
+                }
+                play('juegoabrir', vol);
+            },
+            getLastJuegoAbrirTime: () => lastJuegoAbrirTime,
             unlock: unlockAudio
         };
     })();
@@ -137,21 +150,57 @@ document.addEventListener('DOMContentLoaded', () => {
         '.social-link'
     ].join(',');
 
+    let pendingClick1Timeout = null;
     let lastClick1Time = 0;
     const playClick1Throttled = () => {
         const now = Date.now();
         if (now - lastClick1Time < 140) return;
-        lastClick1Time = now;
-        SFX.click1();
+        if (now - SFX.getLastJuegoAbrirTime() < 350) return;
+
+        if (pendingClick1Timeout) clearTimeout(pendingClick1Timeout);
+        pendingClick1Timeout = setTimeout(() => {
+            pendingClick1Timeout = null;
+            if (Date.now() - SFX.getLastJuegoAbrirTime() < 350) return;
+            lastClick1Time = Date.now();
+            SFX.click1();
+        }, 15);
     };
 
     document.addEventListener('click', (e) => {
-        // Skip gallery and wallpaper cards (which play juegoabrir), modal close (which plays click_2), and plugin info buttons (which play juegoabrir)
-        const galleryCard = e.target.closest('.gallery-card');
-        const wallpaperCard = e.target.closest('.wallpaper-card');
-        const isLightboxClose = e.target.closest('#lightboxCloseBtn, #wpLightboxCloseBtn, .lightbox-close, .plugin-modal-close');
-        const isInfoModalBtn = e.target.closest('#infoKeyMapperBtn, #infoRescalerBtn, .btn-plugin-info, [onclick*="openPluginModal"]');
-        if (galleryCard || wallpaperCard || isLightboxClose || isInfoModalBtn) return;
+        // Skip all cards, buttons and triggers that open windows with juegoabrir, or close modals (which play click_2)
+        const isJuegoAbrirOpener = e.target.closest([
+            '.gallery-card',
+            '.wallpaper-card',
+            '#heroScreenshotCard',
+            '.hero-screenshot-card',
+            '#heroGalleryBtn',
+            '#heroMobileGalleryBtn',
+            'a[href="#gallery"]',
+            '#infoKeyMapperBtn',
+            '#infoRescalerBtn',
+            '.btn-plugin-info',
+            '.btn-km-info',
+            '.btn-rescaler-info',
+            '#openWpConfigModalBtn',
+            '.wp-config-action-btn',
+            '[onclick*="openPluginModal"]',
+            '[onclick*="openLightbox"]',
+            '[onclick*="openWallpaperLightbox"]',
+            '[data-modal-target]',
+            '[data-open-modal]'
+        ].join(','));
+
+        const isModalClose = e.target.closest([
+            '#lightboxCloseBtn',
+            '#wpLightboxCloseBtn',
+            '.lightbox-close',
+            '.plugin-modal-close',
+            '#kmInfoCloseBtn',
+            '#rescalerInfoCloseBtn',
+            '#wpConfigModalCloseBtn'
+        ].join(','));
+
+        if (isJuegoAbrirOpener || isModalClose) return;
 
         const target = e.target.closest(interactiveSelector);
         if (target) {
