@@ -146,11 +146,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.addEventListener('click', (e) => {
-        // Skip gallery and wallpaper cards (which play juegoabrir) and modal close (which plays click_2)
+        // Skip gallery and wallpaper cards (which play juegoabrir), modal close (which plays click_2), and plugin info buttons (which play juegoabrir)
         const galleryCard = e.target.closest('.gallery-card');
         const wallpaperCard = e.target.closest('.wallpaper-card');
         const isLightboxClose = e.target.closest('#lightboxCloseBtn, #wpLightboxCloseBtn, .lightbox-close, .plugin-modal-close');
-        if (galleryCard || wallpaperCard || isLightboxClose) return;
+        const isInfoModalBtn = e.target.closest('#infoKeyMapperBtn, #infoRescalerBtn, .btn-plugin-info, [onclick*="openPluginModal"]');
+        if (galleryCard || wallpaperCard || isLightboxClose || isInfoModalBtn) return;
 
         const target = e.target.closest(interactiveSelector);
         if (target) {
