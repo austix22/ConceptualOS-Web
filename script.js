@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { label: '□', color: '#ec4899' }  // PlayStation Square Pink
         ];
 
-        const particleCount = window.innerWidth < 768 ? 24 : 42;
+        const particleCount = window.innerWidth < 768 ? 16 : 38;
 
         for (let i = 0; i < particleCount; i++) {
             const btnElement = document.createElement('div');
@@ -200,6 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btnElement.style.color = btnData.color;
             btnElement.style.animationDuration = `${duration}s`;
             btnElement.style.animationDelay = `${delay}s`;
+            btnElement.style.willChange = 'transform';
 
             bgContainer.appendChild(btnElement);
         }
@@ -1489,37 +1490,46 @@ document.addEventListener('DOMContentLoaded', () => {
                 captionTransitionTimer = null;
             }
 
-            // Capture exact current height before content swap
-            const prevHeight = lightboxCaption.getBoundingClientRect().height;
-            lightboxCaption.style.height = `${prevHeight}px`;
-            lightboxCaption.style.transition = 'height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease';
+            // Phase 1: Smoothly fade out the current text (no jump or flicker)
             lightboxCaption.classList.add('slide-fade');
 
-            // Apply new texts
-            if (lightboxTag) lightboxTag.innerHTML = dict[item.tagKey] || '';
-            if (lightboxTitle) lightboxTitle.innerHTML = dict[item.titleKey] || '';
-            if (lightboxDesc) lightboxDesc.innerHTML = dict[item.descKey] || '';
-            if (lightboxCounter) lightboxCounter.textContent = `${currentGalleryIdx + 1} / ${galleryData.length}`;
-
-            // Measure new natural content height
-            lightboxCaption.style.height = 'auto';
-            const targetHeight = lightboxCaption.getBoundingClientRect().height;
-
-            // Re-apply starting height and force layout reflow
-            lightboxCaption.style.height = `${prevHeight}px`;
-            void lightboxCaption.offsetHeight;
-
-            // Trigger smooth progressive transition to target height
-            lightboxCaption.style.height = `${targetHeight}px`;
-
+            // Phase 2: Once dimmed, swap text and smoothly adapt height
             captionTransitionTimer = setTimeout(() => {
-                if (lightboxCaption) {
+                if (!lightboxCaption) return;
+
+                const prevHeight = lightboxCaption.offsetHeight;
+
+                // Apply new texts while dimmed
+                if (lightboxTag) lightboxTag.innerHTML = dict[item.tagKey] || '';
+                if (lightboxTitle) lightboxTitle.innerHTML = dict[item.titleKey] || '';
+                if (lightboxDesc) lightboxDesc.innerHTML = dict[item.descKey] || '';
+                if (lightboxCounter) lightboxCounter.textContent = `${currentGalleryIdx + 1} / ${galleryData.length}`;
+
+                // Measure new natural content height without visual jump
+                lightboxCaption.style.transition = 'none';
+                lightboxCaption.style.height = 'auto';
+                const targetHeight = lightboxCaption.offsetHeight;
+
+                // Restore starting height and trigger progressive smooth transition
+                lightboxCaption.style.height = `${prevHeight}px`;
+                void lightboxCaption.offsetHeight;
+
+                lightboxCaption.style.transition = 'height 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease';
+                lightboxCaption.style.height = `${targetHeight}px`;
+
+                // Fade back up smoothly
+                requestAnimationFrame(() => {
                     lightboxCaption.classList.remove('slide-fade');
-                    lightboxCaption.style.height = 'auto';
-                    lightboxCaption.style.transition = '';
-                }
-                captionTransitionTimer = null;
-            }, 400);
+                });
+
+                captionTransitionTimer = setTimeout(() => {
+                    if (lightboxCaption) {
+                        lightboxCaption.style.height = 'auto';
+                        lightboxCaption.style.transition = '';
+                    }
+                    captionTransitionTimer = null;
+                }, 320);
+            }, 100);
         } else {
             if (captionTransitionTimer) {
                 clearTimeout(captionTransitionTimer);
@@ -2101,12 +2111,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const openModal = (modal) => {
             if (typeof modal === 'string') modal = document.getElementById(modal);
             if (!modal) return;
+            if (modal.classList.contains('active')) return;
+            if (typeof SFX !== 'undefined' && SFX.juegoAbrir) {
+                SFX.juegoAbrir();
+            } else {
+                const sfx = document.getElementById('sfxJuegoAbrir');
+                if (sfx) {
+                    const clone = sfx.cloneNode(true);
+                    clone.volume = 0.9;
+                    clone.play().catch(() => {});
+                }
+            }
             modal.style.setProperty('display', 'flex', 'important');
             void modal.offsetHeight;
             modal.classList.add('active');
             modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
-            if (typeof SFX !== 'undefined' && SFX.click1) SFX.click1();
         };
 
         const closeModal = (modal) => {

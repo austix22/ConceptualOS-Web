@@ -71,9 +71,9 @@
             bottom: 0 !important;
             width: 100vw !important;
             height: 100vh !important;
-            background: rgba(3, 4, 10, 0.86) !important;
-            backdrop-filter: blur(14px) !important;
-            -webkit-backdrop-filter: blur(14px) !important;
+            background: rgba(3, 4, 10, 0.88) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
             z-index: 999999 !important;
             display: none;
             align-items: center !important;
@@ -81,11 +81,12 @@
             padding: 1.25rem !important;
             opacity: 0 !important;
             pointer-events: none !important;
-            transition: opacity 0.3s ease !important;
+            transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
             box-sizing: border-box !important;
             overflow-y: auto !important;
             -webkit-overflow-scrolling: touch !important;
             overscroll-behavior: contain !important;
+            will-change: opacity !important;
         }
         .plugin-info-modal-backdrop.active {
             display: flex !important;
@@ -94,9 +95,9 @@
         }
         .plugin-info-modal-card {
             background: rgba(14, 17, 28, 0.98) !important;
-            border: 1px solid rgba(211, 211, 255, 0.2) !important;
+            border: 1px solid rgba(211, 211, 255, 0.22) !important;
             border-radius: 26px !important;
-            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.95), 0 0 45px rgba(139, 92, 246, 0.25) !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(139, 92, 246, 0.2) !important;
             max-width: 620px !important;
             width: 100% !important;
             max-height: 88vh !important;
@@ -104,15 +105,16 @@
             flex-direction: column !important;
             position: relative !important;
             overflow: hidden !important;
-            transform: scale(0.96) !important;
-            transition: transform 0.3s ease !important;
+            transform: scale(0.96) translateZ(0) !important;
+            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
             box-sizing: border-box !important;
+            will-change: transform, opacity !important;
         }
         .plugin-info-modal-card.rescaler-card {
-            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.95), 0 0 45px rgba(56, 189, 248, 0.25) !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(56, 189, 248, 0.2) !important;
         }
         .plugin-info-modal-backdrop.active .plugin-info-modal-card {
-            transform: scale(1) !important;
+            transform: scale(1) translateZ(0) !important;
         }
         .plugin-modal-title {
             font-size: clamp(1.45rem, 1.6vw, 1.65rem) !important;
@@ -1358,14 +1360,22 @@
         function openPluginModal(id) {
             var modal = document.getElementById(id);
             if (!modal) return;
-            modal.style.display = 'flex';
+            if (modal.classList.contains('active')) return;
+            if (window.SFX && typeof window.SFX.juegoAbrir === 'function') {
+                window.SFX.juegoAbrir();
+            } else {
+                var sfx = document.getElementById('sfxJuegoAbrir');
+                if (sfx) {
+                    var clone = sfx.cloneNode(true);
+                    clone.volume = 0.9;
+                    clone.play().catch(function() {});
+                }
+            }
+            modal.style.setProperty('display', 'flex', 'important');
             void modal.offsetHeight;
             modal.classList.add('active');
             modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
-            if (window.SFX && typeof window.SFX.click1 === 'function') {
-                window.SFX.click1();
-            }
         }
         function closePluginModal(id) {
             var modal = document.getElementById(id);

@@ -1342,6 +1342,9 @@ h1, h2, h3, h4, span, p, a, button {
     align-items: center;
     justify-content: center;
     scroll-margin-top: 5rem;
+    contain: layout style;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 650px;
 }
 
 .overlay-container {
@@ -1364,6 +1367,8 @@ h1, h2, h3, h4, span, p, a, button {
     width: 100%;
     display: flex;
     flex-direction: column;
+    transform: translateZ(0);
+    contain: layout style;
 }
 
 .overlay-top-nav {
@@ -1508,12 +1513,12 @@ h1, h2, h3, h4, span, p, a, button {
 
 .overlay-ambient-glow {
     position: absolute;
-    width: 220px;
-    height: 220px;
-    background: radial-gradient(circle, rgba(128, 168, 255, 0.22) 0%, rgba(206, 181, 255, 0.1) 40%, transparent 70%);
-    filter: blur(24px);
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle closest-side, rgba(128, 168, 255, 0.22) 0%, rgba(206, 181, 255, 0.08) 55%, transparent 100%);
     pointer-events: none;
     z-index: 0;
+    transform: translateZ(0);
 }
 
 /* Tab Header with Divider Line in Overlay */
@@ -3750,6 +3755,28 @@ h1, h2, h3, h4, span, p, a, button {
         min-height: 310px;
         max-height: 310px;
     }
+
+    /* Mobile Scrolling & GPU Optimizations */
+    .glow-bg {
+        filter: blur(45px);
+        opacity: 0.12;
+        width: 320px;
+        height: 320px;
+        transform: translateZ(0);
+    }
+
+    .floating-btn-particle {
+        text-shadow: none;
+        opacity: 0.2;
+    }
+
+    .cos-overlay-window,
+    .ra-hud-card,
+    .glass-card {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+    }
 }
 
 @media (max-width: 600px) {
@@ -4510,11 +4537,14 @@ h1, h2, h3, h4, span, p, a, button {
     justify-content: flex-start;
     flex-shrink: 0;
     overflow: hidden;
-    transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+    opacity: 1;
+    transition: opacity 0.22s ease, height 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, height;
 }
 
 .lightbox-caption.slide-fade {
-    opacity: 0.35;
+    opacity: 0.15;
+    transition: opacity 0.1s ease;
 }
 
 .lightbox-tag-row {
@@ -5244,9 +5274,9 @@ h1, h2, h3, h4, span, p, a, button {
     inset: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    background: rgba(3, 4, 10, 0.86);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(3, 4, 10, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 100000 !important;
     display: none;
     align-items: center;
@@ -5254,11 +5284,12 @@ h1, h2, h3, h4, span, p, a, button {
     padding: 1.25rem;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     box-sizing: border-box;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
+    will-change: opacity;
 }
 
 .plugin-info-modal-backdrop.active {
@@ -5268,10 +5299,10 @@ h1, h2, h3, h4, span, p, a, button {
 }
 
 .plugin-info-modal-card {
-    background: rgba(14, 17, 28, 0.96);
-    border: 1px solid rgba(211, 211, 255, 0.2);
+    background: rgba(14, 17, 28, 0.98);
+    border: 1px solid rgba(211, 211, 255, 0.22);
     border-radius: 26px;
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.9), 0 0 45px rgba(139, 92, 246, 0.22);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(139, 92, 246, 0.2);
     max-width: 620px;
     width: 100%;
     max-height: 88vh;
@@ -5280,17 +5311,18 @@ h1, h2, h3, h4, span, p, a, button {
     position: relative;
     overflow: hidden;
     margin: auto;
-    transform: scale(0.96);
-    transition: transform 0.3s ease;
+    transform: scale(0.96) translateZ(0);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     box-sizing: border-box;
+    will-change: transform, opacity;
 }
 
 .plugin-info-modal-card.rescaler-card {
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.9), 0 0 45px rgba(56, 189, 248, 0.22);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(56, 189, 248, 0.2);
 }
 
 .plugin-info-modal-backdrop.active .plugin-info-modal-card {
-    transform: scale(1);
+    transform: scale(1) translateZ(0);
 }
 
 .plugin-modal-close {
