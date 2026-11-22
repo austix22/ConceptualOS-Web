@@ -18,19 +18,19 @@
 
     <link rel="icon" type="image/png" href="app_icon.png">
 
-    <!-- Fonts: Plus Jakarta Sans & Outfit -->
+    <!-- Font: Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=3.8.4">
+    <link rel="stylesheet" href="styles.css?v=3.8.6">
 </head>
 
-<body class="wp-standalone-page">
+<body class="wp-standalone-page nunito-page">
 
     <!-- Floating Controller Symbols Particle Engine Canvas/Container -->
     <div id="floatingIconsBg" class="floating-icons-container"></div>
@@ -56,7 +56,6 @@
                     <i class="fa-solid fa-arrow-left"></i> COS Home
                 </a>
                 <a href="javascript:void(0)" class="nav-item-pill" data-i18n="wp_nav_styles" onclick="document.getElementById('estilos')?.scrollIntoView({behavior:'smooth'}); return false;">Styles</a>
-                <a href="javascript:void(0)" class="nav-item-pill" data-i18n="wp_nav_features" onclick="document.getElementById('caracteristicas')?.scrollIntoView({behavior:'smooth'}); return false;">Performance</a>
             </nav>
 
             <div class="nav-actions">
@@ -97,7 +96,7 @@
                         rel="noopener noreferrer" class="btn btn-googleplay btn-lg wallpaper-play-btn wp-hero-cta"
                         id="wpGooglePlayBtnHero">
                         <i class="fa-brands fa-google-play"></i>
-                        <span data-i18n="wp_cta_btn">Get on Google Play</span>
+                        <span data-i18n="wp_cta_btn">Download</span>
                     </a>
                 </div>
             </div>
@@ -159,7 +158,7 @@
                     <!-- 1. Multicolor Mode Card -->
                     <div class="wallpaper-card glass-card" data-wp-style="gamer" data-wp-img="img/multicolor.png" data-wp-mode="color" tabindex="0" role="button" aria-label="Expand multicolor mode capture">
                         <div class="wallpaper-media-wrap">
-                            <img src="img/multicolor.png" alt="Conceptual Live Wallpaper - Classic Multicolor Mode" class="wallpaper-img" loading="lazy">
+                            <img src="img/multicolor.png" alt="Conceptual Live Wallpaper - Classic Multicolor Mode" class="wallpaper-img" loading="lazy" decoding="async">
                             <div class="wallpaper-overlay">
                                 <span class="wallpaper-mode-tag color-tag" style="color: #fbbf24; border-color: rgba(245, 158, 11, 0.65); background: rgba(28, 20, 10, 0.92); box-shadow: 0 0 12px rgba(245, 158, 11, 0.35); text-shadow: 0 0 8px rgba(245, 158, 11, 0.4);" data-i18n="wp_card1_tag">MULTICOLOR MODE</span>
                             </div>
@@ -190,7 +189,7 @@
                     <!-- 2. Monochrome Mode Card -->
                     <div class="wallpaper-card glass-card" data-wp-style="gamer" data-wp-img="img/monocromo.png" data-wp-mode="mono" tabindex="0" role="button" aria-label="Expand monochrome mode capture">
                         <div class="wallpaper-media-wrap">
-                            <img src="img/monocromo.png" alt="Conceptual Live Wallpaper - Minimalist Monochrome Mode" class="wallpaper-img" loading="lazy">
+                            <img src="img/monocromo.png" alt="Conceptual Live Wallpaper - Minimalist Monochrome Mode" class="wallpaper-img" loading="lazy" decoding="async">
                             <div class="wallpaper-overlay">
                                 <span class="wallpaper-mode-tag mono-tag" style="color: #f8fafc; border-color: rgba(211, 211, 255, 0.5); background: rgba(18, 20, 32, 0.92); box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);" data-i18n="wp_card2_tag">MONOCHROME MODE</span>
                             </div>
@@ -219,7 +218,7 @@
                     <!-- 3. Cosmic Particles Card -->
                     <div class="wallpaper-card glass-card" data-wp-style="stardust" data-wp-img="img/particulascosmicas.png" tabindex="0" role="button" aria-label="Expand Cosmic Particles Style capture">
                         <div class="wallpaper-media-wrap">
-                            <img src="img/particulascosmicas.png" alt="Conceptual Live Wallpaper - Cosmic Particles Style" class="wallpaper-img" loading="lazy">
+                            <img src="img/particulascosmicas.png" alt="Conceptual Live Wallpaper - Cosmic Particles Style" class="wallpaper-img" loading="lazy" decoding="async">
                             <div class="wallpaper-overlay">
                                 <span class="wallpaper-mode-tag galaxy-tag" style="color: #e879f9; border-color: rgba(232, 121, 249, 0.6); background: rgba(24, 12, 36, 0.92); box-shadow: 0 0 12px rgba(232, 121, 249, 0.35); text-shadow: 0 0 8px rgba(232, 121, 249, 0.45);" data-i18n="wp_card3_tag">COSMIC PARTICLES</span>
                             </div>
@@ -248,7 +247,7 @@
                     <!-- 4. Code Card -->
                     <div class="wallpaper-card glass-card" data-wp-style="code" data-wp-img="img/codigo.png" tabindex="0" role="button" aria-label="Expand Code Style capture">
                         <div class="wallpaper-media-wrap">
-                            <img src="img/codigo.png" alt="Conceptual Live Wallpaper - Code Style" class="wallpaper-img" loading="lazy">
+                            <img src="img/codigo.png" alt="Conceptual Live Wallpaper - Code Style" class="wallpaper-img" loading="lazy" decoding="async">
                             <div class="wallpaper-overlay">
                                 <span class="wallpaper-mode-tag code-tag" style="color: #00ff66; border-color: rgba(0, 255, 102, 0.6); background: rgba(4, 24, 14, 0.92); box-shadow: 0 0 12px rgba(0, 255, 102, 0.35); text-shadow: 0 0 8px rgba(0, 255, 102, 0.45);" data-i18n="wp_card4_tag">CODE</span>
                             </div>
@@ -277,7 +276,7 @@
                     <!-- 5. Runes Card -->
                     <div class="wallpaper-card glass-card" data-wp-style="runes" data-wp-img="img/runas.png" tabindex="0" role="button" aria-label="Expand Runes Style capture">
                         <div class="wallpaper-media-wrap">
-                            <img src="img/runas.png" alt="Conceptual Live Wallpaper - Runes Style" class="wallpaper-img" loading="lazy">
+                            <img src="img/runas.png" alt="Conceptual Live Wallpaper - Runes Style" class="wallpaper-img" loading="lazy" decoding="async">
                             <div class="wallpaper-overlay">
                                 <span class="wallpaper-mode-tag runes-tag" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.6); background: rgba(8, 22, 38, 0.92); box-shadow: 0 0 12px rgba(56, 189, 248, 0.35); text-shadow: 0 0 8px rgba(56, 189, 248, 0.45);" data-i18n="wp_card5_tag">RUNES</span>
                             </div>
@@ -306,7 +305,7 @@
                     <!-- 6. Kanjis & Bushido Card -->
                     <div class="wallpaper-card glass-card" data-wp-style="kanji" data-wp-img="img/kanjis.png" tabindex="0" role="button" aria-label="Expand Kanjis & Bushido Style capture">
                         <div class="wallpaper-media-wrap">
-                            <img src="img/kanjis.png" alt="Conceptual Live Wallpaper - Kanjis & Bushido Style" class="wallpaper-img" loading="lazy">
+                            <img src="img/kanjis.png" alt="Conceptual Live Wallpaper - Kanjis & Bushido Style" class="wallpaper-img" loading="lazy" decoding="async">
                             <div class="wallpaper-overlay">
                                 <span class="wallpaper-mode-tag bushido-tag" style="color: #ff2a4b; border-color: rgba(255, 42, 75, 0.6); background: rgba(36, 10, 16, 0.92); box-shadow: 0 0 12px rgba(255, 42, 75, 0.35); text-shadow: 0 0 8px rgba(255, 42, 75, 0.45);" data-i18n="wp_card6_tag">KANJIS & BUSHIDO</span>
                             </div>
@@ -332,56 +331,6 @@
                         </div>
                     </div>
 
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features & Battery Performance Section (#caracteristicas) -->
-    <section id="caracteristicas" class="section wp-features-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-subtitle" data-i18n="wp_feat_subtitle">PERFORMANCE</span>
-                <h2 class="section-title" data-i18n="wp_feat_main_title">
-                    Engineered for <span class="gradient-text">Maximum Efficiency</span>
-                </h2>
-                <p class="section-description" data-i18n="wp_feat_main_desc">
-                    Unlike heavy live wallpapers, Conceptual Live Wallpaper is built with native GPU rendering and ultra-low memory footprints.
-                </p>
-            </div>
-
-            <!-- Features Highlight Grid (4 Items Preserved & Enhanced) -->
-            <div class="wallpaper-features-grid wp-features-grid-enhanced">
-                <div class="wp-feat-item glass-card">
-                    <div class="wp-feat-icon glow-cyan"><i class="fa-solid fa-atom"></i></div>
-                    <div class="wp-feat-info">
-                        <h4 data-i18n="wp_feat1_title">Same Particle Engine</h4>
-                        <p data-i18n="wp_feat1_desc">The exact same reactive physics and floating particles you see in the background of this website.</p>
-                    </div>
-                </div>
-
-                <div class="wp-feat-item glass-card">
-                    <div class="wp-feat-icon glow-purple"><i class="fa-solid fa-battery-full"></i></div>
-                    <div class="wp-feat-info">
-                        <h4 data-i18n="wp_feat2_title">Zero Battery Drain</h4>
-                        <p data-i18n="wp_feat2_desc">Engineered with auto-pause whenever your screen turns off or when you launch other apps.</p>
-                    </div>
-                </div>
-
-                <div class="wp-feat-item glass-card">
-                    <div class="wp-feat-icon glow-blue"><i class="fa-solid fa-sliders"></i></div>
-                    <div class="wp-feat-info">
-                        <h4 data-i18n="wp_feat3_title">Customizable Settings</h4>
-                        <p data-i18n="wp_feat3_desc">Customize particle speed, particle styles, background tones, and colors.</p>
-                    </div>
-                </div>
-
-                <div class="wp-feat-item glass-card">
-                    <div class="wp-feat-icon glow-purple"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-                    <div class="wp-feat-info">
-                        <h4 data-i18n="wp_feat4_title">Only $1.00 USD (One-time)</h4>
-                        <p data-i18n="wp_feat4_desc">No subscriptions and no ads.</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -773,8 +722,8 @@
     </div>
 
     <!-- Custom Script -->
-    <script src="script.js?v=3.8.5"></script>
-    <script src="wallpaper-engine.js?v=1.7.0"></script>
+    <script src="script.js?v=3.8.6"></script>
+    <script src="wallpaper-engine.js?v=1.7.1"></script>
 
     <!-- Interactive Phone & Options Modal Script -->
     <script>

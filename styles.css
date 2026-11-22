@@ -20,8 +20,9 @@
 
     --border-light: rgba(211, 211, 255, 0.18); /* BorderLight */
 
-    /* Typography: Professional, Sharp & Clean Font Family */
+    /* Typography */
     --font-official: 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
+    --font-title: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
     --glass-blur: blur(18px);
     --transition-fast: 0.25s ease;
@@ -52,6 +53,12 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+}
+
+body.nunito-page {
+    --font-official: 'Nunito', system-ui, -apple-system, sans-serif;
+    --font-title: 'Nunito', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-official);
 }
 
 /* Inline Flag SVG Graphic Styling */
@@ -6739,4 +6746,120 @@ body {
 body.page-transitioning-out {
     opacity: 0 !important;
     pointer-events: none !important;
+}
+
+/* Homepage feature list and text-only product sections */
+#features .feature-list {
+    display: block;
+    max-width: 920px;
+    margin: 2.5rem auto 0;
+    padding: 0 1.5rem;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    border-radius: 22px;
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+#features .feature-card {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr);
+    align-items: start;
+    gap: 1rem;
+    padding: 1.45rem 0;
+    border: 0;
+    border-bottom: 1px solid var(--border-light);
+    border-radius: 0;
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transform: none !important;
+}
+
+#features .feature-card:last-child {
+    border-bottom: 0;
+}
+
+#features .feature-icon {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: var(--moondust-purple);
+    font-size: 1.2rem;
+}
+
+#features .feature-card h3 {
+    grid-column: 2;
+    margin: 0 0 0.25rem;
+    font-size: 1.15rem;
+}
+
+#features .feature-card p {
+    grid-column: 2;
+    margin: 0;
+    font-size: 0.98rem;
+}
+
+#neural-overlay,
+#achievements {
+    padding: 3.2rem 0;
+    content-visibility: visible;
+}
+
+#neural-overlay .overlay-container,
+#achievements .overlay-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 1080px;
+}
+
+#neural-overlay .overlay-content,
+#achievements .overlay-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#neural-overlay .check-list,
+#achievements .check-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.25rem 2rem;
+    margin-top: 1.7rem;
+}
+
+#neural-overlay .check-list li,
+#achievements .check-list li {
+    margin: 0;
+}
+
+@media (max-width: 650px) {
+    #features .feature-list {
+        padding: 0 1rem;
+    }
+
+    #features .feature-card {
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 0.65rem;
+    }
+
+    #features .feature-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    #neural-overlay .check-list,
+    #achievements .check-list {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
 }

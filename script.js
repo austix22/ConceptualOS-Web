@@ -370,8 +370,6 @@ document.addEventListener('DOMContentLoaded', () => {
             f4_desc: "Conecta con RetroAchievements para desbloquear logros y seguir tu progreso.",
             f5_title: "Seguimiento de Tiempo de Juego",
             f5_desc: "Consulta cuánto tiempo has dedicado a cada juego.",
-            f6_title: "Reproductor de Música",
-            f6_desc: "Escucha música mientras juegas y ajusta su volumen de forma independiente.",
             f7_title: "Central de descargas",
             f7_desc: "Enlaces de descarga directos y oficiales de los emuladores.",
             f8_title: "Parcheador de ROMs",
@@ -380,23 +378,13 @@ document.addEventListener('DOMContentLoaded', () => {
             f9_desc: "Asigna clips de vídeo de inicio personalizados a cada consola para una entrada más cinematográfica a los juegos.",
             features_show_more: "Ver más funciones (6)",
             features_show_less: "Ocultar funciones",
-            compat_subtitle: "ECOSISTEMA INTEGRADO",
-            compat_title: 'Compatibilidad <span class="gradient-text">Amplia</span>',
-            compat_desc: "COS Launcher está diseñado para comunicarse con tus emuladores favoritos, mandos físicos y dispositivos Android sin configuraciones complicadas.",
-            compat_c1_title: "Emuladores y Juegos",
-            compat_c1_desc: "Lanza directamente tus títulos favoritos. Compatible con todos los emuladores actuales y juegos nativos de Android.",
-            compat_c2_title: "Mandos",
-            compat_c2_desc: "Navegación nativa Plug & Play. Compatible con todos los controles Bluetooth o USB-C.",
-            compat_c3_title: "Dispositivos y Sistema",
-            compat_c3_desc: "Optimizado para consolas portátiles dedicadas (Ayn Odin, Retroid Pocket, Anbernic, Logitech G Cloud), smartphones y tablets con Android 9.0 o superior.",
             hub_subtitle: "ACCESOS RÁPIDOS DURANTE LA PARTIDA",
             hub_title: '<span class="gradient-text">COS HUB</span> Overlay',
-            hub_desc: "COS HUB reúne herramientas útiles sin sacarte de la partida. Consulta tus logros, controla el volumen y el brillo, revisa el almacenamiento y el estado del dispositivo, administra tus controles, toma notas y capturas de pantalla, o realiza una búsqueda rápida desde el navegador integrado.",
-            hub_check1: "Superposición flotante fluida y transparente.",
-            hub_check2: "Abre COS HUB desde el acceso rápido en pantalla.",
-            hub_check3: "Reproductor de música con control de volumen independiente.",
-            hub_check4: "Navegador web integrado para consultar guías y trucos al instante.",
-            hub_check5: "Monitoreo en tiempo real de batería, almacenamiento y controles.",
+            hub_desc: "COS HUB abre un panel flotante sobre el juego para consultar logros, cambiar ajustes del sistema, revisar el estado del dispositivo y acceder a herramientas rápidas sin salir de la partida.",
+            hub_check1: "Acceso rápido en pantalla durante tus partidas.",
+            hub_check2: "Controla volumen, brillo y No molestar.",
+            hub_check3: "Consulta controles, batería y estado del dispositivo.",
+            hub_check4: "Toma notas o consulta guías con el navegador integrado.",
             ach_subtitle: "SISTEMA DE LOGROS",
             ach_title: 'Integración con <span class="gradient-text">RetroAchievements</span>',
             ach_desc: "Revive tus juegos favoritos con la emoción de los logros modernos. COS Launcher se conecta de forma directa con tu cuenta de RetroAchievements utilizando el motor oficial <strong>rcheevos</strong>, permitiéndote competir, sumar puntos y llevar un registro de tus hazañas.",
@@ -411,31 +399,11 @@ document.addEventListener('DOMContentLoaded', () => {
             gallery_yt_channel_title: "Conceptual OS",
             gallery_zoom_hint: "Ampliar captura",
             gallery_item1_tag: "01 • INICIO",
-            gallery_item1_title: "Pantalla de Inicio",
-            gallery_item1_desc: "Dashboard principal con juegos, filtro de recientes, logros desbloqueados recientemente y videos de novedades. En la parte superior: cápsula de conexión, hora, cápsula de batería, nombre de usuario e icono de perfil.",
-            gallery_item2_tag: "02 • PANEL",
-            gallery_item2_title: "Panel de Fondo e Iconos",
-            gallery_item2_desc: "Vista completa de juegos con información detallada, tiempo de juego acumulado, última vez jugado y logros.",
-            gallery_item3_tag: "03 • JUEGOS",
-            gallery_item3_title: "Pestaña de Juegos",
-            gallery_item3_desc: "Metadatos completos (desarrollador, año, jugadores, calificación), cápsula superior de logros, y atajos rápidos para gameplay, opciones y favoritos.",
-            gallery_item4_tag: "04 • LOGROS",
-            gallery_item4_title: "Progreso de Logros",
-            gallery_item4_desc: "Ventana emergente con logros bloqueados y desbloqueados, porcentaje de avance y puntaje oficial de RetroAchievements.",
-            gallery_item5_tag: "05 • FABRICANTES",
-            gallery_item5_title: "Filtro por Fabricante",
-            gallery_item5_desc: "Organización visual por marcas (Android, Nintendo, Sony) con opción de añadir nuevas consolas.",
-            gallery_item6_tag: "06 • CONSOLAS",
-            gallery_item6_title: "Navegador de Consolas",
-            gallery_item6_desc: "Selector directo de sistemas con especificación de generación y conteo de juegos.",
-            gallery_item7_tag: "07 • RETROACHIEVEMENTS",
-            gallery_item7_title: "Perfil y Mis Logros",
-            gallery_item7_desc: "Panel de sincronización con puntuación global, avatar de usuario, acceso rápido a la página RetroAchievements interna y catálogo de juegos con logros activos.",
-            gallery_item8_tag: "08 • DESCARGAS",
-            gallery_item8_title: "Centro de Descargas",
-            gallery_item8_desc: "Gestor de enlaces para la descarga de emuladores organizados por plataforma. Todos los enlaces son oficiales y provienen directamente de sus propios creadores.",
-            gallery_show_more: "Ver todas las capturas (4)",
-            gallery_show_less: "Ver menos capturas",
+            gallery_item1_title: "Inicio moderno",
+            gallery_item1_desc: "Accesos rápidos y juegos recientes en una pantalla principal pensada para navegar con mando.",
+            gallery_item2_tag: "02 • BIBLIOTECA",
+            gallery_item2_title: "Biblioteca clásica",
+            gallery_item2_desc: "Explora tu colección de juegos desde una biblioteca organizada para Android.",
             faq_subtitle: "RESOLVEMOS TUS DUDAS",
             faq_title: 'Preguntas <span class="gradient-text">Frecuentes</span>',
             faq_desc: "Todo lo que necesitas saber sobre compatibilidad, instalación y funcionamiento de COS Launcher.",
@@ -511,7 +479,6 @@ document.addEventListener('DOMContentLoaded', () => {
             rescaler_modal_f3_title: "Restauración Instantánea",
             rescaler_modal_f3_desc: "Al desconectar el cable, tu dispositivo vuelve a su resolución y proporción original.",
             rescaler_modal_close_btn: "Entendido",
-            pricing_badge: "TRANSPARENCIA & VALOR",
             pricing_title: 'Juega Gratis o Desbloquea <span class="gradient-text">Todo el Potencial</span>',
             pricing_desc: "COS Launcher es 100% funcional y libre de anuncios desde el primer segundo. Si deseas consolas ilimitadas, COS HUB Overlay completo y personalización avanzada de nombre de perfil, puedes desbloquearlo con un pago único.",
             pricing_free_badge: "GRATIS",
@@ -630,20 +597,17 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_feat2_desc: "Optimizado con pausas automáticas cuando la pantalla se apaga o abres otras aplicaciones.",
             wp_feat3_title: "Ajustes & Personalización",
             wp_feat3_desc: "Personaliza la velocidad, estilos de partículas, tonos de fondo y colores.",
-            wp_feat4_title: "Solo $1.00 USD (Pago Único)",
-            wp_feat4_desc: "Sin suscripciones ni publicidad invasiva.",
-            wp_cta_btn: "Obtener en Google Play",
+            wp_feat4_title: "Gratis",
+            wp_feat4_desc: "Descarga y usa Conceptual Live Wallpaper gratis, sin suscripciones.",
+            wp_cta_btn: "Descargar",
             features_show_more: "Ver funciones",
             features_hide: "Ocultar funciones",
-            compat_show_more: "Ver más",
-            compat_hide: "Ocultar",
             faq_show_more: "Ver preguntas frecuentes",
             faq_hide: "Ocultar preguntas",
-            hero_view_gallery: "Ver capturas (8)",
-            hero_zoom_hint: "Explorar capturas (8)",
+            hero_view_gallery: "Ver capturas (2)",
+            hero_zoom_hint: "Explorar capturas (2)",
             wp_nav_back: "Inicio COS",
             wp_nav_styles: "Estilos",
-            wp_nav_features: "Rendimiento",
             wp_nav_specs: "Compatibilidad",
             wp_nav_play: "Google Play",
             wp_hero_title: 'Tu pantalla cobra vida con&nbsp;<span class="gradient-text">Conceptual Live Wallpaper</span>',
@@ -655,9 +619,6 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_styles_subtitle: "COLECCIÓN DE TEMAS",
             wp_styles_title: '6 Estilos y Paletas <span class="gradient-text">Únicas</span>',
             wp_styles_desc: "Elige entre múltiples variantes estéticas. Cada una cuenta con símbolos exclusivos y paletas diseñadas para cualquier tipo de pantalla.",
-            wp_feat_subtitle: "RENDIMIENTO",
-            wp_feat_main_title: 'Diseñado para la <span class="gradient-text">Máxima Eficiencia</span>',
-            wp_feat_main_desc: "A diferencia de otros fondos animados pesados, Conceptual Live Wallpaper fue desarrollado con optimización gráfica nativa y bajo uso de memoria.",
             wp_specs_subtitle: "REQUISITOS DEL SISTEMA",
             wp_specs_title: 'Compatibilidad & <span class="gradient-text">Dispositivos</span>',
             wp_specs_desc: "Diseñado para acompañarte todos los días en cualquier pantalla Android sin calentamientos ni lags.",
@@ -670,7 +631,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_spec4_title: "100% Seguro & Privado",
             wp_spec4_desc: "Sin conexión a internet obligatoria, sin anuncios, sin telemetría y sin rastreadores.",
             wp_cta_bottom_title: "¿Listo para transformar tu pantalla?",
-            wp_cta_bottom_desc: "Consigue Conceptual Live Wallpaper en Google Play por solo $1.00 USD (pago único) y dale vida a tu pantalla.",
+            wp_cta_bottom_desc: "Descarga gratis Conceptual Live Wallpaper en Google Play y personaliza tu pantalla con 6 estilos.",
             wp_home_teaser_title: "Lleva este fondo interactivo a tu teléfono con Conceptual Live Wallpaper",
             wp_home_teaser_desc: "Mismo motor de partículas, 6 estilos únicos, optimizado para cualquier pantalla y cero consumo de batería en reposo.",
             wp_home_teaser_btn: "Ver Conceptual Live Wallpaper"
@@ -713,8 +674,6 @@ document.addEventListener('DOMContentLoaded', () => {
             f4_desc: "Connect to RetroAchievements to unlock achievements and track your progress.",
             f5_title: "Playtime Tracking",
             f5_desc: "See how much time you have spent playing each game.",
-            f6_title: "Music Player",
-            f6_desc: "Listen to music while you play and adjust its volume independently.",
             f7_title: "Download Hub",
             f7_desc: "Direct and official download links for emulators.",
             f8_title: "ROM Patcher",
@@ -723,23 +682,13 @@ document.addEventListener('DOMContentLoaded', () => {
             f9_desc: "Assign custom startup video clips to each console for a more cinematic entrance into your games.",
             features_show_more: "View more features (6)",
             features_show_less: "Hide features",
-            compat_subtitle: "INTEGRATED ECOSYSTEM",
-            compat_title: 'Broad <span class="gradient-text">Compatibility</span>',
-            compat_desc: "COS Launcher seamlessly connects with your favorite emulators, physical controllers, and Android handhelds.",
-            compat_c1_title: "Emulators & Games",
-            compat_c1_desc: "Launch your favorite titles directly. Compatible with all current Android emulators and native mobile games.",
-            compat_c2_title: "Controllers",
-            compat_c2_desc: "Native Plug & Play navigation. Compatible with all Bluetooth or USB-C controllers.",
-            compat_c3_title: "Devices & Android",
-            compat_c3_desc: "Optimized for dedicated gaming handhelds (Ayn Odin, Retroid Pocket, Anbernic, Logitech G Cloud), Android phones, and tablets running Android 9.0 or higher.",
             hub_subtitle: "QUICK ACCESS WHILE YOU PLAY",
             hub_title: '<span class="gradient-text">COS HUB</span> Overlay',
-            hub_desc: "COS HUB brings useful tools together without pulling you out of your game. Check achievements, adjust volume and brightness, review storage and device status, manage your controller, take notes and screenshots, or run a quick search in the built-in browser.",
-            hub_check1: "Smooth and transparent floating overlay.",
-            hub_check2: "Open COS HUB from the on-screen quick shortcut.",
-            hub_check3: "Music player with independent background volume control.",
-            hub_check4: "Built-in web browser to check game guides and cheats instantly.",
-            hub_check5: "Real-time monitoring of battery, storage, and controllers.",
+            hub_desc: "COS HUB opens a floating panel over your game for achievements, system controls, device status, and quick tools without leaving your current session.",
+            hub_check1: "Quick on-screen access while you play.",
+            hub_check2: "Adjust volume, brightness, and Do Not Disturb.",
+            hub_check3: "Check controller, battery, and device status.",
+            hub_check4: "Take notes or look up guides with the built-in browser.",
             ach_subtitle: "ACHIEVEMENT SYSTEM",
             ach_title: '<span class="gradient-text">RetroAchievements</span> Integration',
             ach_desc: "Relive your favorite games with the thrill of modern achievements. COS Launcher connects directly to your RetroAchievements account using the official <strong>rcheevos</strong> engine, allowing you to compete, earn points, and track your gaming feats.",
@@ -754,31 +703,11 @@ document.addEventListener('DOMContentLoaded', () => {
             gallery_yt_channel_title: "Conceptual OS",
             gallery_zoom_hint: "Expand screenshot",
             gallery_item1_tag: "01 • HOME",
-            gallery_item1_title: "Home Dashboard",
-            gallery_item1_desc: "Main dashboard with games, recent filter, recently unlocked achievements, and news videos. Top status capsule features connection, clock, battery status, username, and profile icon.",
-            gallery_item2_tag: "02 • PANEL",
-            gallery_item2_title: "Backdrop Panel & Icons",
-            gallery_item2_desc: "Full game view with detailed information, total play time, last played status, and achievements.",
-            gallery_item3_tag: "03 • GAMES",
-            gallery_item3_title: "Games Tab",
-            gallery_item3_desc: "Complete metadata (developer, release year, players, rating), top achievement capsule, and quick shortcuts for gameplay, options, and favorites.",
-            gallery_item4_tag: "04 • ACHIEVEMENTS",
-            gallery_item4_title: "Achievement Progress",
-            gallery_item4_desc: "Pop-up modal displaying locked and unlocked achievements, completion progress bar, and official RetroAchievements score.",
-            gallery_item5_tag: "05 • MANUFACTURERS",
-            gallery_item5_title: "Manufacturer Filter",
-            gallery_item5_desc: "Browse your library categorized by manufacturers (Android, Nintendo, Sony) with the option to add new consoles.",
-            gallery_item6_tag: "06 • CONSOLES",
-            gallery_item6_title: "Console Browser",
-            gallery_item6_desc: "Direct system selector with generation details and game count.",
-            gallery_item7_tag: "07 • RETROACHIEVEMENTS",
-            gallery_item7_title: "Profile & Achievements",
-            gallery_item7_desc: "Official RetroAchievements profile hub showing global score, avatar, quick access to internal RetroAchievements web view, and active game catalogue with achievements.",
-            gallery_item8_tag: "08 • DOWNLOADS",
-            gallery_item8_title: "Download Center",
-            gallery_item8_desc: "Platform-organized link manager for downloading emulators. All links are official and point directly to their original creators.",
-            gallery_show_more: "View all screenshots (4)",
-            gallery_show_less: "View fewer screenshots",
+            gallery_item1_title: "Modern home",
+            gallery_item1_desc: "Quick access and recent games on a home screen designed for controller navigation.",
+            gallery_item2_tag: "02 • LIBRARY",
+            gallery_item2_title: "Classic library",
+            gallery_item2_desc: "Browse your game collection in a library organized for Android.",
             faq_subtitle: "EVERYTHING YOU NEED TO KNOW",
             faq_title: 'Frequently Asked <span class="gradient-text">Questions</span>',
             faq_desc: "Key answers about compatibility, installation, and how COS Launcher works.",
@@ -854,7 +783,6 @@ document.addEventListener('DOMContentLoaded', () => {
             rescaler_modal_f3_title: "Instant Restoration",
             rescaler_modal_f3_desc: "Unplug the cable and your device screen immediately returns to its default resolution.",
             rescaler_modal_close_btn: "Got it",
-            pricing_badge: "TRANSPARENCY & VALUE",
             pricing_title: 'Play Free or Unlock <span class="gradient-text">Full Potential</span>',
             pricing_desc: "COS Launcher is 100% functional and ad-free from day one. If you want unlimited consoles, complete COS HUB Overlay, and advanced profile name customization, unlock it with a one-time micropayment.",
             pricing_free_badge: "FREE",
@@ -973,20 +901,17 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_feat2_desc: "Engineered with auto-pause whenever your screen turns off or when you launch other apps.",
             wp_feat3_title: "Customizable Settings",
             wp_feat3_desc: "Customize particle speed, particle styles, background tones, and colors.",
-            wp_feat4_title: "Only $1.00 USD (One-time)",
-            wp_feat4_desc: "No subscriptions and no ads.",
-            wp_cta_btn: "Get on Google Play",
+            wp_feat4_title: "Free",
+            wp_feat4_desc: "Download and use Conceptual Live Wallpaper for free, with no subscriptions.",
+            wp_cta_btn: "Download",
             features_show_more: "View features",
             features_hide: "Hide features",
-            compat_show_more: "View more",
-            compat_hide: "Hide",
             faq_show_more: "View frequently asked questions",
             faq_hide: "Hide questions",
-            hero_view_gallery: "View screenshots (8)",
-            hero_zoom_hint: "Explore screenshots (8)",
+            hero_view_gallery: "View screenshots (2)",
+            hero_zoom_hint: "Explore screenshots (2)",
             wp_nav_back: "COS Home",
             wp_nav_styles: "Styles",
-            wp_nav_features: "Performance",
             wp_nav_specs: "Compatibility",
             wp_nav_play: "Google Play",
             wp_hero_title: 'Bring your screen to life with&nbsp;<span class="gradient-text">Conceptual Live Wallpaper</span>',
@@ -998,9 +923,6 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_styles_subtitle: "THEME COLLECTION",
             wp_styles_title: '6 Unique Styles & <span class="gradient-text">Palettes</span>',
             wp_styles_desc: "Choose from multiple visual variants. Each one features exclusive symbols and color palettes designed for any screen.",
-            wp_feat_subtitle: "PERFORMANCE",
-            wp_feat_main_title: 'Engineered for <span class="gradient-text">Maximum Efficiency</span>',
-            wp_feat_main_desc: "Unlike heavy live wallpapers, Conceptual Live Wallpaper is built with native GPU rendering and ultra-low memory footprints.",
             wp_specs_subtitle: "SYSTEM REQUIREMENTS",
             wp_specs_title: 'Compatibility & <span class="gradient-text">Devices</span>',
             wp_specs_desc: "Built to run seamlessly every day on any Android display without thermal throttling or lag.",
@@ -1013,7 +935,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wp_spec4_title: "100% Safe & Private",
             wp_spec4_desc: "No internet connection required, zero ads, zero telemetry, and zero tracking.",
             wp_cta_bottom_title: "Ready to transform your screen?",
-            wp_cta_bottom_desc: "Get Conceptual Live Wallpaper on Google Play for just $1.00 USD (one-time purchase).",
+            wp_cta_bottom_desc: "Download Conceptual Live Wallpaper for free on Google Play and personalize your screen with 6 styles.",
             wp_home_teaser_title: "Bring this interactive background to your phone with Conceptual Live Wallpaper",
             wp_home_teaser_desc: "Same particle engine, 6 unique styles, optimized for any screen, and zero battery drain while asleep.",
             wp_home_teaser_btn: "Explore Conceptual Live Wallpaper"
@@ -1478,36 +1400,6 @@ document.addEventListener('DOMContentLoaded', () => {
             tagKey: 'gallery_item2_tag',
             titleKey: 'gallery_item2_title',
             descKey: 'gallery_item2_desc'
-        },
-        {
-            tagKey: 'gallery_item3_tag',
-            titleKey: 'gallery_item3_title',
-            descKey: 'gallery_item3_desc'
-        },
-        {
-            tagKey: 'gallery_item4_tag',
-            titleKey: 'gallery_item4_title',
-            descKey: 'gallery_item4_desc'
-        },
-        {
-            tagKey: 'gallery_item5_tag',
-            titleKey: 'gallery_item5_title',
-            descKey: 'gallery_item5_desc'
-        },
-        {
-            tagKey: 'gallery_item6_tag',
-            titleKey: 'gallery_item6_title',
-            descKey: 'gallery_item6_desc'
-        },
-        {
-            tagKey: 'gallery_item7_tag',
-            titleKey: 'gallery_item7_title',
-            descKey: 'gallery_item7_desc'
-        },
-        {
-            tagKey: 'gallery_item8_tag',
-            titleKey: 'gallery_item8_title',
-            descKey: 'gallery_item8_desc'
         }
     ];
 
@@ -2067,37 +1959,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // 5. Compatibility Grid Show More / Less Toggle
-        const compatToggleBtn = document.getElementById('compatToggleBtn');
-        const compatGrid = document.getElementById('compatGrid');
-
-        const setCompatState = (expanded, shouldScroll = false) => {
-            if (!compatGrid || !compatToggleBtn) return;
-            compatGrid.classList.toggle('expanded', expanded);
-            compatToggleBtn.classList.toggle('is-expanded', expanded);
-            compatToggleBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-            const dict = translations[currentLang] || translations.es;
-            const topText = compatToggleBtn.querySelector('.toggle-text');
-            if (topText) {
-                const key = expanded ? 'compat_hide' : 'compat_show_more';
-                topText.setAttribute('data-i18n', key);
-                topText.textContent = dict[key] || (expanded ? 'Ocultar' : 'Ver más');
-            }
-            if (!expanded && shouldScroll) {
-                document.getElementById('compatibility')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-            if (typeof SFX !== 'undefined') SFX.click1();
-        };
-
-        if (compatToggleBtn && compatGrid) {
-            compatToggleBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const isCurrentlyExpanded = compatGrid.classList.contains('expanded');
-                setCompatState(!isCurrentlyExpanded, isCurrentlyExpanded);
-            });
-        }
-
-        // 6. FAQ Panel Show More / Less Toggle
+        // 5. FAQ Panel Show More / Less Toggle
         const faqToggleBtn = document.getElementById('faqToggleBtn');
         const faqPanel = document.getElementById('faqPanel');
 

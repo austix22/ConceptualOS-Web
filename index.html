@@ -18,16 +18,16 @@
 
     <link rel="icon" type="image/png" href="app_icon.png">
 
-    <!-- Fonts: Plus Jakarta Sans & Outfit (Professional & Clean Typography) -->
+    <!-- Font: Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=3.8.5">
+    <link rel="stylesheet" href="styles.css?v=3.8.6">
 
     <!-- Critical Plugin Modals & Buttons Styles -->
     <style id="critical-plugin-modals-css">
@@ -154,7 +154,7 @@
     </style>
 </head>
 
-<body>
+<body class="nunito-page">
 
     <!-- Floating Buttons & Icons Background (Bare ABXY & PlayStation Symbols) -->
     <div id="floatingIconsBg" class="floating-icons-container"></div>
@@ -180,7 +180,7 @@
                 <a href="#neural-overlay" class="nav-item-pill" data-i18n="nav_cos_hub">COS HUB</a>
                 <a href="#achievements" class="nav-item-pill" data-i18n="nav_achievements">Logros</a>
                 <a href="#download" class="nav-item-pill" data-i18n="nav_download">Descargas</a>
-                <a href="livewallpaper" class="nav-item-pill nav-pill-wp" data-i18n="nav_wallpaper">Live Wallpaper</a>
+                <a href="wallpaper.html" class="nav-item-pill nav-pill-wp" data-i18n="nav_wallpaper">Live Wallpaper</a>
             </nav>
 
             <div class="nav-actions">
@@ -231,11 +231,11 @@
                     <div class="hero-screenshot-card glass-card" id="heroScreenshotCard" role="button" tabindex="0" aria-label="Abrir galería de capturas de COS Launcher">
                         <div class="hero-device-bezel">
                             <div class="hero-media-wrap">
-                                <img src="img/sc1.jpg" alt="Captura de pantalla de COS Launcher" class="hero-screen-img" loading="eager">
+                                <img src="img/modernhomeimage.jpg" alt="Pantalla de inicio moderna de COS Launcher" class="hero-screen-img" loading="eager">
                                 <div class="hero-center-hover-overlay">
                                     <span class="hero-hover-btn">
                                         <i class="fa-solid fa-images"></i>
-                                        <span data-i18n="hero_view_gallery">Ver capturas (8)</span>
+                                        <span data-i18n="hero_view_gallery">Ver capturas (2)</span>
                                     </span>
                                 </div>
                             </div>
@@ -244,7 +244,7 @@
                     <!-- Botón móvil dedicado situado debajo de la cápsula del dispositivo -->
                     <button type="button" class="hero-mobile-gallery-btn" id="heroMobileGalleryBtn" aria-label="Abrir galería de capturas de COS Launcher">
                         <i class="fa-solid fa-images"></i>
-                        <span data-i18n="hero_view_gallery">Ver capturas (8)</span>
+                        <span data-i18n="hero_view_gallery">Ver capturas (2)</span>
                     </button>
                 </div>
             </div>
@@ -259,15 +259,9 @@
                 <p class="section-description" data-i18n="features_desc">
                     Organiza tu colección de juegos con recursos gráficos, logros y accesos rápidos en pantalla.
                 </p>
-                <div class="expand-toggle-wrapper text-center" style="margin-top: 1.8rem;">
-                    <button type="button" id="featuresToggleBtn" class="btn-expand-toggle" aria-expanded="false">
-                        <span class="toggle-text" data-i18n="features_show_more">Ver funciones</span>
-                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
-                    </button>
-                </div>
             </div>
 
-            <div id="featuresGrid" class="features-grid features-grid-collapsible" style="margin-top: 2.5rem;">
+            <div id="featuresGrid" class="features-grid feature-list" style="margin-top: 2.5rem;">
                 <!-- 1. Navegación con controles (Visible) -->
                 <div class="feature-card glass-card">
                     <div class="feature-icon glow-purple">
@@ -313,15 +307,6 @@
                     <p data-i18n="f5_desc">Consulta cuánto tiempo has dedicado a cada juego.</p>
                 </div>
 
-                <!-- 6. Reproductor de Música -->
-                <div class="feature-card glass-card">
-                    <div class="feature-icon glow-cyan">
-                        <i class="fa-solid fa-music"></i>
-                    </div>
-                    <h3 data-i18n="f6_title">Reproductor de Música</h3>
-                    <p data-i18n="f6_desc">Escucha música mientras juegas y ajusta su volumen de forma independiente.</p>
-                </div>
-
                 <!-- 7. Central de descargas -->
                 <div class="feature-card glass-card">
                     <div class="feature-icon glow-blue">
@@ -352,61 +337,10 @@
         </div>
     </section>
 
-    <!-- Compatibility & Ecosystem Section -->
-    <section id="compatibility" class="section compatibility-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-subtitle" data-i18n="compat_subtitle">ECOSISTEMA INTEGRADO</span>
-                <h2 class="section-title" data-i18n="compat_title">Compatibilidad <span class="gradient-text">Amplia</span></h2>
-                <p class="section-description" data-i18n="compat_desc">
-                    COS Launcher está diseñado para comunicarse con tus emuladores favoritos, mandos físicos y
-                    dispositivos Android sin configuraciones complicadas.
-                </p>
-                <div class="expand-toggle-wrapper text-center" style="margin-top: 1.8rem;">
-                    <button type="button" id="compatToggleBtn" class="btn-expand-toggle" aria-expanded="false">
-                        <span class="toggle-text" data-i18n="compat_show_more">Ver más</span>
-                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div id="compatGrid" class="features-grid compat-grid-collapsible" style="margin-top: 2.5rem;">
-                <!-- Card 1: Emuladores -->
-                <div class="feature-card glass-card">
-                    <div class="feature-icon glow-purple">
-                        <i class="fa-solid fa-layer-group"></i>
-                    </div>
-                    <h3 data-i18n="compat_c1_title">Emuladores y Juegos</h3>
-                    <p data-i18n="compat_c1_desc">Lanza directamente tus títulos favoritos. Compatible con todos los
-                        emuladores actuales y juegos nativos de Android.</p>
-                </div>
-
-                <!-- Card 2: Mandos -->
-                <div class="feature-card glass-card">
-                    <div class="feature-icon glow-blue">
-                        <i class="fa-solid fa-gamepad"></i>
-                    </div>
-                    <h3 data-i18n="compat_c2_title">Mandos</h3>
-                    <p data-i18n="compat_c2_desc">Navegación nativa Plug & Play. Compatible con todos los controles
-                        Bluetooth o USB-C.</p>
-                </div>
-
-                <!-- Card 3: Dispositivos y Android -->
-                <div class="feature-card glass-card">
-                    <div class="feature-icon glow-cyan">
-                        <i class="fa-solid fa-mobile-screen-button"></i>
-                    </div>
-                    <h3 data-i18n="compat_c3_title">Dispositivos y Sistema</h3>
-                    <p data-i18n="compat_c3_desc">Optimizado para consolas portátiles dedicadas (Ayn Odin, Retroid
-                        Pocket, Anbernic, Logitech G Cloud), smartphones y tablets con Android 9.0 o superior.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Deep Dive: COS HUB Overlay -->
     <section id="neural-overlay" class="section overlay-section">
         <div class="container overlay-container">
+            <template>
             <div class="overlay-visual">
                 <div class="cos-overlay-window glass-card">
                     <!-- Top Overlay Header & Navigation Tabs (7 Tabs) -->
@@ -687,26 +621,20 @@
                     </div>
                 </div>
             </div>
+            </template>
 
             <div class="overlay-content">
                 <span class="section-subtitle" data-i18n="hub_subtitle">ACCESOS RÁPIDOS DURANTE LA PARTIDA</span>
                 <h2 class="section-title" data-i18n="hub_title"><span class="gradient-text">COS HUB</span> Overlay</h2>
                 <p data-i18n="hub_desc">
-                    COS HUB reúne herramientas útiles sin sacarte de la partida. Consulta tus logros, controla el
-                    volumen y el brillo, revisa el almacenamiento y el estado del dispositivo, administra tus controles,
-                    toma notas y capturas de pantalla, o realiza una búsqueda rápida desde el navegador integrado.
+                    COS HUB abre un panel flotante sobre el juego para consultar logros, cambiar ajustes del sistema,
+                    revisar el estado del dispositivo y acceder a herramientas rápidas sin salir de la partida.
                 </p>
                 <ul class="check-list">
-                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check1">Superposición flotante
-                            fluida y transparente.</span></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check2">Abre COS HUB desde el
-                            acceso rápido en pantalla.</span></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check3">Reproductor de música con
-                            control de volumen independiente.</span></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check4">Navegador web integrado
-                            para consultar guías y trucos al instante.</span></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check5">Monitoreo en tiempo real
-                            de batería, almacenamiento y controles.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check1">Acceso rápido en pantalla durante tus partidas.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check2">Controla volumen, brillo y No molestar.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check3">Consulta controles, batería y estado del dispositivo.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="hub_check4">Toma notas o consulta guías con el navegador integrado.</span></li>
                 </ul>
             </div>
         </div>
@@ -735,6 +663,7 @@
                 </ul>
             </div>
 
+            <template>
             <div class="overlay-visual">
                 <div class="ra-hud-card glass-card">
                     <!-- Top Main Capsule Header -->
@@ -806,6 +735,7 @@
                     </div>
                 </div>
             </div>
+            </template>
         </div>
     </section>
 
@@ -939,9 +869,6 @@
             <!-- Freemium Transparent Model Comparison Block -->
             <div class="pricing-showcase-box glass-card">
                 <div class="pricing-header text-center">
-                    <span class="badge-pill" style="margin-bottom: 0.8rem; display: inline-flex;">
-                        <span data-i18n="pricing_badge">TRANSPARENCIA & VALOR</span>
-                    </span>
                     <h3 class="pricing-main-title" data-i18n="pricing_title">
                         Juega Gratis o Desbloquea <span class="gradient-text">Todo el Potencial</span>
                     </h3>
@@ -1012,7 +939,7 @@
                         <p data-i18n="wp_home_teaser_desc">Mismo motor de partículas, 6 estilos únicos, optimizado para cualquier pantalla y cero consumo de batería en reposo.</p>
                     </div>
                 </div>
-                <a href="livewallpaper" class="btn btn-primary wp-teaser-cta" id="wpHomeTeaserBtn">
+                <a href="wallpaper.html" class="btn btn-primary wp-teaser-cta" id="wpHomeTeaserBtn">
                     <span data-i18n="wp_home_teaser_btn">Ver Conceptual Live Wallpaper</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
@@ -1209,41 +1136,23 @@
             <div class="lightbox-figure">
                 <div class="lightbox-viewport">
                     <div class="lightbox-track" id="lightboxTrack">
-                        <div class="lightbox-slide"><img src="img/sc1.jpg" alt="Pantalla de inicio" class="lightbox-img"
+                        <div class="lightbox-slide"><img src="img/modernhomeimage.jpg" alt="Pantalla de inicio moderna de COS Launcher" class="lightbox-img"
                                 loading="lazy"></div>
-                        <div class="lightbox-slide"><img src="img/sc2.jpg" alt="Panel de fondo e iconos"
-                                class="lightbox-img" loading="lazy"></div>
-                        <div class="lightbox-slide"><img src="img/sc3.jpg" alt="Pestaña de juegos"
-                                class="lightbox-img" loading="lazy"></div>
-                        <div class="lightbox-slide"><img src="img/sc4.png" alt="Progreso de logros" class="lightbox-img"
-                                loading="lazy"></div>
-                        <div class="lightbox-slide"><img src="img/sc5.jpg" alt="Filtro por fabricante"
-                                class="lightbox-img" loading="lazy"></div>
-                        <div class="lightbox-slide"><img src="img/sc6.jpg" alt="Navegador de consolas"
-                                class="lightbox-img" loading="lazy"></div>
-                        <div class="lightbox-slide"><img src="img/sc7.png" alt="Perfil y logros" class="lightbox-img"
-                                loading="lazy"></div>
-                        <div class="lightbox-slide"><img src="img/sc8.jpg" alt="Centro de descargas"
+                        <div class="lightbox-slide"><img src="img/classiclibraryimage.jpg" alt="Biblioteca clásica de juegos de COS Launcher"
                                 class="lightbox-img" loading="lazy"></div>
                     </div>
                 </div>
                 <div class="lightbox-caption" id="lightboxCaption">
                     <div class="lightbox-tag-row">
                         <span id="lightboxTag" class="gallery-tag"></span>
-                        <span id="lightboxCounter" class="lightbox-counter">1 / 8</span>
+                        <span id="lightboxCounter" class="lightbox-counter">1 / 2</span>
                     </div>
                     <h3 id="lightboxTitle" class="lightbox-title"></h3>
                     <p id="lightboxDesc" class="lightbox-desc"></p>
                 </div>
                 <div class="lightbox-thumbnails-row" id="lightboxThumbnails">
-                    <button type="button" class="lightbox-thumb-btn active" data-thumb-index="0" aria-label="01 • Inicio"><img src="img/sc1.jpg" alt="01 • Inicio"></button>
-                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="1" aria-label="02 • Panel"><img src="img/sc2.jpg" alt="02 • Panel"></button>
-                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="2" aria-label="03 • Juegos"><img src="img/sc3.jpg" alt="03 • Juegos"></button>
-                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="3" aria-label="04 • Logros"><img src="img/sc4.png" alt="04 • Logros"></button>
-                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="4" aria-label="05 • Fabricantes"><img src="img/sc5.jpg" alt="05 • Fabricantes"></button>
-                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="5" aria-label="06 • Consolas"><img src="img/sc6.jpg" alt="06 • Consolas"></button>
-                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="6" aria-label="07 • RetroAchievements"><img src="img/sc7.png" alt="07 • RetroAchievements"></button>
-                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="7" aria-label="08 • Descargas"><img src="img/sc8.jpg" alt="08 • Descargas"></button>
+                    <button type="button" class="lightbox-thumb-btn active" data-thumb-index="0" aria-label="01 • Inicio moderno"><img src="img/modernhomeimage.jpg" alt="01 • Inicio moderno"></button>
+                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="1" aria-label="02 • Biblioteca clásica"><img src="img/classiclibraryimage.jpg" alt="02 • Biblioteca clásica"></button>
                 </div>
             </div>
             <button class="lightbox-nav lightbox-next" id="lightboxNextBtn" aria-label="Siguiente"><i
@@ -1409,7 +1318,7 @@
     </script>
 
     <!-- Custom Script -->
-    <script src="script.js?v=3.8.5"></script>
+    <script src="script.js?v=3.8.6"></script>
 </body>
 
 </html>

@@ -99,7 +99,6 @@
             this.initParticles();
             this.setupCanvasSize();
             this.bindEvents();
-            this.start();
         }
 
         setupCanvasSize() {
@@ -734,6 +733,31 @@
 
         // Crear instancia del motor de renderizado
         const engine = new AmbientParticleEngine(phoneCanvas);
+
+        if ('IntersectionObserver' in window) {
+            const canvasObserver = new IntersectionObserver(([entry]) => {
+                if (document.hidden || !entry.isIntersecting) {
+                    engine.stop();
+                } else {
+                    engine.start();
+                }
+            });
+            canvasObserver.observe(phoneCanvas);
+
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    engine.stop();
+                    return;
+                }
+
+                const bounds = phoneCanvas.getBoundingClientRect();
+                if (bounds.bottom > 0 && bounds.top < window.innerHeight) {
+                    engine.start();
+                }
+            });
+        } else {
+            engine.start();
+        }
 
         // Crear controlador de opciones y UI
         const controller = new WallpaperUIController(engine);
