@@ -173,8 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
             '.wallpaper-card',
             '#heroScreenshotCard',
             '.hero-screenshot-card',
-            '#heroGalleryBtn',
-            '#heroMobileGalleryBtn',
             'a[href="#gallery"]',
             '#infoKeyMapperBtn',
             '#infoRescalerBtn',
@@ -213,16 +211,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const bgContainer = document.getElementById('floatingIconsBg');
         if (!bgContainer) return;
 
-        // Bare Controller Symbols & Signature Colors
+        // Bare Controller Symbols & Carbon-Dark Colors
         const controllerButtons = [
-            { label: 'A', color: '#00e676' }, // Xbox Green
-            { label: 'B', color: '#ff5f56' }, // Xbox Red
-            { label: 'X', color: '#3b82f6' }, // Xbox Blue
-            { label: 'Y', color: '#f59e0b' }, // Xbox Yellow
-            { label: '△', color: '#00e676' }, // PlayStation Triangle Green
-            { label: '○', color: '#ff5f56' }, // PlayStation Circle Red
-            { label: '✕', color: '#3b82f6' }, // PlayStation Cross Blue
-            { label: '□', color: '#ec4899' }  // PlayStation Square Pink
+            { label: 'A', color: '#52525b' },
+            { label: 'B', color: '#3f3f46' },
+            { label: 'X', color: '#71717a' },
+            { label: 'Y', color: '#27272a' },
+            { label: '△', color: '#52525b' },
+            { label: '○', color: '#3f3f46' },
+            { label: '✕', color: '#71717a' },
+            { label: '□', color: '#27272a' }
         ];
 
         const particleCount = window.innerWidth < 768 ? 16 : 38;
@@ -604,7 +602,6 @@ document.addEventListener('DOMContentLoaded', () => {
             features_hide: "Ocultar funciones",
             faq_show_more: "Ver preguntas frecuentes",
             faq_hide: "Ocultar preguntas",
-            hero_view_gallery: "Ver capturas (2)",
             hero_zoom_hint: "Explorar capturas (2)",
             wp_nav_back: "Inicio COS",
             wp_nav_styles: "Estilos",
@@ -908,7 +905,6 @@ document.addEventListener('DOMContentLoaded', () => {
             features_hide: "Hide features",
             faq_show_more: "View frequently asked questions",
             faq_hide: "Hide questions",
-            hero_view_gallery: "View screenshots (2)",
             hero_zoom_hint: "Explore screenshots (2)",
             wp_nav_back: "COS Home",
             wp_nav_styles: "Styles",
@@ -943,6 +939,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     let currentLang = localStorage.getItem('cos_web_lang_pref') || 'en';
+    let updateHeroScreenshot = () => {};
     let updateLightboxContent = () => {};
     let updateWpLightboxTexts = () => {};
 
@@ -979,6 +976,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         updateDndSubText();
+        updateHeroScreenshot();
         updateLightboxContent();
         updateWpLightboxTexts();
         if (window.COS_WallpaperController && typeof window.COS_WallpaperController.updateAllSubtitles === 'function') {
@@ -1405,6 +1403,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentGalleryIdx = 0;
     let captionTransitionTimer = null;
+    const heroScreenImg = document.getElementById('heroScreenImg');
+    const heroImageOpenBtn = document.getElementById('heroImageOpenBtn');
+    const heroSlidePrevBtn = document.getElementById('heroSlidePrevBtn');
+    const heroSlideNextBtn = document.getElementById('heroSlideNextBtn');
+
+    updateHeroScreenshot = () => {
+        const screenshot = currentGalleryIdx === 0
+            ? {
+                src: 'img/modernhomeimage.jpg',
+                esAlt: 'Pantalla de inicio moderna de COS Launcher',
+                enAlt: 'COS Launcher modern home screen'
+            }
+            : {
+                src: 'img/classiclibraryimage.jpg',
+                esAlt: 'Biblioteca clásica de juegos de COS Launcher',
+                enAlt: 'COS Launcher classic game library'
+            };
+        const alt = currentLang === 'es' ? screenshot.esAlt : screenshot.enAlt;
+
+        if (heroScreenImg) {
+            heroScreenImg.src = screenshot.src;
+            heroScreenImg.alt = alt;
+        }
+        if (heroImageOpenBtn) {
+            heroImageOpenBtn.setAttribute('aria-label', currentLang === 'es' ? 'Ampliar captura' : 'Enlarge screenshot');
+        }
+        if (heroSlidePrevBtn) {
+            heroSlidePrevBtn.hidden = currentGalleryIdx === 0;
+            heroSlidePrevBtn.setAttribute('aria-label', currentLang === 'es' ? 'Captura anterior' : 'Previous screenshot');
+        }
+        if (heroSlideNextBtn) {
+            heroSlideNextBtn.hidden = currentGalleryIdx === 1;
+            heroSlideNextBtn.setAttribute('aria-label', currentLang === 'es' ? 'Siguiente captura' : 'Next screenshot');
+        }
+
+        if (lightboxTrack) {
+            const lightboxImages = lightboxTrack.querySelectorAll('.lightbox-img');
+            lightboxImages.forEach((image, index) => {
+                image.alt = currentLang === 'es'
+                    ? (index === 0 ? 'Pantalla de inicio moderna de COS Launcher' : 'Biblioteca clásica de juegos de COS Launcher')
+                    : (index === 0 ? 'COS Launcher modern home screen' : 'COS Launcher classic game library');
+            });
+        }
+    };
 
     updateLightboxContent = (animate = false) => {
         if (!lightboxModal || !lightboxModal.classList.contains('active')) return;
@@ -1503,6 +1545,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const openLightbox = (idx, animate = false) => {
         currentGalleryIdx = (idx + galleryData.length) % galleryData.length;
+        updateHeroScreenshot();
         if (lightboxModal) {
             const isAlreadyActive = lightboxModal.classList.contains('active');
             if (!isAlreadyActive) {
@@ -1533,6 +1576,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    updateHeroScreenshot();
+
     if (galleryCards.length > 0) {
         galleryCards.forEach(card => {
             const idx = parseInt(card.getAttribute('data-gallery-index'), 10);
@@ -1546,112 +1591,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Hero Showcase Card & Button click handlers
-    const heroScreenshotCard = document.getElementById('heroScreenshotCard');
-    const heroGalleryBtn = document.getElementById('heroGalleryBtn');
-
-    if (heroScreenshotCard) {
-        heroScreenshotCard.addEventListener('click', () => openLightbox(0, false));
-        heroScreenshotCard.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                openLightbox(0, false);
-            }
-        });
+    if (heroImageOpenBtn) {
+        heroImageOpenBtn.addEventListener('click', () => openLightbox(currentGalleryIdx, false));
     }
 
-    if (heroGalleryBtn) {
-        heroGalleryBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openLightbox(0, false);
-        });
-    }
-
-    const heroMobileGalleryBtn = document.getElementById('heroMobileGalleryBtn');
-    if (heroMobileGalleryBtn) {
-        heroMobileGalleryBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            openLightbox(0, false);
-        });
-    }
-
-    // Lightbox Thumbnails interaction
-    const thumbBtns = document.querySelectorAll('.lightbox-thumb-btn');
-    thumbBtns.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const idx = parseInt(btn.getAttribute('data-thumb-index'), 10);
-            if (!isNaN(idx)) {
-                playClick1Throttled();
-                openLightbox(idx, true);
-            }
-        });
-    });
-
-    // In navbar, link to #gallery opens the lightbox modal
-    document.querySelectorAll('a[href="#gallery"]').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            openLightbox(0, false);
-        });
-    });
-
-    if (lightboxCloseBtn) {
-        lightboxCloseBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            closeLightbox();
-        });
-    }
-
-    if (lightboxPrevBtn) {
-        lightboxPrevBtn.addEventListener('click', (e) => {
+    if (heroSlidePrevBtn) {
+        heroSlidePrevBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             playClick1Throttled();
-            openLightbox(currentGalleryIdx - 1, true);
+            currentGalleryIdx = 0;
+            updateHeroScreenshot();
         });
     }
 
-    if (lightboxNextBtn) {
-        lightboxNextBtn.addEventListener('click', (e) => {
+    if (heroSlideNextBtn) {
+        heroSlideNextBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             playClick1Throttled();
-            openLightbox(currentGalleryIdx + 1, true);
+            currentGalleryIdx = 1;
+            updateHeroScreenshot();
         });
+    }
+
+    if (lightboxOverlay) {
+        lightboxOverlay.addEventListener('click', closeLightbox);
+    }
+
+    if (lightboxTrack) {
+        lightboxTrack.addEventListener('click', closeLightbox);
     }
 
     document.addEventListener('keydown', (e) => {
         if (!lightboxModal || !lightboxModal.classList.contains('active')) return;
         if (e.key === 'Escape') {
             closeLightbox();
-        } else if (e.key === 'ArrowLeft') {
-            openLightbox(currentGalleryIdx - 1, true);
-        } else if (e.key === 'ArrowRight') {
-            openLightbox(currentGalleryIdx + 1, true);
         }
     });
-
-    // Touch swipe support for mobile devices
-    let touchStartX = 0;
-    let touchEndX = 0;
-    const lightboxViewport = document.querySelector('.lightbox-viewport');
-    if (lightboxViewport) {
-        lightboxViewport.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        lightboxViewport.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            const diffX = touchEndX - touchStartX;
-            if (Math.abs(diffX) > 40) {
-                if (diffX < 0) {
-                    openLightbox(currentGalleryIdx + 1, true);
-                } else {
-                    openLightbox(currentGalleryIdx - 1, true);
-                }
-            }
-        }, { passive: true });
-    }
 
     // 12. Conceptual Live Wallpaper Preview Lightbox Modal
     const wpLightboxModal = document.getElementById('wallpaperLightbox');

@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=3.8.6">
+    <link rel="stylesheet" href="styles.css?v=3.8.8">
 
     <!-- Critical Plugin Modals & Buttons Styles -->
     <style id="critical-plugin-modals-css">
@@ -228,24 +228,21 @@
 
             <div class="hero-visual">
                 <div class="hero-showcase-container">
-                    <div class="hero-screenshot-card glass-card" id="heroScreenshotCard" role="button" tabindex="0" aria-label="Abrir galería de capturas de COS Launcher">
+                    <div class="hero-screenshot-card glass-card" id="heroScreenshotCard">
                         <div class="hero-device-bezel">
                             <div class="hero-media-wrap">
-                                <img src="img/modernhomeimage.jpg" alt="Pantalla de inicio moderna de COS Launcher" class="hero-screen-img" loading="eager">
-                                <div class="hero-center-hover-overlay">
-                                    <span class="hero-hover-btn">
-                                        <i class="fa-solid fa-images"></i>
-                                        <span data-i18n="hero_view_gallery">Ver capturas (2)</span>
-                                    </span>
-                                </div>
+                                <button type="button" class="hero-image-open-btn" id="heroImageOpenBtn" aria-label="Ampliar captura">
+                                    <img src="img/modernhomeimage.jpg" alt="Pantalla de inicio moderna de COS Launcher" class="hero-screen-img" id="heroScreenImg" loading="eager">
+                                </button>
+                                <button type="button" class="hero-slide-arrow hero-slide-prev" id="heroSlidePrevBtn" aria-label="Captura anterior" hidden>
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </button>
+                                <button type="button" class="hero-slide-arrow hero-slide-next" id="heroSlideNextBtn" aria-label="Siguiente captura">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <!-- Botón móvil dedicado situado debajo de la cápsula del dispositivo -->
-                    <button type="button" class="hero-mobile-gallery-btn" id="heroMobileGalleryBtn" aria-label="Abrir galería de capturas de COS Launcher">
-                        <i class="fa-solid fa-images"></i>
-                        <span data-i18n="hero_view_gallery">Ver capturas (2)</span>
-                    </button>
                 </div>
             </div>
         </div>
@@ -1126,13 +1123,10 @@
         </div>
     </footer>
 
-    <!-- Lightbox Modal for Gallery -->
-    <div id="galleryLightbox" class="gallery-lightbox" style="display: none;" aria-hidden="true" role="dialog" aria-label="Visor de capturas">
+    <!-- Image-only screenshot viewer -->
+    <div id="galleryLightbox" class="gallery-lightbox" style="display: none;" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Captura ampliada">
         <div class="lightbox-overlay" id="lightboxOverlay"></div>
-        <button class="lightbox-close" id="lightboxCloseBtn" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
         <div class="lightbox-content">
-            <button class="lightbox-nav lightbox-prev" id="lightboxPrevBtn" aria-label="Anterior"><i
-                    class="fa-solid fa-chevron-left"></i></button>
             <div class="lightbox-figure">
                 <div class="lightbox-viewport">
                     <div class="lightbox-track" id="lightboxTrack">
@@ -1142,21 +1136,7 @@
                                 class="lightbox-img" loading="lazy"></div>
                     </div>
                 </div>
-                <div class="lightbox-caption" id="lightboxCaption">
-                    <div class="lightbox-tag-row">
-                        <span id="lightboxTag" class="gallery-tag"></span>
-                        <span id="lightboxCounter" class="lightbox-counter">1 / 2</span>
-                    </div>
-                    <h3 id="lightboxTitle" class="lightbox-title"></h3>
-                    <p id="lightboxDesc" class="lightbox-desc"></p>
-                </div>
-                <div class="lightbox-thumbnails-row" id="lightboxThumbnails">
-                    <button type="button" class="lightbox-thumb-btn active" data-thumb-index="0" aria-label="01 • Inicio moderno"><img src="img/modernhomeimage.jpg" alt="01 • Inicio moderno"></button>
-                    <button type="button" class="lightbox-thumb-btn" data-thumb-index="1" aria-label="02 • Biblioteca clásica"><img src="img/classiclibraryimage.jpg" alt="02 • Biblioteca clásica"></button>
-                </div>
             </div>
-            <button class="lightbox-nav lightbox-next" id="lightboxNextBtn" aria-label="Siguiente"><i
-                    class="fa-solid fa-chevron-right"></i></button>
         </div>
     </div>
 
@@ -1318,7 +1298,7 @@
     </script>
 
     <!-- Custom Script -->
-    <script src="script.js?v=3.8.6"></script>
+    <script src="script.js?v=3.8.8"></script>
 </body>
 
 </html>

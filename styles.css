@@ -4,21 +4,21 @@
    ========================================================================== */
 
 :root {
-    /* Exact Conceptual OS System Colors (from Color.kt & Theme.kt) */
-    --bg-dark: #030408;           /* BackgroundDark - Casi Negro Espacial */
-    --surface-dark: #161824;      /* SurfaceDark */
-    --bg-card: rgba(22, 24, 36, 0.75);
+    /* Carbon-dark palette */
+    --bg-dark: #0b0c0e;
+    --surface-dark: #181a1f;
+    --bg-card: rgba(24, 26, 30, 0.78);
 
-    --moondust-purple: #CEB5FF;   /* MoonDustMedium / AccentNeon */
-    --moondust-blue: #80A8FF;     /* MoonDustDeepBlue / AvatarGradientStart */
-    --moondust-cyan: #D3D3FF;     /* MoonDustLight / MoonCyan */
-    --moondust-softblue: #8EC1DE; /* MoonDustBlue */
+    --moondust-purple: #a1a1aa;
+    --moondust-blue: #71717a;
+    --moondust-cyan: #d4d4d8;
+    --moondust-softblue: #52525b;
 
     --text-primary: #ECECF2;     /* Enhanced TextLight for superior contrast */
     --text-secondary: #A2ADC9;   /* Crisp, highly legible Moon Dust Gray */
     --text-body: #B5C0DD;        /* Dedicated high-readability body text */
 
-    --border-light: rgba(211, 211, 255, 0.18); /* BorderLight */
+    --border-light: rgba(212, 212, 216, 0.14);
 
     /* Typography */
     --font-official: 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
@@ -751,7 +751,6 @@ h1, h2, h3, h4, span, p, a, button {
     backdrop-filter: blur(20px);
     border: 1px solid rgba(211, 211, 255, 0.18);
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 35px rgba(138, 92, 255, 0.2);
-    cursor: pointer;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
     position: relative;
@@ -794,101 +793,58 @@ h1, h2, h3, h4, span, p, a, button {
     transform: scale(1.025);
 }
 
-/* Center Hover Overlay & Action Button */
-.hero-center-hover-overlay {
+.hero-image-open-btn {
     position: absolute;
     inset: 0;
-    background: rgba(8, 10, 22, 0.42);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 3;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
 }
 
-.hero-screenshot-card:hover .hero-center-hover-overlay,
-.hero-screenshot-card:focus-visible .hero-center-hover-overlay {
-    opacity: 1;
-}
-
-.hero-hover-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-    padding: 0.85rem 1.85rem;
-    background: rgba(18, 22, 42, 0.88);
-    border: 1px solid rgba(206, 181, 255, 0.65);
-    border-radius: 9999px;
-    color: #ffffff;
-    font-size: 1.02rem;
-    font-weight: 700;
-    letter-spacing: 0.25px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65), 0 0 25px rgba(168, 85, 247, 0.45);
-    transform: scale(0.92);
-    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background 0.3s ease;
-    user-select: none;
-}
-
-.hero-hover-btn i {
-    color: var(--moondust-cyan);
-    font-size: 1.05rem;
-}
-
-.hero-screenshot-card:hover .hero-hover-btn {
-    transform: scale(1);
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(206, 181, 255, 0.6);
-}
-
-/* Hero Mobile Gallery Button below device mockup / capsule */
-.hero-mobile-gallery-btn {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    gap: 0.65rem;
-    padding: 0.75rem 1.65rem;
-    background: rgba(18, 22, 42, 0.92);
-    border: 1px solid rgba(206, 181, 255, 0.55);
-    border-radius: 9999px;
-    color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0.25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(168, 85, 247, 0.35);
+.hero-slide-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 4;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid rgba(211, 211, 255, 0.45);
+    border-radius: 50%;
+    background: rgba(8, 10, 22, 0.78);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-    user-select: none;
-    margin-top: 0.25rem;
+    transform: translateY(-50%);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
-.hero-mobile-gallery-btn i {
-    color: var(--moondust-cyan);
-    font-size: 1.05rem;
+.hero-slide-arrow:hover {
+    background: rgba(43, 35, 75, 0.94);
+    border-color: var(--moondust-purple);
 }
 
-.hero-mobile-gallery-btn:hover {
-    background: rgba(26, 32, 60, 0.96);
-    border-color: rgba(206, 181, 255, 0.8);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 28px rgba(168, 85, 247, 0.5);
-    transform: translateY(-2px);
+.hero-slide-arrow:active {
+    transform: translateY(-50%) scale(0.94);
 }
 
-.hero-mobile-gallery-btn:active {
-    transform: scale(0.96);
+.hero-slide-arrow[hidden] {
+    display: none;
 }
 
-/* Touchscreens & Mobile Devices: Move button underneath the device capsule so it never obstructs the screenshot */
-@media (hover: none), (max-width: 900px) {
-    .hero-center-hover-overlay {
-        display: none !important;
-    }
+.hero-slide-prev {
+    left: 16px;
+}
 
-    .hero-mobile-gallery-btn {
-        display: inline-flex;
-    }
+.hero-slide-next {
+    right: 16px;
 }
 
 .highlight-card {
@@ -6842,6 +6798,19 @@ body.page-transitioning-out {
 }
 
 @media (max-width: 650px) {
+    .hero-slide-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero-slide-prev {
+        left: 10px;
+    }
+
+    .hero-slide-next {
+        right: 10px;
+    }
+
     #features .feature-list {
         padding: 0 1rem;
     }
@@ -6862,4 +6831,49 @@ body.page-transitioning-out {
         grid-template-columns: 1fr;
         gap: 0;
     }
+}
+
+#galleryLightbox {
+    overflow: hidden;
+}
+
+#galleryLightbox .lightbox-overlay {
+    background: rgba(3, 4, 10, 1);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    cursor: zoom-out;
+}
+
+#galleryLightbox .lightbox-content {
+    width: 96vw;
+    max-width: 1500px;
+}
+
+#galleryLightbox .lightbox-figure {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+#galleryLightbox .lightbox-viewport {
+    width: 100%;
+    max-height: 90vh;
+    aspect-ratio: auto;
+    overflow: visible;
+    background: transparent;
+}
+
+#galleryLightbox .lightbox-slide {
+    height: auto;
+    background: transparent;
+}
+
+#galleryLightbox .lightbox-slide .lightbox-img {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    object-fit: contain;
+    cursor: zoom-out;
 }
