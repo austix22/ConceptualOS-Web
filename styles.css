@@ -2560,17 +2560,6 @@ h1, h2, h3, h4, span, p, a, button {
     filter: drop-shadow(0 0 16px rgba(192, 132, 252, 0.45));
 }
 
-.complements-includes-label {
-    color: #FFFFFF;
-    font-size: 0.82rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-align: left;
-    width: 100%;
-    margin-bottom: -0.15rem;
-}
-
 .download-card p {
     color: var(--text-body);
     font-size: 1rem;

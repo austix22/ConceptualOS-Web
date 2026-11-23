@@ -454,12 +454,11 @@ document.addEventListener('DOMContentLoaded', () => {
             dl_rescaler_spec_setup: "<strong>Ajuste:</strong> En tiempo real en partida",
             dl_rescaler_btn: "Descargar",
             dl_complements_badge: "COMPLEMENTOS",
-            dl_complements_title: "COS Store Complements",
-            dl_complements_desc: "Añade más secciones a COS Store.",
-            dl_complements_includes: "Incluye",
+            dl_complements_title: "COS Store",
             dl_complements_sounds: "Sonidos",
             dl_complements_emulators: "Emuladores",
             dl_complements_ports: "Ports",
+            dl_complements_format: "<strong>Formato:</strong> APK",
             dl_complements_btn: "Descargar",
             km_modal_badge: "PLUGIN OFICIAL",
             km_modal_title: "Conceptual Key Mapper",
@@ -765,12 +764,11 @@ document.addEventListener('DOMContentLoaded', () => {
             dl_rescaler_spec_setup: "<strong>Adjustment:</strong> Real-time in-game scaling",
             dl_rescaler_btn: "Download",
             dl_complements_badge: "COMPLEMENTS",
-            dl_complements_title: "COS Store Complements",
-            dl_complements_desc: "Adds more sections to COS Store.",
-            dl_complements_includes: "Includes",
+            dl_complements_title: "COS Store",
             dl_complements_sounds: "Sounds",
             dl_complements_emulators: "Emulators",
             dl_complements_ports: "Ports",
+            dl_complements_format: "<strong>Format:</strong> APK",
             dl_complements_btn: "Download",
             km_modal_badge: "OFFICIAL PLUGIN",
             km_modal_title: "Conceptual Key Mapper",
@@ -1748,11 +1746,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const kmButtons = document.querySelectorAll('.btn-keymapper-dl');
         if (!kmButtons.length) return;
 
-        const releasesApi = 'https://api.github.com/repos/austix22/ConceptualOS-Web/releases';
-        let keyMapperUrl = 'https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Key.Mapper.apk';
-        let keyMapperName = 'Conceptual.Key.Mapper.apk';
+        const releasesApi = 'https://api.github.com/repos/austix22/Conceptual-Key-Mapper/releases/tags/v1.0.0';
+        let keyMapperUrl = '';
+        let keyMapperName = '';
 
         const applyDownloadInfo = () => {
+            if (!keyMapperUrl) return;
+
             kmButtons.forEach(btn => {
                 btn.href = keyMapperUrl;
                 btn.setAttribute('download', keyMapperName);
@@ -1761,34 +1761,24 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const fetchReleases = async () => {
-            try {
-                const res = await fetch(releasesApi);
-                if (!res.ok) return;
-                const releases = await res.json();
-                if (!Array.isArray(releases)) return;
-
-                for (const rel of releases) {
-                    if (!rel.assets || !rel.assets.length) continue;
-                    for (const asset of rel.assets) {
-                        const name = (asset.name || '').toLowerCase();
-                        if (name.endsWith('.apk')) {
-                            if (!keyMapperUrl || keyMapperUrl.includes('v1.0.0')) {
-                                if (name.includes('key') || name.includes('mapper')) {
-                                    keyMapperUrl = asset.browser_download_url;
-                                    keyMapperName = asset.name;
-                                }
-                            }
-                        }
-                    }
-                }
-                applyDownloadInfo();
-            } catch (err) {
-                console.error('Error fetching plugin releases:', err);
+            const res = await fetch(releasesApi);
+            if (!res.ok) {
+                throw new Error(`GitHub release request failed with status ${res.status}`);
             }
+
+            const release = await res.json();
+            const apkAsset = Array.isArray(release.assets)
+                ? release.assets.find(asset => (asset.name || '').toLowerCase().endsWith('.apk'))
+                : null;
+            if (!apkAsset) return;
+
+            keyMapperUrl = apkAsset.browser_download_url;
+            keyMapperName = apkAsset.name;
+            applyDownloadInfo();
         };
 
         // Pre-fetch releases on load
-        fetchReleases();
+        fetchReleases().catch(err => console.error('Error fetching Key Mapper release:', err));
 
         // Key Mapper download click
         kmButtons.forEach(btn => {
@@ -1797,7 +1787,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const originalHtml = btn.innerHTML;
                 btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ' + (currentLang === 'en' ? 'Downloading...' : 'Descargando...');
-                await fetchReleases();
+                try {
+                    await fetchReleases();
+                } catch (err) {
+                    console.error('Error fetching Key Mapper release:', err);
+                }
                 if (keyMapperUrl) {
                     window.location.href = keyMapperUrl;
                     setTimeout(() => { btn.innerHTML = originalHtml; }, 2000);
