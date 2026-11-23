@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=3.8.8">
+    <link rel="stylesheet" href="styles.css?v=3.8.14">
 
     <!-- Critical Plugin Modals & Buttons Styles -->
     <style id="critical-plugin-modals-css">
@@ -38,7 +38,7 @@
             min-height: 56px !important;
             padding: 0 !important;
             flex-shrink: 0 !important;
-            background: rgba(18, 22, 38, 0.85) !important;
+            background: rgba(24, 20, 48, 0.88) !important;
             border: 1px solid rgba(211, 211, 255, 0.28) !important;
             border-radius: 14px !important;
             color: #e2e8f0 !important;
@@ -94,7 +94,7 @@
             pointer-events: auto !important;
         }
         .plugin-info-modal-card {
-            background: rgba(14, 17, 28, 0.98) !important;
+            background: rgba(20, 16, 42, 0.98) !important;
             border: 1px solid rgba(211, 211, 255, 0.22) !important;
             border-radius: 26px !important;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(139, 92, 246, 0.2) !important;
@@ -823,42 +823,33 @@
                     </div>
                 </div>
 
-                <!-- Card 3: Conceptual Screen Rescaler -->
-                <div class="download-card glass-card">
-                    <div class="card-badge-top rescaler" data-i18n="dl_rescaler_badge">UTILIDAD OFICIAL</div>
-                    <div class="card-icon rescaler-icon"><i class="fa-solid fa-expand"></i></div>
-                    <h3 class="download-card-title" data-i18n="dl_rescaler_title">Conceptual Screen Rescaler</h3>
-                    <p class="download-card-description" data-i18n="dl_rescaler_desc">Reescala tu pantalla y juega en TV sin franjas negras.</p>
+                <!-- Card 3: COS Store Complements -->
+                <div class="download-card glass-card store-complements-card">
+                    <div class="card-badge-top complements" data-i18n="dl_complements_badge">COMPLEMENTOS</div>
+                    <div class="card-icon complements-icon"><i class="fa-solid fa-store"></i></div>
+                    <h3 class="download-card-title" data-i18n="dl_complements_title">COS Store Complements</h3>
+                    <p class="download-card-description" data-i18n="dl_complements_desc">Añade más secciones a COS Store.</p>
 
                     <div class="download-specs-list">
+                        <div class="complements-includes-label" data-i18n="dl_complements_includes">Incluye</div>
                         <div class="download-spec-item">
-                            <i class="fa-solid fa-tv"></i>
-                            <span data-i18n="dl_rescaler_spec_type"><strong>Función:</strong> Reescalado de pantalla</span>
+                            <i class="fa-solid fa-music"></i>
+                            <span data-i18n="dl_complements_sounds">Sonidos</span>
                         </div>
                         <div class="download-spec-item">
-                            <i class="fa-solid fa-crop-simple"></i>
-                            <span data-i18n="dl_rescaler_spec_bars"><strong>Formato:</strong> Elimina franjas negras</span>
+                            <i class="fa-solid fa-gamepad"></i>
+                            <span data-i18n="dl_complements_emulators">Emuladores</span>
                         </div>
                         <div class="download-spec-item">
-                            <i class="fa-solid fa-display"></i>
-                            <span data-i18n="dl_rescaler_spec_target"><strong>Ideal para:</strong> TV y monitores externos</span>
-                        </div>
-                        <div class="download-spec-item">
-                            <i class="fa-solid fa-sliders"></i>
-                            <span data-i18n="dl_rescaler_spec_setup"><strong>Ajuste:</strong> En tiempo real en partida</span>
+                            <i class="fa-solid fa-box-open"></i>
+                            <span data-i18n="dl_complements_ports">Ports</span>
                         </div>
                     </div>
 
                     <div class="download-action-group">
-                        <div class="download-btn-row">
-                            <a href="https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Screen.Rescaler.apk" download="Conceptual.Screen.Rescaler.apk"
-                                class="btn btn-plugin-dl btn-rescaler-dl btn-flex" id="screenRescalerDlBtn" aria-label="Descargar Conceptual Screen Rescaler">
-                                <i class="fa-solid fa-download"></i> <span data-i18n="dl_rescaler_btn">Descargar</span>
-                            </a>
-                            <button type="button" class="btn btn-plugin-info btn-rescaler-info" id="infoRescalerBtn" onclick="openPluginModal('screenRescalerModal')" style="background: rgba(18, 22, 38, 0.85); border: 1px solid rgba(211, 211, 255, 0.28); color: #e2e8f0; width: 56px; min-width: 56px; height: 56px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; flex-shrink: 0;" aria-label="Información sobre Conceptual Screen Rescaler" title="¿Cómo funciona Conceptual Screen Rescaler?">
-                                <i class="fa-solid fa-circle-info"></i>
-                            </button>
-                        </div>
+                        <button type="button" class="btn btn-store-complements-disabled" disabled aria-disabled="true" data-i18n="dl_complements_btn">
+                            <i class="fa-solid fa-download"></i> Descargar
+                        </button>
                     </div>
                 </div>
             </div>

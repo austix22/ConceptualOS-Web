@@ -4,21 +4,21 @@
    ========================================================================== */
 
 :root {
-    /* Carbon-dark palette */
-    --bg-dark: #0b0c0e;
-    --surface-dark: #181a1f;
-    --bg-card: rgba(24, 26, 30, 0.78);
+    /* Obsidian lilac, violet and blue palette */
+    --bg-dark: #090712;
+    --surface-dark: #17132a;
+    --bg-card: rgba(24, 20, 48, 0.82);
 
-    --moondust-purple: #a1a1aa;
-    --moondust-blue: #71717a;
-    --moondust-cyan: #d4d4d8;
-    --moondust-softblue: #52525b;
+    --moondust-purple: #c084fc;
+    --moondust-blue: #818cf8;
+    --moondust-cyan: #a5b4fc;
+    --moondust-softblue: #60a5fa;
 
-    --text-primary: #ECECF2;     /* Enhanced TextLight for superior contrast */
-    --text-secondary: #A2ADC9;   /* Crisp, highly legible Moon Dust Gray */
-    --text-body: #B5C0DD;        /* Dedicated high-readability body text */
+    --text-primary: #f7f5ff;
+    --text-secondary: #c7c3df;
+    --text-body: #b9b4d6;
 
-    --border-light: rgba(212, 212, 216, 0.14);
+    --border-light: rgba(196, 181, 253, 0.18);
 
     /* Typography */
     --font-official: 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
@@ -45,6 +45,11 @@ html {
 
 body {
     background-color: var(--bg-dark);
+    background-image:
+        radial-gradient(ellipse 70% 50% at 8% 2%, rgba(124, 58, 237, 0.22), transparent 62%),
+        radial-gradient(ellipse 58% 48% at 92% 12%, rgba(79, 70, 229, 0.18), transparent 60%),
+        radial-gradient(ellipse 65% 50% at 50% 100%, rgba(59, 130, 246, 0.12), transparent 68%);
+    background-attachment: fixed;
     color: var(--text-primary);
     font-family: var(--font-official);
     line-height: 1.6;
@@ -241,7 +246,7 @@ h1, h2, h3, h4, span, p, a, button {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(3, 4, 8, 0.92);
+    background: rgba(12, 9, 28, 0.92);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border-bottom: 1px solid var(--border-light);
@@ -2525,6 +2530,10 @@ h1, h2, h3, h4, span, p, a, button {
     background: linear-gradient(135deg, #06b6d4, #6366f1);
 }
 
+.card-badge-top.complements {
+    background: linear-gradient(135deg, #c084fc, #6366f1);
+}
+
 .card-icon {
     font-size: 2.4rem;
     color: var(--moondust-purple);
@@ -2544,6 +2553,37 @@ h1, h2, h3, h4, span, p, a, button {
 .card-icon.rescaler-icon {
     color: #38bdf8;
     filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.45));
+}
+
+.card-icon.complements-icon {
+    color: #d8b4fe;
+    filter: drop-shadow(0 0 16px rgba(192, 132, 252, 0.45));
+}
+
+.complements-includes-label {
+    color: #FFFFFF;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: left;
+    width: 100%;
+    margin-bottom: -0.15rem;
+}
+
+.btn-store-complements-disabled {
+    width: 100%;
+    min-height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    border: 1px solid rgba(196, 181, 253, 0.16);
+    border-radius: 14px;
+    background: rgba(38, 32, 64, 0.72);
+    color: #aaa4c4;
+    cursor: not-allowed;
+    opacity: 0.72;
 }
 
 .download-card p {
@@ -3342,7 +3382,7 @@ h1, h2, h3, h4, span, p, a, button {
 
 /* Centered Minimalist Footer */
 .footer {
-    background: rgba(3, 4, 8, 0.96);
+    background: rgba(10, 8, 24, 0.96);
     border-top: 1px solid var(--border-light);
     padding: 2.5rem 0 2rem 0;
     position: relative;
@@ -6873,7 +6913,125 @@ body.page-transitioning-out {
 #galleryLightbox .lightbox-slide .lightbox-img {
     width: 100%;
     height: auto;
-    max-height: 90vh;
-    object-fit: contain;
-    cursor: zoom-out;
+}
+
+/* Final lilac/blue theme pass for shared cards, menus and overlays */
+.nav-capsule,
+.glass-card,
+.feature-card,
+.download-card,
+.download-card-specs,
+.download-specs-list,
+.plugin-info-modal-card {
+    background-color: rgba(24, 20, 48, 0.82);
+    border-color: rgba(196, 181, 253, 0.20);
+}
+
+.nav-item-pill,
+.download-spec-item,
+.feature-tag,
+.section-description,
+.feature-card p,
+.download-card p,
+.download-card-description {
+    color: var(--text-body);
+}
+
+.navbar,
+.footer,
+#galleryLightbox .lightbox-overlay,
+.mobile-nav-menu,
+.plugin-info-modal-backdrop {
+    background-color: rgba(10, 8, 24, 0.96);
+}
+
+/* High-saturation lilac/blue theme */
+:root {
+    --bg-dark: #080612;
+    --surface-dark: #17112d;
+    --bg-card: rgba(29, 20, 59, 0.88);
+    --text-primary: #f7f3ff;
+    --text-secondary: #c8baff;
+    --text-body: #ccc8ed;
+    --moondust-purple: #d8b4fe;
+    --moondust-blue: #8b9cff;
+    --moondust-cyan: #a5b4fc;
+    --moondust-softblue: #67a5ff;
+    --border-light: rgba(196, 181, 253, 0.30);
+}
+
+body {
+    background-color: #080612;
+    background-image:
+        radial-gradient(ellipse 78% 58% at 6% 0%, rgba(109, 40, 217, 0.38), transparent 64%),
+        radial-gradient(ellipse 68% 52% at 94% 10%, rgba(59, 130, 246, 0.28), transparent 62%),
+        radial-gradient(ellipse 72% 48% at 55% 100%, rgba(124, 58, 237, 0.24), transparent 68%);
+}
+
+.navbar {
+    background: rgba(9, 7, 24, 0.96);
+}
+
+.nav-capsule,
+.glass-card,
+.feature-card,
+.download-card,
+.download-card-specs,
+.download-specs-list,
+.plugin-info-modal-card {
+    background: linear-gradient(145deg, rgba(35, 24, 72, 0.94), rgba(18, 20, 55, 0.94));
+    border-color: rgba(196, 181, 253, 0.32);
+}
+
+.section-title,
+.feature-card h3,
+.download-card-title,
+.neural-overlay h2,
+.achievements-section h2,
+.about-section h2,
+.kofi-section h2,
+.faq-section h2,
+.wallpaper-promo h3 {
+    color: #f7f3ff;
+}
+
+.section-description,
+.section-subtitle,
+.feature-card p,
+.download-card p,
+.download-card-description,
+.download-spec-item,
+.check-list li,
+.footer-legal p,
+.footer-contact-line {
+    color: #cbbcff;
+}
+
+body,
+.hero-description,
+.nav-item-pill,
+.nav-capsule,
+.section-subtitle,
+.feature-card p,
+.download-card p,
+.download-card-description,
+.footer-legal p,
+.footer-contact-line,
+.check-list li {
+    color: #d7cfff;
+}
+
+.hero-title,
+.brand-title,
+.section-title,
+.feature-card h3,
+.download-card-title {
+    text-shadow: 0 0 24px rgba(167, 139, 250, 0.12);
+}
+
+.gradient-text,
+.brand-title-white {
+    background-image: linear-gradient(115deg, #d8b4fe 0%, #a78bfa 38%, #818cf8 68%, #93c5fd 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
 }

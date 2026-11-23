@@ -453,6 +453,14 @@ document.addEventListener('DOMContentLoaded', () => {
             dl_rescaler_spec_target: "<strong>Ideal para:</strong> TV y monitores externos",
             dl_rescaler_spec_setup: "<strong>Ajuste:</strong> En tiempo real en partida",
             dl_rescaler_btn: "Descargar",
+            dl_complements_badge: "COMPLEMENTOS",
+            dl_complements_title: "COS Store Complements",
+            dl_complements_desc: "Añade más secciones a COS Store.",
+            dl_complements_includes: "Incluye",
+            dl_complements_sounds: "Sonidos",
+            dl_complements_emulators: "Emuladores",
+            dl_complements_ports: "Ports",
+            dl_complements_btn: "Descargar",
             km_modal_badge: "PLUGIN OFICIAL",
             km_modal_title: "Conceptual Key Mapper",
             km_modal_subtitle: "Abre el overlay y controla todo con tu mando sin tocar la pantalla",
@@ -756,6 +764,14 @@ document.addEventListener('DOMContentLoaded', () => {
             dl_rescaler_spec_target: "<strong>Ideal for:</strong> TV & external monitors",
             dl_rescaler_spec_setup: "<strong>Adjustment:</strong> Real-time in-game scaling",
             dl_rescaler_btn: "Download",
+            dl_complements_badge: "COMPLEMENTS",
+            dl_complements_title: "COS Store Complements",
+            dl_complements_desc: "Adds more sections to COS Store.",
+            dl_complements_includes: "Includes",
+            dl_complements_sounds: "Sounds",
+            dl_complements_emulators: "Emulators",
+            dl_complements_ports: "Ports",
+            dl_complements_btn: "Download",
             km_modal_badge: "OFFICIAL PLUGIN",
             km_modal_title: "Conceptual Key Mapper",
             km_modal_subtitle: "100% controller-driven overlay without touching the screen",
@@ -1727,33 +1743,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Automatic Direct APK Download for Official Plugins (Key Mapper & Screen Rescaler)
+    // Automatic Direct APK Download for the Key Mapper plugin
     function setupPluginsDirectDownload() {
         const kmButtons = document.querySelectorAll('.btn-keymapper-dl');
-        const rescalerButtons = document.querySelectorAll('.btn-rescaler-dl');
-        if (!kmButtons.length && !rescalerButtons.length) return;
+        if (!kmButtons.length) return;
 
         const releasesApi = 'https://api.github.com/repos/austix22/ConceptualOS-Web/releases';
         let keyMapperUrl = 'https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Key.Mapper.apk';
         let keyMapperName = 'Conceptual.Key.Mapper.apk';
-        let rescalerUrl = 'https://github.com/austix22/ConceptualOS-Web/releases/download/v1.0.0/Conceptual.Screen.Rescaler.apk';
-        let rescalerName = 'Conceptual.Screen.Rescaler.apk';
 
         const applyDownloadInfo = () => {
-            if (keyMapperUrl) {
-                kmButtons.forEach(btn => {
-                    btn.href = keyMapperUrl;
-                    btn.setAttribute('download', keyMapperName);
-                    btn.removeAttribute('target');
-                });
-            }
-            if (rescalerUrl) {
-                rescalerButtons.forEach(btn => {
-                    btn.href = rescalerUrl;
-                    btn.setAttribute('download', rescalerName);
-                    btn.removeAttribute('target');
-                });
-            }
+            kmButtons.forEach(btn => {
+                btn.href = keyMapperUrl;
+                btn.setAttribute('download', keyMapperName);
+                btn.removeAttribute('target');
+            });
         };
 
         const fetchReleases = async () => {
@@ -1772,12 +1776,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                 if (name.includes('key') || name.includes('mapper')) {
                                     keyMapperUrl = asset.browser_download_url;
                                     keyMapperName = asset.name;
-                                }
-                            }
-                            if (!rescalerUrl) {
-                                if (name.includes('rescaler') || name.includes('screen')) {
-                                    rescalerUrl = asset.browser_download_url;
-                                    rescalerName = asset.name;
                                 }
                             }
                         }
@@ -1812,25 +1810,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Screen Rescaler download click
-        rescalerButtons.forEach(btn => {
-            btn.addEventListener('click', async (e) => {
-                if (rescalerUrl) return;
-                e.preventDefault();
-                const originalHtml = btn.innerHTML;
-                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ' + (currentLang === 'en' ? 'Checking...' : 'Buscando...');
-                await fetchReleases();
-                if (rescalerUrl) {
-                    window.location.href = rescalerUrl;
-                    setTimeout(() => { btn.innerHTML = originalHtml; }, 2000);
-                } else {
-                    alert(currentLang === 'en'
-                        ? 'Conceptual Screen Rescaler APK is not yet uploaded to GitHub Releases. Please check back soon!'
-                        : 'El APK de Conceptual Screen Rescaler aún no se ha subido a GitHub Releases. ¡Estará disponible en breve!');
-                    btn.innerHTML = originalHtml;
-                }
-            });
-        });
     }
 
     // ==========================================================================
