@@ -1741,71 +1741,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Automatic Direct APK Download for the Key Mapper plugin
-    function setupPluginsDirectDownload() {
-        const kmButtons = document.querySelectorAll('.btn-keymapper-dl');
-        if (!kmButtons.length) return;
-
-        const releasesApi = 'https://api.github.com/repos/austix22/Conceptual-Key-Mapper/releases/tags/v1.0.0';
-        let keyMapperUrl = '';
-        let keyMapperName = '';
-
-        const applyDownloadInfo = () => {
-            if (!keyMapperUrl) return;
-
-            kmButtons.forEach(btn => {
-                btn.href = keyMapperUrl;
-                btn.setAttribute('download', keyMapperName);
-                btn.removeAttribute('target');
-            });
-        };
-
-        const fetchReleases = async () => {
-            const res = await fetch(releasesApi);
-            if (!res.ok) {
-                throw new Error(`GitHub release request failed with status ${res.status}`);
-            }
-
-            const release = await res.json();
-            const apkAsset = Array.isArray(release.assets)
-                ? release.assets.find(asset => (asset.name || '').toLowerCase().endsWith('.apk'))
-                : null;
-            if (!apkAsset) return;
-
-            keyMapperUrl = apkAsset.browser_download_url;
-            keyMapperName = apkAsset.name;
-            applyDownloadInfo();
-        };
-
-        // Pre-fetch releases on load
-        fetchReleases().catch(err => console.error('Error fetching Key Mapper release:', err));
-
-        // Key Mapper download click
-        kmButtons.forEach(btn => {
-            btn.addEventListener('click', async (e) => {
-                if (keyMapperUrl) return;
-                e.preventDefault();
-                const originalHtml = btn.innerHTML;
-                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ' + (currentLang === 'en' ? 'Downloading...' : 'Descargando...');
-                try {
-                    await fetchReleases();
-                } catch (err) {
-                    console.error('Error fetching Key Mapper release:', err);
-                }
-                if (keyMapperUrl) {
-                    window.location.href = keyMapperUrl;
-                    setTimeout(() => { btn.innerHTML = originalHtml; }, 2000);
-                } else {
-                    alert(currentLang === 'en'
-                        ? 'No APK release found for Conceptual Key Mapper yet.'
-                        : 'Aún no se ha publicado el APK de Conceptual Key Mapper en GitHub Releases.');
-                    btn.innerHTML = originalHtml;
-                }
-            });
-        });
-
-    }
-
     // ==========================================================================
     // Progressive Disclosure (Show More / Less) & Interactive FAQ Accordion
     // ==========================================================================
@@ -2190,7 +2125,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     initProgressiveDisclosure();
-    setupPluginsDirectDownload();
     initPluginInfoModals();
     initPageTransitions();
 });
