@@ -2429,6 +2429,12 @@ h1, h2, h3, h4, span, p, a, button {
     box-sizing: border-box;
 }
 
+/* While Conceptual Key Mapper is not being released, center the remaining cards. */
+.download-cards-grid.downloads-two-cards {
+    grid-template-columns: repeat(2, minmax(290px, 1fr));
+    max-width: 840px;
+}
+
 .download-cards-grid .download-card {
     height: 100%;
     width: 100%;
@@ -2448,6 +2454,11 @@ h1, h2, h3, h4, span, p, a, button {
     .download-cards-grid {
         grid-template-columns: 1fr;
         gap: 2.6rem;
+        max-width: 410px;
+    }
+
+    .download-cards-grid.downloads-two-cards {
+        grid-template-columns: 1fr;
         max-width: 410px;
     }
 }
